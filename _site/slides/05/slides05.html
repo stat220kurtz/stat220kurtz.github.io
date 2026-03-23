@@ -1,0 +1,2726 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Prof Emily Kurtz">
+<title>Intro to Maps   and Spatial  Data – Stat 220</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de84f8d6bb715db06a919283c2d1e787.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-9a023c9ade86a60361e96e3e3f11bc54.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-3021f7aae5c5f93844abbcf46df64d48.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-07dda2090bcc851cffc0d6f22959cfd1.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><link href="../../site_libs/countdown-0.6.0/countdown.css" rel="stylesheet">
+<script src="../../site_libs/countdown-0.6.0/countdown.js"></script>
+</head>
+<body class="nav-sidebar docked slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Intro to Maps <br> and Spatial <br>Data</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/stat220-w26" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://maize.mathcs.carleton.edu/" title="RStudio Server" class="quarto-navigation-tool px-1" aria-label="RStudio Server"><i class="bi bi-code-square"></i></a>
+    <a href="https://moodle.carleton.edu/course/view.php?id=48308" title="Moodle" class="quarto-navigation-tool px-1" aria-label="Moodle"><i class="bi bi-person-fill"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Course information</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-links.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Useful links</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-faq.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FAQ</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Computing</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/computing-access.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Access</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/rstudio-stat220.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rstudio in Stat 220</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/git-stat220.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git/Github in Stat 220</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/computing-cheatsheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cheatsheets</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#today" id="toc-today" class="nav-link active" data-scroll-target="#today">Today</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li>
+<a href="#spatial-data" id="toc-spatial-data" class="nav-link" data-scroll-target="#spatial-data">Spatial Data</a>
+  <ul class="collapse">
+<li><a href="#cholera" id="toc-cholera" class="nav-link" data-scroll-target="#cholera">Cholera</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
+  <li><a href="#a-successful-data-science-episode" id="toc-a-successful-data-science-episode" class="nav-link" data-scroll-target="#a-successful-data-science-episode">A successful data science episode:</a></li>
+  <li><a href="#common-types-of-maps" id="toc-common-types-of-maps" class="nav-link" data-scroll-target="#common-types-of-maps">Common Types of Maps</a></li>
+  <li><a href="#chloropleth" id="toc-chloropleth" class="nav-link" data-scroll-target="#chloropleth">Chloropleth</a></li>
+  <li><a href="#dot-density" id="toc-dot-density" class="nav-link" data-scroll-target="#dot-density">Dot density</a></li>
+  <li><a href="#proportional-symbol" id="toc-proportional-symbol" class="nav-link" data-scroll-target="#proportional-symbol">Proportional Symbol</a></li>
+  <li><a href="#cartogram" id="toc-cartogram" class="nav-link" data-scroll-target="#cartogram">Cartogram</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#chloropleth-maps-in-detail" id="toc-chloropleth-maps-in-detail" class="nav-link" data-scroll-target="#chloropleth-maps-in-detail">Chloropleth Maps in detail</a>
+  <ul class="collapse">
+<li><a href="#what-is-a-map" id="toc-what-is-a-map" class="nav-link" data-scroll-target="#what-is-a-map">What is a map?</a></li>
+  <li><a href="#what-is-a-map-1" id="toc-what-is-a-map-1" class="nav-link" data-scroll-target="#what-is-a-map-1">What is a map?</a></li>
+  <li><a href="#necessary-map-data" id="toc-necessary-map-data" class="nav-link" data-scroll-target="#necessary-map-data">Necessary map data</a></li>
+  <li><a href="#state-map-data" id="toc-state-map-data" class="nav-link" data-scroll-target="#state-map-data">State map data</a></li>
+  <li><a href="#using-geom_polygon" id="toc-using-geom_polygon" class="nav-link" data-scroll-target="#using-geom_polygon">Using <code>geom_polygon()</code></a></li>
+  <li><a href="#using-coord_fixed" id="toc-using-coord_fixed" class="nav-link" data-scroll-target="#using-coord_fixed">Using <code>coord_fixed()</code></a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your turn</a></li>
+  <li><a href="#but-how-do-we-include-data" id="toc-but-how-do-we-include-data" class="nav-link" data-scroll-target="#but-how-do-we-include-data">But… how do we include data?</a></li>
+  <li><a href="#geom_map-is-a-shortcut" id="toc-geom_map-is-a-shortcut" class="nav-link" data-scroll-target="#geom_map-is-a-shortcut"><code>geom_map</code> is a “shortcut”</a></li>
+  <li><a href="#your-turn-1" id="toc-your-turn-1" class="nav-link" data-scroll-target="#your-turn-1">Your turn 1</a></li>
+  <li><a href="#sequential-vs-diverging-color-scale" id="toc-sequential-vs-diverging-color-scale" class="nav-link" data-scroll-target="#sequential-vs-diverging-color-scale">Sequential vs Diverging color scale</a></li>
+  <li><a href="#binned-vs-continuous-color-scale" id="toc-binned-vs-continuous-color-scale" class="nav-link" data-scroll-target="#binned-vs-continuous-color-scale">Binned vs continuous color scale</a></li>
+  <li><a href="#your-turn-2" id="toc-your-turn-2" class="nav-link" data-scroll-target="#your-turn-2">Your turn 2</a></li>
+  <li><a href="#coordinate-systems-and-projections" id="toc-coordinate-systems-and-projections" class="nav-link" data-scroll-target="#coordinate-systems-and-projections">Coordinate Systems and Projections</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5"></a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6"></a></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7"></a></li>
+  <li><a href="#changing-the-coordinate-system" id="toc-changing-the-coordinate-system" class="nav-link" data-scroll-target="#changing-the-coordinate-system">Changing the coordinate system</a></li>
+  <li><a href="#changing-the-coordinate-system-1" id="toc-changing-the-coordinate-system-1" class="nav-link" data-scroll-target="#changing-the-coordinate-system-1">Changing the coordinate system</a></li>
+  <li><a href="#mercator-vs-gall-projection-world-map" id="toc-mercator-vs-gall-projection-world-map" class="nav-link" data-scroll-target="#mercator-vs-gall-projection-world-map">Mercator vs Gall projection (world map)</a></li>
+  </ul>
+</li>
+  </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides05.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Intro to Maps <br> and Spatial <br>Data</h1>
+<p class="subtitle lead">Day 05</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Prof Emily Kurtz </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Carleton College <br> Stat 220 - Spring 2026
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header><section id="today" class="level2"><h2 class="anchored" data-anchor-id="today">Today</h2>
+<ul>
+<li>git/GitHub</li>
+<li>Intro to Spatial Data</li>
+<li>Making Maps in <code>ggplot2</code>
+</li>
+</ul></section><section id="section" class="level2 smaller page-columns page-full" data-background-image="https://imgs.xkcd.com/comics/git.png" data-background-position="right" data-background-size="35%"><h2 class="smaller anchored" data-background-image="https://imgs.xkcd.com/comics/git.png" data-background-position="right" data-background-size="35%" data-anchor-id="section"></h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>Think of the state on GitHub as “worst case scenario”</li>
+<li>If you screw things up, copy your important files (eg. <code>hw02.qmd</code>) to a safe place.
+<ul>
+<li>Usually your files are JUST FINE. But it is easy to goof up the Git infrastructure when you’re new at this. And it can be hard to get that straightened out on your own.</li>
+</ul>
+</li>
+<li>Rename the existing local repo as a temporary measure, i.e.&nbsp;before you do something radical, like delete it.</li>
+<li>Clone the original repo from GitHub to RStudio (follow the directions to create a new project). You are back to a happy state.</li>
+<li>Copy all relevant files back over from your safe space. The ones whose updated state you need to commit.</li>
+<li>Knit, commit, push</li>
+<li>Carry on with your life.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p><a href="https://happygitwithr.com/burn">Burn It All Down</a> from <em>Happy Git with R</em></p>
+</div></div></section><section id="section-1" class="level2"><h2 class="anchored" data-anchor-id="section-1"></h2>
+<p><img src="../img/whole-game-04.png" class="img-fluid"></p>
+</section><section id="spatial-data" class="level1 maize page-columns page-full"><h1 class="maize">Spatial Data</h1>
+<section id="cholera" class="level2 smaller page-columns page-full"><h2 class="smaller anchored" data-anchor-id="cholera">Cholera</h2>
+<p>In 1854, a <em>Cholera</em> outbreak killed 127 people in 3 days in a London neighborhood, resulting in a mass exodus of local residents. At the time, people thought that Cholera w as an airborne disease. John Snow was a physician who was critical of the airborne theory, and set out to investigate.</p>
+<p>. . .</p>
+<p>What might this data look like?</p>
+<p>. . .</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 15%">
+<col style="width: 16%">
+<col style="width: 19%">
+<col style="width: 6%">
+<col style="width: 22%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">date</th>
+<th style="text-align: left;">last_name</th>
+<th style="text-align: left;">first_name</th>
+<th style="text-align: left;">address</th>
+<th style="text-align: right;">age</th>
+<th style="text-align: left;">cause_of_death</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Aug 31, 1854</td>
+<td style="text-align: left;">Jones</td>
+<td style="text-align: left;">Thomas</td>
+<td style="text-align: left;">26 Broad St.</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: left;">cholera</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Aug 31, 1854</td>
+<td style="text-align: left;">Jones</td>
+<td style="text-align: left;">Mary</td>
+<td style="text-align: left;">26 Broad St.</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">cholera</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sept 1, 1854</td>
+<td style="text-align: left;">Warwick</td>
+<td style="text-align: left;">Martin</td>
+<td style="text-align: left;">14 Broad St.</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: left;">cholera</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Source: <a href="https://mdsr-book.github.io/mdsr3e/17-geospatialI.html">MDSR Ch17.1</a></p>
+</div></div></section><section id="section-2" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="section-2"></h2>
+<p>What makes “address” a useful variable is that it is linked to a specific location in the physical world. If we plot these addresses, we get something like the following:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="slides05_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Source: <a href="https://mdsr-book.github.io/mdsr3e/17-geospatialI.html">MDSR Ch17.1</a></p>
+</div></div></section><section id="section-3" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="section-3"></h2>
+<p>While we can see patterns in the last plot, the underlying map of the London streets provides helpful context that makes it more intelligble:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="../img/snow-cholera-map.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../img/snow-cholera-map.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></a></p>
+</figure>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Source: <a href="https://mdsr-book.github.io/mdsr3e/17-geospatialI.html">MDSR Ch17.1</a></p>
+</div></div></section><section id="section-4" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="section-4"></h2>
+<div class="columns">
+<div class="column nonincremental" style="width:60%;">
+<p>Snow’s insight was driven by another set of data—the locations of the street-side water pumps (it’s kind of hard to see, but they are labelled on the map). Nearly all of the cases were clustered around a single pump on the center of Broad Street.</p>
+<p>John Snow’s map (and water pump) are now “famous” among epidemiologists and statisticians.</p>
+</div>
+<div class="column fragment nonincremental" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="../img/broad-street-pump.jpeg" class="img-fluid figure-img"></p>
+<figcaption>John Snow’s water pump (and pub) from a 2019 visit</figcaption></figure>
+</div>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Source: <a href="https://mdsr-book.github.io/mdsr3e/17-geospatialI.html">MDSR Ch17.1</a></p>
+</div></div></section><section id="a-successful-data-science-episode" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="a-successful-data-science-episode">A successful data science episode:</h2>
+<ol type="1">
+<li>Combine three sources of data (Cholera deaths, water pump locations, and street map)</li>
+<li>While a model might have come to the same conclusion, simply plotting the data is much simpler (and more convincing to lots of people)</li>
+<li>The problem was resolved when the data-based evidence was combined with a plausible model that explained the physical phenomenon.</li>
+</ol>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Source: <a href="https://mdsr-book.github.io/mdsr3e/17-geospatialI.html">MDSR Ch17.1</a></p>
+</div></div></section><section id="common-types-of-maps" class="level2"><h2 class="anchored" data-anchor-id="common-types-of-maps">Common Types of Maps</h2>
+<ol type="1">
+<li>Chloropleth</li>
+<li>Proportional Symbol</li>
+<li>Cartograms/Geofacets</li>
+</ol></section><section id="chloropleth" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="chloropleth">Chloropleth</h2>
+<p>Fill in regions with variable values</p>
+<div class="columns">
+<div class="column nonincremental" style="width:40%;">
+<p>Need two data sources:</p>
+<ol type="1">
+<li>map data with lat, long, region</li>
+<li>data with measurements for each region</li>
+</ol>
+</div>
+<div class="column nonincremental" style="width:60%;">
+<p><img src="../img/wilke-chloropleth.png" class="img-fluid"></p>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p><a href="https://clauswilke.com/dataviz/geospatial-data.html"><em>Fundamentals of Data Visualization</em></a></p>
+</div></div></section><section id="dot-density" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="dot-density">Dot density</h2>
+<p>Uses points to show distribution and concentration, where each dot represents a specific quantity. Here 1 dot = 1 person:</p>
+<p><img src="../img/racial-dot-map.png" class="r-stretch img-fluid"></p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Source: Cooper Center’s <a href="http://racialdotmap.demographics.coopercenter.org/">racial dot map</a>; no longer active</p>
+</div></div></section><section id="proportional-symbol" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="proportional-symbol">Proportional Symbol</h2>
+<p>Overlay symbols on an existing map, where the size of the shape is proportional to the variable</p>
+<p><img src="../img/airport-ggmap.png" class="r-stretch img-fluid"></p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Made with {ggmap} and {nycflights23}</p>
+</div></div></section><section id="cartogram" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="cartogram">Cartogram</h2>
+<p>Use approximate geographical position to encode information, but not lat/long directly</p>
+<p><img src="../img/wilke-cartogram.png" class="r-stretch img-fluid"></p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p><a href="https://clauswilke.com/dataviz/geospatial-data.html"><em>Fundamentals of Data Visualization</em></a></p>
+</div></div></section></section><section id="chloropleth-maps-in-detail" class="level1 maize page-columns page-full"><h1 class="maize">Chloropleth Maps in detail</h1>
+<section id="what-is-a-map" class="level2"><h2 class="anchored" data-anchor-id="what-is-a-map">What is a map?</h2>
+<p>A bunch of latitude longitude points…</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="slides05_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="what-is-a-map-1" class="level2"><h2 class="anchored" data-anchor-id="what-is-a-map-1">What is a map?</h2>
+<p>… that are connected with lines in a very specific order.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="slides05_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="necessary-map-data" class="level2"><h2 class="anchored" data-anchor-id="necessary-map-data">Necessary map data</h2>
+<ul>
+<li><p>latitude/longitude points for all map boundaries</p></li>
+<li><p>which boundary group all lat/long points belong</p></li>
+<li><p>the order to connect points within each group</p></li>
+</ul></section><section id="state-map-data" class="level2"><h2 class="anchored" data-anchor-id="state-map-data">State map data</h2>
+<p><code><a href="https://ggplot2.tidyverse.org/reference/map_data.html">ggplot2::map_data()</a></code> provides the necessary information</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu">map_data</span><span class="op">(</span><span class="st">"state"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       long      lat group order  region subregion
+1 -87.46201 30.38968     1     1 alabama      &lt;NA&gt;
+2 -87.48493 30.37249     1     2 alabama      &lt;NA&gt;
+3 -87.52503 30.37249     1     3 alabama      &lt;NA&gt;
+4 -87.53076 30.33239     1     4 alabama      &lt;NA&gt;
+5 -87.57087 30.32665     1     5 alabama      &lt;NA&gt;
+6 -87.58806 30.32665     1     6 alabama      &lt;NA&gt;</code></pre>
+</div>
+</div>
+</section><section id="using-geom_polygon" class="level2"><h2 class="anchored" data-anchor-id="using-geom_polygon">Using <code>geom_polygon()</code>
+</h2>
+<p>Using <code>geom_polygon()</code> will treat states as solid shapes, making it easier to add color</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">states</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">long</span>, y<span class="op">=</span><span class="va">lat</span>, group<span class="op">=</span><span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu">geom_polygon</span><span class="op">(</span>color<span class="op">=</span><span class="st">"gold2"</span>, fill<span class="op">=</span><span class="st">"navyblue"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="slides05_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="using-coord_fixed" class="level2"><h2 class="anchored" data-anchor-id="using-coord_fixed">Using <code>coord_fixed()</code>
+</h2>
+<p>Using <code>coord_fixed()</code> forces x and y units to be equal</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">states</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">long</span>, y<span class="op">=</span><span class="va">lat</span>, group<span class="op">=</span><span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu">geom_polygon</span><span class="op">(</span>color<span class="op">=</span><span class="st">"gold2"</span>, fill<span class="op">=</span><span class="st">"navyblue"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">coord_fixed</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="slides05_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="your-turn" class="level2"><h2 class="anchored" data-anchor-id="your-turn">Your turn</h2>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">states</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">long</span>, y<span class="op">=</span><span class="va">lat</span>, group<span class="op">=</span><span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu">geom_polygon</span><span class="op">(</span>color<span class="op">=</span><span class="st">"gold2"</span>, fill<span class="op">=</span><span class="st">"navyblue"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">coord_fixed</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="task nonincremental">
+<ul>
+<li>Edit this code so that each shape is colored in with a different color.</li>
+<li>You only need the 3 variables used: <code>long</code>, <code>lat</code>, and <code>group</code>
+</li>
+<li>
+<code>05-maps.qmd</code> is available on the website</li>
+</ul>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<countdown-timer class="countdown" id="timer_ccef74fc" minutes="3" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+</div>
+</div>
+</section><section id="but-how-do-we-include-data" class="level2"><h2 class="anchored" data-anchor-id="but-how-do-we-include-data">But… how do we include data?</h2>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">acs_state_data</span> <span class="op">=</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/aluby/teaching-datasets/refs/heads/main/acs_state_data_2022_5y.csv"</span><span class="op">)</span> </span>
+<span><span class="va">acs_state_data</span><span class="op">$</span><span class="va">state</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/chartr.html">tolower</a></span><span class="op">(</span><span class="va">acs_state_data</span><span class="op">$</span><span class="va">NAME</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 6%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">NAME</th>
+<th style="text-align: right;">med_age</th>
+<th style="text-align: right;">total_pop</th>
+<th style="text-align: right;">race_white</th>
+<th style="text-align: right;">race_black_afam</th>
+<th style="text-align: right;">race_am_indian</th>
+<th style="text-align: right;">race_asian</th>
+<th style="text-align: right;">race_hawaiian_pi</th>
+<th style="text-align: right;">race_other</th>
+<th style="text-align: right;">race_two_plus</th>
+<th style="text-align: right;">born_in_state</th>
+<th style="text-align: right;">male_age_married</th>
+<th style="text-align: right;">fem_age_married</th>
+<th style="text-align: right;">hs_diploma</th>
+<th style="text-align: right;">associate_degree</th>
+<th style="text-align: right;">bachelors_degree</th>
+<th style="text-align: right;">masters_degree</th>
+<th style="text-align: right;">prof_degree</th>
+<th style="text-align: right;">doctorate_degree</th>
+<th style="text-align: right;">med_income</th>
+<th style="text-align: right;">internet_any</th>
+<th style="text-align: right;">internet_dialup</th>
+<th style="text-align: right;">internet_broadband</th>
+<th style="text-align: left;">state</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Alabama</td>
+<td style="text-align: right;">39.3</td>
+<td style="text-align: right;">5028092</td>
+<td style="text-align: right;">3329012</td>
+<td style="text-align: right;">1326341</td>
+<td style="text-align: right;">21122</td>
+<td style="text-align: right;">69808</td>
+<td style="text-align: right;">93924</td>
+<td style="text-align: right;">185632</td>
+<td style="text-align: right;">63576</td>
+<td style="text-align: right;">3454217</td>
+<td style="text-align: right;">28.8</td>
+<td style="text-align: right;">27.0</td>
+<td style="text-align: right;">864977</td>
+<td style="text-align: right;">306021</td>
+<td style="text-align: right;">572252</td>
+<td style="text-align: right;">261039</td>
+<td style="text-align: right;">56574</td>
+<td style="text-align: right;">42980</td>
+<td style="text-align: right;">59609</td>
+<td style="text-align: right;">1625807</td>
+<td style="text-align: right;">6090</td>
+<td style="text-align: right;">1619717</td>
+<td style="text-align: left;">alabama</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alaska</td>
+<td style="text-align: right;">35.3</td>
+<td style="text-align: right;">734821</td>
+<td style="text-align: right;">450472</td>
+<td style="text-align: right;">23395</td>
+<td style="text-align: right;">104957</td>
+<td style="text-align: right;">47464</td>
+<td style="text-align: right;">14597</td>
+<td style="text-align: right;">82727</td>
+<td style="text-align: right;">15138</td>
+<td style="text-align: right;">314011</td>
+<td style="text-align: right;">29.5</td>
+<td style="text-align: right;">26.6</td>
+<td style="text-align: right;">114087</td>
+<td style="text-align: right;">43357</td>
+<td style="text-align: right;">93744</td>
+<td style="text-align: right;">39645</td>
+<td style="text-align: right;">9589</td>
+<td style="text-align: right;">6419</td>
+<td style="text-align: right;">86370</td>
+<td style="text-align: right;">236875</td>
+<td style="text-align: right;">610</td>
+<td style="text-align: right;">236265</td>
+<td style="text-align: left;">alaska</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Arizona</td>
+<td style="text-align: right;">38.4</td>
+<td style="text-align: right;">7172282</td>
+<td style="text-align: right;">4781702</td>
+<td style="text-align: right;">327077</td>
+<td style="text-align: right;">297590</td>
+<td style="text-align: right;">240642</td>
+<td style="text-align: right;">549361</td>
+<td style="text-align: right;">961794</td>
+<td style="text-align: right;">668727</td>
+<td style="text-align: right;">2849262</td>
+<td style="text-align: right;">30.3</td>
+<td style="text-align: right;">28.2</td>
+<td style="text-align: right;">953769</td>
+<td style="text-align: right;">445866</td>
+<td style="text-align: right;">958447</td>
+<td style="text-align: right;">429317</td>
+<td style="text-align: right;">93897</td>
+<td style="text-align: right;">69793</td>
+<td style="text-align: right;">72581</td>
+<td style="text-align: right;">2448838</td>
+<td style="text-align: right;">5550</td>
+<td style="text-align: right;">2443288</td>
+<td style="text-align: left;">arizona</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Arkansas</td>
+<td style="text-align: right;">38.4</td>
+<td style="text-align: right;">3018669</td>
+<td style="text-align: right;">2193348</td>
+<td style="text-align: right;">456693</td>
+<td style="text-align: right;">16840</td>
+<td style="text-align: right;">47413</td>
+<td style="text-align: right;">89782</td>
+<td style="text-align: right;">203476</td>
+<td style="text-align: right;">106205</td>
+<td style="text-align: right;">1843313</td>
+<td style="text-align: right;">27.3</td>
+<td style="text-align: right;">26.0</td>
+<td style="text-align: right;">573876</td>
+<td style="text-align: right;">159514</td>
+<td style="text-align: right;">317437</td>
+<td style="text-align: right;">134754</td>
+<td style="text-align: right;">29822</td>
+<td style="text-align: right;">19966</td>
+<td style="text-align: right;">56335</td>
+<td style="text-align: right;">968272</td>
+<td style="text-align: right;">2584</td>
+<td style="text-align: right;">965688</td>
+<td style="text-align: left;">arkansas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">37.3</td>
+<td style="text-align: right;">39356104</td>
+<td style="text-align: right;">18943660</td>
+<td style="text-align: right;">2202587</td>
+<td style="text-align: right;">394188</td>
+<td style="text-align: right;">5949136</td>
+<td style="text-align: right;">6388999</td>
+<td style="text-align: right;">5327003</td>
+<td style="text-align: right;">3506890</td>
+<td style="text-align: right;">22254935</td>
+<td style="text-align: right;">31.3</td>
+<td style="text-align: right;">29.6</td>
+<td style="text-align: right;">4837641</td>
+<td style="text-align: right;">2136258</td>
+<td style="text-align: right;">5935292</td>
+<td style="text-align: right;">2515475</td>
+<td style="text-align: right;">687281</td>
+<td style="text-align: right;">488925</td>
+<td style="text-align: right;">91905</td>
+<td style="text-align: right;">12195945</td>
+<td style="text-align: right;">18361</td>
+<td style="text-align: right;">12177584</td>
+<td style="text-align: left;">california</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Colorado</td>
+<td style="text-align: right;">37.3</td>
+<td style="text-align: right;">5770790</td>
+<td style="text-align: right;">4393409</td>
+<td style="text-align: right;">233712</td>
+<td style="text-align: right;">57022</td>
+<td style="text-align: right;">185431</td>
+<td style="text-align: right;">283146</td>
+<td style="text-align: right;">609976</td>
+<td style="text-align: right;">375060</td>
+<td style="text-align: right;">2411879</td>
+<td style="text-align: right;">30.2</td>
+<td style="text-align: right;">28.2</td>
+<td style="text-align: right;">660933</td>
+<td style="text-align: right;">334723</td>
+<td style="text-align: right;">1083618</td>
+<td style="text-align: right;">481793</td>
+<td style="text-align: right;">100044</td>
+<td style="text-align: right;">76234</td>
+<td style="text-align: right;">87598</td>
+<td style="text-align: right;">2095757</td>
+<td style="text-align: right;">4374</td>
+<td style="text-align: right;">2091383</td>
+<td style="text-align: left;">colorado</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Connecticut</td>
+<td style="text-align: right;">40.9</td>
+<td style="text-align: right;">3611317</td>
+<td style="text-align: right;">2522166</td>
+<td style="text-align: right;">385407</td>
+<td style="text-align: right;">9043</td>
+<td style="text-align: right;">170945</td>
+<td style="text-align: right;">233926</td>
+<td style="text-align: right;">288485</td>
+<td style="text-align: right;">162640</td>
+<td style="text-align: right;">1945920</td>
+<td style="text-align: right;">31.2</td>
+<td style="text-align: right;">29.9</td>
+<td style="text-align: right;">570708</td>
+<td style="text-align: right;">192167</td>
+<td style="text-align: right;">573917</td>
+<td style="text-align: right;">341203</td>
+<td style="text-align: right;">81685</td>
+<td style="text-align: right;">46421</td>
+<td style="text-align: right;">90213</td>
+<td style="text-align: right;">1272555</td>
+<td style="text-align: right;">2700</td>
+<td style="text-align: right;">1269855</td>
+<td style="text-align: left;">connecticut</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Delaware</td>
+<td style="text-align: right;">41.4</td>
+<td style="text-align: right;">993635</td>
+<td style="text-align: right;">634244</td>
+<td style="text-align: right;">218266</td>
+<td style="text-align: right;">3309</td>
+<td style="text-align: right;">40570</td>
+<td style="text-align: right;">32751</td>
+<td style="text-align: right;">64130</td>
+<td style="text-align: right;">28821</td>
+<td style="text-align: right;">435760</td>
+<td style="text-align: right;">30.7</td>
+<td style="text-align: right;">29.3</td>
+<td style="text-align: right;">184812</td>
+<td style="text-align: right;">58540</td>
+<td style="text-align: right;">139213</td>
+<td style="text-align: right;">75033</td>
+<td style="text-align: right;">13180</td>
+<td style="text-align: right;">13931</td>
+<td style="text-align: right;">79325</td>
+<td style="text-align: right;">352105</td>
+<td style="text-align: right;">673</td>
+<td style="text-align: right;">351432</td>
+<td style="text-align: left;">delaware</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">District of Columbia</td>
+<td style="text-align: right;">34.8</td>
+<td style="text-align: right;">670587</td>
+<td style="text-align: right;">265633</td>
+<td style="text-align: right;">297101</td>
+<td style="text-align: right;">2209</td>
+<td style="text-align: right;">27067</td>
+<td style="text-align: right;">30879</td>
+<td style="text-align: right;">47278</td>
+<td style="text-align: right;">20539</td>
+<td style="text-align: right;">241127</td>
+<td style="text-align: right;">31.9</td>
+<td style="text-align: right;">30.9</td>
+<td style="text-align: right;">61269</td>
+<td style="text-align: right;">14834</td>
+<td style="text-align: right;">124860</td>
+<td style="text-align: right;">109410</td>
+<td style="text-align: right;">48095</td>
+<td style="text-align: right;">21167</td>
+<td style="text-align: right;">101722</td>
+<td style="text-align: right;">281424</td>
+<td style="text-align: right;">292</td>
+<td style="text-align: right;">281132</td>
+<td style="text-align: left;">district of columbia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Florida</td>
+<td style="text-align: right;">42.4</td>
+<td style="text-align: right;">21634529</td>
+<td style="text-align: right;">13807410</td>
+<td style="text-align: right;">3355708</td>
+<td style="text-align: right;">59197</td>
+<td style="text-align: right;">609990</td>
+<td style="text-align: right;">1045557</td>
+<td style="text-align: right;">2743467</td>
+<td style="text-align: right;">2089692</td>
+<td style="text-align: right;">7745873</td>
+<td style="text-align: right;">31.0</td>
+<td style="text-align: right;">29.1</td>
+<td style="text-align: right;">3671306</td>
+<td style="text-align: right;">1567030</td>
+<td style="text-align: right;">3154240</td>
+<td style="text-align: right;">1308569</td>
+<td style="text-align: right;">372331</td>
+<td style="text-align: right;">202326</td>
+<td style="text-align: right;">67917</td>
+<td style="text-align: right;">7429632</td>
+<td style="text-align: right;">12312</td>
+<td style="text-align: right;">7417320</td>
+<td style="text-align: left;">florida</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Georgia</td>
+<td style="text-align: right;">37.2</td>
+<td style="text-align: right;">10722325</td>
+<td style="text-align: right;">5820019</td>
+<td style="text-align: right;">3373948</td>
+<td style="text-align: right;">37920</td>
+<td style="text-align: right;">465487</td>
+<td style="text-align: right;">378659</td>
+<td style="text-align: right;">638881</td>
+<td style="text-align: right;">315042</td>
+<td style="text-align: right;">5796529</td>
+<td style="text-align: right;">30.1</td>
+<td style="text-align: right;">28.0</td>
+<td style="text-align: right;">1611827</td>
+<td style="text-align: right;">594639</td>
+<td style="text-align: right;">1464589</td>
+<td style="text-align: right;">669304</td>
+<td style="text-align: right;">165134</td>
+<td style="text-align: right;">108680</td>
+<td style="text-align: right;">71355</td>
+<td style="text-align: right;">3468542</td>
+<td style="text-align: right;">4515</td>
+<td style="text-align: right;">3464027</td>
+<td style="text-align: left;">georgia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hawaii</td>
+<td style="text-align: right;">39.9</td>
+<td style="text-align: right;">1450589</td>
+<td style="text-align: right;">333296</td>
+<td style="text-align: right;">28665</td>
+<td style="text-align: right;">4210</td>
+<td style="text-align: right;">538970</td>
+<td style="text-align: right;">24503</td>
+<td style="text-align: right;">370148</td>
+<td style="text-align: right;">23091</td>
+<td style="text-align: right;">769824</td>
+<td style="text-align: right;">30.1</td>
+<td style="text-align: right;">28.8</td>
+<td style="text-align: right;">244486</td>
+<td style="text-align: right;">113060</td>
+<td style="text-align: right;">227243</td>
+<td style="text-align: right;">85984</td>
+<td style="text-align: right;">25539</td>
+<td style="text-align: right;">16217</td>
+<td style="text-align: right;">94814</td>
+<td style="text-align: right;">435393</td>
+<td style="text-align: right;">862</td>
+<td style="text-align: right;">434531</td>
+<td style="text-align: left;">hawaii</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Idaho</td>
+<td style="text-align: right;">36.9</td>
+<td style="text-align: right;">1854109</td>
+<td style="text-align: right;">1574859</td>
+<td style="text-align: right;">12781</td>
+<td style="text-align: right;">22297</td>
+<td style="text-align: right;">24987</td>
+<td style="text-align: right;">83887</td>
+<td style="text-align: right;">132577</td>
+<td style="text-align: right;">73263</td>
+<td style="text-align: right;">830194</td>
+<td style="text-align: right;">27.1</td>
+<td style="text-align: right;">25.7</td>
+<td style="text-align: right;">259629</td>
+<td style="text-align: right;">119611</td>
+<td style="text-align: right;">244372</td>
+<td style="text-align: right;">85760</td>
+<td style="text-align: right;">20684</td>
+<td style="text-align: right;">15407</td>
+<td style="text-align: right;">70214</td>
+<td style="text-align: right;">608097</td>
+<td style="text-align: right;">1915</td>
+<td style="text-align: right;">606182</td>
+<td style="text-align: left;">idaho</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Illinois</td>
+<td style="text-align: right;">38.7</td>
+<td style="text-align: right;">12757634</td>
+<td style="text-align: right;">8388659</td>
+<td style="text-align: right;">1774605</td>
+<td style="text-align: right;">55819</td>
+<td style="text-align: right;">738071</td>
+<td style="text-align: right;">842553</td>
+<td style="text-align: right;">952451</td>
+<td style="text-align: right;">606350</td>
+<td style="text-align: right;">8549361</td>
+<td style="text-align: right;">30.8</td>
+<td style="text-align: right;">29.2</td>
+<td style="text-align: right;">1899480</td>
+<td style="text-align: right;">727981</td>
+<td style="text-align: right;">1924339</td>
+<td style="text-align: right;">938097</td>
+<td style="text-align: right;">214115</td>
+<td style="text-align: right;">130899</td>
+<td style="text-align: right;">78433</td>
+<td style="text-align: right;">4388839</td>
+<td style="text-align: right;">9493</td>
+<td style="text-align: right;">4379346</td>
+<td style="text-align: left;">illinois</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Indiana</td>
+<td style="text-align: right;">38.0</td>
+<td style="text-align: right;">6784403</td>
+<td style="text-align: right;">5426227</td>
+<td style="text-align: right;">640752</td>
+<td style="text-align: right;">12465</td>
+<td style="text-align: right;">168899</td>
+<td style="text-align: right;">187740</td>
+<td style="text-align: right;">345830</td>
+<td style="text-align: right;">153259</td>
+<td style="text-align: right;">4585916</td>
+<td style="text-align: right;">29.2</td>
+<td style="text-align: right;">26.8</td>
+<td style="text-align: right;">1258288</td>
+<td style="text-align: right;">408878</td>
+<td style="text-align: right;">815853</td>
+<td style="text-align: right;">342003</td>
+<td style="text-align: right;">69602</td>
+<td style="text-align: right;">52190</td>
+<td style="text-align: right;">67173</td>
+<td style="text-align: right;">2307571</td>
+<td style="text-align: right;">6131</td>
+<td style="text-align: right;">2301440</td>
+<td style="text-align: left;">indiana</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Iowa</td>
+<td style="text-align: right;">38.4</td>
+<td style="text-align: right;">3188836</td>
+<td style="text-align: right;">2769619</td>
+<td style="text-align: right;">120619</td>
+<td style="text-align: right;">10111</td>
+<td style="text-align: right;">78940</td>
+<td style="text-align: right;">54569</td>
+<td style="text-align: right;">150396</td>
+<td style="text-align: right;">65729</td>
+<td style="text-align: right;">2232446</td>
+<td style="text-align: right;">29.1</td>
+<td style="text-align: right;">26.9</td>
+<td style="text-align: right;">568254</td>
+<td style="text-align: right;">255181</td>
+<td style="text-align: right;">433380</td>
+<td style="text-align: right;">148289</td>
+<td style="text-align: right;">36031</td>
+<td style="text-align: right;">27629</td>
+<td style="text-align: right;">70571</td>
+<td style="text-align: right;">1117760</td>
+<td style="text-align: right;">4880</td>
+<td style="text-align: right;">1112880</td>
+<td style="text-align: left;">iowa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kansas</td>
+<td style="text-align: right;">37.1</td>
+<td style="text-align: right;">2935922</td>
+<td style="text-align: right;">2341473</td>
+<td style="text-align: right;">163581</td>
+<td style="text-align: right;">22015</td>
+<td style="text-align: right;">88513</td>
+<td style="text-align: right;">102461</td>
+<td style="text-align: right;">215150</td>
+<td style="text-align: right;">96078</td>
+<td style="text-align: right;">1740100</td>
+<td style="text-align: right;">28.6</td>
+<td style="text-align: right;">26.5</td>
+<td style="text-align: right;">415315</td>
+<td style="text-align: right;">171665</td>
+<td style="text-align: right;">417263</td>
+<td style="text-align: right;">185313</td>
+<td style="text-align: right;">38167</td>
+<td style="text-align: right;">27522</td>
+<td style="text-align: right;">69747</td>
+<td style="text-align: right;">1012599</td>
+<td style="text-align: right;">2444</td>
+<td style="text-align: right;">1010155</td>
+<td style="text-align: left;">kansas</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kentucky</td>
+<td style="text-align: right;">39.1</td>
+<td style="text-align: right;">4502935</td>
+<td style="text-align: right;">3816997</td>
+<td style="text-align: right;">360184</td>
+<td style="text-align: right;">6821</td>
+<td style="text-align: right;">69187</td>
+<td style="text-align: right;">56352</td>
+<td style="text-align: right;">189589</td>
+<td style="text-align: right;">68088</td>
+<td style="text-align: right;">3069011</td>
+<td style="text-align: right;">28.4</td>
+<td style="text-align: right;">26.5</td>
+<td style="text-align: right;">806274</td>
+<td style="text-align: right;">269411</td>
+<td style="text-align: right;">478134</td>
+<td style="text-align: right;">241185</td>
+<td style="text-align: right;">56939</td>
+<td style="text-align: right;">35681</td>
+<td style="text-align: right;">60183</td>
+<td style="text-align: right;">1518043</td>
+<td style="text-align: right;">4050</td>
+<td style="text-align: right;">1513993</td>
+<td style="text-align: left;">kentucky</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Louisiana</td>
+<td style="text-align: right;">37.6</td>
+<td style="text-align: right;">4640546</td>
+<td style="text-align: right;">2758714</td>
+<td style="text-align: right;">1464582</td>
+<td style="text-align: right;">24952</td>
+<td style="text-align: right;">80363</td>
+<td style="text-align: right;">84387</td>
+<td style="text-align: right;">225187</td>
+<td style="text-align: right;">98242</td>
+<td style="text-align: right;">3604534</td>
+<td style="text-align: right;">30.0</td>
+<td style="text-align: right;">28.2</td>
+<td style="text-align: right;">854193</td>
+<td style="text-align: right;">215867</td>
+<td style="text-align: right;">519481</td>
+<td style="text-align: right;">206717</td>
+<td style="text-align: right;">56332</td>
+<td style="text-align: right;">33039</td>
+<td style="text-align: right;">57852</td>
+<td style="text-align: right;">1467429</td>
+<td style="text-align: right;">2486</td>
+<td style="text-align: right;">1464943</td>
+<td style="text-align: left;">louisiana</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Maine</td>
+<td style="text-align: right;">44.8</td>
+<td style="text-align: right;">1366949</td>
+<td style="text-align: right;">1261284</td>
+<td style="text-align: right;">21775</td>
+<td style="text-align: right;">6722</td>
+<td style="text-align: right;">15071</td>
+<td style="text-align: right;">8128</td>
+<td style="text-align: right;">53704</td>
+<td style="text-align: right;">21246</td>
+<td style="text-align: right;">835553</td>
+<td style="text-align: right;">29.9</td>
+<td style="text-align: right;">28.6</td>
+<td style="text-align: right;">261945</td>
+<td style="text-align: right;">103134</td>
+<td style="text-align: right;">214733</td>
+<td style="text-align: right;">90861</td>
+<td style="text-align: right;">22065</td>
+<td style="text-align: right;">15603</td>
+<td style="text-align: right;">68251</td>
+<td style="text-align: right;">509099</td>
+<td style="text-align: right;">2409</td>
+<td style="text-align: right;">506690</td>
+<td style="text-align: left;">maine</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Maryland</td>
+<td style="text-align: right;">39.1</td>
+<td style="text-align: right;">6161707</td>
+<td style="text-align: right;">3154247</td>
+<td style="text-align: right;">1841926</td>
+<td style="text-align: right;">18343</td>
+<td style="text-align: right;">399736</td>
+<td style="text-align: right;">355402</td>
+<td style="text-align: right;">388933</td>
+<td style="text-align: right;">153723</td>
+<td style="text-align: right;">2910096</td>
+<td style="text-align: right;">31.1</td>
+<td style="text-align: right;">29.5</td>
+<td style="text-align: right;">885579</td>
+<td style="text-align: right;">292090</td>
+<td style="text-align: right;">952916</td>
+<td style="text-align: right;">590587</td>
+<td style="text-align: right;">135879</td>
+<td style="text-align: right;">119364</td>
+<td style="text-align: right;">98461</td>
+<td style="text-align: right;">2103025</td>
+<td style="text-align: right;">3649</td>
+<td style="text-align: right;">2099376</td>
+<td style="text-align: left;">maryland</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Massachusetts</td>
+<td style="text-align: right;">39.8</td>
+<td style="text-align: right;">6984205</td>
+<td style="text-align: right;">5075525</td>
+<td style="text-align: right;">498785</td>
+<td style="text-align: right;">14740</td>
+<td style="text-align: right;">487600</td>
+<td style="text-align: right;">347501</td>
+<td style="text-align: right;">557288</td>
+<td style="text-align: right;">322753</td>
+<td style="text-align: right;">4151655</td>
+<td style="text-align: right;">31.3</td>
+<td style="text-align: right;">30.3</td>
+<td style="text-align: right;">990524</td>
+<td style="text-align: right;">374880</td>
+<td style="text-align: right;">1234320</td>
+<td style="text-align: right;">717317</td>
+<td style="text-align: right;">153045</td>
+<td style="text-align: right;">154129</td>
+<td style="text-align: right;">96505</td>
+<td style="text-align: right;">2489302</td>
+<td style="text-align: right;">4031</td>
+<td style="text-align: right;">2485271</td>
+<td style="text-align: left;">massachusetts</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Michigan</td>
+<td style="text-align: right;">39.9</td>
+<td style="text-align: right;">10057921</td>
+<td style="text-align: right;">7617085</td>
+<td style="text-align: right;">1363539</td>
+<td style="text-align: right;">45662</td>
+<td style="text-align: right;">327551</td>
+<td style="text-align: right;">157999</td>
+<td style="text-align: right;">543305</td>
+<td style="text-align: right;">209757</td>
+<td style="text-align: right;">7676334</td>
+<td style="text-align: right;">30.4</td>
+<td style="text-align: right;">28.5</td>
+<td style="text-align: right;">1694166</td>
+<td style="text-align: right;">673750</td>
+<td style="text-align: right;">1311608</td>
+<td style="text-align: right;">627217</td>
+<td style="text-align: right;">132170</td>
+<td style="text-align: right;">89356</td>
+<td style="text-align: right;">68505</td>
+<td style="text-align: right;">3529341</td>
+<td style="text-align: right;">8375</td>
+<td style="text-align: right;">3520966</td>
+<td style="text-align: left;">michigan</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Minnesota</td>
+<td style="text-align: right;">38.5</td>
+<td style="text-align: right;">5695292</td>
+<td style="text-align: right;">4537219</td>
+<td style="text-align: right;">382082</td>
+<td style="text-align: right;">51434</td>
+<td style="text-align: right;">286146</td>
+<td style="text-align: right;">133098</td>
+<td style="text-align: right;">302989</td>
+<td style="text-align: right;">102874</td>
+<td style="text-align: right;">3838865</td>
+<td style="text-align: right;">30.1</td>
+<td style="text-align: right;">28.3</td>
+<td style="text-align: right;">800667</td>
+<td style="text-align: right;">452032</td>
+<td style="text-align: right;">965593</td>
+<td style="text-align: right;">364292</td>
+<td style="text-align: right;">89655</td>
+<td style="text-align: right;">60300</td>
+<td style="text-align: right;">84313</td>
+<td style="text-align: right;">2030598</td>
+<td style="text-align: right;">6584</td>
+<td style="text-align: right;">2024014</td>
+<td style="text-align: left;">minnesota</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mississippi</td>
+<td style="text-align: right;">38.1</td>
+<td style="text-align: right;">2958846</td>
+<td style="text-align: right;">1685024</td>
+<td style="text-align: right;">1101836</td>
+<td style="text-align: right;">12777</td>
+<td style="text-align: right;">29041</td>
+<td style="text-align: right;">41764</td>
+<td style="text-align: right;">87204</td>
+<td style="text-align: right;">29813</td>
+<td style="text-align: right;">2112621</td>
+<td style="text-align: right;">28.7</td>
+<td style="text-align: right;">27.0</td>
+<td style="text-align: right;">468731</td>
+<td style="text-align: right;">209117</td>
+<td style="text-align: right;">286132</td>
+<td style="text-align: right;">131671</td>
+<td style="text-align: right;">30003</td>
+<td style="text-align: right;">22265</td>
+<td style="text-align: right;">52985</td>
+<td style="text-align: right;">899120</td>
+<td style="text-align: right;">1842</td>
+<td style="text-align: right;">897278</td>
+<td style="text-align: left;">mississippi</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Missouri</td>
+<td style="text-align: right;">38.8</td>
+<td style="text-align: right;">6154422</td>
+<td style="text-align: right;">4884165</td>
+<td style="text-align: right;">693892</td>
+<td style="text-align: right;">17559</td>
+<td style="text-align: right;">127044</td>
+<td style="text-align: right;">91703</td>
+<td style="text-align: right;">331228</td>
+<td style="text-align: right;">134401</td>
+<td style="text-align: right;">4069809</td>
+<td style="text-align: right;">28.8</td>
+<td style="text-align: right;">27.0</td>
+<td style="text-align: right;">1087681</td>
+<td style="text-align: right;">345329</td>
+<td style="text-align: right;">804597</td>
+<td style="text-align: right;">370034</td>
+<td style="text-align: right;">80507</td>
+<td style="text-align: right;">54700</td>
+<td style="text-align: right;">65920</td>
+<td style="text-align: right;">2133965</td>
+<td style="text-align: right;">5791</td>
+<td style="text-align: right;">2128174</td>
+<td style="text-align: left;">missouri</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Montana</td>
+<td style="text-align: right;">40.1</td>
+<td style="text-align: right;">1091840</td>
+<td style="text-align: right;">943827</td>
+<td style="text-align: right;">6026</td>
+<td style="text-align: right;">63493</td>
+<td style="text-align: right;">9211</td>
+<td style="text-align: right;">11592</td>
+<td style="text-align: right;">57010</td>
+<td style="text-align: right;">19231</td>
+<td style="text-align: right;">578621</td>
+<td style="text-align: right;">29.7</td>
+<td style="text-align: right;">26.9</td>
+<td style="text-align: right;">175154</td>
+<td style="text-align: right;">72238</td>
+<td style="text-align: right;">170549</td>
+<td style="text-align: right;">59333</td>
+<td style="text-align: right;">15762</td>
+<td style="text-align: right;">11983</td>
+<td style="text-align: right;">66341</td>
+<td style="text-align: right;">386840</td>
+<td style="text-align: right;">2330</td>
+<td style="text-align: right;">384510</td>
+<td style="text-align: left;">montana</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nebraska</td>
+<td style="text-align: right;">36.9</td>
+<td style="text-align: right;">1958939</td>
+<td style="text-align: right;">1603239</td>
+<td style="text-align: right;">93555</td>
+<td style="text-align: right;">18550</td>
+<td style="text-align: right;">48874</td>
+<td style="text-align: right;">69315</td>
+<td style="text-align: right;">124088</td>
+<td style="text-align: right;">63635</td>
+<td style="text-align: right;">1266893</td>
+<td style="text-align: right;">28.7</td>
+<td style="text-align: right;">26.7</td>
+<td style="text-align: right;">280742</td>
+<td style="text-align: right;">139287</td>
+<td style="text-align: right;">280101</td>
+<td style="text-align: right;">106137</td>
+<td style="text-align: right;">25032</td>
+<td style="text-align: right;">18160</td>
+<td style="text-align: right;">71722</td>
+<td style="text-align: right;">688362</td>
+<td style="text-align: right;">2326</td>
+<td style="text-align: right;">686036</td>
+<td style="text-align: left;">nebraska</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nevada</td>
+<td style="text-align: right;">38.5</td>
+<td style="text-align: right;">3104817</td>
+<td style="text-align: right;">1732783</td>
+<td style="text-align: right;">290223</td>
+<td style="text-align: right;">40745</td>
+<td style="text-align: right;">263063</td>
+<td style="text-align: right;">360620</td>
+<td style="text-align: right;">395499</td>
+<td style="text-align: right;">234103</td>
+<td style="text-align: right;">846922</td>
+<td style="text-align: right;">30.6</td>
+<td style="text-align: right;">28.7</td>
+<td style="text-align: right;">503894</td>
+<td style="text-align: right;">186225</td>
+<td style="text-align: right;">371761</td>
+<td style="text-align: right;">139842</td>
+<td style="text-align: right;">37727</td>
+<td style="text-align: right;">22673</td>
+<td style="text-align: right;">71646</td>
+<td style="text-align: right;">1034261</td>
+<td style="text-align: right;">1614</td>
+<td style="text-align: right;">1032647</td>
+<td style="text-align: left;">nevada</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">New Hampshire</td>
+<td style="text-align: right;">43.1</td>
+<td style="text-align: right;">1379610</td>
+<td style="text-align: right;">1241594</td>
+<td style="text-align: right;">20920</td>
+<td style="text-align: right;">2070</td>
+<td style="text-align: right;">36352</td>
+<td style="text-align: right;">15009</td>
+<td style="text-align: right;">63317</td>
+<td style="text-align: right;">29967</td>
+<td style="text-align: right;">565581</td>
+<td style="text-align: right;">30.9</td>
+<td style="text-align: right;">29.0</td>
+<td style="text-align: right;">229881</td>
+<td style="text-align: right;">100541</td>
+<td style="text-align: right;">236189</td>
+<td style="text-align: right;">116378</td>
+<td style="text-align: right;">19939</td>
+<td style="text-align: right;">16942</td>
+<td style="text-align: right;">90845</td>
+<td style="text-align: right;">497411</td>
+<td style="text-align: right;">1295</td>
+<td style="text-align: right;">496116</td>
+<td style="text-align: left;">new hampshire</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">New Jersey</td>
+<td style="text-align: right;">40.0</td>
+<td style="text-align: right;">9249063</td>
+<td style="text-align: right;">5528604</td>
+<td style="text-align: right;">1213265</td>
+<td style="text-align: right;">29780</td>
+<td style="text-align: right;">913364</td>
+<td style="text-align: right;">768606</td>
+<td style="text-align: right;">792890</td>
+<td style="text-align: right;">536450</td>
+<td style="text-align: right;">4749727</td>
+<td style="text-align: right;">31.1</td>
+<td style="text-align: right;">29.6</td>
+<td style="text-align: right;">1511209</td>
+<td style="text-align: right;">430063</td>
+<td style="text-align: right;">1636308</td>
+<td style="text-align: right;">785250</td>
+<td style="text-align: right;">182433</td>
+<td style="text-align: right;">111577</td>
+<td style="text-align: right;">97126</td>
+<td style="text-align: right;">3119172</td>
+<td style="text-align: right;">4904</td>
+<td style="text-align: right;">3114268</td>
+<td style="text-align: left;">new jersey</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">New Mexico</td>
+<td style="text-align: right;">38.6</td>
+<td style="text-align: right;">2112463</td>
+<td style="text-align: right;">1250614</td>
+<td style="text-align: right;">44894</td>
+<td style="text-align: right;">198140</td>
+<td style="text-align: right;">34400</td>
+<td style="text-align: right;">233978</td>
+<td style="text-align: right;">348588</td>
+<td style="text-align: right;">278356</td>
+<td style="text-align: right;">1139587</td>
+<td style="text-align: right;">30.4</td>
+<td style="text-align: right;">27.4</td>
+<td style="text-align: right;">305319</td>
+<td style="text-align: right;">128685</td>
+<td style="text-align: right;">230705</td>
+<td style="text-align: right;">131594</td>
+<td style="text-align: right;">26832</td>
+<td style="text-align: right;">27773</td>
+<td style="text-align: right;">58722</td>
+<td style="text-align: right;">666625</td>
+<td style="text-align: right;">2368</td>
+<td style="text-align: right;">664257</td>
+<td style="text-align: left;">new mexico</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">New York</td>
+<td style="text-align: right;">39.3</td>
+<td style="text-align: right;">19994379</td>
+<td style="text-align: right;">11749652</td>
+<td style="text-align: right;">3011116</td>
+<td style="text-align: right;">93384</td>
+<td style="text-align: right;">1767598</td>
+<td style="text-align: right;">1878496</td>
+<td style="text-align: right;">1485013</td>
+<td style="text-align: right;">883505</td>
+<td style="text-align: right;">12567731</td>
+<td style="text-align: right;">31.6</td>
+<td style="text-align: right;">30.2</td>
+<td style="text-align: right;">2933147</td>
+<td style="text-align: right;">1238616</td>
+<td style="text-align: right;">3033763</td>
+<td style="text-align: right;">1731771</td>
+<td style="text-align: right;">435559</td>
+<td style="text-align: right;">238322</td>
+<td style="text-align: right;">81386</td>
+<td style="text-align: right;">6719878</td>
+<td style="text-align: right;">13718</td>
+<td style="text-align: right;">6706160</td>
+<td style="text-align: left;">new york</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">North Carolina</td>
+<td style="text-align: right;">39.1</td>
+<td style="text-align: right;">10470214</td>
+<td style="text-align: right;">6800458</td>
+<td style="text-align: right;">2192455</td>
+<td style="text-align: right;">109600</td>
+<td style="text-align: right;">325670</td>
+<td style="text-align: right;">421954</td>
+<td style="text-align: right;">613129</td>
+<td style="text-align: right;">278960</td>
+<td style="text-align: right;">5747122</td>
+<td style="text-align: right;">29.8</td>
+<td style="text-align: right;">28.0</td>
+<td style="text-align: right;">1505077</td>
+<td style="text-align: right;">720557</td>
+<td style="text-align: right;">1533552</td>
+<td style="text-align: right;">648712</td>
+<td style="text-align: right;">139534</td>
+<td style="text-align: right;">107092</td>
+<td style="text-align: right;">66186</td>
+<td style="text-align: right;">3576483</td>
+<td style="text-align: right;">6096</td>
+<td style="text-align: right;">3570387</td>
+<td style="text-align: left;">north carolina</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">North Dakota</td>
+<td style="text-align: right;">35.4</td>
+<td style="text-align: right;">776874</td>
+<td style="text-align: right;">656425</td>
+<td style="text-align: right;">25233</td>
+<td style="text-align: right;">36284</td>
+<td style="text-align: right;">12474</td>
+<td style="text-align: right;">10705</td>
+<td style="text-align: right;">34294</td>
+<td style="text-align: right;">10445</td>
+<td style="text-align: right;">483341</td>
+<td style="text-align: right;">29.3</td>
+<td style="text-align: right;">27.1</td>
+<td style="text-align: right;">111395</td>
+<td style="text-align: right;">72298</td>
+<td style="text-align: right;">113131</td>
+<td style="text-align: right;">33064</td>
+<td style="text-align: right;">7189</td>
+<td style="text-align: right;">5710</td>
+<td style="text-align: right;">73959</td>
+<td style="text-align: right;">275251</td>
+<td style="text-align: right;">526</td>
+<td style="text-align: right;">274725</td>
+<td style="text-align: left;">north dakota</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ohio</td>
+<td style="text-align: right;">39.6</td>
+<td style="text-align: right;">11774683</td>
+<td style="text-align: right;">9281702</td>
+<td style="text-align: right;">1449450</td>
+<td style="text-align: right;">17094</td>
+<td style="text-align: right;">283278</td>
+<td style="text-align: right;">157485</td>
+<td style="text-align: right;">581637</td>
+<td style="text-align: right;">190279</td>
+<td style="text-align: right;">8810980</td>
+<td style="text-align: right;">30.0</td>
+<td style="text-align: right;">28.2</td>
+<td style="text-align: right;">2315749</td>
+<td style="text-align: right;">715379</td>
+<td style="text-align: right;">1515763</td>
+<td style="text-align: right;">696826</td>
+<td style="text-align: right;">148249</td>
+<td style="text-align: right;">98487</td>
+<td style="text-align: right;">66990</td>
+<td style="text-align: right;">4205747</td>
+<td style="text-align: right;">10363</td>
+<td style="text-align: right;">4195384</td>
+<td style="text-align: left;">ohio</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oklahoma</td>
+<td style="text-align: right;">36.9</td>
+<td style="text-align: right;">3970497</td>
+<td style="text-align: right;">2716667</td>
+<td style="text-align: right;">284453</td>
+<td style="text-align: right;">298628</td>
+<td style="text-align: right;">91720</td>
+<td style="text-align: right;">124427</td>
+<td style="text-align: right;">447289</td>
+<td style="text-align: right;">118519</td>
+<td style="text-align: right;">2392787</td>
+<td style="text-align: right;">28.1</td>
+<td style="text-align: right;">26.2</td>
+<td style="text-align: right;">674369</td>
+<td style="text-align: right;">217129</td>
+<td style="text-align: right;">465739</td>
+<td style="text-align: right;">177413</td>
+<td style="text-align: right;">42157</td>
+<td style="text-align: right;">29429</td>
+<td style="text-align: right;">61364</td>
+<td style="text-align: right;">1306391</td>
+<td style="text-align: right;">2678</td>
+<td style="text-align: right;">1303713</td>
+<td style="text-align: left;">oklahoma</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oregon</td>
+<td style="text-align: right;">39.9</td>
+<td style="text-align: right;">4229374</td>
+<td style="text-align: right;">3328095</td>
+<td style="text-align: right;">79593</td>
+<td style="text-align: right;">46880</td>
+<td style="text-align: right;">187852</td>
+<td style="text-align: right;">180534</td>
+<td style="text-align: right;">389281</td>
+<td style="text-align: right;">168170</td>
+<td style="text-align: right;">1932284</td>
+<td style="text-align: right;">30.4</td>
+<td style="text-align: right;">28.5</td>
+<td style="text-align: right;">542883</td>
+<td style="text-align: right;">272990</td>
+<td style="text-align: right;">654185</td>
+<td style="text-align: right;">283031</td>
+<td style="text-align: right;">72199</td>
+<td style="text-align: right;">54744</td>
+<td style="text-align: right;">76632</td>
+<td style="text-align: right;">1526087</td>
+<td style="text-align: right;">4533</td>
+<td style="text-align: right;">1521554</td>
+<td style="text-align: left;">oregon</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pennsylvania</td>
+<td style="text-align: right;">40.8</td>
+<td style="text-align: right;">12989208</td>
+<td style="text-align: right;">10010379</td>
+<td style="text-align: right;">1407814</td>
+<td style="text-align: right;">20570</td>
+<td style="text-align: right;">473192</td>
+<td style="text-align: right;">405422</td>
+<td style="text-align: right;">667575</td>
+<td style="text-align: right;">303356</td>
+<td style="text-align: right;">9262753</td>
+<td style="text-align: right;">30.7</td>
+<td style="text-align: right;">29.1</td>
+<td style="text-align: right;">2710001</td>
+<td style="text-align: right;">805392</td>
+<td style="text-align: right;">1844355</td>
+<td style="text-align: right;">884422</td>
+<td style="text-align: right;">199768</td>
+<td style="text-align: right;">152773</td>
+<td style="text-align: right;">73170</td>
+<td style="text-align: right;">4540914</td>
+<td style="text-align: right;">15090</td>
+<td style="text-align: right;">4525824</td>
+<td style="text-align: left;">pennsylvania</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rhode Island</td>
+<td style="text-align: right;">40.1</td>
+<td style="text-align: right;">1094250</td>
+<td style="text-align: right;">816308</td>
+<td style="text-align: right;">67615</td>
+<td style="text-align: right;">4072</td>
+<td style="text-align: right;">37881</td>
+<td style="text-align: right;">75669</td>
+<td style="text-align: right;">91944</td>
+<td style="text-align: right;">56475</td>
+<td style="text-align: right;">607146</td>
+<td style="text-align: right;">31.6</td>
+<td style="text-align: right;">30.2</td>
+<td style="text-align: right;">173104</td>
+<td style="text-align: right;">63413</td>
+<td style="text-align: right;">165487</td>
+<td style="text-align: right;">80811</td>
+<td style="text-align: right;">19272</td>
+<td style="text-align: right;">14255</td>
+<td style="text-align: right;">81370</td>
+<td style="text-align: right;">386033</td>
+<td style="text-align: right;">648</td>
+<td style="text-align: right;">385385</td>
+<td style="text-align: left;">rhode island</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">South Carolina</td>
+<td style="text-align: right;">40.0</td>
+<td style="text-align: right;">5142750</td>
+<td style="text-align: right;">3342861</td>
+<td style="text-align: right;">1326209</td>
+<td style="text-align: right;">15617</td>
+<td style="text-align: right;">85834</td>
+<td style="text-align: right;">123269</td>
+<td style="text-align: right;">246238</td>
+<td style="text-align: right;">103873</td>
+<td style="text-align: right;">2787554</td>
+<td style="text-align: right;">29.6</td>
+<td style="text-align: right;">28.3</td>
+<td style="text-align: right;">853211</td>
+<td style="text-align: right;">357618</td>
+<td style="text-align: right;">674340</td>
+<td style="text-align: right;">305597</td>
+<td style="text-align: right;">62767</td>
+<td style="text-align: right;">46066</td>
+<td style="text-align: right;">63623</td>
+<td style="text-align: right;">1723516</td>
+<td style="text-align: right;">3209</td>
+<td style="text-align: right;">1720307</td>
+<td style="text-align: left;">south carolina</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">South Dakota</td>
+<td style="text-align: right;">37.5</td>
+<td style="text-align: right;">890342</td>
+<td style="text-align: right;">731624</td>
+<td style="text-align: right;">19525</td>
+<td style="text-align: right;">70948</td>
+<td style="text-align: right;">12754</td>
+<td style="text-align: right;">10567</td>
+<td style="text-align: right;">44430</td>
+<td style="text-align: right;">13890</td>
+<td style="text-align: right;">560609</td>
+<td style="text-align: right;">29.1</td>
+<td style="text-align: right;">26.5</td>
+<td style="text-align: right;">148100</td>
+<td style="text-align: right;">72002</td>
+<td style="text-align: right;">123313</td>
+<td style="text-align: right;">38604</td>
+<td style="text-align: right;">10123</td>
+<td style="text-align: right;">6821</td>
+<td style="text-align: right;">69457</td>
+<td style="text-align: right;">305608</td>
+<td style="text-align: right;">934</td>
+<td style="text-align: right;">304674</td>
+<td style="text-align: left;">south dakota</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tennessee</td>
+<td style="text-align: right;">38.9</td>
+<td style="text-align: right;">6923772</td>
+<td style="text-align: right;">5182736</td>
+<td style="text-align: right;">1126815</td>
+<td style="text-align: right;">14118</td>
+<td style="text-align: right;">128630</td>
+<td style="text-align: right;">139938</td>
+<td style="text-align: right;">326851</td>
+<td style="text-align: right;">140517</td>
+<td style="text-align: right;">4041432</td>
+<td style="text-align: right;">28.8</td>
+<td style="text-align: right;">27.3</td>
+<td style="text-align: right;">1232458</td>
+<td style="text-align: right;">367186</td>
+<td style="text-align: right;">889401</td>
+<td style="text-align: right;">368384</td>
+<td style="text-align: right;">89488</td>
+<td style="text-align: right;">66397</td>
+<td style="text-align: right;">64035</td>
+<td style="text-align: right;">2331002</td>
+<td style="text-align: right;">4167</td>
+<td style="text-align: right;">2326835</td>
+<td style="text-align: left;">tennessee</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Texas</td>
+<td style="text-align: right;">35.2</td>
+<td style="text-align: right;">29243342</td>
+<td style="text-align: right;">17293460</td>
+<td style="text-align: right;">3552579</td>
+<td style="text-align: right;">169576</td>
+<td style="text-align: right;">1511069</td>
+<td style="text-align: right;">2281525</td>
+<td style="text-align: right;">4407783</td>
+<td style="text-align: right;">3547610</td>
+<td style="text-align: right;">17298277</td>
+<td style="text-align: right;">29.4</td>
+<td style="text-align: right;">27.3</td>
+<td style="text-align: right;">3792935</td>
+<td style="text-align: right;">1435330</td>
+<td style="text-align: right;">3919003</td>
+<td style="text-align: right;">1598654</td>
+<td style="text-align: right;">341512</td>
+<td style="text-align: right;">242618</td>
+<td style="text-align: right;">73035</td>
+<td style="text-align: right;">9286171</td>
+<td style="text-align: right;">12094</td>
+<td style="text-align: right;">9274077</td>
+<td style="text-align: left;">texas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Utah</td>
+<td style="text-align: right;">31.4</td>
+<td style="text-align: right;">3283809</td>
+<td style="text-align: right;">2705194</td>
+<td style="text-align: right;">37712</td>
+<td style="text-align: right;">32948</td>
+<td style="text-align: right;">77761</td>
+<td style="text-align: right;">174721</td>
+<td style="text-align: right;">224725</td>
+<td style="text-align: right;">114101</td>
+<td style="text-align: right;">2017569</td>
+<td style="text-align: right;">26.8</td>
+<td style="text-align: right;">24.9</td>
+<td style="text-align: right;">383506</td>
+<td style="text-align: right;">194933</td>
+<td style="text-align: right;">468541</td>
+<td style="text-align: right;">173551</td>
+<td style="text-align: right;">36570</td>
+<td style="text-align: right;">29475</td>
+<td style="text-align: right;">86833</td>
+<td style="text-align: right;">979140</td>
+<td style="text-align: right;">2201</td>
+<td style="text-align: right;">976939</td>
+<td style="text-align: left;">utah</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vermont</td>
+<td style="text-align: right;">42.9</td>
+<td style="text-align: right;">643816</td>
+<td style="text-align: right;">594131</td>
+<td style="text-align: right;">8000</td>
+<td style="text-align: right;">1336</td>
+<td style="text-align: right;">10824</td>
+<td style="text-align: right;">3568</td>
+<td style="text-align: right;">25809</td>
+<td style="text-align: right;">9039</td>
+<td style="text-align: right;">311028</td>
+<td style="text-align: right;">30.8</td>
+<td style="text-align: right;">29.2</td>
+<td style="text-align: right;">112763</td>
+<td style="text-align: right;">39344</td>
+<td style="text-align: right;">111614</td>
+<td style="text-align: right;">57539</td>
+<td style="text-align: right;">12438</td>
+<td style="text-align: right;">9939</td>
+<td style="text-align: right;">74014</td>
+<td style="text-align: right;">230509</td>
+<td style="text-align: right;">1620</td>
+<td style="text-align: right;">228889</td>
+<td style="text-align: left;">vermont</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Virginia</td>
+<td style="text-align: right;">38.7</td>
+<td style="text-align: right;">8624511</td>
+<td style="text-align: right;">5473610</td>
+<td style="text-align: right;">1630355</td>
+<td style="text-align: right;">23728</td>
+<td style="text-align: right;">591088</td>
+<td style="text-align: right;">303247</td>
+<td style="text-align: right;">596298</td>
+<td style="text-align: right;">252261</td>
+<td style="text-align: right;">4245322</td>
+<td style="text-align: right;">30.2</td>
+<td style="text-align: right;">28.3</td>
+<td style="text-align: right;">1184055</td>
+<td style="text-align: right;">461866</td>
+<td style="text-align: right;">1366160</td>
+<td style="text-align: right;">780607</td>
+<td style="text-align: right;">158770</td>
+<td style="text-align: right;">119285</td>
+<td style="text-align: right;">87249</td>
+<td style="text-align: right;">2923674</td>
+<td style="text-align: right;">6070</td>
+<td style="text-align: right;">2917604</td>
+<td style="text-align: left;">virginia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Washington</td>
+<td style="text-align: right;">38.0</td>
+<td style="text-align: right;">7688549</td>
+<td style="text-align: right;">5374874</td>
+<td style="text-align: right;">301477</td>
+<td style="text-align: right;">91698</td>
+<td style="text-align: right;">708647</td>
+<td style="text-align: right;">399571</td>
+<td style="text-align: right;">759279</td>
+<td style="text-align: right;">292781</td>
+<td style="text-align: right;">3584329</td>
+<td style="text-align: right;">30.1</td>
+<td style="text-align: right;">27.8</td>
+<td style="text-align: right;">957379</td>
+<td style="text-align: right;">541092</td>
+<td style="text-align: right;">1244437</td>
+<td style="text-align: right;">569699</td>
+<td style="text-align: right;">123220</td>
+<td style="text-align: right;">92087</td>
+<td style="text-align: right;">90325</td>
+<td style="text-align: right;">2749145</td>
+<td style="text-align: right;">5275</td>
+<td style="text-align: right;">2743870</td>
+<td style="text-align: left;">washington</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">West Virginia</td>
+<td style="text-align: right;">42.6</td>
+<td style="text-align: right;">1792967</td>
+<td style="text-align: right;">1639342</td>
+<td style="text-align: right;">61227</td>
+<td style="text-align: right;">1730</td>
+<td style="text-align: right;">13602</td>
+<td style="text-align: right;">9504</td>
+<td style="text-align: right;">66905</td>
+<td style="text-align: right;">22651</td>
+<td style="text-align: right;">1225247</td>
+<td style="text-align: right;">29.7</td>
+<td style="text-align: right;">27.3</td>
+<td style="text-align: right;">421521</td>
+<td style="text-align: right;">101487</td>
+<td style="text-align: right;">171758</td>
+<td style="text-align: right;">84486</td>
+<td style="text-align: right;">18450</td>
+<td style="text-align: right;">14085</td>
+<td style="text-align: right;">55217</td>
+<td style="text-align: right;">594366</td>
+<td style="text-align: right;">2333</td>
+<td style="text-align: right;">592033</td>
+<td style="text-align: left;">west virginia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wisconsin</td>
+<td style="text-align: right;">39.9</td>
+<td style="text-align: right;">5882128</td>
+<td style="text-align: right;">4854979</td>
+<td style="text-align: right;">363331</td>
+<td style="text-align: right;">43759</td>
+<td style="text-align: right;">169052</td>
+<td style="text-align: right;">128690</td>
+<td style="text-align: right;">320056</td>
+<td style="text-align: right;">155464</td>
+<td style="text-align: right;">4165197</td>
+<td style="text-align: right;">30.3</td>
+<td style="text-align: right;">28.3</td>
+<td style="text-align: right;">1071376</td>
+<td style="text-align: right;">451044</td>
+<td style="text-align: right;">852632</td>
+<td style="text-align: right;">319419</td>
+<td style="text-align: right;">70555</td>
+<td style="text-align: right;">53667</td>
+<td style="text-align: right;">72458</td>
+<td style="text-align: right;">2137129</td>
+<td style="text-align: right;">8839</td>
+<td style="text-align: right;">2128290</td>
+<td style="text-align: left;">wisconsin</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wyoming</td>
+<td style="text-align: right;">38.5</td>
+<td style="text-align: right;">577929</td>
+<td style="text-align: right;">504798</td>
+<td style="text-align: right;">4891</td>
+<td style="text-align: right;">12359</td>
+<td style="text-align: right;">4717</td>
+<td style="text-align: right;">16504</td>
+<td style="text-align: right;">34024</td>
+<td style="text-align: right;">17046</td>
+<td style="text-align: right;">245999</td>
+<td style="text-align: right;">27.7</td>
+<td style="text-align: right;">25.8</td>
+<td style="text-align: right;">88797</td>
+<td style="text-align: right;">46082</td>
+<td style="text-align: right;">71313</td>
+<td style="text-align: right;">31053</td>
+<td style="text-align: right;">6077</td>
+<td style="text-align: right;">5138</td>
+<td style="text-align: right;">72495</td>
+<td style="text-align: right;">207049</td>
+<td style="text-align: right;">549</td>
+<td style="text-align: right;">206500</td>
+<td style="text-align: left;">wyoming</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Puerto Rico</td>
+<td style="text-align: right;">43.7</td>
+<td style="text-align: right;">3272382</td>
+<td style="text-align: right;">1425431</td>
+<td style="text-align: right;">286388</td>
+<td style="text-align: right;">5066</td>
+<td style="text-align: right;">6295</td>
+<td style="text-align: right;">786315</td>
+<td style="text-align: right;">762608</td>
+<td style="text-align: right;">600716</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">33.8</td>
+<td style="text-align: right;">32.4</td>
+<td style="text-align: right;">617845</td>
+<td style="text-align: right;">271432</td>
+<td style="text-align: right;">482139</td>
+<td style="text-align: right;">134673</td>
+<td style="text-align: right;">30748</td>
+<td style="text-align: right;">30891</td>
+<td style="text-align: right;">24002</td>
+<td style="text-align: right;">892631</td>
+<td style="text-align: right;">14210</td>
+<td style="text-align: right;">878421</td>
+<td style="text-align: left;">puerto rico</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section><section id="geom_map-is-a-shortcut" class="level2"><h2 class="anchored" data-anchor-id="geom_map-is-a-shortcut">
+<code>geom_map</code> is a “shortcut”</h2>
+<div class="columns">
+<div class="column nonincremental" style="width:60%;">
+<div class="cell" data-output-location="slide">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">acs_state_data</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">geom_map</span><span class="op">(</span></span>
+<span>    <span class="fu">aes</span><span class="op">(</span>map_id <span class="op">=</span> <span class="va">state</span>, fill <span class="op">=</span> <span class="va">NAME</span><span class="op">)</span>,</span>
+<span>    map <span class="op">=</span> <span class="va">states</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">expand_limits</span><span class="op">(</span>x <span class="op">=</span> <span class="va">states</span><span class="op">$</span><span class="va">long</span>, y <span class="op">=</span> <span class="va">states</span><span class="op">$</span><span class="va">lat</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">coord_map</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_map</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="slides05_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>
+<code>acs_state_data</code> is the name of the dataset</li>
+<li>
+<code>map_id = state</code> tells <code>geom_map</code> to look in the “state” column in <code>acs_state_data</code> to find the state name</li>
+<li>
+<code>fill = NAME</code> tells ggplot to fill the states by the variable in <code>NAME</code>
+</li>
+</ul>
+</div>
+</div>
+</section><section id="your-turn-1" class="level2"><h2 class="anchored" data-anchor-id="your-turn-1">Your turn 1</h2>
+<div class="task nonincremental">
+<p>Comment out the <code>expand_limits</code> line. What happened?</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<countdown-timer class="countdown" id="timer_971f0391" minutes="1" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+</div>
+</div>
+</section><section id="sequential-vs-diverging-color-scale" class="level2"><h2 class="anchored" data-anchor-id="sequential-vs-diverging-color-scale">Sequential vs Diverging color scale</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Overview</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Sequential</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Diverging</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>The next two panels show the same data and the same graph with two different color scales.</p>
+<p><strong>Sequential</strong> color scales are intuitive and can be read as “more is more”</p>
+<p><strong>Diverging</strong> scales emphasize how far away a data point is from a midpoint</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><img src="../img/world-map-sequential.png" class="img-fluid"></p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><img src="../img/world-map-diverging.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section><section id="binned-vs-continuous-color-scale" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="binned-vs-continuous-color-scale">Binned vs continuous color scale</h2>
+<p><img src="../img/sd-classed-v-unclassed.png" class="img-fluid"></p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Unemployment rate by county in 2020. Source: <a href="https://www.datawrapper.de/blog/classed-vs-unclassed-color-scales">Datawrapper blog</a></p>
+</div></div></section><section id="your-turn-2" class="level2"><h2 class="anchored" data-anchor-id="your-turn-2">Your turn 2</h2>
+<div class="task nonincremental">
+<p>Edit your chloropleth map by:</p>
+<ul>
+<li>Choosing a different variable in <code>acs_state_data</code> to map to <code>fill</code>
+</li>
+<li>Choosing a different color scale</li>
+<li>Updating the title, axis labels, and legend title</li>
+</ul>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<countdown-timer class="countdown" id="timer_6149c73f" minutes="6" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+</div>
+</div>
+</section><section id="coordinate-systems-and-projections" class="level2" data-background-image="../img/02-ggplot-layers.png" data-background-size="60%" data-background-position="right" data-background-opacity="0.8"><h2 data-background-image="../img/02-ggplot-layers.png" data-background-size="60%" data-background-position="right" data-background-opacity="0.8" class="anchored" data-anchor-id="coordinate-systems-and-projections">Coordinate Systems and Projections</h2>
+</section><section id="section-5" class="level2" data-background-image="../img/cairo-projections.png" data-background-size="50%" data-background-position="right"><h2 data-background-image="../img/cairo-projections.png" data-background-size="50%" data-background-position="right" class="anchored" data-anchor-id="section-5"></h2>
+<div class="columns">
+<div class="column nonincremental" style="width:40%;">
+<p>Geospatial data exists on the globe and is generally described with a <em>latitude</em> and <em>longitude</em>. Any <em>projection</em> from the globe to euclidean space (X-Y plane) is going to cause some distortion.</p>
+</div>
+</div>
+</section><section id="section-6" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="section-6"></h2>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/vVX-PrBRtTY?start=45" width="100%" height="100%" title="West Wing: Gall-Peters Projection" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>From <em>The West Wing</em> Season 2 Episode 16</p>
+</div></div></section><section id="section-7" class="level2"><h2 class="anchored" data-anchor-id="section-7"></h2>
+<p><img src="../img/africa-greenland-distortions.png" class="r-stretch img-fluid"></p>
+</section><section id="changing-the-coordinate-system" class="level2"><h2 class="anchored" data-anchor-id="changing-the-coordinate-system">Changing the coordinate system</h2>
+<p><code>coord_map</code> function provides a Mercator projection (<code>mapproj</code> package has more options)</p>
+<div class="cell" data-output-location="column">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">states</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">long</span>, y<span class="op">=</span><span class="va">lat</span>, group<span class="op">=</span><span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">geom_polygon</span><span class="op">(</span>color<span class="op">=</span><span class="st">"gold2"</span>, fill<span class="op">=</span><span class="st">"navyblue"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">coord_map</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme_map</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="slides05_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="changing-the-coordinate-system-1" class="level2"><h2 class="anchored" data-anchor-id="changing-the-coordinate-system-1">Changing the coordinate system</h2>
+<p>Here is a Gall projection</p>
+<div class="cell" data-output-location="column">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">states</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">long</span>, y<span class="op">=</span><span class="va">lat</span>, group<span class="op">=</span><span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">geom_polygon</span><span class="op">(</span>color<span class="op">=</span><span class="st">"gold2"</span>, fill<span class="op">=</span><span class="st">"navyblue"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">coord_map</span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"gall"</span>, lat <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme_map</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="slides05_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="mercator-vs-gall-projection-world-map" class="level2"><h2 class="anchored" data-anchor-id="mercator-vs-gall-projection-world-map">Mercator vs Gall projection (world map)</h2>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">world</span> <span class="op">&lt;-</span> <span class="fu">map_data</span><span class="op">(</span><span class="st">"world"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">world</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">long</span>, y<span class="op">=</span><span class="va">lat</span>, group<span class="op">=</span><span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">geom_polygon</span><span class="op">(</span>color<span class="op">=</span><span class="st">"gold2"</span>, fill<span class="op">=</span><span class="st">"navyblue"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">coord_map</span><span class="op">(</span>projection <span class="op">=</span> <span class="st">"mercator"</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>, <span class="fl">180</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme_map</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="slides05_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="slides05_files/figure-html/unnamed-chunk-20-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Material 2025, Amanda Luby <br> Design by Mine Çetinkaya-Rundel</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This page is built with ☕️ and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+</body></html>

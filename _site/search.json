@@ -1,0 +1,1300 @@
+[
+  {
+    "objectID": "course-faq.html",
+    "href": "course-faq.html",
+    "title": "FAQ",
+    "section": "",
+    "text": "The best place to come for help is my office hours! I can help with anything related to the course. You can stop by at any point during my MWF office hours, and you can reserve time on my calendar for a one-on-one appointment during my Tuesday office hours if you’d like to discuss anything more privately.\n\n\n\nStudents needing help with their Statistics coursework and R/Rstudio questions can get help from Stats Lab Assistants in the Stats Lab in CMC 304.",
+    "crumbs": [
+      "Course information",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "course-faq.html#where-can-i-get-help",
+    "href": "course-faq.html#where-can-i-get-help",
+    "title": "FAQ",
+    "section": "",
+    "text": "The best place to come for help is my office hours! I can help with anything related to the course. You can stop by at any point during my MWF office hours, and you can reserve time on my calendar for a one-on-one appointment during my Tuesday office hours if you’d like to discuss anything more privately.\n\n\n\nStudents needing help with their Statistics coursework and R/Rstudio questions can get help from Stats Lab Assistants in the Stats Lab in CMC 304.",
+    "crumbs": [
+      "Course information",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Stat 220: Intro to Data Science",
+    "section": "",
+    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n1\nM\nMon, Mar 30\n📝complete welcome survey\n\nWelcome + data, R review\ntbd\n\n\n\n1\nW\nWed, Apr 1\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus and pass syllabus quiz to activate tokens\nGithub + reproducible reports\ntbd\n\n\n\n1\nF\nFri, Apr 3\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\n\nggplot\ntbd\nHW 1\n\n\n2\nM\nMon, Apr 6\n📚 DataViz 17-21 \n\nTheming + Design\ntbd\n\n\n\n2\nW\nWed, Apr 8\n📚 DataViz 15 \n\nMaps/spatial data\ntbd\nHW 2\n\n\n2\nF\nFri, Apr 10\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\n\nAccesibility for data viz\ntbd\n\n\n\n3\nM\nMon, Apr 13\n📚 R4DS 3.1-3.4 \n\nVerbs\ntbd\n\n\n\n3\nW\nWed, Apr 15\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \n\nGroups and summarizing Tidy data\ntbd\nHW 3\n\n\n3\nF\nFri, Apr 17\n📚 R4DS 4 \n\nCode style\ntbd\n\n\n\n4\nM\nMon, Apr 20\n📚 R4DS 19.1-19.3\n\nCombining datasets\ntbd\n\n\n\n4\nW\nWed, Apr 22\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \n\nImport data and dates/times\ntbd\nHW 4\n\n\n4\nF\nFri, Apr 24\nNO CLASS\nNO CLASS\ntbd\n\n\n\n5\nM\nMon, Apr 27\n📚 R4DS 16 \n\nWorking with factors\ntbd\nPortfolio 1\n\n\n5\nW\nWed, Apr 29\n📚 R4DS 14  📚 R4DS 15.1-15.5\n\nWorking with strings and Regex\ntbd\n\n\n\n5\nF\nFri, May 1\n📚 MDSR 19.2  🌎 Google ngram viewer\n\nIntro to Text Analysis\ntbd\nHW 5\n\n\n6\nM\nMon, May 4\n\n🏝️ Midterm Break; no class\ntbd\n\n\n\n6\nW\nWed, May 6\n📚 The Trouble with Sentiment Analysis\n\nText Analysis\ntbd\n\n\n\n6\nF\nFri, May 8\n📚 R4DS 25\n\nFunctions\ntbd\n\nPortfolio 2\n\n\n\n7\nM\nMon, May 11\n📚 MDSR 7.1-7.3\n\nIteration\ntbd\nHW6\n\n\n7\nW\nWed, May 13\n\nIteration II\ntbd\n\n\n\n7\nF\nFri, May 15\n\nAPIs\ntbd\nHW7\n\n\n8\nM\nMon, May 18\n\nScraping I\ntbd\nFinal Project Idea Form\n\n\n8\nW\nWed, May 20\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\n\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nF\nFri, May 22\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\n\nIntro to Interactivity\ntbd\n\nHW8 Portfolio 3\n\n\n\n9\nM\nMon, May 25\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\n\nShiny 1\ntbd\n\n\n\n9\nW\nWed, May 27\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\n\nShiny 2\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, May 29\n\nShiny 3\ntbd\n\n\n\n10\nM\nMon, Jun 1\n\nProject Demos\ntbd\n\n\n\n10\nW\nWed, Jun 3\n\nProject Demos\ntbd\nHW9\n\n\n\nNA\nMon, Jun 8\n\nFinal Project Due @ noon\ntbd\nFinal Project",
+    "crumbs": [
+      "Course information",
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html",
+    "href": "course-syllabus.html",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "",
+    "text": "Meetings\nMWF 4a\n12:30-1:40 MW, 1:10-2:10 F\nCMC 102\n\n\nProfessor\nEmily Kurtz\nCMC 225\n\n\n\nekurtz@carleton.edu\n\n\n\nOffice Hours\nMon 2-3, Tues 10:30-11:30, Wed 11:30-12:30, Fri 12-1\nTues hours by appointment only through my Google Calendar\nCMC 307\n\n\nWebsite\ngithub.com/stat220-s26\n\n\n\nTexts\nR for Data Science (2nd Ed)\nhttps://r4ds.hadley.nz/\nWickham, Çetinkaya-Rundel, Grolemund\n\n\n\n\nModern Data Science with R (3rd Ed)\nhttps://mdsr-book.github.io/mdsr3e/\nBaumer, Kaplan, Horton\n\n\n\n\nFundamentals of Data Visualization\nhttps://clauswilke.com/dataviz/\nWilke\n\n\n\nSoftware\nMaize RStudio Server &lt;maize.mathcs.carleton.edu&gt;\n\n\n\n\nR (optional) free from &lt;r-project.org&gt;\n\n\n\n\nRStudio (optional) free from &lt;rstudio.com/downloads&gt;",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#meetings",
+    "href": "course-syllabus.html#meetings",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "Meetings",
+    "text": "Meetings\nThere will be three course meetings per week (Mondays, Wednesdays, and Fridays). Daily attendance and active participation is expected. Course meetings will combine demonstrations/lecture and in-class group exercises. On most days, I’ll ask you to complete a reading or watch a short video before class.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#assignments",
+    "href": "course-syllabus.html#assignments",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "Assignments",
+    "text": "Assignments\nHomework will be assigned once-ish per week, distributed via GitHub. You will submit homework assignments via gradescope. You will use quarto for all assignments and submit all necessary work for each assignment on GitHub.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#portfolio-projects",
+    "href": "course-syllabus.html#portfolio-projects",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "Portfolio Projects",
+    "text": "Portfolio Projects\nPortfolio project require you to integrate several smaller computational tasks and require clear communication of the proposed solution or findings to a broader audience. You will typically work alone or in pairs.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#lab-quizzes",
+    "href": "course-syllabus.html#lab-quizzes",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "Lab Quizzes",
+    "text": "Lab Quizzes\nPart of being proficient in data science is being able to do basic data analysis “on the fly”, without access to class resources. There will be 3 short (~30 minute) in-class, pencil-and-paper lab quizzes to assess your ability to recall concepts and describe basic data analysis tasks. I recognize that this won’t always map closely to other things we do in this class, so you’ll also have the opportunity to revise quiz answers with access to R.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#final-project",
+    "href": "course-syllabus.html#final-project",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "Final Project",
+    "text": "Final Project\nThe final project is a capstone experience synthesizing everything you’ve learned over the course of the term. This is an opportunity for you to exercise your creativity and create something meaningful. The final project is wildly open-ended and more details will follow.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#communication",
+    "href": "course-syllabus.html#communication",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "Communication",
+    "text": "Communication\nAssignments and slides will be shared publicly on our course website. Grades will be posted on Gradescope. Any time-sensitive announcements will be sent via Moodle. It is your responsibility to make sure that your notification settings allow time-sensitive announcements to reach you.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#how-each-assignment-is-graded",
+    "href": "course-syllabus.html#how-each-assignment-is-graded",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "How each assignment is graded",
+    "text": "How each assignment is graded\nEach assignment will include a short rubric with the specifications of how I will evaluate your work. In general, these are the “marks” that you can receive on each course component:\n\n\n\n\n\n\n\n\n\nHow it’s evaluated\nHow it’s recorded\n\n\n\n\nHomework Problems\nCompleteness, Correctness, and Effort\nSuccessful or Not Successful\n\n\nLab Quiz Problems\nCompleteness and Correctness\nSuccessful or Not Successful\n\n\nPortfolio Projects\nCompleteness, effort, correctness, and communication quality\nExcellent, Successful, or Revision\n\n\nFinal Project\nCompleteness, effort, correctness, and communication quality\nExcellent, Succesful, or Not Successful",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#earning-a-course-grade",
+    "href": "course-syllabus.html#earning-a-course-grade",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "Earning a course grade",
+    "text": "Earning a course grade\nYour course grade is assigned using the table below. Each row indicates the minimum percentage of “Successful” results needed to satisfy the requirement of that grade. To earn a grade, complete all requirements listed in the row for that grade.\n\n\n\n\n\n\n\n\n\n\n\nHomework Problems\nLab Quiz Problems\nPortfolio Projects (4 total)\nFinal Project\n\n\n\n\nA\n85%\n90%\n2 Excellent, 2 Successful\nExcellent\n\n\nB\n75%\n80%\n4 Successful\nSuccessful\n\n\nC\n65%\n70%\n3 Successful\nSuccessful\n\n\nD\n55%\n50%\n2 Successful\nSuccessful\n\n\n\nExample: Ben finishes the course with 82% of homework problems successfully completed, 85% of lab quiz problems successfully completed, 2/4 portfolio projects marked “excellent”, and a “Successful” final project. Ben satisfies everything in the “B” row and earns a “B” in the course.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#plusminus-grades",
+    "href": "course-syllabus.html#plusminus-grades",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "Plus/minus grades",
+    "text": "Plus/minus grades\n“Plus” and “minus” grades will be given if you complete all the requirements for a base letter grade and make sufficient progress toward the next grade. Below is an overview:\n\nIf “B” base grade:\n\nand A in two bins: “B+”\nand A in three bins: “A-”\n\nIf “C” base grade:\n\nand at least B in two bins: “C+”\nand at least B in three bins: “B-”\n\nIf “D” base grade:\n\nand at least C in two bins: “D+”\nand at least C in three bins: “C-”\n\nIf “F” base grade:\n\nand at least D in two bins: “D-”\n\n\nExample: Mira finishes the course with 88% of homework problems successfully completed, 85% of lab quiz problems successfully completed, 3/4 portfolio projects marked “excellent”, and a “Successful” final project. Mira satisfies everything in the “B” row, and meets the “A” threshold for two bins (homework and portfolio projects). Mira earns a B+. If Mira instead receives “excellent” marks on the final project, Mira earns an A-.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#attendance-and-participation-policy",
+    "href": "course-syllabus.html#attendance-and-participation-policy",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "Attendance and participation policy",
+    "text": "Attendance and participation policy\nI expect daily attendance and participation. Missing &gt;5 class meetings or ongoing, consistent issues with being on-task will result in a 1/3 grade deduction.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#important-points-about-this-grading-system",
+    "href": "course-syllabus.html#important-points-about-this-grading-system",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "Important points about this grading system",
+    "text": "Important points about this grading system\n\nDifferent categories of coursework do not “average together”: you can’t make up for less-than-great work on portfolio projects by doing very well on quizzes, for instance. Each course grade requires consistent quality across all bins to earn the grade\nYou do not have to do everything. If you want an “A” in the class, for example, you don’t have to complete every quiz question correctly, only 90% of them.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#what-if-i-miss-an-in-person-lab-quiz",
+    "href": "course-syllabus.html#what-if-i-miss-an-in-person-lab-quiz",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "What if I miss an in-person lab quiz?",
+    "text": "What if I miss an in-person lab quiz?\nIf you need to miss a lab quiz due to a planned conflict, please make arrangements with me at least two weeks in advance. If you must miss a lab quiz due to an illness or last-minute emergency, you must notify me in advance of the quiz to arrange an alternative time. If you do not notify me in advance, you will earn 0/10 points on the in-class portion, but can still submit the revision as usual.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#tokens",
+    "href": "course-syllabus.html#tokens",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "Tokens",
+    "text": "Tokens\n\nTurning in a token provides either (a) a 72-hour extension on a homework assignment, (b) a revision on a portfolio project, or (c) a retake of a lab quiz a 72-hour extension on the lab quiz revision\nTokens may be used for extensions on the final project milestone check-ins, but not for the final due-date. Milestone check-ins cannot be revised\nYou can revise the same portfolio project multiple times, if needed, but you must spend a token each time.\nA portfolio project must be completed with a good-faith effort to be eligible for revision. If I deem a submission to be “not assessable” due to a lack of effort, then it cannot be revised.\nAll revisions must be submitted by 11:59pm on the last day of class.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#textbook",
+    "href": "course-syllabus.html#textbook",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "Textbook",
+    "text": "Textbook\nThere is no “perfect” data science textbook. We will use excerpts from the following texts:\n\nR for Data Science 2e\nModern Data Science with R 3e\nFundamentals of Data Visualization\n\nThese books are all freely available online. If you prefer a hard copy, they are also available for purchase through the publisher.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#software",
+    "href": "course-syllabus.html#software",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "Software",
+    "text": "Software\nThe use of the R programming language, with the RStudio interface is an essential component of this course. You have two options for using RStudio:\n\nThe server version of RStudio on the web at https://maize.mathcs.carleton.edu. The advantage of using the server version is that all of your work will be stored in the cloud, where it is automatically saved and backed up. This means that you can access your work from any computer on campus using a web browser. The downside is that you have to share limited computational resources with each other!\nA local version of RStudio installed on your machine.The downside to this approach is that your work is only stored locally, but I get around this problem by keeping all of my work on GitHub. You will learn how to use GitHub throughout the course.\n\nPartway through the course, I will require you to download a local version of R and Rstudio. This is because the amount of computing power we will eventually need is more than the server can handle all at once. Both R and RStudio are free and open-source.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-links.html",
+    "href": "course-links.html",
+    "title": "Useful links",
+    "section": "",
+    "text": "RStudio Server\n🔗 Carleton’s Maize Server\n\n\nCourse GitHub organization\n🔗 GitHub\n\n\nGradebook\n🔗 on Moodle\n\n\nSpend a Token\n🔗 Spend a token\n\n\nTextbooks\n🔗 Modern Data Science with R (MDS)\n🔗 R for Data Science (R4DS)\n🔗 Fundamentals of Data Visualization\n\n\nPackage documentation\n🔗 ggplot2: ggplot2.tidyverse.org\n🔗 dplyr: dplyr.tidyverse.org\n🔗 tidyr: tidyr.tidyverse.org\n🔗 forcats: forcats.tidyverse.org\n🔗 stringr: stringr.tidyverse.org\n🔗 lubridate: lubridate.tidyverse.org\n🔗 readr: readr.tidyverse.org",
+    "crumbs": [
+      "Course information",
+      "Useful links"
+    ]
+  },
+  {
+    "objectID": "slides/01/slides01.html#about-me",
+    "href": "slides/01/slides01.html#about-me",
+    "title": "Welcome to Stat 220",
+    "section": "About me",
+    "text": "About me\n\n\n\nFirst year at Carleton!\nPhD in Political Science from the University of Minnesota\nM.S. in Statistics from UMN\nOriginally from(ish) Cleveland, Ohio\nWent to Wellesley College for undergrad\nHave an almost 2 year old toddler named Glenn\nLike to walk around lakes, bike, play video games, and try out local restaurants\n\n\n%"
+  },
+  {
+    "objectID": "slides/01/slides01.html#proud-of-nervous-about",
+    "href": "slides/01/slides01.html#proud-of-nervous-about",
+    "title": "Welcome to Stat 220",
+    "section": "Proud of/ Nervous about",
+    "text": "Proud of/ Nervous about"
+  },
+  {
+    "objectID": "slides/01/slides01.html#in-groups-of-3-4",
+    "href": "slides/01/slides01.html#in-groups-of-3-4",
+    "title": "Welcome to Stat 220",
+    "section": "In groups of 3-4",
+    "text": "In groups of 3-4\n\n\nIntroduce yourselves: name, year, academic interest, personal interest\nShare a bit about why you’re taking this class"
+  },
+  {
+    "objectID": "slides/01/slides01.html#what-is-this-class-about",
+    "href": "slides/01/slides01.html#what-is-this-class-about",
+    "title": "Welcome to Stat 220",
+    "section": "What is this class about?",
+    "text": "What is this class about?\n\nDevelop research questions that can be answered with data\nAcquire data from multiple sources\nWrangle common types of data\nVisualize data to provide insight\nCommunicate your findings\nDocument your code and collaborate on coding projects"
+  },
+  {
+    "objectID": "slides/01/slides01.html#sneak-peek-class-survey-data",
+    "href": "slides/01/slides01.html#sneak-peek-class-survey-data",
+    "title": "Welcome to Stat 220",
+    "section": "Sneak peek: class survey data",
+    "text": "Sneak peek: class survey data\n\n\n# A tibble: 10 × 3\n   class_year sleep northfield_food\n   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;          \n 1 Sophomore      7 Desi Diner     \n 2 Sophomore      7 New Buffet     \n 3 Junior         7 Driving by car.\n 4 Junior         8 Desi Diner     \n 5 Senior         7 El Tri         \n 6 Sophomore      6 Desi Diner     \n 7 Junior         7 Desi diner     \n 8 First year    NA Pho            \n 9 Senior         8 El Triunfo     \n10 First year     8 culvers"
+  },
+  {
+    "objectID": "slides/01/slides01.html#section",
+    "href": "slides/01/slides01.html#section",
+    "title": "Welcome to Stat 220",
+    "section": "",
+    "text": "You took a survey\n\n\nGoogle saved your responses in a sheet\n\n\nI read your data into R, cleaned it, and saved it as a CSV"
+  },
+  {
+    "objectID": "slides/01/slides01.html#multiple-choice-question-where-you-could-only-pick-one-option",
+    "href": "slides/01/slides01.html#multiple-choice-question-where-you-could-only-pick-one-option",
+    "title": "Welcome to Stat 220",
+    "section": "Multiple choice question where you could only pick one option",
+    "text": "Multiple choice question where you could only pick one option\nWhat class year are you?\n\n\nFirst year\nSophomore\nJunior\nSenior"
+  },
+  {
+    "objectID": "slides/01/slides01.html#visualize",
+    "href": "slides/01/slides01.html#visualize",
+    "title": "Welcome to Stat 220",
+    "section": "Visualize",
+    "text": "Visualize\n\n\nCode\nsurvey |&gt;\n  count(class_year) |&gt;\n  mutate(prop = n/sum(n)) |&gt;\n  ggplot(aes(y = class_year, x = prop, fill = class_year)) + \n  geom_col(show.legend = FALSE) + \n  scale_x_continuous(labels = percent_format(accuracy = 1), breaks = c(0, .1, .2, .3, .4, .5)) + \n  labs(\n    title = \"Class year among Stat220 Students\",\n    y = \"\",\n    x = \"Proportion\",\n    caption = \"Self-reported data collected from Stat220 students by 10am on Jan 5\"\n  ) + \n  scale_fill_viridis_d(end = .75, option = \"plasma\")"
+  },
+  {
+    "objectID": "slides/01/slides01.html#question-where-you-could-enter-a-number",
+    "href": "slides/01/slides01.html#question-where-you-could-enter-a-number",
+    "title": "Welcome to Stat 220",
+    "section": "Question where you could enter a number",
+    "text": "Question where you could enter a number\nHow many hours of sleep per night do you typically get during the term?\n\nsummary(survey$sleep)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's \n  6.000   7.000   7.000   7.219   8.000   9.000       1"
+  },
+  {
+    "objectID": "slides/01/slides01.html#open-ended-question",
+    "href": "slides/01/slides01.html#open-ended-question",
+    "title": "Welcome to Stat 220",
+    "section": "Open-ended question",
+    "text": "Open-ended question\nWhere can you find the best food in Northfield?\n\nsurvey$northfield_food\n\n [1] \"Driving by car.\"        \"Pho\"                    \"DoorDash\"              \n [4] NA                       \"Reunion\"                \"culvers\"               \n [7] \"Desi diner\"             \"Reunion or Blue Monday\" \"El Tri\"                \n[10] \"Desi Diner\"             \"Coco's\"                 \"Desi Diner\"            \n[13] \"El Triunfo\"             \"Desi Diner\"             \"Desi Diner\"            \n[16] \"New Buffet\"             \"El tri\""
+  },
+  {
+    "objectID": "slides/01/slides01.html#visualize-1",
+    "href": "slides/01/slides01.html#visualize-1",
+    "title": "Welcome to Stat 220",
+    "section": "Visualize",
+    "text": "Visualize\n\n\nCode\nsurvey |&gt;\n  count(northfield_food) |&gt;\n  mutate(prop = n/sum(n)) |&gt;\n  ggplot(aes(y = northfield_food, x = prop, fill = northfield_food)) + \n  geom_col(show.legend = FALSE) + \n  scale_x_continuous(labels = percent_format(accuracy = 1), breaks = c(0, .1, .2, .3, .4, .5)) + \n  labs(\n    title = \"Where can you find the best food in Northfield?\",\n    y = \"\",\n    x = \"Proportion\",\n    caption = \"Self-reported data collected from Stat220 students by 10am on Jan 5\"\n  ) + \n  scale_fill_viridis_d(end = .75, option = \"plasma\")"
+  },
+  {
+    "objectID": "slides/01/slides01.html#section-1",
+    "href": "slides/01/slides01.html#section-1",
+    "title": "Welcome to Stat 220",
+    "section": "",
+    "text": "What skills do you need?\n\nprogramming with data\nstatistical modeling\ndomain knowledge\ncommunication"
+  },
+  {
+    "objectID": "slides/01/slides01.html#what-is-this-class-all-about",
+    "href": "slides/01/slides01.html#what-is-this-class-all-about",
+    "title": "Welcome to Stat 220",
+    "section": "What is this class all about?",
+    "text": "What is this class all about?\n\n\n\nImage by Adam Loy  adapted from work of Joe Blitzstein, Hanspeter Pfister, and Hadley Wickham"
+  },
+  {
+    "objectID": "slides/01/slides01.html#why-r",
+    "href": "slides/01/slides01.html#why-r",
+    "title": "Welcome to Stat 220",
+    "section": "Why R?",
+    "text": "Why R?\n\nAnd the second reason, which is both a huge strength of R and a bit of a weakness, is that R is not just a programming language. It was designed from day 1 to be an environment that can do data analysis. So, compared to the other options like Python, you can get up and running in R doing data science, learning much, much less about programming to get started. And that generally makes it like easier to get up and running if you don’t have formal training in computer science or software engineering.\n\n\n-Hadley Wickham, Advice to Young (and Old) Programmers: A Conversation with Hadley Wickham"
+  },
+  {
+    "objectID": "slides/01/slides01.html#section-3",
+    "href": "slides/01/slides01.html#section-3",
+    "title": "Welcome to Stat 220",
+    "section": "",
+    "text": "It’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.\n\n\n\nHadley Wickham, Advice to Young (and Old) Programmers: A Conversation with Hadley Wickham; Artwork by Allison Horst"
+  },
+  {
+    "objectID": "slides/01/slides01.html#maize-server",
+    "href": "slides/01/slides01.html#maize-server",
+    "title": "Welcome to Stat 220",
+    "section": "Maize Server",
+    "text": "Maize Server\n\nhttps://maize.mathcs.carleton.edu\n\n\nBrowser based RStudio instance(s) provided by Carleton\nRequires internet connection to access\nProvides consistency in hardware and software environments\nLocal R installations are also great! If you already have one, you should use it. You may need to install packages as we go."
+  },
+  {
+    "objectID": "slides/01/slides01.html#on-your-own",
+    "href": "slides/01/slides01.html#on-your-own",
+    "title": "Welcome to Stat 220",
+    "section": "On your own:",
+    "text": "On your own:\n\n\nLog into the maize server: &lt;maize.mathcs.carleton.edu&gt;\nFollow the directions at https://stat220-w26.github.io/computing/rstudio-stat220 to create an “activities” folder\nOpen 01-example-unvotes from https://stat220-w26.github.io, and follow the directions to open the file in Rstudio\nSkim the file without running any code:\n\nWhere is the code?\nWhere is the narrative?\n\nRun each code chunk in order. What does this analysis do?"
+  },
+  {
+    "objectID": "slides/01/slides01.html#what-steps-went-into-this-analysis",
+    "href": "slides/01/slides01.html#what-steps-went-into-this-analysis",
+    "title": "Welcome to Stat 220",
+    "section": "What steps went into this analysis?",
+    "text": "What steps went into this analysis?\n\nRecording the original data\nAccessing data via an R package\nCombining multiple datasets into one\nData cleaning: filtering, creating new columns, grouping, summarizing\nMaking a graph\nFitting a smooth line model"
+  },
+  {
+    "objectID": "slides/01/slides01.html#your-turn",
+    "href": "slides/01/slides01.html#your-turn",
+    "title": "Welcome to Stat 220",
+    "section": "Your turn:",
+    "text": "Your turn:\n\nWith your neighbor(s):\nChoose two countries to compare to the U.S. voting record in the U.N. over the years.\nWhat did you learn?"
+  },
+  {
+    "objectID": "slides/01/slides01.html#section-4",
+    "href": "slides/01/slides01.html#section-4",
+    "title": "Welcome to Stat 220",
+    "section": "",
+    "text": "Course website\n\nhttps://stat220-w26.github.io\n\n\naccess slides\nsee schedule\n\nCourse github organization\n\nhttps://github.com/stat220-w26\n\n\naccess repositories for homework and projects"
+  },
+  {
+    "objectID": "slides/01/slides01.html#office-hours-tentative",
+    "href": "slides/01/slides01.html#office-hours-tentative",
+    "title": "Welcome to Stat 220",
+    "section": "Office hours (tentative)",
+    "text": "Office hours (tentative)\n\n\n\nDay\nTime\nType\nLocation\n\n\n\n\nMonday\n1:30-2:30\nDrop-in\nCMC 307\n\n\nTuesday\n3-4\nDrop-in\nCMC 307\n\n\nWednesday\n12:30-1:30\nDrop-in\nCMC 307\n\n\nFriday\n10-11\nAppts\nCMC 223"
+  },
+  {
+    "objectID": "slides/01/slides01.html#where-is-amanda-this-term",
+    "href": "slides/01/slides01.html#where-is-amanda-this-term",
+    "title": "Welcome to Stat 220",
+    "section": "Where is Amanda this term?",
+    "text": "Where is Amanda this term?"
+  },
+  {
+    "objectID": "slides/01/slides01.html#what-will-you-do-in-this-course",
+    "href": "slides/01/slides01.html#what-will-you-do-in-this-course",
+    "title": "Welcome to Stat 220",
+    "section": "What will you do in this course?",
+    "text": "What will you do in this course?\n\n\nGraded work:\n\nHomework\nLab Quizzes\nPortfolio Projects\nFinal Project\n\n\nUngraded work:\n\nDaily prep for class: read/watch/review/try\nIn-class exercises\nEngagement in small and large group discussions"
+  },
+  {
+    "objectID": "slides/01/slides01.html#what-will-a-typical-dayweek-look-like",
+    "href": "slides/01/slides01.html#what-will-a-typical-dayweek-look-like",
+    "title": "Welcome to Stat 220",
+    "section": "What will a typical day/week look like?",
+    "text": "What will a typical day/week look like?\n\n\nBefore class:\n\nWatch a video or read a chapter\nCome with questions\nBe prepared to try what was covered\n\n\nIn class:\n\nMini lecture\n\nSometimes review\nSometimes new\n\nHands-on coding in R\n\n\nAfter class:\n\nFinish in-class exercises\nWork on homework and portfolio projects"
+  },
+  {
+    "objectID": "slides/01/slides01.html#grading-system",
+    "href": "slides/01/slides01.html#grading-system",
+    "title": "Welcome to Stat 220",
+    "section": "Grading system",
+    "text": "Grading system\nHomework and lab quiz problems will be graded as successful, half credit, or not successful. Projects will be graded as excellent, successful, or not successful. You will have the opportunity to resubmit the lab quizzes outside of class.\nTo earn a course grade, you must meet all of the requirements in a given row:\n\n\n\n\n\n\n\n\n\n\n\nHomework Problems\nLab Quiz Problems\nPortfolio Projects (4 total)\nFinal Project\n\n\n\n\nA\n85%\n90%\n2 Excellent + 2 Successful\nExcellent\n\n\nB\n75%\n80%\n4 Successful\nSuccessful\n\n\nC\n65%\n70%\n3 Successful\nSuccessful\n\n\nD\n55%\n50%\n2 Successful\nSuccessful\n\n\n\n“+” and “-” grades are determined by partially meeting the requirements in a given row.\nNote: I expect daily attendance and participation. Missing &gt;5 class meetings or consistent issues with being on-task will result in a 1/3 grade deduction."
+  },
+  {
+    "objectID": "slides/01/slides01.html#benefits",
+    "href": "slides/01/slides01.html#benefits",
+    "title": "Welcome to Stat 220",
+    "section": "Benefits",
+    "text": "Benefits\n\nYou decide what grade you’re aiming for, and what you have to do to earn it\nClear guidelines for “successful” and “excellent” grades on projects\nOpportunity to revise and resubmit"
+  },
+  {
+    "objectID": "slides/01/slides01.html#possible-drawbacks",
+    "href": "slides/01/slides01.html#possible-drawbacks",
+    "title": "Welcome to Stat 220",
+    "section": "Possible drawbacks",
+    "text": "Possible drawbacks\n\nNo traditional partial credit!\nHalf-credit is for completed and mostly correct\nRevisions take time\nCategories don’t “average out”"
+  },
+  {
+    "objectID": "slides/01/slides01.html#tokens",
+    "href": "slides/01/slides01.html#tokens",
+    "title": "Welcome to Stat 220",
+    "section": "Tokens",
+    "text": "Tokens\nYou can use a token to:\n\nRevise a portfolio project that did not earn a “successful” or “excellent”\n72-hour extension on a homework assignment or portfolio project submission (the request must be submitted before the deadline)\nRetake a lab quiz [*]\nBy passing the syllabus quiz, you’ll activate your 5 tokens for the term. I will track token balances in the moodle gradebook (updated weekly, typically Thursdays)"
+  },
+  {
+    "objectID": "slides/01/slides01.html#collaboration-policy",
+    "href": "slides/01/slides01.html#collaboration-policy",
+    "title": "Welcome to Stat 220",
+    "section": "Collaboration policy",
+    "text": "Collaboration policy\n\n\n\n\n\n\n\n\nCollaboration Allowed\n\n\n\n\nHomework Problems\nYou are allowed and encouraged to collaborate on homework. You may also use outside resources, but your submitted work must be your own and reflect your own understanding .\n\n\nLab Quiz Problems\nNo collaboration is allowed at all . You may use your own notes for resubmissions, but should not use outside resources.\n\n\nPortfolio Projects\nYou are expected to collaborate with your group, but cannot rely on external sources other than to help motivate the questions or provide other background information. Getting answers on significant parts of solutions from outside resources is not allowed.\n\n\nFinal Project\nYou are expected to collaborate with your group, but cannot rely on external sources other than to help motivate the questions or provide other background information. Any outside resources should be properly cited."
+  },
+  {
+    "objectID": "slides/01/slides01.html#use-of-generative-artificial-intelligence-ai",
+    "href": "slides/01/slides01.html#use-of-generative-artificial-intelligence-ai",
+    "title": "Welcome to Stat 220",
+    "section": "Use of generative artificial intelligence (AI)",
+    "text": "Use of generative artificial intelligence (AI)\n\nTreat generative AI, such as ChatGPT or Gemini, the same as other online resources.\nGuiding principles:\n\n(1) Cognitive dimension: Working with AI should not reduce your ability to think clearly. AI should facilitate—rather than hinder—learning.\n(2) Ethical dimension: If you use AI, you should be transparent about it and make sure it aligns with academic integrity.\n\n❌ AI tools for writing code: You may not use generative AI to take a “first pass” at a coding task. Do not type coursework prompts directly into AI tools.\n✅ AI tools for debugging code: You may make use of the technology to get help with error messages or trying to fix issues. Rule of thumb: never type code into or out of an AI interface\n❌ AI tools for narrative: Unless instructed otherwise, you may not use generative AI to write narrative on assignments. In general, you may use generative AI as a resource as you complete assignments but not to answer the exercises for you.\n\n\n\nAdapted from Mine Çetinkaya-Rundel"
+  },
+  {
+    "objectID": "slides/01/slides01.html#github",
+    "href": "slides/01/slides01.html#github",
+    "title": "Welcome to Stat 220",
+    "section": "GitHub",
+    "text": "GitHub\n\nhttps://github.com/stat220-w26\n\n\nGitHub organization for the course\nAll of your work and your membership (enrollment) in the organization is private\nEach assignment is a private repo on GitHub, I distribute the assignments on GitHub.\nYou will work on your assignment, then “render ➡️ commit ✅ push ⤴️”\nYou’ll then be able to submit your PDF via gradescope\n\n\n\nFill out the Welcome Survey for collection of your account names, later this week you will be invited to the course organization."
+  },
+  {
+    "objectID": "slides/01/slides01.html#username-advice",
+    "href": "slides/01/slides01.html#username-advice",
+    "title": "Welcome to Stat 220",
+    "section": "Username advice",
+    "text": "Username advice\n\nin case you don’t yet have a GitHub account…\n\nSome brief advice about selecting your account names (particularly for GitHub),\n\nIncorporate your actual name! People like to know who they’re dealing with and makes your username easier for people to guess or remember\nReuse your username from other contexts, e.g., your Carleton email or gmail account\nPick a username you will be comfortable revealing to your future boss\nShorter is better than longer, but be as unique as possible\nMake it timeless. Avoid highlighting your current university, employer, or place of residence"
+  },
+  {
+    "objectID": "slides/01/slides01.html#your-tasks-before-next-class",
+    "href": "slides/01/slides01.html#your-tasks-before-next-class",
+    "title": "Welcome to Stat 220",
+    "section": "Your tasks before next class",
+    "text": "Your tasks before next class\n\n\nCreate a GitHub account if you don’t have one\nComplete the welcome survey if you haven’t already\nJoin the slack workspace and post an #intro message\nRead the syllabus and pass syllabus quiz\nMake sure you can log in to the maize server or update your local R/RStudio versions\nComplete the readings for next class"
+  },
+  {
+    "objectID": "slides/01/slides01.html",
+    "href": "slides/01/slides01.html",
+    "title": "Welcome to Stat 220",
+    "section": "",
+    "text": "Second year at Carleton!\nTaught at Swarthmore for 5 years before moving here\nPhD in Statistics & Data Science from Carnegie Mellon University\nGrew up in Minnesota, went to St Ben’s as an undergrad\nWhen I’m not writing R code, making graphs, or chasing after my toddler, I like to read and have been trying to do more fiber crafts\n\n\n\n\n\n\n\n\n\nIntroduce yourselves: name, year, academic interest, personal interest\nShare a bit about why you’re taking this class\n\n\n\n\n\n\n\n\n\n\nDevelop research questions that can be answered with data\n\nAcquire data from multiple sources\n\nWrangle common types of data\n\nVisualize data to provide insight\n\nCommunicate your findings\n\nDocument your code and collaborate on coding projects\n\n\n\n# A tibble: 10 × 3\n   class_year sleep northfield_food\n   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;          \n 1 Junior         7 Desi diner     \n 2 Sophomore      7 Desi Diner     \n 3 Junior         8 Desi Diner     \n 4 Junior         7 Driving by car.\n 5 Senior         7 Desi Diner     \n 6 Sophomore      9 DoorDash       \n 7 Senior         8 El Triunfo     \n 8 First year    NA Pho            \n 9 Sophomore      7 New Buffet     \n10 Senior         6 El tri         \n\n\n\n\n\nYou took a survey\n\n\nGoogle saved your responses in a sheet\n\n\nI read your data into R, cleaned it, and saved it as a CSV\n\n\n\n\nWhat class year are you?\n\n\nFirst year\nSophomore\nJunior\nSenior\n\n\n\n\nCodesurvey |&gt;\n  count(class_year) |&gt;\n  mutate(prop = n/sum(n)) |&gt;\n  ggplot(aes(y = class_year, x = prop, fill = class_year)) + \n  geom_col(show.legend = FALSE) + \n  scale_x_continuous(labels = percent_format(accuracy = 1), breaks = c(0, .1, .2, .3, .4, .5)) + \n  labs(\n    title = \"Class year among Stat220 Students\",\n    y = \"\",\n    x = \"Proportion\",\n    caption = \"Self-reported data collected from Stat220 students by 10am on Jan 5\"\n  ) + \n  scale_fill_viridis_d(end = .75, option = \"plasma\")\n\n\n\n\n\n\n\n\nHow many hours of sleep per night do you typically get during the term?\n\nsummary(survey$sleep)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's \n  6.000   7.000   7.000   7.219   8.000   9.000       1 \n\n\n\nWhere can you find the best food in Northfield?\n\nsurvey$northfield_food\n\n [1] \"Driving by car.\"        \"Pho\"                    \"DoorDash\"              \n [4] NA                       \"Reunion\"                \"culvers\"               \n [7] \"Desi diner\"             \"Reunion or Blue Monday\" \"El Tri\"                \n[10] \"Desi Diner\"             \"Coco's\"                 \"Desi Diner\"            \n[13] \"El Triunfo\"             \"Desi Diner\"             \"Desi Diner\"            \n[16] \"New Buffet\"             \"El tri\"                \n\n\n\n\nCodesurvey |&gt;\n  count(northfield_food) |&gt;\n  mutate(prop = n/sum(n)) |&gt;\n  ggplot(aes(y = northfield_food, x = prop, fill = northfield_food)) + \n  geom_col(show.legend = FALSE) + \n  scale_x_continuous(labels = percent_format(accuracy = 1), breaks = c(0, .1, .2, .3, .4, .5)) + \n  labs(\n    title = \"Where can you find the best food in Northfield?\",\n    y = \"\",\n    x = \"Proportion\",\n    caption = \"Self-reported data collected from Stat220 students by 10am on Jan 5\"\n  ) + \n  scale_fill_viridis_d(end = .75, option = \"plasma\")\n\n\n\n\n\n\n\n\n\n\n\n\nprogramming with data\nstatistical modeling\ndomain knowledge\ncommunication\n\n\n\n\n\n\n\nImage by Adam Loy  adapted from work of Joe Blitzstein, Hanspeter Pfister, and Hadley Wickham\n\n\nAnd the second reason, which is both a huge strength of R and a bit of a weakness, is that R is not just a programming language. It was designed from day 1 to be an environment that can do data analysis. So, compared to the other options like Python, you can get up and running in R doing data science, learning much, much less about programming to get started. And that generally makes it like easier to get up and running if you don’t have formal training in computer science or software engineering.\n\n\n-Hadley Wickham, Advice to Young (and Old) Programmers: A Conversation with Hadley Wickham\n\n\n\n\n\n\n\n\n\n\nIt’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.\n\n\n\n\nHadley Wickham, Advice to Young (and Old) Programmers: A Conversation with Hadley Wickham; Artwork by Allison Horst\n\n\nhttps://maize.mathcs.carleton.edu\n\n\nBrowser based RStudio instance(s) provided by Carleton\nRequires internet connection to access\nProvides consistency in hardware and software environments\nLocal R installations are also great! If you already have one, you should use it. You may need to install packages as we go."
+  },
+  {
+    "objectID": "slides/16/slides16.html#today",
+    "href": "slides/16/slides16.html#today",
+    "title": "Functions",
+    "section": "Today",
+    "text": "Today\n\nWriting Functions\nConditional Execution"
+  },
+  {
+    "objectID": "slides/16/slides16.html#warm-up",
+    "href": "slides/16/slides16.html#warm-up",
+    "title": "Functions",
+    "section": "Warm up",
+    "text": "Warm up\n\nWhat does the mutate code below do?\n\n\ndf %&gt;% slice_head(n = 3)\n\n# A tibble: 3 × 4\n      a       b     c       d\n  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n1  1.08 -1.46   0.243  0.239 \n2  1.02  0.0941 0.431 -0.0970\n3 -1.83  0.310  1.38  -0.841 \n\n\n\ndf |&gt; mutate(\n  a = (a - mean(a, na.rm = TRUE)) / \n    sd(a, na.rm = TRUE),\n  b = (b - mean(b, na.rm = TRUE)) / \n    sd(b, na.rm = TRUE),\n  c = (c - mean(a, na.rm = TRUE)) / \n    sd(c, na.rm = TRUE),\n  d = (d - mean(d, na.rm = TRUE)) / \n    sd(d, na.rm = TRUE)\n)"
+  },
+  {
+    "objectID": "slides/16/slides16.html#rescaling-variables",
+    "href": "slides/16/slides16.html#rescaling-variables",
+    "title": "Functions",
+    "section": "Rescaling variables",
+    "text": "Rescaling variables\nStandardizing/rescaling/normalizing variables is often an essential first step in predictive modeling\n\nExample:\n\nSet of digitized breast cancer image features\nEach row in the data set represents an image of a tumor sample, including the diagnosis (benign or malignant) and several other measurements (nucleus texture, perimeter, area, etc.)\nDiagnosis for each image was conducted by physicians."
+  },
+  {
+    "objectID": "slides/16/slides16.html#section",
+    "href": "slides/16/slides16.html#section",
+    "title": "Functions",
+    "section": "",
+    "text": "# A tibble: 569 × 12\n        ID Class Radius Texture Perimeter  Area Smoothness Compactness Concavity\n     &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n 1  8.42e5 M       18.0    10.4     123.  1001      0.118       0.278     0.300 \n 2  8.43e5 M       20.6    17.8     133.  1326      0.0847      0.0786    0.0869\n 3  8.43e7 M       19.7    21.2     130   1203      0.110       0.160     0.197 \n 4  8.43e7 M       11.4    20.4      77.6  386.     0.142       0.284     0.241 \n 5  8.44e7 M       20.3    14.3     135.  1297      0.100       0.133     0.198 \n 6  8.44e5 M       12.4    15.7      82.6  477.     0.128       0.17      0.158 \n 7  8.44e5 M       18.2    20.0     120.  1040      0.0946      0.109     0.113 \n 8  8.45e7 M       13.7    20.8      90.2  578.     0.119       0.164     0.0937\n 9  8.45e5 M       13      21.8      87.5  520.     0.127       0.193     0.186 \n10  8.45e7 M       12.5    24.0      84.0  476.     0.119       0.240     0.227 \n11  8.46e5 M       16.0    23.2     103.   798.     0.0821      0.0667    0.0330\n12  8.46e7 M       15.8    17.9     104.   781      0.0971      0.129     0.0995\n13  8.46e5 M       19.2    24.8     132.  1123      0.0974      0.246     0.206 \n14  8.46e5 M       15.8    24.0     104.   783.     0.0840      0.100     0.0994\n15  8.47e7 M       13.7    22.6      93.6  578.     0.113       0.229     0.213 \n16  8.48e7 M       14.5    27.5      96.7  659.     0.114       0.160     0.164 \n# ℹ 553 more rows\n# ℹ 3 more variables: Concave_Points &lt;dbl&gt;, Symmetry &lt;dbl&gt;,\n#   Fractal_Dimension &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/16/slides16.html#standardizing-variables",
+    "href": "slides/16/slides16.html#standardizing-variables",
+    "title": "Functions",
+    "section": "Standardizing variables",
+    "text": "Standardizing variables\nGoal: standardize the 10 quantitative variables in the data set\n\nApproach: subtract sample mean, divide by sample standard deviation\n\n\n\nscaled_cancer &lt;- unscaled_cancer %&gt;%\n  mutate(\n    Radius = (Radius - mean(Radius)) / sd(Radius),\n    Texture = (Texture - mean(Texture)) / sd(Texture),\n    Perimeter = (Perimeter - mean(Perimeter)) / sd(Perimeter),\n    Area = (Area - mean(Area)) / sd(Area),\n    Smoothness = (Smoothness - mean(Smoothness)) / sd(Smoothness),\n    Compactness = (Compactness - mean(Compactness)) / sd(Compactness),\n    Concavity = (Concavity - mean(Concavity)) / sd(Concavity),\n    Concave_Points = (Concave_Points - mean(Concave_Points)) / sd(Concave_Points),\n    Symmetry = (Symmetry - mean(Symmetry)) / sd(Symmetry),\n    Fractal_Dimension = (Fractal_Dimension - mean(Fractal_Dimension)) / sd(Fractal_Dimension) \n  )"
+  },
+  {
+    "objectID": "slides/16/slides16.html#dont-repeat-yourself-dry",
+    "href": "slides/16/slides16.html#dont-repeat-yourself-dry",
+    "title": "Functions",
+    "section": "Don’t repeat yourself (DRY)",
+    "text": "Don’t repeat yourself (DRY)\n\nWe’ve copied, pasted, and edited the same code chunk many times\nThat’s a lot of work when the only change in the code is the variable name!\n\n\n\nscaled_cancer &lt;- unscaled_cancer %&gt;%\n  mutate(\n    Radius = (Radius - mean(Radius)) / sd(Radius), \n    Texture = (Texture - mean(Texture)) / sd(Texture), \n    Perimeter = (Perimeter - mean(Perimeter)) / sd(Perimeter), \n    Area = (Area - mean(Area)) / sd(Area), \n    Smoothness = (Smoothness - mean(Smoothness)) / sd(Smoothness), \n    Compactness = (Compactness - mean(Compactness)) / sd(Compactness),\n    Concavity = (Concavity - mean(Concavity)) / sd(Concavity), \n    Concave_Points = (Concave_Points - mean(Concave_Points)) / sd(Concave_Points), \n    Symmetry = (Symmetry - mean(Symmetry)) / sd(Symmetry), \n    Fractal_Dimension = (Fractal_Dimension - mean(Fractal_Dimension)) / sd(Fractal_Dimension) \n  )"
+  },
+  {
+    "objectID": "slides/16/slides16.html#section-1",
+    "href": "slides/16/slides16.html#section-1",
+    "title": "Functions",
+    "section": "",
+    "text": "You should consider writing a function whenever you’ve copied and pasted a  block of code more than twice  —Hadley Wickham"
+  },
+  {
+    "objectID": "slides/16/slides16.html#why-functions",
+    "href": "slides/16/slides16.html#why-functions",
+    "title": "Functions",
+    "section": "Why functions?",
+    "text": "Why functions?\nAutomate common tasks in a more powerful and more general way than copy-and-pasting\n\nYou can give a function an evocative name that makes your code easier to understand.\nAs requirements change, you only need to update code in one place, instead of many.\nYou eliminate the chance of making incidental mistakes when you copy and paste (i.e. updating a variable name in one place, but not in another).\n\n\nDown the line — Improve your reach as a data scientist by writing functions (and packages!) that others use"
+  },
+  {
+    "objectID": "slides/16/slides16.html#anatomy-of-a-function",
+    "href": "slides/16/slides16.html#anatomy-of-a-function",
+    "title": "Functions",
+    "section": "Anatomy of a function",
+    "text": "Anatomy of a function\n\n\n\nA short but informative name, preferably a verb\n\n\n\ncalc_this &lt;- function() { \n\n}"
+  },
+  {
+    "objectID": "slides/16/slides16.html#anatomy-of-a-function-1",
+    "href": "slides/16/slides16.html#anatomy-of-a-function-1",
+    "title": "Functions",
+    "section": "Anatomy of a function",
+    "text": "Anatomy of a function\n\n\n\nA short but informative name, preferably a verb\n\nArguments of the function inside function()\n\n\n\n\ncalc_this &lt;- function(..arguments..) { \n\n}"
+  },
+  {
+    "objectID": "slides/16/slides16.html#anatomy-of-a-function-2",
+    "href": "slides/16/slides16.html#anatomy-of-a-function-2",
+    "title": "Functions",
+    "section": "Anatomy of a function",
+    "text": "Anatomy of a function\n\n\n\nA short but informative name, preferably a verb\n\nArguments of the function inside function()\n\nPlace the code you have developed in body of the function, a { block that immediately follows function(...).\n\n\n\ncalc_this &lt;- function(..arguments..) { \n  # do stuff with arguments \n  # last result will be returned \n}"
+  },
+  {
+    "objectID": "slides/16/slides16.html#building-standardize",
+    "href": "slides/16/slides16.html#building-standardize",
+    "title": "Functions",
+    "section": "Building standardize\n",
+    "text": "Building standardize\n\n\n\n\nA short but informative name, preferably a verb\n\n\n\nstandardize &lt;- function() { \n\n}"
+  },
+  {
+    "objectID": "slides/16/slides16.html#building-standardize-1",
+    "href": "slides/16/slides16.html#building-standardize-1",
+    "title": "Functions",
+    "section": "Building standardize\n",
+    "text": "Building standardize\n\n\n\n\nA short but informative name, preferably a verb\n\nArguments of the function inside function()\n\n\n\n\nstandardize &lt;- function(x) { \n\n}"
+  },
+  {
+    "objectID": "slides/16/slides16.html#building-standardize-2",
+    "href": "slides/16/slides16.html#building-standardize-2",
+    "title": "Functions",
+    "section": "Building standardize\n",
+    "text": "Building standardize\n\n\n\n\nA short but informative name, preferably a verb\n\nArguments of the function inside function()\n\nPlace the code you have developed in body of the function, a { block that immediately follows function(...).\n\n\n\nstandardize &lt;- function(x) { \n  (x - mean(x, na.rm = TRUE)) / sd(x, na.rm = TRUE)\n}"
+  },
+  {
+    "objectID": "slides/16/slides16.html#does-it-work",
+    "href": "slides/16/slides16.html#does-it-work",
+    "title": "Functions",
+    "section": "Does it work?",
+    "text": "Does it work?\nStandardized Compactness\n\nstd_compact &lt;- standardize(unscaled_cancer$Compactness)\nhead(std_compact)\n\n[1]  3.2806281 -0.4866435  1.0519999  3.3999174  0.5388663  1.2432416\n\n\n\nUnstandardized Compactness\n\nhead(unscaled_cancer$Compactness)\n\n[1] 0.27760 0.07864 0.15990 0.28390 0.13280 0.17000"
+  },
+  {
+    "objectID": "slides/16/slides16.html#your-turn",
+    "href": "slides/16/slides16.html#your-turn",
+    "title": "Functions",
+    "section": "Your turn",
+    "text": "Your turn\n\nTurn the following code snippets into functions. Think about what each function does before you begin, and be sure to give each function an informative name.\n\nmean(is.na(x))\nx / sum(x, na.rm = TRUE)\nsd(x, na.rm = TRUE) / mean(x, na.rm = TRUE)\n\n\nYou can test your functions on variables from the palmerpenguins::penguins dataset (e.g. my_func(penguins$flipper_length_mm))."
+  },
+  {
+    "objectID": "slides/16/slides16.html#return-values",
+    "href": "slides/16/slides16.html#return-values",
+    "title": "Functions",
+    "section": "Return values",
+    "text": "Return values\nThe value returned by the function is usually the last statement it evaluates\n\nstandardize &lt;- function(x) { \n  (x - mean(x, na.rm = TRUE)) / sd(x, na.rm = TRUE)\n}\n\n\nYou can force a function to return early using return().\nThis is often paired with conditional execution (more later).\n\nstandardize &lt;- function(x) { \n return((x - mean(x, na.rm = TRUE)) / sd(x, na.rm = TRUE))\n}"
+  },
+  {
+    "objectID": "slides/16/slides16.html#adding-arguments",
+    "href": "slides/16/slides16.html#adding-arguments",
+    "title": "Functions",
+    "section": "Adding arguments",
+    "text": "Adding arguments\nWe can include na.rm as an argument to give the user control over it\n\nstandardize &lt;- function(x, na.rm) {\n  (x - mean(x, na.rm = na.rm)) / sd(x, na.rm = na.rm)\n}\n\n\n\nstd_compact &lt;- standardize(unscaled_cancer$Compactness, na.rm = TRUE)\nhead(std_compact)\n\n[1]  3.2806281 -0.4866435  1.0519999  3.3999174  0.5388663  1.2432416"
+  },
+  {
+    "objectID": "slides/16/slides16.html#setting-defaults",
+    "href": "slides/16/slides16.html#setting-defaults",
+    "title": "Functions",
+    "section": "Setting defaults",
+    "text": "Setting defaults\nUnless a default value is set for an argument, R will require a value to be specified in the function call\n\nstd_compact &lt;- standardize(unscaled_cancer$Compactness)\n\n Error in mean(x, na.rm = na.rm) : \n  argument \"na.rm\" is missing, with no default"
+  },
+  {
+    "objectID": "slides/16/slides16.html#setting-defaults-1",
+    "href": "slides/16/slides16.html#setting-defaults-1",
+    "title": "Functions",
+    "section": "Setting defaults",
+    "text": "Setting defaults\nTo set a default, set the value in the function definition\n\nstandardize &lt;- function(x, na.rm = TRUE) { \n  (x - mean(x, na.rm = na.rm)) / sd(x, na.rm = na.rm)\n}\n\n\nstd_compact &lt;- standardize(unscaled_cancer$Compactness)"
+  },
+  {
+    "objectID": "slides/16/slides16.html#your-turn-1",
+    "href": "slides/16/slides16.html#your-turn-1",
+    "title": "Functions",
+    "section": "Your turn",
+    "text": "Your turn\n\n\nWrite a function called column_mean that takes a data set and column name (as a string) as inputs and returns the column mean as output. (Hint: access the column using [[)\nYou should also include a na.rm argument and set the default to TRUE so that NAs are removed from the calculation by default.\nTest your function on the mtcars data set.\n\n\n\ncolumn_mean(mtcars, \"cyl\")\n\n[1] 6.1875"
+  },
+  {
+    "objectID": "slides/16/slides16.html#plotting-functions",
+    "href": "slides/16/slides16.html#plotting-functions",
+    "title": "Functions",
+    "section": "Plotting functions",
+    "text": "Plotting functions\n\n\np1 = unscaled_cancer %&gt;%\n  ggplot(aes(x = Radius, fill = Class)) + \n  geom_histogram(col = \"white\", bins = 20, alpha = .7) \n\np2 = unscaled_cancer %&gt;%\n  ggplot(aes(x = Texture, fill = Class)) + \n  geom_histogram(col = \"white\", bins = 20, alpha = .7) \n\np3 = unscaled_cancer %&gt;%\n  ggplot(aes(x = Perimeter, fill = Class)) + \n  geom_histogram(col = \"white\", bins = 20, alpha = .7) \n\np4 = unscaled_cancer %&gt;%\n  ggplot(aes(x = Area, fill = Class)) + \n  geom_histogram(col = \"white\", bins = 20, alpha = .7) \n\n(p1 + p2)/(p3 + p4)"
+  },
+  {
+    "objectID": "slides/16/slides16.html#custom-histogram-function",
+    "href": "slides/16/slides16.html#custom-histogram-function",
+    "title": "Functions",
+    "section": "Custom histogram() function",
+    "text": "Custom histogram() function\n\nhistogram &lt;- function(df, var, bins = 20) {\n  df %&gt;%\n    ggplot(aes(x = var, fill = Class)) + \n    geom_histogram(col = \"white\", bins = 20, alpha = .7) \n}\n\nhistogram(unscaled_cancer, Radius)\n\n\nError in `geom_histogram()`:\n! Problem while computing aesthetics.\nℹ Error occurred in the 1st layer.\nCaused by error:\n! object 'Radius' not found"
+  },
+  {
+    "objectID": "slides/16/slides16.html#embracing",
+    "href": "slides/16/slides16.html#embracing",
+    "title": "Functions",
+    "section": "🤗 embracing 🤗",
+    "text": "🤗 embracing 🤗\nThis issue arises in {dplyr} and {ggplot} functions because they use a special kind of evaluation, which allows us to refer to our variable names directly.\n\nTo write our own functions that use these packages, we use 🤗 embracing 🤗 (wrap the variable in braces). This tells R to use the value stored inside the argument, not the argument as the literal variable name.\n\n\nOne way to remember what’s happening is to think of { } as looking down a tunnel — { var } will make a dplyr function look inside of var rather than looking for a variable called var."
+  },
+  {
+    "objectID": "slides/16/slides16.html#histogram-function",
+    "href": "slides/16/slides16.html#histogram-function",
+    "title": "Functions",
+    "section": "\nhistogram() function",
+    "text": "histogram() function\n\n\nhistogram &lt;- function(df, var, bins = 20) {\n  df %&gt;%\n    ggplot(aes(x = {{var}}, fill = Class)) + \n    geom_histogram(col = \"white\", bins = 20, alpha = .7) \n}\n\nhistogram(unscaled_cancer, Radius)"
+  },
+  {
+    "objectID": "slides/16/slides16.html#your-turn-2",
+    "href": "slides/16/slides16.html#your-turn-2",
+    "title": "Functions",
+    "section": "Your turn",
+    "text": "Your turn\n\nWrite a plotting function that makes a scatterplot of any two quantitative variables, coloring the points by a 3rd categorical variable.\nTest your function with the following examples:\n\n\n\n\nscatterplot(unscaled_cancer, \n            Radius, \n            Texture, \n            Class)\n\n\n\n\n\n\n\n\n\nscatterplot(penguins, \n            bill_length_mm, \n            bill_depth_mm, \n            species)"
+  },
+  {
+    "objectID": "slides/16/slides16.html#functions-with-conditional-execution",
+    "href": "slides/16/slides16.html#functions-with-conditional-execution",
+    "title": "Functions",
+    "section": "Functions with conditional execution",
+    "text": "Functions with conditional execution\n\nSometimes, we want our function to do different things depending on the arguments we feed it.\nExample: a histobar function that makes a histogram if the variable is quantitative and a barchart if the variable is categorical.\n\n\n\n\n\nhistobar(unscaled_cancer, Radius)\n\n\n\n\n\n\n\n\n\n\n\nhistobar(unscaled_cancer, Class)"
+  },
+  {
+    "objectID": "slides/16/slides16.html#conditional-execution",
+    "href": "slides/16/slides16.html#conditional-execution",
+    "title": "Functions",
+    "section": "Conditional execution",
+    "text": "Conditional execution\nThe if() statement allows us to control which statements are executed.\n\nif(condition) {\n  # commands when TRUE\n}\n\n\nif(condition) {\n  # commands when TRUE\n} else {\n  # commands when FALSE\n}"
+  },
+  {
+    "objectID": "slides/16/slides16.html#conditional-execution-1",
+    "href": "slides/16/slides16.html#conditional-execution-1",
+    "title": "Functions",
+    "section": "Conditional execution",
+    "text": "Conditional execution\nA basic example\n\nx &lt;- 5\nif (x &gt; 5) {\n  x &lt;- x + 1\n}\nx\n\n\n\n[1] 5\n\n\n\n\nx &lt;- 6\nif (x &gt; 5) {\n  x &lt;- x + 1\n}\nx\n\n\n\n[1] 7"
+  },
+  {
+    "objectID": "slides/16/slides16.html#conditional-execution-2",
+    "href": "slides/16/slides16.html#conditional-execution-2",
+    "title": "Functions",
+    "section": "Conditional execution",
+    "text": "Conditional execution\nAnother basic example\n\nx &lt;- 5\nif (x &gt; 5) {\n  x &lt;- x + 1\n} else {\n  x &lt;- x - 1\n}\n\nx\n\n\n\n[1] 4"
+  },
+  {
+    "objectID": "slides/16/slides16.html#histobar",
+    "href": "slides/16/slides16.html#histobar",
+    "title": "Functions",
+    "section": "histobar",
+    "text": "histobar\n\nhistobar &lt;- function(df, var){\n  if(is.numeric(class({{var}}))){\n    ggplot(df, aes(x = {{var}})) + \n      geom_histogram(col = \"white\")\n  }\n  else {\n    ggplot(df, aes(y = {{var}})) + \n      geom_bar()\n  }\n}\n\n\n\nhistobar(unscaled_cancer, Radius)\n\n\n\nError: object 'Radius' not found"
+  },
+  {
+    "objectID": "slides/16/slides16.html#histobar-1",
+    "href": "slides/16/slides16.html#histobar-1",
+    "title": "Functions",
+    "section": "histobar",
+    "text": "histobar\n{var} is a column in a data frame/tibble, but is.numeric only works on vectors\n\nhistobar &lt;- function(df, var){\n  if(is.numeric(class({{var}}))){\n    ggplot(df, aes(x = {{var}})) + \n      geom_histogram(col = \"white\")\n  }\n  else {\n    ggplot(df, aes(y = {{var}})) + \n      geom_bar()\n  }\n}"
+  },
+  {
+    "objectID": "slides/16/slides16.html#histobar-2",
+    "href": "slides/16/slides16.html#histobar-2",
+    "title": "Functions",
+    "section": "histobar",
+    "text": "histobar\n\nhistobar &lt;- function(df, var){\n  if(is.numeric(df %&gt;% pull({{var}}))){\n    ggplot(df, aes(x = {{var}})) + \n      geom_histogram(col = \"white\")\n  }\n  else {\n    ggplot(df, aes(y = {{var}})) + \n      geom_bar()\n  }\n}"
+  },
+  {
+    "objectID": "slides/16/slides16.html#testing-histobar",
+    "href": "slides/16/slides16.html#testing-histobar",
+    "title": "Functions",
+    "section": "Testing histobar\n",
+    "text": "Testing histobar\n\n\nhistobar(unscaled_cancer, Radius)"
+  },
+  {
+    "objectID": "slides/16/slides16.html#testing-histobar-1",
+    "href": "slides/16/slides16.html#testing-histobar-1",
+    "title": "Functions",
+    "section": "Testing histobar\n",
+    "text": "Testing histobar\n\n\nhistobar(unscaled_cancer, Class)"
+  },
+  {
+    "objectID": "slides/16/slides16.html#testing-histobar-2",
+    "href": "slides/16/slides16.html#testing-histobar-2",
+    "title": "Functions",
+    "section": "Testing histobar\n",
+    "text": "Testing histobar\n\n\nhistobar(palmerpenguins::penguins, species)"
+  },
+  {
+    "objectID": "slides/16/slides16.html#testing-histobar-3",
+    "href": "slides/16/slides16.html#testing-histobar-3",
+    "title": "Functions",
+    "section": "Testing histobar\n",
+    "text": "Testing histobar\n\n\nhistobar(palmerpenguins::penguins, flipper_length_mm)"
+  },
+  {
+    "objectID": "slides/16/slides16.html#your-turn-3",
+    "href": "slides/16/slides16.html#your-turn-3",
+    "title": "Functions",
+    "section": "Your turn",
+    "text": "Your turn\n\nEdit your scatterplot function to include an argument called draw_line. If draw_line is TRUE, your function should add a line of best fit to your scatterplot. Test your function with the following examples\n\n\n\n\nscatterplot(unscaled_cancer, \n            Radius, \n            Texture, \n            Class, \n            draw_line = FALSE)\n\n\n\n\n\n\n\n\n\nscatterplot(palmerpenguins::penguins, \n            bill_length_mm, \n            bill_depth_mm, \n            species, \n            draw_line = TRUE)"
+  },
+  {
+    "objectID": "slides/16/slides16.html#coding-style",
+    "href": "slides/16/slides16.html#coding-style",
+    "title": "Functions",
+    "section": "Coding style",
+    "text": "Coding style\nIt’s ok to drop the curly braces if you have a very short if statement that can fit on one line (no more than 80 characters!)\n\nif (y &lt; 20) \"Too low\" \n\n\nif (y &lt; 20) \"Too low\" else \"Too high\""
+  },
+  {
+    "objectID": "slides/16/slides16.html#coding-style-1",
+    "href": "slides/16/slides16.html#coding-style-1",
+    "title": "Functions",
+    "section": "Coding style",
+    "text": "Coding style\n\nPart of writing reproducible and shareable code is - following good style guidelines.\nMostly, this means choosing good object names and using white space in a consistent and clear way.\nTidyverse style guide has guidelines for writing funtions and if statements"
+  },
+  {
+    "objectID": "slides/17/slides17.html#recap-from-last-class-standardizing-a-vector",
+    "href": "slides/17/slides17.html#recap-from-last-class-standardizing-a-vector",
+    "title": "Iteration",
+    "section": "Recap from last class: Standardizing a vector",
+    "text": "Recap from last class: Standardizing a vector\nHere’s a short function that standardizes an input vector\n\nstandardize &lt;- function(x, na.rm = TRUE) {\n  (x - mean(x, na.rm = na.rm)) / sd(x, na.rm = na.rm)\n}\n\nNow we can easily standardize all of our variables, right?"
+  },
+  {
+    "objectID": "slides/17/slides17.html#cancer-data",
+    "href": "slides/17/slides17.html#cancer-data",
+    "title": "Iteration",
+    "section": "Cancer data",
+    "text": "Cancer data\n\n\nSet of digitized breast cancer image features\nRow = an image of a tumor sample\nVariables include the diagnosis (benign or malignant) and measurements\n\n\n\n\nRows: 569\nColumns: 12\n$ ID                &lt;dbl&gt; 842302, 842517, 84300903, 84348301, 84358402, 843786…\n$ Class             &lt;chr&gt; \"M\", \"M\", \"M\", \"M\", \"M\", \"M\", \"M\", \"M\", \"M\", \"M\", \"M…\n$ Radius            &lt;dbl&gt; 17.990, 20.570, 19.690, 11.420, 20.290, 12.450, 18.2…\n$ Texture           &lt;dbl&gt; 10.38, 17.77, 21.25, 20.38, 14.34, 15.70, 19.98, 20.…\n$ Perimeter         &lt;dbl&gt; 122.80, 132.90, 130.00, 77.58, 135.10, 82.57, 119.60…\n$ Area              &lt;dbl&gt; 1001.0, 1326.0, 1203.0, 386.1, 1297.0, 477.1, 1040.0…\n$ Smoothness        &lt;dbl&gt; 0.11840, 0.08474, 0.10960, 0.14250, 0.10030, 0.12780…\n$ Compactness       &lt;dbl&gt; 0.27760, 0.07864, 0.15990, 0.28390, 0.13280, 0.17000…\n$ Concavity         &lt;dbl&gt; 0.30010, 0.08690, 0.19740, 0.24140, 0.19800, 0.15780…\n$ Concave_Points    &lt;dbl&gt; 0.14710, 0.07017, 0.12790, 0.10520, 0.10430, 0.08089…\n$ Symmetry          &lt;dbl&gt; 0.2419, 0.1812, 0.2069, 0.2597, 0.1809, 0.2087, 0.17…\n$ Fractal_Dimension &lt;dbl&gt; 0.07871, 0.05667, 0.05999, 0.09744, 0.05883, 0.07613…"
+  },
+  {
+    "objectID": "slides/17/slides17.html#standardizing-cancer-data",
+    "href": "slides/17/slides17.html#standardizing-cancer-data",
+    "title": "Iteration",
+    "section": "Standardizing cancer data",
+    "text": "Standardizing cancer data\n\nscaled_cancer &lt;- unscaled_cancer %&gt;%\n  mutate(\n    Radius = standardize(Radius),\n    Texture = standardize(Texture),\n    Perimeter = standardize(Perimeter),\n    Area = standardize(Area),\n    Smoothness = standardize(Smoothness),\n    Compactness = standardize(Compactness),\n    Concavity = standardize(Concavity),\n    Concave_points = standardize(Concave_Points),\n    Symmetry = standardize(Symmetry),\n    Fractal_dimension = standardize(Fractal_Dimension)\n  )"
+  },
+  {
+    "objectID": "slides/17/slides17.html#section",
+    "href": "slides/17/slides17.html#section",
+    "title": "Iteration",
+    "section": "",
+    "text": "You should consider writing a function iterating whenever you’ve copied and pasted a  block of code more than twice\n\n\n—Hadley Wickham  -Amanda Luby"
+  },
+  {
+    "objectID": "slides/17/slides17.html#iteration",
+    "href": "slides/17/slides17.html#iteration",
+    "title": "Iteration",
+    "section": "Iteration",
+    "text": "Iteration\n\nProgrammatically repeat the code\n\nWe have two options for doing this:\n\nusing a for loop, or similar (imperative programming)\nmapping with functional programming"
+  },
+  {
+    "objectID": "slides/17/slides17.html#for-loops",
+    "href": "slides/17/slides17.html#for-loops",
+    "title": "Iteration",
+    "section": "for loops",
+    "text": "for loops\n\nfor loops are the simplest and most common type of loop in R\nGiven a vector iterate through the elements and evaluate the code block for each\n\n\nGoal: Standardize all of the numeric columns via for loops."
+  },
+  {
+    "objectID": "slides/17/slides17.html#for-loops-1",
+    "href": "slides/17/slides17.html#for-loops-1",
+    "title": "Iteration",
+    "section": "for loops",
+    "text": "for loops\n(1) Set up a object to store results\n\nscaled_cancer &lt;- unscaled_cancer %&gt;%\n  mutate(\n    Radius = NA,\n    Texture = NA,\n    Perimeter = NA,\n    Area = NA,\n    Smoothness = NA,\n    Compactness = NA,\n    Concavity = NA,\n    Concave_Points = NA,\n    Symmetry = NA,\n    Fractal_dimension = NA\n  )\n\nscaled_cancer\n\n# A tibble: 569 × 13\n        ID Class Radius Texture Perimeter Area  Smoothness Compactness Concavity\n     &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;  &lt;lgl&gt;   &lt;lgl&gt;     &lt;lgl&gt; &lt;lgl&gt;      &lt;lgl&gt;       &lt;lgl&gt;    \n 1  8.42e5 M     NA     NA      NA        NA    NA         NA          NA       \n 2  8.43e5 M     NA     NA      NA        NA    NA         NA          NA       \n 3  8.43e7 M     NA     NA      NA        NA    NA         NA          NA       \n 4  8.43e7 M     NA     NA      NA        NA    NA         NA          NA       \n 5  8.44e7 M     NA     NA      NA        NA    NA         NA          NA       \n 6  8.44e5 M     NA     NA      NA        NA    NA         NA          NA       \n 7  8.44e5 M     NA     NA      NA        NA    NA         NA          NA       \n 8  8.45e7 M     NA     NA      NA        NA    NA         NA          NA       \n 9  8.45e5 M     NA     NA      NA        NA    NA         NA          NA       \n10  8.45e7 M     NA     NA      NA        NA    NA         NA          NA       \n# ℹ 559 more rows\n# ℹ 4 more variables: Concave_Points &lt;lgl&gt;, Symmetry &lt;lgl&gt;,\n#   Fractal_Dimension &lt;dbl&gt;, Fractal_dimension &lt;lgl&gt;"
+  },
+  {
+    "objectID": "slides/17/slides17.html#for-loops-2",
+    "href": "slides/17/slides17.html#for-loops-2",
+    "title": "Iteration",
+    "section": "for loops",
+    "text": "for loops\n(2) Determine an index over which to iterate\nColumns 3 to 12 are numeric, our index is 3:12\n\n\n# A tibble: 569 × 13\n        ID Class Radius Texture Perimeter Area  Smoothness Compactness Concavity\n     &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;  &lt;lgl&gt;   &lt;lgl&gt;     &lt;lgl&gt; &lt;lgl&gt;      &lt;lgl&gt;       &lt;lgl&gt;    \n 1  8.42e5 M     NA     NA      NA        NA    NA         NA          NA       \n 2  8.43e5 M     NA     NA      NA        NA    NA         NA          NA       \n 3  8.43e7 M     NA     NA      NA        NA    NA         NA          NA       \n 4  8.43e7 M     NA     NA      NA        NA    NA         NA          NA       \n 5  8.44e7 M     NA     NA      NA        NA    NA         NA          NA       \n 6  8.44e5 M     NA     NA      NA        NA    NA         NA          NA       \n 7  8.44e5 M     NA     NA      NA        NA    NA         NA          NA       \n 8  8.45e7 M     NA     NA      NA        NA    NA         NA          NA       \n 9  8.45e5 M     NA     NA      NA        NA    NA         NA          NA       \n10  8.45e7 M     NA     NA      NA        NA    NA         NA          NA       \n# ℹ 559 more rows\n# ℹ 4 more variables: Concave_Points &lt;lgl&gt;, Symmetry &lt;lgl&gt;,\n#   Fractal_Dimension &lt;dbl&gt;, Fractal_dimension &lt;lgl&gt;"
+  },
+  {
+    "objectID": "slides/17/slides17.html#for-loops-3",
+    "href": "slides/17/slides17.html#for-loops-3",
+    "title": "Iteration",
+    "section": "for loops",
+    "text": "for loops\n(3) Iterate through the index, standardize and save results i &lt;- 3\n\n\nfor (i in 3:12){\n  scaled_cancer[, i] &lt;- standardize(unscaled_cancer[[i]])\n}\n\n\n\n# A tibble: 569 × 13\n        ID Class Radius Texture Perimeter Area  Smoothness Compactness Concavity\n     &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt;   &lt;lgl&gt;     &lt;lgl&gt; &lt;lgl&gt;      &lt;lgl&gt;       &lt;lgl&gt;    \n1   842302 M      1.10  NA      NA        NA    NA         NA          NA       \n2   842517 M      1.83  NA      NA        NA    NA         NA          NA       \n3 84300903 M      1.58  NA      NA        NA    NA         NA          NA       \n4 84348301 M     -0.768 NA      NA        NA    NA         NA          NA       \n5 84358402 M      1.75  NA      NA        NA    NA         NA          NA       \n# ℹ 564 more rows\n# ℹ 4 more variables: Concave_Points &lt;lgl&gt;, Symmetry &lt;lgl&gt;,\n#   Fractal_Dimension &lt;dbl&gt;, Fractal_dimension &lt;lgl&gt;"
+  },
+  {
+    "objectID": "slides/17/slides17.html#for-loops-4",
+    "href": "slides/17/slides17.html#for-loops-4",
+    "title": "Iteration",
+    "section": "for loops",
+    "text": "for loops\n(3) Iterate through the index, standardize and save results i &lt;- 4\n\n\nfor (i in 3:12){\n  scaled_cancer[, i] &lt;- standardize(unscaled_cancer[[i]])\n}\n\n\n\n# A tibble: 569 × 13\n        ID Class Radius Texture Perimeter Area  Smoothness Compactness Concavity\n     &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;lgl&gt;     &lt;lgl&gt; &lt;lgl&gt;      &lt;lgl&gt;       &lt;lgl&gt;    \n1   842302 M      1.10   -2.07  NA        NA    NA         NA          NA       \n2   842517 M      1.83   -0.353 NA        NA    NA         NA          NA       \n3 84300903 M      1.58    0.456 NA        NA    NA         NA          NA       \n4 84348301 M     -0.768   0.254 NA        NA    NA         NA          NA       \n5 84358402 M      1.75   -1.15  NA        NA    NA         NA          NA       \n# ℹ 564 more rows\n# ℹ 4 more variables: Concave_Points &lt;lgl&gt;, Symmetry &lt;lgl&gt;,\n#   Fractal_Dimension &lt;dbl&gt;, Fractal_dimension &lt;lgl&gt;"
+  },
+  {
+    "objectID": "slides/17/slides17.html#for-loops-5",
+    "href": "slides/17/slides17.html#for-loops-5",
+    "title": "Iteration",
+    "section": "for loops",
+    "text": "for loops\n(3) Iterate through the index, standardize and save results i &lt;- 5\n\n\nfor (i in 3:12){\n  scaled_cancer[, i] &lt;- standardize(unscaled_cancer[[i]])\n}\n\n\n\n# A tibble: 569 × 13\n        ID Class Radius Texture Perimeter Area  Smoothness Compactness Concavity\n     &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;lgl&gt; &lt;lgl&gt;      &lt;lgl&gt;       &lt;lgl&gt;    \n1   842302 M      1.10   -2.07      1.27  NA    NA         NA          NA       \n2   842517 M      1.83   -0.353     1.68  NA    NA         NA          NA       \n3 84300903 M      1.58    0.456     1.57  NA    NA         NA          NA       \n4 84348301 M     -0.768   0.254    -0.592 NA    NA         NA          NA       \n5 84358402 M      1.75   -1.15      1.78  NA    NA         NA          NA       \n# ℹ 564 more rows\n# ℹ 4 more variables: Concave_Points &lt;lgl&gt;, Symmetry &lt;lgl&gt;,\n#   Fractal_Dimension &lt;dbl&gt;, Fractal_dimension &lt;lgl&gt;"
+  },
+  {
+    "objectID": "slides/17/slides17.html#for-loops-6",
+    "href": "slides/17/slides17.html#for-loops-6",
+    "title": "Iteration",
+    "section": "for loops",
+    "text": "for loops\n(3) Iterate through the index, standardize and save results i &lt;- 6\n\n\nfor (i in 3:12){\n  scaled_cancer[, i] &lt;- standardize(unscaled_cancer[[i]])\n}\n\n\n\n# A tibble: 569 × 13\n       ID Class Radius Texture Perimeter   Area Smoothness Compactness Concavity\n    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;lgl&gt;      &lt;lgl&gt;       &lt;lgl&gt;    \n1  8.42e5 M      1.10   -2.07      1.27   0.984 NA         NA          NA       \n2  8.43e5 M      1.83   -0.353     1.68   1.91  NA         NA          NA       \n3  8.43e7 M      1.58    0.456     1.57   1.56  NA         NA          NA       \n4  8.43e7 M     -0.768   0.254    -0.592 -0.764 NA         NA          NA       \n5  8.44e7 M      1.75   -1.15      1.78   1.82  NA         NA          NA       \n# ℹ 564 more rows\n# ℹ 4 more variables: Concave_Points &lt;lgl&gt;, Symmetry &lt;lgl&gt;,\n#   Fractal_Dimension &lt;dbl&gt;, Fractal_dimension &lt;lgl&gt;"
+  },
+  {
+    "objectID": "slides/17/slides17.html#putting-it-all-together",
+    "href": "slides/17/slides17.html#putting-it-all-together",
+    "title": "Iteration",
+    "section": "Putting it all together:",
+    "text": "Putting it all together:\n\n# Preallocate storage\nscaled_cancer &lt;- unscaled_cancer %&gt;%\n  mutate(\n    Radius = NA,\n    Texture = NA,\n    Perimeter = NA,\n    Area = NA,\n    Smoothness = NA,\n    Compactness = NA,\n    Concavity = NA,\n    Concave_Points = NA,\n    Symmetry = NA,\n    Fractal_dimension = NA\n  )\n\n# Iterate over numeric columns and save\nfor (i in 3:12){\n  scaled_cancer[, i] &lt;- standardize(unscaled_cancer[[i]])\n}\n\nscaled_cancer\n\n# A tibble: 569 × 13\n       ID Class Radius Texture Perimeter   Area Smoothness Compactness Concavity\n    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n 1 8.42e5 M      1.10   -2.07     1.27    0.984      1.57       3.28      2.65  \n 2 8.43e5 M      1.83   -0.353    1.68    1.91      -0.826     -0.487    -0.0238\n 3 8.43e7 M      1.58    0.456    1.57    1.56       0.941      1.05      1.36  \n 4 8.43e7 M     -0.768   0.254   -0.592  -0.764      3.28       3.40      1.91  \n 5 8.44e7 M      1.75   -1.15     1.78    1.82       0.280      0.539     1.37  \n 6 8.44e5 M     -0.476  -0.835   -0.387  -0.505      2.24       1.24      0.866 \n 7 8.44e5 M      1.17    0.161    1.14    1.09      -0.123      0.0882    0.300 \n 8 8.45e7 M     -0.118   0.358   -0.0728 -0.219      1.60       1.14      0.0610\n 9 8.45e5 M     -0.320   0.588   -0.184  -0.384      2.20       1.68      1.22  \n10 8.45e7 M     -0.473   1.10    -0.329  -0.509      1.58       2.56      1.74  \n# ℹ 559 more rows\n# ℹ 4 more variables: Concave_Points &lt;dbl&gt;, Symmetry &lt;dbl&gt;,\n#   Fractal_Dimension &lt;dbl&gt;, Fractal_dimension &lt;lgl&gt;"
+  },
+  {
+    "objectID": "slides/17/slides17.html#your-turn",
+    "href": "slides/17/slides17.html#your-turn",
+    "title": "Iteration",
+    "section": "Your turn",
+    "text": "Your turn\n\nLoad the palmerpenguins package.\nWrite a for loop that calculates the mean of the numeric variables in the penguins data set and stores the means in a named vector.\n\n\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …\n$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…"
+  },
+  {
+    "objectID": "slides/17/slides17.html#preallocate-storage-to-increase-speed",
+    "href": "slides/17/slides17.html#preallocate-storage-to-increase-speed",
+    "title": "Iteration",
+    "section": "Preallocate storage to increase speed",
+    "text": "Preallocate storage to increase speed\n\n\n\nadd_to_vector &lt;- function(n) {\n  output &lt;- NULL \n  for (i in 1:n) {\n    output &lt;- c(output, i)\n  }\n  output\n}\n\nadd_to_vector(10000)\n\n\n\n0.17 sec elapsed\n\n\n\n\nadd_to_vector2 &lt;- function(n) {\n  output &lt;- vector(\"integer\", n)  \n  for (i in 1:n) {\n   output[i] &lt;- i\n  }\n  output\n}\n\nadd_to_vector2(10000)\n\n\n\n0.06 sec elapsed"
+  },
+  {
+    "objectID": "slides/17/slides17.html#the-difference-is-noticable-for-larger-n",
+    "href": "slides/17/slides17.html#the-difference-is-noticable-for-larger-n",
+    "title": "Iteration",
+    "section": "The difference is noticable for larger n",
+    "text": "The difference is noticable for larger n\n\n\n\nadd_to_vector &lt;- function(n) {\n  output &lt;- NULL \n  for (i in 1:n) {\n    output &lt;- c(output, i)\n  }\n  output\n}\n\nadd_to_vector(100000)\n\n6.38 sec elapsed\n\n\nadd_to_vector2 &lt;- function(n) {\n  output &lt;- vector(\"integer\", n)  \n  for (i in 1:n) {\n   output[i] &lt;- i\n  }\n  output\n}\n\nadd_to_vector2(100000)\n\n0.438 sec elapsed"
+  },
+  {
+    "objectID": "slides/17/slides17.html#preallocating-output",
+    "href": "slides/17/slides17.html#preallocating-output",
+    "title": "Iteration",
+    "section": "Preallocating output",
+    "text": "Preallocating output\nHere are a few useful ways to preallocate storage for a vector of length n:\n\noutput &lt;- double(n)    # numeric vector\noutput &lt;- integer(n)   # integer vector\noutput &lt;- character(n) # character vector\noutput &lt;- rep(NA, n)   # vector of NAs\n\n\nYou can make tibbles of NAs by combining vectors via tibble()\n\noutput_tbl &lt;- tibble(\n  a = double(n),\n  b = integer(n),\n  c = character(n),\n  d = rep(NA, n)\n)"
+  },
+  {
+    "objectID": "slides/17/slides17.html#create-index-vector",
+    "href": "slides/17/slides17.html#create-index-vector",
+    "title": "Iteration",
+    "section": "Create index vector",
+    "text": "Create index vector\nUseful ways to create index vector to iterate over:\n\n1:n - manual creation if you already have n stored\n\nseq_along(df) - construct an index “along” the columns of your data frame/tibble\ne.g. seq_along(unscaled_cancer)  ⚠️ Use this instead of 1:nrow(df)or 1:length(x)\n\n\nx - pass in a vector, there’s no reason it needs to be an “index”\ne.g. colnames(unscaled_cancer)"
+  },
+  {
+    "objectID": "slides/17/slides17.html#your-turn-1",
+    "href": "slides/17/slides17.html#your-turn-1",
+    "title": "Iteration",
+    "section": "Your turn:",
+    "text": "Your turn:\n\nRevisit the {palmerpenguins} penguins data.\nWrite a for loop that calculates the summary() of a numeric variable and the table() of a factor variable.\nStore the results in a list (it will have length 8)."
+  },
+  {
+    "objectID": "slides/17/slides17.html#r-has-lots-of-alternatives-to-for-loops",
+    "href": "slides/17/slides17.html#r-has-lots-of-alternatives-to-for-loops",
+    "title": "Iteration",
+    "section": "R has lots of alternatives to for loops",
+    "text": "R has lots of alternatives to for loops\n\nThe basic data type in R is a vector\nIn R, an “integer” is the same as a vector of integers of length 1\nIn more general-purpose programming languages, single items are stored differently than arrays of those items\nThis means that R is highly optimized for vectorized operations"
+  },
+  {
+    "objectID": "slides/17/slides17.html#across-1",
+    "href": "slides/17/slides17.html#across-1",
+    "title": "Iteration",
+    "section": "across()",
+    "text": "across()\n\n\n\n\n.cols: columns to apply function to\n\n.fns function to apply\n\n\n\nacross(.cols, \n       .fns)"
+  },
+  {
+    "objectID": "slides/17/slides17.html#across-on-unscaled-cancer-data",
+    "href": "slides/17/slides17.html#across-on-unscaled-cancer-data",
+    "title": "Iteration",
+    "section": "\nacross() on unscaled cancer data",
+    "text": "across() on unscaled cancer data\n\n\nOne Function\nMultiple Functions\nMutate\n\n\n\n\nunscaled_cancer |&gt;\n  summarize(across(Radius:Fractal_Dimension, mean))\n\n# A tibble: 1 × 10\n  Radius Texture Perimeter  Area Smoothness Compactness Concavity Concave_Points\n   &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;          &lt;dbl&gt;\n1   14.1    19.3      92.0  655.     0.0964       0.104    0.0888         0.0489\n# ℹ 2 more variables: Symmetry &lt;dbl&gt;, Fractal_Dimension &lt;dbl&gt;\n\n\n\n\n\nunscaled_cancer |&gt;\n  summarize(across(Radius:Fractal_Dimension, list(mean = mean, \n                                                  sd = sd)))\n\n# A tibble: 1 × 20\n  Radius_mean Radius_sd Texture_mean Texture_sd Perimeter_mean Perimeter_sd\n        &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;\n1        14.1      3.52         19.3       4.30           92.0         24.3\n# ℹ 14 more variables: Area_mean &lt;dbl&gt;, Area_sd &lt;dbl&gt;, Smoothness_mean &lt;dbl&gt;,\n#   Smoothness_sd &lt;dbl&gt;, Compactness_mean &lt;dbl&gt;, Compactness_sd &lt;dbl&gt;,\n#   Concavity_mean &lt;dbl&gt;, Concavity_sd &lt;dbl&gt;, Concave_Points_mean &lt;dbl&gt;,\n#   Concave_Points_sd &lt;dbl&gt;, Symmetry_mean &lt;dbl&gt;, Symmetry_sd &lt;dbl&gt;,\n#   Fractal_Dimension_mean &lt;dbl&gt;, Fractal_Dimension_sd &lt;dbl&gt;\n\n\n\n\n\nunscaled_cancer |&gt;\n  mutate(across(Radius:Fractal_Dimension, standardize))\n\n# A tibble: 569 × 12\n       ID Class Radius Texture Perimeter   Area Smoothness Compactness Concavity\n    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n 1 8.42e5 M      1.10   -2.07     1.27    0.984      1.57       3.28      2.65  \n 2 8.43e5 M      1.83   -0.353    1.68    1.91      -0.826     -0.487    -0.0238\n 3 8.43e7 M      1.58    0.456    1.57    1.56       0.941      1.05      1.36  \n 4 8.43e7 M     -0.768   0.254   -0.592  -0.764      3.28       3.40      1.91  \n 5 8.44e7 M      1.75   -1.15     1.78    1.82       0.280      0.539     1.37  \n 6 8.44e5 M     -0.476  -0.835   -0.387  -0.505      2.24       1.24      0.866 \n 7 8.44e5 M      1.17    0.161    1.14    1.09      -0.123      0.0882    0.300 \n 8 8.45e7 M     -0.118   0.358   -0.0728 -0.219      1.60       1.14      0.0610\n 9 8.45e5 M     -0.320   0.588   -0.184  -0.384      2.20       1.68      1.22  \n10 8.45e7 M     -0.473   1.10    -0.329  -0.509      1.58       2.56      1.74  \n# ℹ 559 more rows\n# ℹ 3 more variables: Concave_Points &lt;dbl&gt;, Symmetry &lt;dbl&gt;,\n#   Fractal_Dimension &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/17/slides17.html#helper-functions-for-across",
+    "href": "slides/17/slides17.html#helper-functions-for-across",
+    "title": "Iteration",
+    "section": "Helper functions for across()\n",
+    "text": "Helper functions for across()\n\n\n\n\nwhere(is.numeric) selects all numeric columns.\n\nwhere(is.character) selects all string columns.\n\nwhere(is.Date) selects all date columns.\n\nwhere(is.logical) selects all logical columns."
+  },
+  {
+    "objectID": "slides/17/slides17.html#across-on-unscaled-cancer-data-1",
+    "href": "slides/17/slides17.html#across-on-unscaled-cancer-data-1",
+    "title": "Iteration",
+    "section": "\nacross() on unscaled cancer data",
+    "text": "across() on unscaled cancer data\n\nunscaled_cancer %&gt;%\n  mutate(across(where(is.numeric), standardize))\n\n# A tibble: 569 × 12\n       ID Class Radius Texture Perimeter   Area Smoothness Compactness Concavity\n    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n 1 -0.236 M      1.10   -2.07     1.27    0.984      1.57       3.28      2.65  \n 2 -0.236 M      1.83   -0.353    1.68    1.91      -0.826     -0.487    -0.0238\n 3  0.431 M      1.58    0.456    1.57    1.56       0.941      1.05      1.36  \n 4  0.432 M     -0.768   0.254   -0.592  -0.764      3.28       3.40      1.91  \n 5  0.432 M      1.75   -1.15     1.78    1.82       0.280      0.539     1.37  \n 6 -0.236 M     -0.476  -0.835   -0.387  -0.505      2.24       1.24      0.866 \n 7 -0.236 M      1.17    0.161    1.14    1.09      -0.123      0.0882    0.300 \n 8  0.433 M     -0.118   0.358   -0.0728 -0.219      1.60       1.14      0.0610\n 9 -0.236 M     -0.320   0.588   -0.184  -0.384      2.20       1.68      1.22  \n10  0.433 M     -0.473   1.10    -0.329  -0.509      1.58       2.56      1.74  \n# ℹ 559 more rows\n# ℹ 3 more variables: Concave_Points &lt;dbl&gt;, Symmetry &lt;dbl&gt;,\n#   Fractal_Dimension &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/17/slides17.html#across-with-a-new-function",
+    "href": "slides/17/slides17.html#across-with-a-new-function",
+    "title": "Iteration",
+    "section": "\nacross() with a new function",
+    "text": "across() with a new function\nLet’s say we want the range of each quantitative variable (max(x) - min(x)). We could name a new function, or we could do it directly in across()\n\n\nunscaled_cancer %&gt;%\n  summarize(across(where(is.numeric), function(x) max(x) - min(x)))\n\n\n\n# A tibble: 1 × 11\n         ID Radius Texture Perimeter  Area Smoothness Compactness Concavity\n      &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n1 911311832   21.1    29.6      145. 2358.      0.111       0.326     0.427\n# ℹ 3 more variables: Concave_Points &lt;dbl&gt;, Symmetry &lt;dbl&gt;,\n#   Fractal_Dimension &lt;dbl&gt;\n\n\n\n\nOr we can use an anonymous function\n\nunscaled_cancer %&gt;%\n  summarize(across(where(is.numeric), \\(x) max(x) - min(x)))\n\n# A tibble: 1 × 11\n         ID Radius Texture Perimeter  Area Smoothness Compactness Concavity\n      &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n1 911311832   21.1    29.6      145. 2358.      0.111       0.326     0.427\n# ℹ 3 more variables: Concave_Points &lt;dbl&gt;, Symmetry &lt;dbl&gt;,\n#   Fractal_Dimension &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/17/slides17.html#your-turn-2",
+    "href": "slides/17/slides17.html#your-turn-2",
+    "title": "Iteration",
+    "section": "Your turn",
+    "text": "Your turn\n\nUse summarize and across to find the range of any quantitative variables, and the number of levels of any factor variables in the penguins dataset.\n\n\ncountdown(4)"
+  },
+  {
+    "objectID": "slides/17/slides17.html#section-1",
+    "href": "slides/17/slides17.html#section-1",
+    "title": "Iteration",
+    "section": "",
+    "text": "The good news: we can use across to do lots of for-loop-type tasks in our {dplyr} pipelines.\n\nThe bad news: across() only works with {dplyr} functions like mutate or summarize\n\n\nThe good news: there’s a more general-purpose solution in the {tidyverse} (which we’ll see next time!)"
+  },
+  {
+    "objectID": "slides/18/slides18.html#bakeoff-data-season-14-only",
+    "href": "slides/18/slides18.html#bakeoff-data-season-14-only",
+    "title": "Iteration II",
+    "section": "Bakeoff data (season 14 only)",
+    "text": "Bakeoff data (season 14 only)\n\nbakeoff = read_csv(\"https://stat220-w26.github.io/data/bakeoff-episodes.csv\") |&gt;\n  filter(series == 14)\n\nbakeoff\n\n# A tibble: 76 × 7\n   series episode baker  signature                  technical showstopper result\n    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;                          &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt; \n 1     14       1 Abbi   Foraged Poppy Seed, Lemon…         3 'Herbert t… Safe  \n 2     14       1 Amos   Blood Orange & Dark Choco…         2 'Orca on a… Elimi…\n 3     14       1 Cristy 'Lemon Meringue' Vertical…         6 'Raspberry… Safe  \n 4     14       1 Dan    Rhubarb & Custard Vertica…         1 'Bruno' Ca… Star …\n 5     14       1 Dana   'Salted Caramel Latte' Ve…        12 'My Amazin… Safe  \n 6     14       1 Josh   'Tropical' Vertical Layer…         8 'Mum's Hig… Safe  \n 7     14       1 Keith  'Dad's Chocolate Orange' …         4 'Maisie' C… Safe  \n 8     14       1 Matty  'Tiramisu' Vertical Layer…         7 'Marty the… Safe  \n 9     14       1 Nicky  'St. Clements' Vertical L…        10 'Always Be… Safe  \n10     14       1 Rowan  Chocolate & Raspberry Ver…         9 'Cosmopoli… Safe  \n# ℹ 66 more rows"
+  },
+  {
+    "objectID": "slides/18/slides18.html#warm-up",
+    "href": "slides/18/slides18.html#warm-up",
+    "title": "Iteration II",
+    "section": "Warm up",
+    "text": "Warm up\n\nWhat does this chunk of code do? What will results look like?\n\n\nresults = character(10)\n\nfor(k in 1:10){\n  eliminated = bakeoff |&gt;\n    filter(episode == k, str_detect(result, \"Eliminated\")) \n  \n  if(nrow(eliminated) == 1){\n    results[k] = eliminated$showstopper\n  } else if(nrow(eliminated) &gt; 1){\n    results[k] = str_flatten(eliminated$showstopper, collapse = \", \")\n  } else{\n    results[k] = \"none\"\n  }\n}"
+  },
+  {
+    "objectID": "slides/18/slides18.html#warm-up-1",
+    "href": "slides/18/slides18.html#warm-up-1",
+    "title": "Iteration II",
+    "section": "Warm up",
+    "text": "Warm up\n\nresults\n\n [1] \"'Orca on a Wave' Cake\"                                                   \n [2] \"'Seaside Meal Deal' Illusion Biscuits\"                                   \n [3] \"'My Favourite Tree' Plaited Centrepiece\"                                 \n [4] \"none\"                                                                    \n [5] \"'Gran's Garden Trio' Decorative Pies, 'Lattice Fabulous' Decorative Pies\"\n [6] \"'Stop and Smell the Rosé' Floral Dessert\"                                \n [7] \"'Flowers for my Bee' Meringue Bombe\"                                     \n [8] \"'Marvellous Sweet Factory' Buffet\"                                       \n [9] \"'Mango Mojito' Millefoglie\"                                              \n[10] \"none\""
+  },
+  {
+    "objectID": "slides/18/slides18.html#warm-up-2",
+    "href": "slides/18/slides18.html#warm-up-2",
+    "title": "Iteration II",
+    "section": "Warm up",
+    "text": "Warm up\n\nresults = character(9)\n\nfor(k in 1:10){\n  eliminated = bakeoff |&gt;\n    filter(episode == k, str_detect(result, \"Eliminated\")) \n  \n  if(nrow(eliminated) == 1){\n    results[k] = eliminated$showstopper\n  } else if(nrow(eliminated) &gt; 1){\n    results[k] = str_flatten(eliminated$showstopper, collapse = \", \")\n  } else{\n    results[k] = \"none\"\n  }\n}"
+  },
+  {
+    "objectID": "slides/18/slides18.html#recap-from-last-class",
+    "href": "slides/18/slides18.html#recap-from-last-class",
+    "title": "Iteration II",
+    "section": "Recap from last class",
+    "text": "Recap from last class\n\n\nfor loops for iteration\n\nPre-allocating storage\nCreating an index vector\n\n\nUsing across() to iterate over columns"
+  },
+  {
+    "objectID": "slides/18/slides18.html#example",
+    "href": "slides/18/slides18.html#example",
+    "title": "Iteration II",
+    "section": "Example",
+    "text": "Example\nWe want to find the range of any quantitative variables, and the number of levels of any factor variables in the penguins dataset.\n\n\n\nfor loop\nacross\n\n\n\n\noutput = numeric(8)\n\nfor(k in seq_along(penguins)){\n  if(is.numeric(penguins[[k]])){\n    output[k] = max(penguins[[k]], na.rm = TRUE) - min(penguins[[k]], na.rm = TRUE)\n  }\n  if(is.factor(penguins[[k]])){\n    output[k] = length(levels(penguins[[k]]))\n  }\n}\noutput\n\n[1]    3.0    3.0   27.5    8.4   59.0 3600.0    2.0    2.0\n\n\n\n\n\npenguins |&gt;\n  summarize(\n    across(where(is.numeric), \\(x) max(x, na.rm = TRUE) - min(x, na.rm = TRUE)),\n    across(where(is.factor), \\(x) length(levels(x)))\n  )\n\n# A tibble: 1 × 8\n  bill_length_mm bill_depth_mm flipper_length_mm body_mass_g  year species\n           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;int&gt;   &lt;int&gt;\n1           27.5           8.4                59        3600     2       3\n# ℹ 2 more variables: island &lt;int&gt;, sex &lt;int&gt;"
+  },
+  {
+    "objectID": "slides/18/slides18.html#section",
+    "href": "slides/18/slides18.html#section",
+    "title": "Iteration II",
+    "section": "",
+    "text": "The good news: we can use across to do lots of for-loop-type tasks in our {dplyr} pipelines.\n\nThe bad news: across() only works with {dplyr} functions like mutate or summarize\n\n\nThe good news: there’s a more general-purpose solution in the {tidyverse}"
+  },
+  {
+    "objectID": "slides/18/slides18.html#section-1",
+    "href": "slides/18/slides18.html#section-1",
+    "title": "Iteration II",
+    "section": "",
+    "text": "Enhances the functional programming toolkit of R\nMain function is map, which allows you to replace many for loops\nLoaded with library(tidyverse)"
+  },
+  {
+    "objectID": "slides/18/slides18.html#map",
+    "href": "slides/18/slides18.html#map",
+    "title": "Iteration II",
+    "section": "map()",
+    "text": "map()\n\n\n\n\n.x what to iterate over\n\n.f function to apply\n\n\n\nmap(.x, \n    .f,\n    ...)"
+  },
+  {
+    "objectID": "slides/18/slides18.html#how-does-mapping-work",
+    "href": "slides/18/slides18.html#how-does-mapping-work",
+    "title": "Iteration II",
+    "section": "How does mapping work?",
+    "text": "How does mapping work?\nSuppose we have quiz 1 and quiz 2 scores of 4 students stored in a list…\n\nquiz_scores &lt;- list(\n  quiz1 &lt;- c(80, 90, 70, 50),\n  quiz2 &lt;- c(85, 83, 45, 60)\n)\n\n\n…and we find the mean score in each quiz\n\nmap(quiz_scores, mean)\n\n[[1]]\n[1] 72.5\n\n[[2]]\n[1] 68.25"
+  },
+  {
+    "objectID": "slides/18/slides18.html#section-2",
+    "href": "slides/18/slides18.html#section-2",
+    "title": "Iteration II",
+    "section": "",
+    "text": "…and suppose we want the results as a numeric (double) vector\n\nmap_dbl(quiz_scores, mean)\n\n[1] 72.50 68.25\n\n\n\n…or as a character string\n\nmap_chr(quiz_scores, mean)"
+  },
+  {
+    "objectID": "slides/18/slides18.html#map_something",
+    "href": "slides/18/slides18.html#map_something",
+    "title": "Iteration II",
+    "section": "map_something",
+    "text": "map_something\nFunctions for looping over an object and returning a value (of a specific type):\n\n\n\nmap() - returns a list\n\nmap_lgl() - returns a logical vector\n\nmap_int() - returns a integer vector\n\nmap_dbl() - returns a double vector\n\nmap_chr() - returns a character vector\n\nmap_df() / map_dfr() - returns a data frame by row binding …"
+  },
+  {
+    "objectID": "slides/18/slides18.html#try-it-map",
+    "href": "slides/18/slides18.html#try-it-map",
+    "title": "Iteration II",
+    "section": "Try it: map\n",
+    "text": "Try it: map\n\n\n\nEdit the code chunk below so it returns a numeric vector\nEdit the code chunk so it only maps to the numeric columns (3-12) of unscaled cancer\n\n\n\n\nmap(unscaled_cancer, mean)\n\n\n\n\nmap the summary function to all columns in the {palmerpenguins} penguins data"
+  },
+  {
+    "objectID": "slides/18/slides18.html#example-bakeoff-data",
+    "href": "slides/18/slides18.html#example-bakeoff-data",
+    "title": "Iteration II",
+    "section": "Example: bakeoff data",
+    "text": "Example: bakeoff data\n\n\nFor loop\nFor loop + function\nMap + function\n\n\n\n\nresults = character(10)\n\nfor(k in 1:10){\n  eliminated = bakeoff |&gt;\n    filter(episode == k, str_detect(result, \"Eliminated\")) \n  \n  if(nrow(eliminated) == 1){\n    results[k] = eliminated$showstopper\n  } else if(nrow(eliminated) &gt; 1){\n    results[k] = str_flatten(eliminated$showstopper, collapse = \", \")\n  } else{\n    results[k] = \"none\"\n  }\n}\n\n\n\n\neliminated_showstopper = function(ep_number){\n   bakeoff |&gt;\n    filter(episode == ep_number, str_detect(result, \"Eliminated\")) |&gt;\n    summarize(\n      n = n(),\n      showstopper = if_else(n &gt; 0, \n                            str_flatten(showstopper, collapse = \",\"), \"none\")) |&gt;\n    pull(showstopper)\n}\n\nresults = character(10)\n\nfor(k in 1:10){\n  results[k] = eliminated_showstopper(k)\n}\n\n\n\n\nmap_chr(1:10, eliminated_showstopper)\n\n [1] \"'Orca on a Wave' Cake\"                                                  \n [2] \"'Seaside Meal Deal' Illusion Biscuits\"                                  \n [3] \"'My Favourite Tree' Plaited Centrepiece\"                                \n [4] \"none\"                                                                   \n [5] \"'Gran's Garden Trio' Decorative Pies,'Lattice Fabulous' Decorative Pies\"\n [6] \"'Stop and Smell the Rosé' Floral Dessert\"                               \n [7] \"'Flowers for my Bee' Meringue Bombe\"                                    \n [8] \"'Marvellous Sweet Factory' Buffet\"                                      \n [9] \"'Mango Mojito' Millefoglie\"                                             \n[10] \"none\""
+  },
+  {
+    "objectID": "slides/18/slides18.html#map-vs-for-loop",
+    "href": "slides/18/slides18.html#map-vs-for-loop",
+    "title": "Iteration II",
+    "section": "\nmap vs for loop",
+    "text": "map vs for loop\n\n\nPros\n\nDon’t have to pre-allocate storage\nDon’t have to define an index\nLess error-prone\nTakes advantage of functional programming\n\n\nCons\n\nHard to get used to if you’ve previously learned for-loops\nOften need to define a function\nLess fine-grained control\n\n\n\nFor this class, we’ll learn the basics of both and get practice on homework. For projects, you can use whichever approach makes more sense to you."
+  },
+  {
+    "objectID": "slides/18/slides18.html#your-turn-map-with-penguins",
+    "href": "slides/18/slides18.html#your-turn-map-with-penguins",
+    "title": "Iteration II",
+    "section": "Your turn: map with penguins\n",
+    "text": "Your turn: map with penguins\n\n\nUsing the penguins data, use map to calculate the range of a numeric variable and the table of a factor variable. (It may be helpful to first write a custom function for this output)\nYour result should be a list (it will have length 8)."
+  },
+  {
+    "objectID": "slides/18/slides18.html#more-practice-survivor-data",
+    "href": "slides/18/slides18.html#more-practice-survivor-data",
+    "title": "Iteration II",
+    "section": "More practice: survivor data",
+    "text": "More practice: survivor data\n\nus_castaway_results \n\n# A tibble: 870 × 7\n   castaway_id castaway season_name      season place jury  finalist\n   &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;lgl&gt;   \n 1 US0001      Sonja    Survivor: Borneo      1    16 FALSE FALSE   \n 2 US0002      B.B.     Survivor: Borneo      1    15 FALSE FALSE   \n 3 US0003      Stacey   Survivor: Borneo      1    14 FALSE FALSE   \n 4 US0004      Ramona   Survivor: Borneo      1    13 FALSE FALSE   \n 5 US0005      Dirk     Survivor: Borneo      1    12 FALSE FALSE   \n 6 US0006      Joel     Survivor: Borneo      1    11 FALSE FALSE   \n 7 US0007      Gretchen Survivor: Borneo      1    10 FALSE FALSE   \n 8 US0008      Greg     Survivor: Borneo      1     9 TRUE  FALSE   \n 9 US0009      Jenna    Survivor: Borneo      1     8 TRUE  FALSE   \n10 US0010      Gervase  Survivor: Borneo      1     7 TRUE  FALSE   \n# ℹ 860 more rows\n\n\n\n\n\nWrite a function called finalists that takes the input of a survivor season (as a numeric) and outputs a string of the finalists’ names for that season. The finalists’ names should be separated with a comma.\nUse map_chr to return a character vector of finalists for seasons 31-40."
+  },
+  {
+    "objectID": "slides/18/slides18.html#simulation-1",
+    "href": "slides/18/slides18.html#simulation-1",
+    "title": "Iteration II",
+    "section": "Simulation",
+    "text": "Simulation\n\nIteration is especially useful for simulation\n\nIn statistics, we often work with a random sample to try to learn something about a population.\nWe care about the uncertainty of our results: did we find a true trend, or could it be due to sampling variability?"
+  },
+  {
+    "objectID": "slides/18/slides18.html#example-survivor-data",
+    "href": "slides/18/slides18.html#example-survivor-data",
+    "title": "Iteration II",
+    "section": "Example: survivor data",
+    "text": "Example: survivor data\nIf we randomly choose 20 previous survivor players to play on a new season, how likely are we to get zero finalists?\n\nus_castaway_results %&gt;%\n  slice_sample(n = 20) %&gt;%\n  filter(finalist) %&gt;%\n  count()\n\n\n\n# A tibble: 1 × 1\n      n\n  &lt;int&gt;\n1     2"
+  },
+  {
+    "objectID": "slides/18/slides18.html#the-plan",
+    "href": "slides/18/slides18.html#the-plan",
+    "title": "Iteration II",
+    "section": "The plan",
+    "text": "The plan\n\nWrite a function that runs our “experiment”\nSet up an iteration procedure to run our experiment a bunch of times\nAnalyze the results"
+  },
+  {
+    "objectID": "slides/18/slides18.html#section-3",
+    "href": "slides/18/slides18.html#section-3",
+    "title": "Iteration II",
+    "section": "",
+    "text": "Write a function that runs our “experiment”\n\nsample_finalists = function(n){\n    us_castaway_results %&gt;%\n    slice_sample(n = n) %&gt;%\n    filter(finalist) %&gt;%\n    count() %&gt;%\n    pull(n)\n}\n\nn_finalists = integer(1000)\n\nfor(k in 1:1000){\n  n_finalists[k] = sample_finalists(20)\n}\n\ntable(n_finalists)/1000"
+  },
+  {
+    "objectID": "slides/18/slides18.html#section-4",
+    "href": "slides/18/slides18.html#section-4",
+    "title": "Iteration II",
+    "section": "",
+    "text": "Set up a for loop to run our experiment a bunch of times\n\nsample_finalists = function(n){\n    us_castaway_results %&gt;%\n    slice_sample(n = n) %&gt;%\n    filter(finalist) %&gt;%\n    count() %&gt;%\n    pull(n)\n}\n\nn_finalists = integer(1000)\n\nfor(k in 1:1000){\n  n_finalists[k] = sample_finalists(20)\n}\n\ntable(n_finalists)/1000"
+  },
+  {
+    "objectID": "slides/18/slides18.html#section-5",
+    "href": "slides/18/slides18.html#section-5",
+    "title": "Iteration II",
+    "section": "",
+    "text": "Analyze the results\n\nsample_finalists = function(n){\n    us_castaway_results %&gt;%\n    slice_sample(n = n) %&gt;%\n    filter(finalist) %&gt;%\n    count() %&gt;%\n    pull(n)\n}\n\nn_finalists = integer(1000)\n\nfor(k in 1:1000){\n  n_finalists[k] = sample_finalists(20)\n}\n\ntable(n_finalists)/1000\n\n\n\nn_finalists\n    0     1     2     3     4     5     6     7     8 \n0.031 0.139 0.248 0.261 0.165 0.099 0.043 0.010 0.004"
+  },
+  {
+    "objectID": "slides/18/slides18.html#same-approach-using-map",
+    "href": "slides/18/slides18.html#same-approach-using-map",
+    "title": "Iteration II",
+    "section": "Same approach using map\n",
+    "text": "Same approach using map\n\n\n\nDefine something to map over\nApply sample_finalists function to “something”\nAnalyze results"
+  },
+  {
+    "objectID": "slides/18/slides18.html#same-approach-using-map-1",
+    "href": "slides/18/slides18.html#same-approach-using-map-1",
+    "title": "Iteration II",
+    "section": "Same approach using map\n",
+    "text": "Same approach using map\n\nDefine something to map over:\n\nrep(20,5)\n\n[1] 20 20 20 20 20\n\n\n\nApply sample_finalists function and analyze results\n\nrep(20, 1000) |&gt;\n  map_dbl(sample_finalists) |&gt;\n  table()\n\n\n\n\n  0   1   2   3   4   5   6   7   8 \n 41 144 244 243 175  95  41  15   2"
+  },
+  {
+    "objectID": "slides/18/slides18.html#your-turn",
+    "href": "slides/18/slides18.html#your-turn",
+    "title": "Iteration II",
+    "section": "Your turn",
+    "text": "Your turn\n\nSome survivor seasons only had 16 players, while others had 22. This could result in some seasons being slightly under/overrepresented in our sample. Let’s account for this.\nEdit this experiment to instead randomly sample one player from each season (this results in 47 players) and then sample 20 players from the 47 random ones.\n(Hint: look at the by argument in slice_sample)"
+  },
+  {
+    "objectID": "slides/18/slides18.html#unscaled_cancer",
+    "href": "slides/18/slides18.html#unscaled_cancer",
+    "title": "Iteration II",
+    "section": "unscaled_cancer",
+    "text": "unscaled_cancer\nRecall the unscaled_cancer dataset from last week:\n\nunscaled_cancer\n\n# A tibble: 569 × 12\n        ID Class Radius Texture Perimeter  Area Smoothness Compactness Concavity\n     &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n 1  8.42e5 M       18.0    10.4     123.  1001      0.118       0.278     0.300 \n 2  8.43e5 M       20.6    17.8     133.  1326      0.0847      0.0786    0.0869\n 3  8.43e7 M       19.7    21.2     130   1203      0.110       0.160     0.197 \n 4  8.43e7 M       11.4    20.4      77.6  386.     0.142       0.284     0.241 \n 5  8.44e7 M       20.3    14.3     135.  1297      0.100       0.133     0.198 \n 6  8.44e5 M       12.4    15.7      82.6  477.     0.128       0.17      0.158 \n 7  8.44e5 M       18.2    20.0     120.  1040      0.0946      0.109     0.113 \n 8  8.45e7 M       13.7    20.8      90.2  578.     0.119       0.164     0.0937\n 9  8.45e5 M       13      21.8      87.5  520.     0.127       0.193     0.186 \n10  8.45e7 M       12.5    24.0      84.0  476.     0.119       0.240     0.227 \n# ℹ 559 more rows\n# ℹ 3 more variables: Concave_Points &lt;dbl&gt;, Symmetry &lt;dbl&gt;,\n#   Fractal_Dimension &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/18/slides18.html#differences-in-groups",
+    "href": "slides/18/slides18.html#differences-in-groups",
+    "title": "Iteration II",
+    "section": "Differences in groups",
+    "text": "Differences in groups\nOne question we might be interested in is “Is the radius of malignant tumors noticeably different than the radius of benign tumors?”\n\nunscaled_cancer %&gt;%\n  group_by(Class) %&gt;%\n  summarize(\n    mean = mean(Radius)\n  )\n\n# A tibble: 2 × 2\n  Class  mean\n  &lt;chr&gt; &lt;dbl&gt;\n1 B      12.1\n2 M      17.5\n\n\n\nThis tells us the average difference within this sample, but we don’t know if this difference is “surprising” or not."
+  },
+  {
+    "objectID": "slides/18/slides18.html#permutation-test",
+    "href": "slides/18/slides18.html#permutation-test",
+    "title": "Iteration II",
+    "section": "Permutation test",
+    "text": "Permutation test\nIn a previous statistics class, you may have seen a permutation test for a difference in means.\nBasic idea:\n\nAssume there is no difference in the groups\nShuffle the group labels (benign/malignant) at random\nCompute the difference in means for the two groups\nRepeat the experiment a bunch of times\nCompare the observed difference to the distribution of simulated differences\n\n\nIf the observed difference is much bigger than the simulated differences, we have evidence of a statistically significant result"
+  },
+  {
+    "objectID": "slides/18/slides18.html#your-turn-permutation-test",
+    "href": "slides/18/slides18.html#your-turn-permutation-test",
+    "title": "Iteration II",
+    "section": "Your turn: Permutation test",
+    "text": "Your turn: Permutation test\n\n\nDefine a function to run the experiment\n\nCreate a new column of unscaled_cancer called class_shuffled, which is a permutation of the original Class variable (Hint: see sample function)\nGroup by class_shuffled and compute the group means\nFind the difference in the means\n\n\nRepeat the experiment 1000 times, making sure to save the difference in means\nMake a histogram of the simulated differences. How (un)likely is the difference we observed?"
+  },
+  {
+    "objectID": "activities/21-scraping.html",
+    "href": "activities/21-scraping.html",
+    "title": "21-scraping",
+    "section": "",
+    "text": "#library(tidyverse)\n#library(rvest)\n\npaths_allowed\n\n#library(robotstxt)\n#paths_allowed(\"http://www.zillow.com\")\n\nBox Office Mojo\n\n#page &lt;- read_html(\"https://www.boxofficemojo.com/year/2024/\")\n\nCarleton Class Schedule\nhttps://www.carleton.edu/catalog/current/search/?subject=STAT&term=25WI\nView the page source to try to find the html elements where this data is located (e.g. ‘h1’, ‘p’, ‘table’)\n\nCourse number\nCourse title\nCourse description\nCourse meetings\nFaculty\nCourse meetings\n\n\n#listings = read_html(\"https://www.carleton.edu/catalog/current/search/?subject=STAT&term=25WI\")\n\nSelectorGadget\n\nUse the SelectorGadget to explore http://www.imdb.com/chart/top\nWhat should the columns of our target dataset be? Do they correspond to any specific css selectors?\nScraping IMDb Movie Page\n\n#imdb &lt;- read_html(\"http://www.imdb.com/chart/top\")\n\n\n#_______ &lt;- imdb %&gt;%\n#  html_elements(\".with-margin .ipc-title__text\") %&gt;%\n#  html_text()\n\n#_______ &lt;- imdb %&gt;%\n#  html_elements(\".cli-title-metadata-item:nth-child(1)\") %&gt;%\n#  html_text()\n\n#_______ &lt;- imdb %&gt;%\n#  html_elements(\".cli-title-metadata-item:nth-child(2)\") %&gt;%\n#  html_text()\n\n#_______ &lt;- imdb %&gt;%\n#  html_elements(\".cli-title-metadata-item:nth-child(3)\") %&gt;%\n#  html_text()\n\n#imdb_top_250 &lt;- tibble(\n  \n#  )\n\n#imdb_top_250\n\nYour Turn: IMDb TV Shows Page\nIn an R script:\n\nScrape the names, scores, and years of most popular TV shows on IMDB: www.imdb.com/chart/tvmeter\nCreate a data frame called tvshows with the variables: rank, title, stars, year, episodes, n_ratings\nWrangle your resulting data so that all variable types are imported correctly\nUse write_csv to save your file. If time, read it into the 21-scraping.rmd and make a graph"
+  },
+  {
+    "objectID": "slides/27/slides27.html#end-of-term-reminders",
+    "href": "slides/27/slides27.html#end-of-term-reminders",
+    "title": "Project demos",
+    "section": "End of Term Reminders:",
+    "text": "End of Term Reminders:\n\nI am almost through with Portfolio 4’s that were submitted by Friday. You won’t get an automated email but can check gradescope to see if I’ve done yours\nAll portfolio revisions, HW9 submissions, regrade requests etc. must be submitted by 11:59pm on the last day of class\nCheck moodle gradebook for current grades on Lab Quiz 1-3, Portfolio 1-3. Any issues must be brought to me by 11:59 on the last day of class.\nFinal project repos are due on the last day of finals (Monday June 9) at noon. I am presenting at a conference in NYC that morning, so won’t be able to help with last-minute issues!\nPlease see final project website description: https://stat220-s25.github.io/portfolio/final.html for most up-to-date information\nKeep an eye on your email for a final project group evaluation and course evaluation. If we hit a 90% response rate, everybody gets a little EC on your average lab quiz score!"
+  },
+  {
+    "objectID": "slides/27/slides27.html#todays-presentation-schedule",
+    "href": "slides/27/slides27.html#todays-presentation-schedule",
+    "title": "Project demos",
+    "section": "Today’s presentation schedule",
+    "text": "Today’s presentation schedule\n\n\n\nMonday\nWednesday\n\n\n10:00\nspotify-group-1\nspotify-au-da-ni\n\n\n10:10\ndata-divas\njos\n\n\n10:20\nboard-game-geek\nmarch-madness\n\n\n10:30\nrice-county\nnyt-new-word\n\n\n10:40\nmighty-icy-elephants\nmental-health\n\n\n10:50\ncrc-baseball\nmystery-project"
+  },
+  {
+    "objectID": "slides/27/slides27.html#links",
+    "href": "slides/27/slides27.html#links",
+    "title": "Project demos",
+    "section": "Links",
+    "text": "Links\nFeedback form: https://forms.gle/kLzQUE95hoKNwbSy5\nFolder for slides upload: https://drive.google.com/drive/folders/1Zv_K2YiOCIeRLQIYSmr4ldIFLZ23IBGg?usp=sharing\nDraft rubric: https://docs.google.com/spreadsheets/d/1M1K7k6YkfuZNjgJ_lV-ZCAj21ijUXO2Jt5K9rCVjP9I/edit?usp=sharing"
+  },
+  {
+    "objectID": "slides/25/slides25-work.html#warm-up-more-time-for-shiny-app",
+    "href": "slides/25/slides25-work.html#warm-up-more-time-for-shiny-app",
+    "title": "Intro to SQL",
+    "section": "Warm up: more time for shiny app??",
+    "text": "Warm up: more time for shiny app??"
+  },
+  {
+    "objectID": "slides/25/slides25-work.html#warm-up-on-your-own",
+    "href": "slides/25/slides25-work.html#warm-up-on-your-own",
+    "title": "Intro to SQL",
+    "section": "Warm Up: on your own",
+    "text": "Warm Up: on your own\n\nLoad flights23 &lt;- nycflights23::flights and write {dplyr} code to do the following\n\nCompute the number of flights in each year in the dataset\nCompute the average flight delay by carrier for flights to Minneapolis"
+  },
+  {
+    "objectID": "slides/25/slides25-work.html#warm-up-in-groups-of-3",
+    "href": "slides/25/slides25-work.html#warm-up-in-groups-of-3",
+    "title": "Intro to SQL",
+    "section": "Warm Up: in groups of ~3",
+    "text": "Warm Up: in groups of ~3\n\n????"
+  },
+  {
+    "objectID": "slides/25/slides25-work.html#section",
+    "href": "slides/25/slides25-work.html#section",
+    "title": "Intro to SQL",
+    "section": "",
+    "text": "If you run the following code in R….\n\nyear_summary &lt;- nycflights23::flights %&gt;%\n  group_by(year) %&gt;%\n  summarize(\n    n = n()\n  )\n\nclass(year_summary)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\""
+  },
+  {
+    "objectID": "slides/25/slides25-work.html#section-1",
+    "href": "slides/25/slides25-work.html#section-1",
+    "title": "Intro to SQL",
+    "section": "",
+    "text": "db &lt;- dbConnect_scidb(\"airlines\")\nflights &lt;- tbl(db, \"flights\")\ncarriers &lt;- tbl(db, \"carriers\")"
+  },
+  {
+    "objectID": "slides/25/slides25-work.html#section-2",
+    "href": "slides/25/slides25-work.html#section-2",
+    "title": "Intro to SQL",
+    "section": "",
+    "text": "year_summary &lt;- flights %&gt;% \n  group_by(year) %&gt;%\n  summarize(\n    n = n()\n  )\n\nclass(year_summary)"
+  },
+  {
+    "objectID": "slides/25/slides25-work.html#section-3",
+    "href": "slides/25/slides25-work.html#section-3",
+    "title": "Intro to SQL",
+    "section": "",
+    "text": "year_summary |&gt;\n  collect() |&gt;\n  class()"
+  },
+  {
+    "objectID": "slides/25/slides25-work.html#under-the-hood",
+    "href": "slides/25/slides25-work.html#under-the-hood",
+    "title": "Intro to SQL",
+    "section": "Under the hood…",
+    "text": "Under the hood…\n\nyear_summary |&gt;\n  show_query()"
+  },
+  {
+    "objectID": "slides/25/slides25-work.html#five-main-clauses",
+    "href": "slides/25/slides25-work.html#five-main-clauses",
+    "title": "Intro to SQL",
+    "section": "Five main clauses:",
+    "text": "Five main clauses:\n\nSELECT\nFROM\nWHERE\nORDER BY\nGROUP BY\n\n\nEvery SQL query must have SELECT and FROM"
+  },
+  {
+    "objectID": "slides/25/slides25-work.html#example",
+    "href": "slides/25/slides25-work.html#example",
+    "title": "Intro to SQL",
+    "section": "Example:",
+    "text": "Example:\n\n\n\nflights |&gt;\n  show_query()\n\n\nSELECT (everything) FROM (the flights database)"
+  },
+  {
+    "objectID": "slides/25/slides25-work.html#example-1",
+    "href": "slides/25/slides25-work.html#example-1",
+    "title": "Intro to SQL",
+    "section": "Example",
+    "text": "Example\n\n\n\nyear_summary |&gt;\n  show_query()\n\n\n\nSELECT (the year column) …. FROM (the flights database)\nCOUNT (all rows) and save it AS a new variable called n\n\nAlso, results should be GROUPed BY year"
+  },
+  {
+    "objectID": "slides/25/slides25-work.html#your-turn",
+    "href": "slides/25/slides25-work.html#your-turn",
+    "title": "Intro to SQL",
+    "section": "Your turn",
+    "text": "Your turn"
+  },
+  {
+    "objectID": "slides/25/slides25-work.html#example-2",
+    "href": "slides/25/slides25-work.html#example-2",
+    "title": "Intro to SQL",
+    "section": "Example",
+    "text": "Example\n\nflights |&gt;\n  filter(dest == \"MSP\") |&gt;\n  arrange(dep_delay)"
+  },
+  {
+    "objectID": "activities/01-un-votes.html",
+    "href": "activities/01-un-votes.html",
+    "title": "01: UN Votes",
+    "section": "",
+    "text": "You should open this document in RStudio. To do so:\n\nEither open your local RStudio program or navigate to &lt;maize.mathcs.carleton.edu&gt; in your browser and log in.\nGo to file –&gt; New file –&gt; Quarto document … –&gt; “Create empty document”. This should open a new .qmd file in your Rstudio session. Delete everything in this file so that you have a totally blank document.\nNext, we need to copy this template into your new quarto file.\n\ncome back to this page and click the “code” button at the top of the page.\nClick the “copy” symbol in the upper right corner of the popup file\nNavigate back to your empty .qmd file and “paste” the text there\n\n\nYou should now be able to see this document in your own session, and you can run code and edit it as you need to! Make sure to save it in your Stat220 “activities” folder.\n\n\nHow do various countries vote in the United Nations General Assembly, how have their voting patterns evolved throughout time, and how similarly or differently do they view certain issues? Answering these questions (at a high level) is the focus of this analysis.\n\nWe will use the tidyverse, lubridate, and scales packages for data wrangling and visualization, and the DT package for interactive display of tabular output, and the unvotes package for the data.\n\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(scales)\nlibrary(DT)\nlibrary(unvotes)\n\n\nThe data we’re using originally come from the unvotes package. In the chunk below we modify the data by joining the various data frames provided in the package to help you get started with the analysis.\n\nunvotes &lt;- un_votes %&gt;%\n  inner_join(un_roll_calls, by = \"rcid\") %&gt;%\n  inner_join(un_roll_call_issues, by = \"rcid\")\n\n\nLet’s create a data visualisation that displays how the voting record of the UK & NI changed over time on a variety of issues, and compares it to two other countries: US and Turkey.\nWe can easily change which countries are being plotted by changing which countries the code above filters for. Note that the country name should be spelled and capitalized exactly the same way as it appears in the data. See the Appendix for a list of the countries in the data.\n\nunvotes %&gt;%\n  filter(country %in% c(\"United Kingdom\", \"United States\", \"Turkey\")) %&gt;%\n  mutate(year = year(date)) %&gt;%\n  group_by(country, year, issue) %&gt;%\n  summarize(percent_yes = mean(vote == \"yes\")) %&gt;%\n  ggplot(mapping = aes(x = year, y = percent_yes, color = country)) +\n  geom_point(alpha = 0.4) +\n  geom_smooth(method = \"loess\", se = FALSE) +\n  facet_wrap(~issue) +\n  scale_y_continuous(labels = percent) +\n  labs(\n    title = \"Percentage of 'Yes' votes in the UN General Assembly\",\n    subtitle = \"1946 to 2019\",\n    y = \"% Yes\",\n    x = \"Year\",\n    color = \"Country\"\n  )\n\n\n\n\n\n\n\n\n\nDavid Robinson (2017). unvotes: United Nations General Assembly Voting Data. R package version 0.2.0.\nErik Voeten “Data and Analyses of Voting in the UN General Assembly” Routledge Handbook of International Organization, edited by Bob Reinalda (published May 27, 2013).\nMuch of the analysis has been modeled on the examples presented in the unvotes package vignette.\n\nBelow is a list of countries in the data set:"
+  },
+  {
+    "objectID": "activities/01-un-votes.html#introduction",
+    "href": "activities/01-un-votes.html#introduction",
+    "title": "01: UN Votes",
+    "section": "",
+    "text": "How do various countries vote in the United Nations General Assembly, how have their voting patterns evolved throughout time, and how similarly or differently do they view certain issues? Answering these questions (at a high level) is the focus of this analysis.\n\nWe will use the tidyverse, lubridate, and scales packages for data wrangling and visualization, and the DT package for interactive display of tabular output, and the unvotes package for the data.\n\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(scales)\nlibrary(DT)\nlibrary(unvotes)\n\n\nThe data we’re using originally come from the unvotes package. In the chunk below we modify the data by joining the various data frames provided in the package to help you get started with the analysis.\n\nunvotes &lt;- un_votes %&gt;%\n  inner_join(un_roll_calls, by = \"rcid\") %&gt;%\n  inner_join(un_roll_call_issues, by = \"rcid\")"
+  },
+  {
+    "objectID": "activities/01-un-votes.html#un-voting-patterns",
+    "href": "activities/01-un-votes.html#un-voting-patterns",
+    "title": "01: UN Votes",
+    "section": "",
+    "text": "Let’s create a data visualisation that displays how the voting record of the UK & NI changed over time on a variety of issues, and compares it to two other countries: US and Turkey.\nWe can easily change which countries are being plotted by changing which countries the code above filters for. Note that the country name should be spelled and capitalized exactly the same way as it appears in the data. See the Appendix for a list of the countries in the data.\n\nunvotes %&gt;%\n  filter(country %in% c(\"United Kingdom\", \"United States\", \"Turkey\")) %&gt;%\n  mutate(year = year(date)) %&gt;%\n  group_by(country, year, issue) %&gt;%\n  summarize(percent_yes = mean(vote == \"yes\")) %&gt;%\n  ggplot(mapping = aes(x = year, y = percent_yes, color = country)) +\n  geom_point(alpha = 0.4) +\n  geom_smooth(method = \"loess\", se = FALSE) +\n  facet_wrap(~issue) +\n  scale_y_continuous(labels = percent) +\n  labs(\n    title = \"Percentage of 'Yes' votes in the UN General Assembly\",\n    subtitle = \"1946 to 2019\",\n    y = \"% Yes\",\n    x = \"Year\",\n    color = \"Country\"\n  )"
+  },
+  {
+    "objectID": "activities/01-un-votes.html#references",
+    "href": "activities/01-un-votes.html#references",
+    "title": "01: UN Votes",
+    "section": "",
+    "text": "David Robinson (2017). unvotes: United Nations General Assembly Voting Data. R package version 0.2.0.\nErik Voeten “Data and Analyses of Voting in the UN General Assembly” Routledge Handbook of International Organization, edited by Bob Reinalda (published May 27, 2013).\nMuch of the analysis has been modeled on the examples presented in the unvotes package vignette."
+  },
+  {
+    "objectID": "activities/01-un-votes.html#appendix",
+    "href": "activities/01-un-votes.html#appendix",
+    "title": "01: UN Votes",
+    "section": "",
+    "text": "Below is a list of countries in the data set:"
+  },
+  {
+    "objectID": "slides/01/slides01.html#in-groups-of-5ish",
+    "href": "slides/01/slides01.html#in-groups-of-5ish",
+    "title": "Welcome to Stat 220",
+    "section": "In groups of 5ish",
+    "text": "In groups of 5ish\n\n\nIntroduce yourselves.\n1-2 in each group come up with a question to ask the group that can be measured as a:\n\n\nCategory, AKA factor (e.g. gender)\nNumber (e.g. how much sleep did you get last night?)\nFree text (e.g. favorite restaurant in town)\n\n\nAsk each other these questions - any common themes?\nShare a bit about why you’re taking this class"
+  }
+]

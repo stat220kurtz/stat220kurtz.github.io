@@ -1,0 +1,15 @@
+name,tzone,med_arr_delay,n,colorby
+Bob Hope Airport,America/Los_Angeles,-3,365,FALSE
+John Wayne Airport-Orange County Airport,America/Los_Angeles,-15,1446,FALSE
+Los Angeles International Airport,America/Los_Angeles,-9,15968,FALSE
+McCarran International Airport,America/Los_Angeles,-9,6033,FALSE
+Metropolitan Oakland International Airport,America/Los_Angeles,-14,215,FALSE
+Norman Y. Mineta San Jose International Airport,America/Los_Angeles,1,194,TRUE
+Ontario International Airport,America/Los_Angeles,10,365,TRUE
+Palm Springs International Airport,America/Los_Angeles,-9.5,189,FALSE
+Portland International Airport,America/Los_Angeles,-14,1942,FALSE
+Reno Tahoe International Airport,America/Los_Angeles,15,145,TRUE
+Sacramento International Airport,America/Los_Angeles,2,729,TRUE
+San Diego International Airport,America/Los_Angeles,-10,4181,FALSE
+San Francisco International Airport,America/Los_Angeles,-13,11651,FALSE
+Seattle Tacoma International Airport,America/Los_Angeles,-14,5229,FALSE

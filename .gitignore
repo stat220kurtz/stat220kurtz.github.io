@@ -6,9 +6,6 @@
 /.quarto/
 **/*.quarto_ipynb
 
-_site/*
-**/*.quarto_ipynb
-
 .DS_Store
 
 _freeze/
