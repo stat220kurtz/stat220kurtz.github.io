@@ -1,0 +1,163 @@
+---
+title: Slides Cheat Sheet
+subtitle: Day 01
+title-slide-attributes:
+  data-background-image: ../conveyor-belt-doodle.jpg
+  data-background-size: contain
+  data-background-position: bottom
+  data-background-opacity: "0.5"
+  data-slide-number: none
+format: 
+  revealjs:
+    incremental: true
+auto-stretch: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(gtrendsR)
+library(countdown)
+library(tidyverse)
+library(lubridate)
+```
+
+# Intros
+
+## Columns
+
+::::: columns
+::: {.column width="50%"}
+-   First year at Carleton!
+-   Taught at Swarthmore for 5 years before moving here this fall
+-   PhD in Statistics & Data Science from Carnegie Mellon University
+-   Grew up in Minnesota, went to St Ben's as an undergrad
+:::
+
+::: {.column width="50%"}
+![](/slides/img/about-me.jpeg)
+:::
+:::::
+
+## Only graph from code
+
+. . .
+
+![](gtrends-data-sci.png)
+
+```{r}
+#| eval: false
+#| include: false
+
+ds_trend <- gtrends(c("data science", "theoretical statistics", "applied statistics"),  time = "all")[[1]]
+# not letting me search for a single term
+
+format_date <- stamp("August 1, 2021")
+ds_trend |>
+  mutate(
+    hits = as.numeric(ifelse(hits == "<1", 0, hits))
+  ) |>
+  ggplot(aes(x = date, y = hits, col = keyword, grp = keyword)) +
+  geom_line() +
+  theme_minimal() +
+  labs(
+    title = "Daily searches for 'data science'",
+    subtitle = str_c(format_date(min(ds_trend$date)), " - ",  format_date(max(ds_trend$date))),
+    y = "Relative search interest",
+    x = "",
+    caption = str_c("Source: Google trends, retrieved ", format_date(Sys.time()))
+  )
+
+ggsave(, filename = "slides/01/gtrends-data-sci.png", width = 8, height = 4)
+```
+
+## Background Image (half) {background-image="../img/data_scientist_infographic.png" background-position="right" background-size="50%"}
+
+:::: columns
+::: {.column width="50%"}
+### What skills do you need?
+
+-   programming with data
+
+-   statistical modeling
+
+-   domain knowledge
+
+-   communication
+:::
+::::
+
+## Full size image
+
+![](../img/01-ds-cycle.png){.r-stretch}
+
+::: aside
+Image by Adam Loy <br> adapted from work of Joe Blitzstein, Hanspeter Pfister,<br> and Hadley Wickham
+:::
+
+## Background image (full size) {background-image="../img/wordcloud-nervous.png" background-size="contain"}
+
+## Countdown
+
+::: task
+With your neighbor(s):
+
+Choose two countries to compare to the U.S. voting record in the U.N. over the years.
+
+What did you learn?
+:::
+
+```{r echo=FALSE}
+countdown(minutes = 4, seconds = 0)
+```
+
+## table column widths {.smaller}
+
+|   | Collaboration Allowed |
+|------------------------------------|------------------------------------|
+| Homework Problems | You are allowed and encouraged to collaborate on homework. You may also use outside resources, but your submitted work must be your own and reflect your own understanding . |
+| Lab Quiz Problems | **No collaboration is allowed at all** . You may use your own notes for resubmissions, but should not use outside resources. |
+| Portfolio Projects | You are expected to collaborate with your group, but cannot rely on external sources other than to help motivate the questions or provide other background information. Getting answers on significant parts of solutions from outside resources is not allowed. |
+| Final Project | You are expected to collaborate with your group, but cannot rely on external sources other than to help motivate the questions or provide other background information. Any outside resources should be properly cited. |
+
+: {tbl-colwidths="\[15,85\]"}
+
+## Use of generative artificial intelligence (AI) {.smaller}
+
+-   Treat generative AI, such as ChatGPT or Gemini, the same as other online resources.
+
+-   Guiding principles:
+
+    -   \(1\) *Cognitive dimension:* Working with AI should not reduce your ability to think clearly. AI should facilitate—rather than hinder—learning.
+
+    -   \(2\) *Ethical dimension***:** Students using AI should be transparent about their use and make sure it aligns with academic integrity.
+
+-   **❌ AI tools for writing code:** You may not use generative AI to take a "first pass" at a coding task. Do not type coursework prompts directly into AI tools.
+
+-   **✅ AI tools for debugging code:** You may make use of the technology to get help with error messages or trying to fix issues
+
+-   **❌ AI tools for narrative:** Unless instructed otherwise, you may not use generative AI to write narrative on assignments. In general, you may use generative AI as a resource as you complete assignments but not to answer the exercises for you.
+
+::: aside
+Adapted from Mine Çetinkaya-Rundel
+:::
+
+## Link/task
+
+::: {.large style="text-align: center;"}
+<https://github.com/stat220-w25>
+:::
+
+::: task
+Fill out the *Welcome Survey* for collection of your account names, later this week you will be invited to the course organization.
+:::
+
+## handwriting font
+
+::: hand
+in case you don't yet have a GitHub account...
+:::

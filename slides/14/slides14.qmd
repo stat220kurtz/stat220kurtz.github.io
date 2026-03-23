@@ -1,0 +1,747 @@
+---
+title: "Text Analysis"
+subtitle: Day 14
+title-slide-attributes:
+  data-background-image: ../img/horst_stringr.jpeg
+  data-background-size: 70%
+  data-background-position: bottom right
+  data-background-opacity: "0.8"
+  data-slide-number: none
+format: 
+  revealjs:
+    incremental: true
+    code-copy: true
+    code-link: true
+    scrollable: true
+auto-stretch: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+library(countdown)
+library(tidyverse)
+library(lubridate)
+library(palmerpenguins)
+library(patchwork)
+library(ggthemes)
+library(nycflights23)
+library(here)
+slides_theme = theme_minimal(
+  base_family = "Atkinson Hyperlegible",
+  base_size = 16)
+
+theme_set(slides_theme)
+```
+
+## Today
+
+1. Midterm check-in
+2. Portfolio 2
+3. Regex
+4. Intro to Text Analysis
+
+## Midterm check-in {.scrollable}
+
+Things that are going well: 
+
+- Data viz! 
+- Like getting immediate practice in class
+- Learning a lot on homeworks
+- Becoming more confident/comfortable/efficient/neater/cleaner/cleverer in R
+- Building a presence on GitHub
+- Working with peers
+- Working with data I'm interested in
+- `ggplot` skills
+- Enjoying coming to class (demos, lectures, group work, activities)
+
+## Overview of responses
+
+[graphs from google]
+
+## Other feedback:
+
+- Showing a "skeleton" of a function isn't helpful; I don't need to know what every single argument does; focus on examples
+- spending more time & emphasis on all of the "extras" within the parentheses of functions, and what they mean step-by-step, would be helpful.
+- the homework is too hard and takes too long
+- I enjoy working on the homeworks because we do a lot of tinkering with R and I'm trying to strengthen my R coding skills.
+
+## Suggested changes: 
+
+- I wish more people participated in class ✅
+- Lab quizzes being handwritten isn't ideal ？
+- Lab quiz revisions should happen after grading ❌
+
+
+## Goals of the grading scheme: {.smaller}
+
+::::: columns
+::: {.column .nonincremental .fragment width="33%"}
+**Homework**
+
+- Can you apply techniques from class/readings in new settings?
+- Can you read R documentation to figure out new things?
+- Can you work through some tricky ideas without a time limit?
+:::
+
+
+::: {.column .nonincremental .fragment width="33%"}
+**Portfolio Projects**
+
+- Can you answer less-structured questions with data?
+- Are you learning how to "scope" a data analysis?
+- Can you put together a polished final product?
+:::
+
+::: {.column .nonincremental .fragment width="33%"}
+**Lab Quizzes**
+
+- Can you repeat things we have done in class and on homework with limited access to resources?
+- Are you learning how to answer questions with data quickly?
+- Are you developing proficiency with R? 
+:::
+:::::
+
+. . . 
+
+### Revision is a key part of this course design! 
+
+# Portfolio Project 2 {.maize}
+
+# Regular Expressions (regex) {.maize}
+
+## Regular expressions
+
+- Sometimes the patterns we wish to detect, extract, etc. too complex for exact matching 
+
+    + Extract all time stamps of the form `HH:MM:SS`
+    + Extract the string that comes after the dash (e.g. `hw01-aluby`)
+
+- **Regular expressions** (regexps) are a very terse language that allow you to describe patterns in strings
+
+- Confusing at first, but extremely useful
+
+## Example
+
+Suppose we wish to anonymize phone numbers in survey results 
+
+```{r}
+a1 <- "Home: 507-645-5489"
+a2 <- "Cell: 219.917.9871"
+a3 <- "My work phone is 507-202-2332"
+a4 <- "I don't have a phone"
+info <- c(a1, a2, a3, a4)
+```
+
+```{r echo=FALSE}
+info
+```
+
+## Visualizing matches
+
+The helper function `str_view()` finds regex matches
+
+```{r}
+str_view(a1, "5")
+```
+
+## `.` match any character
+
+Find a "-" and any (.) character that follows
+
+```{r eval=require('stringr')}
+str_view(a1, "-.")
+```
+
+## `[]` match any occurence
+
+Find any numbers between 0 and 9
+
+```{r }
+str_view(a1, "[0123456789]")
+```
+
+## `[]` match any occurence
+
+Find any numbers between 2 and 7
+
+```{r }
+str_view(a1, "[2-7]")
+```
+
+## Your turn:
+
+::: task
+Detect  either "." or "-" in the `info` vector.
+:::
+
+```{r}
+a1 <- "Home: 507-645-5489"
+a2 <- "Cell: 219.917.9871"
+a3 <- "My work phone is 507-202-2332"
+a4 <- "I don't have a phone"
+info <- c(a1, a2, a3, a4)
+```
+
+
+```{r echo=FALSE}
+countdown(2)
+```
+
+## Special patterns 
+
+There are a number of special patterns that match more than one character
+
+::: nonincremental 
+- `\\d` - digit
+- `\\s` - white space
+- `\\w` - word
+- `\\t` - tab
+- `\\n` - newline
+:::
+
+. . . 
+
+```{r }
+str_view(a1, "\\d")
+```
+
+::: aside
+Outside of R, these would be single back slashes.
+:::
+
+## Caution!
+
+```{r }
+str_view(a1, "\\w")
+```
+
+## `[^]` match any occurence except
+
+ANYTHING BUT numbers between 2 and 7
+
+```{r }
+str_view(a1, "[^2-7]")
+```
+
+::: aside
+Common pitfall: forgetting the brackets
+:::
+
+## Anchors
+
+Anchors look for matches at the start `^` or end `$`
+
+```{r}
+#| echo: false
+str_view(info)
+```
+
+::: panel-tabset
+
+### Entries that start with a digit
+
+```{r}
+str_view(info, "^\\d")
+```
+
+
+### Entries that end with a digit
+
+```{r}
+str_view(info, "\\d$")
+```
+
+:::
+
+## Use regex in `str_detect`, `str_sub`, etc: 
+
+```{r }
+str_view(info)
+```
+
+```{r }
+str_detect(info, "\\d")
+```
+
+```{r }
+str_replace_all(info, "\\d", "X")
+```
+
+## Your turn
+
+::: task
+A vector called `words` is loaded with `stringr` and contains a corpus of 980 words used in text analysis. Use `stringr` functions and regular expressions to find the words that satisfy the following descriptions. 
+
+#### 1. Find all words that start with `y`.
+
+```{r}
+#| eval: false
+pattern <- "type your pattern here"
+str_subset(words, pattern)
+```
+
+#### 2. Find all words that end with `x`.
+
+#### 3. Find all words that start with a vowel.
+
+#### 4. Find all words that start with consonants.
+:::
+
+```{r}
+#| echo: false
+
+countdown::countdown(4)
+```
+
+## Alternative patterns
+
+`|` allows you to match one or more alternative patterns
+
+```{r}
+str_view(info, "^H|C")
+```
+
+
+## "Fixing" the order of operations
+
+Why are these different?
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+```{r}
+str_view(info, "^H|C.")
+```
+:::
+
+
+::: {.column .nonincremental width="50%"}
+```{r}
+str_view(info, "^(H|C).")
+```
+:::
+:::::
+
+## Repetition
+
+You can search for a pattern followed by the number  of matches
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+- `?`: 0 or 1
+- `+`: 1 or more
+- `*`: 0 or more
+- `{n}`: exactly n times
+- `{n,}`: n or more times
+- `{,m}`: at most m times
+- `{n,m}`: between n and m times
+:::
+
+::: {.column .nonincremental .fragment width="50%"}
+Example: detect three digits in a row
+
+```{r}
+str_view(a1, "\\d{3}")
+```
+
+:::
+:::::
+
+## Your turn: 
+
+::: task
+#### Find all words that are exactly three letters long.
+
+#### Find all words that end with `ing` or `ise`.
+
+#### Find all words that have seven letters or more.
+
+#### Find all words that start with three consonants.
+:::
+
+```{r}
+#| echo: false
+
+countdown::countdown(2.5)
+```
+
+## Duplicating groups
+
+Use escaped numbers (`\\1`, `\\2`, etc) to repeat a group based on position
+
+Which numbers have the same 1st and 3rd digits?
+
+```{r}
+phone_numbers <- c("515 111 2244", "310 549 6892", "474 234 7548")
+str_view(phone_numbers, "(\\d)\\d\\1")
+```
+
+# Intro to Text Analysis {.maize}
+
+## Text Analysis
+
+Up to this point, we've been thinking of string data as a column in our dataset: 
+
+  - Names
+  - Phone numbers
+  - Addresses
+  - Course titles
+  - etc. 
+
+. . . 
+
+which are all relatively short and structured. We can extract meaning from them using relatively simple functions and "know what we're looking for".
+
+## {background-image="../img/coursera-data-sci.png"}
+
+
+## Sometimes, text data is more unstructured
+
+Random (?) sample of 26,882 reviews of coursera courses
+
+```{r}
+en_coursera_reviews <- read_csv("https://stat220-w26.github.io/data/en_coursera_sample.csv")
+en_coursera_reviews
+```
+
+::: aside
+Source: [Kaggle](https://www.kaggle.com/datasets/septa97/100k-courseras-course-reviews-dataset/data)
+:::
+
+*Note:* may need to install `tidytext` and `stopwords` packages
+
+## Sometimes, text data is more unstructured
+
+```{r}
+en_coursera_reviews %>%
+  filter(str_detect(Review, "ggplot")) %>%
+  pull(Review)
+``` 
+
+## {.center}
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+
+![](https://juliasilge.github.io/tidytext/reference/figures/tidytext.png){width="60%"}
+:::
+
+:::{.column .nonincremental width="50%"}
+- Functions for text analysis that follow tidy data principles
+
+- *Not* part of the `tidyverse`, but plays well with other packages
+
+```{r}
+library(tidytext)
+```
+
+:::
+:::::
+
+## Some notation
+
+*document*: an observation of text data (in this case, an abstract)
+
+. . . 
+
+*corpus*: collection of many documents
+
+. . . 
+
+*token*: a unit of analysis within the document (typically a word, but could be a sentence or a line or a pair of words, etc.)
+
+## Text as tidy data
+
+1. *tokenize* each document
+    - Each *row* in the dataset is a token
+2. Remove *stopwords*
+    - Words like "the" and "is" typically aren't interesting
+    - Makes the dataset smaller and easier to work with
+3. Count the tokens
+4. (optional) *fancy count* the tokens
+    - Standardize based on total number of tokens
+    - How common is a token *relative to other documents*
+    - How common are "good words" or "bad words"
+
+## `unnest_tokens()`
+
+::::: columns
+::: {.column width="50%"}
+- `tbl`: our data
+- `output`: what should the output column be called?
+- `input`: what column do we tokenize?
+- `token`: default is "word" but can also be "ngrams", "sentences", "lines", "paragraphs", etc.
+- `to_lower`: should tokens be converted to lowercase
+:::
+::: {.column .nonincremental width="50%"}
+```{r}
+#| eval: false
+unnest_tokens(
+  tbl,
+  output,
+  input,
+  token = "words",
+  to_lower = TRUE,
+  drop = TRUE,
+  ...
+)
+```
+:::
+:::::
+
+
+## Tokenize
+
+```{r}
+library(tidytext)
+en_coursera_reviews |>
+  unnest_tokens(output = word, input = Review) |>
+  select(CourseId, word)
+```
+
+## Stopwords
+
+```{r}
+get_stopwords(source = "stopwords-iso") |> pull(word)
+```
+
+## `anti_join`
+
+![](../img/anti-join.gif)
+
+## Remove stopwords
+
+```{r}
+#| code-line-numbers: "3"
+
+en_coursera_reviews |>
+  unnest_tokens(output = word, input = Review) |>
+  anti_join(get_stopwords(source = "stopwords-iso"), by = "word") |>
+  select(CourseId, word)
+```
+
+## Filter to include only data science courses
+
+```{r}
+#| code-line-numbers: "4"
+
+en_coursera_reviews |>
+  unnest_tokens(output = word, input = Review) |>
+  anti_join(get_stopwords(source = "stopwords-iso"), by = "word") |>
+  filter(str_detect(CourseId, "data-science")) |> 
+  select(CourseId, word)
+```
+
+## Count the tokens
+
+```{r}
+#| output-location: slide
+#| code-line-numbers: "5-6|7|8-10"
+
+en_coursera_reviews |>
+  unnest_tokens(output = word, input = Review) |>
+  anti_join(get_stopwords(source = "stopwords-iso"), by = "word") |>
+  filter(str_detect(CourseId, "data-science")) |> 
+  group_by(CourseId) %>%
+  count(word) %>%
+  slice_max(n, n = 10) %>%
+  ggplot(aes(x = n, y = fct_reorder(word, n))) + 
+  geom_col() + 
+  facet_wrap(~CourseId, scales = "free_y", nrow = 2) + 
+  labs(
+    y = "Word"
+  ) + 
+  theme(strip.text = element_text(size = 8))
+```
+
+## Make it ~ fancy ~: n-grams
+
+::::: columns
+::: {.column width="50%"}
+- `token` is set to "ngrams"
+- also specify `n=2` (2 words)
+:::
+::: {.column .nonincremental width="50%"}
+```{r}
+#| eval: false
+unnest_tokens(
+  tbl,
+  output,
+  input,
+  token = "words",
+  to_lower = TRUE,
+  drop = TRUE,
+  ...
+)
+```
+:::
+:::::
+
+## Make it ~ fancy ~: n-grams
+
+```{r}
+#| output-location: slide
+#| code-line-numbers: "2,4,7"
+
+en_coursera_reviews |>
+  unnest_tokens(output = word, input = Review, token = "ngrams", n=2) |>
+  anti_join(get_stopwords(source = "stopwords-iso"), by = "word") |>
+  filter(str_detect(CourseId, "data-science")) |> 
+  group_by(CourseId) %>%
+  count(word) %>%
+  slice_max(n, n = 10) %>%
+  ggplot(aes(x = n, y = fct_reorder(word, n))) + 
+  geom_col() + 
+  facet_wrap(~CourseId, scales = "free_y", nrow = 2) + 
+  labs(
+    y = "Word"
+  ) + 
+  theme(strip.text = element_text(size = 8))
+
+```
+
+## Removing stopwords from reviews *first*
+
+```{r}
+#| code-line-numbers: "2|3|5"
+coursera_reviews <- en_coursera_reviews |>
+  unnest_tokens(word, Review) |>
+  anti_join(get_stopwords(source = "stopwords-iso"), by = "word") |>
+  group_by(CourseId, review_id) |>
+  summarize(review_clean = paste(word, collapse = " "))
+```
+
+. . . 
+
+Original Review:
+
+```{r}
+en_coursera_reviews |> filter(review_id == 6) |> pull(Review)
+```
+
+. . . 
+
+"Clean" Review
+
+```{r}
+coursera_reviews |> filter(review_id == 6) |> pull(review_clean)
+```
+
+## What if we use a different stopwords dictionary?
+
+```{r}
+coursera_reviews2 <- en_coursera_reviews |>
+  unnest_tokens(word, Review) |>
+  anti_join(get_stopwords(source = "snowball"), by = "word") |>
+  group_by(CourseId, review_id) |>
+  summarize(review_clean = paste(word, collapse = " "))
+```
+
+Original Review:
+
+```{r}
+en_coursera_reviews |> filter(review_id == 6) |> pull(Review)
+```
+
+Clean Review:
+
+```{r}
+coursera_reviews2 |> filter(review_id == 6) |> pull(review_clean)
+```
+
+## tokens on clean reviews
+
+```{r}
+#| output-location: slide
+#| code-line-numbers: "3|4"
+
+en_coursera_reviews |>
+  left_join(coursera_reviews, by = c("CourseId", "review_id")) |>
+  filter(str_detect(CourseId, "data-science")) |> 
+  unnest_tokens(word, review_clean, token = "words") |>
+  group_by(CourseId) %>%
+  count(word) %>%
+  slice_max(n, n = 10) %>%
+  filter( n > 1) %>%
+  ggplot(aes(x = n, y = fct_reorder(word, n))) + 
+  geom_col() + 
+  facet_wrap(~CourseId, scales = "free_y", nrow = 2) + 
+  labs(
+    y = "2-gram"
+  )
+```
+
+## Make it ~ fancy ~: tf-idf
+
+Idea: how common are certain tokens *relative to the rest of the documents in the corpus*? 
+
+. . . 
+
+tf(t,d) =  "term frequency": what proportion of document d is term t? 
+
+. . . 
+
+idf = "inverse document frequency": log-scaled inverse fraction of documents that contain the term
+
+
+$$\text{idf} = \log \frac{\text{number of documents}}{\text{number of documents containing term t}}$$
+
+. . . 
+
+$$\text{tf-df(t, d)} = \frac{\text{tf(t, d)}}{\text{idf(t)}}$$
+
+## highest tf-idf's are used a lot within a review, and rarely in other reviews
+
+```{r}
+en_coursera_reviews |>
+  left_join(coursera_reviews, by = c("review_id")) |>
+  unnest_tokens(word, review_clean) |>
+  count(review_id, word) |>
+  bind_tf_idf(word, review_id, n) 
+
+```
+
+## highest tf-idf's are used a lot within a review, and rarely in other reviews
+
+```{r}
+en_coursera_reviews |>
+  unnest_tokens(word, Review) |>
+  count(review_id, word) |>
+  bind_tf_idf(word, review_id, n) |>
+  group_by(word) |>
+  mutate(total_n = sum(n)) |>
+  ungroup() |>
+  arrange(desc(tf_idf)) 
+```
+
+## 
+
+```{r}
+#| output-location: slide
+#| code-line-numbers: "4|5-6|7,10"
+en_coursera_reviews |>
+  unnest_tokens(word, Review) |>
+  count(CourseId, review_id, word) |>
+  bind_tf_idf(word, review_id, n)  |>
+  filter(str_detect(CourseId, "data-science")) |>
+  group_by(CourseId) %>%
+  slice_max(tf_idf, n = 10) %>%
+  ggplot(aes(x = n, y = fct_reorder(word, n))) + 
+  geom_col() + 
+  facet_wrap(~CourseId, scales = "free_y", nrow = 2) + 
+  labs(
+    y = "word"
+  )
+```
+
+## Your turn
+
+::: {.task .nonincremental}
+Explore the `en_coursera_reviews` dataset with the folks around you. Can you replicate my analyses, and try a few of your own? Here are some ideas: 
+
+- Explore another subject (besides `data-science`)
+- `Label` contains the numeric rating for the course. How does the review text differ between highly rated and low-rated courses?
+- `stopwords::stopwords_getsources()` gives the available stopword dictionaries. How do these differ, and how do they change your results?
+:::

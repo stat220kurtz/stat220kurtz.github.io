@@ -1,0 +1,115 @@
+---
+title: "Portfolio Project 2"
+subtitle: "Wrangling weather forecasts"
+---
+
+# Overview
+
+For your second portfolio project, you'll apply what you've learned about wrangling data using the `tidyverse`. Your goal is to learn which areas of the U.S. struggle with weather prediction and explore possible reasons why. Speciﬁcally, you will focus on the error in high and low temperature forecasting, and may wish to also consider precipitation and outlook.
+
+You should be careful about summarizing and joining data, and be on the lookout for data quality issues! 
+
+You should write a short report in a "blog post" format describing your ﬁndings. I envision an introductory paragraph that provides some context to your data, and a couple paragraphs outlining your ﬁndings. That’s it. I’m looking for something that is insightful and well-crafted, rather than long and exhaustive.
+
+You should write your blog post in quarto, create any graphics using `ggplot2`, and use tools from this class for data wrangling. To submit your work, push both your quarto file and rendered output document to GitHub. Do not forget to give your post an informative title!
+
+# Data 
+
+The data for this portfolio problem is from the National Weather Service. The data includes sixteen months of forecasts and observations from 167 cities, as well as a separate data set with information about those cities and some other American cities.
+
+Your repos will contain the following files:
+
+- data/forecast_cities.csv
+- data/outlook_meanings.csv
+- data/weather_forecasts.csv
+
+## `weather-forecasts.csv`
+
+| variable              | class    | description                                                                                                                                           |
+|-----------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| date                  | date     | date described by the forecast                                                                                                                        |
+| city                  | factor   | observation city                                                                                                                                      |
+| state                 | factor   | state or territory                                                                                                                                    |
+| high_or_low           | factor   | whether the forecast is for the high temperature of the low temperature                                                                               |
+| forecast_hours_before | integer  | the number of hours before the observation (one of 12, 24, 36, or 48)                                                                                 |
+| observed_temp         | integer  | the actual observed temperature on that date (high or low)                                                                                            |
+| forecast_temp         | integer  | the predicted temperature on that date (high or low)                                                                                                  |
+| observed_precip       | double   | the observed precipitation on that date, in inches; note that some observations lack an indication of precipitation, while others explicitly report 0 |
+| forecast_outlook      | factor   | an abbreviation for the general outlook, such as precipitation type                                                                                   |
+| possible_error        | factor   | either (1) “none” if the row contains no potential errors or (2) thename of the variable that is the cause of the potential error                     |
+
+
+## `forecast_cities.csv`
+
+| variable               | class      | description                                                                                                                                               |
+|------------------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| city                   | character  | city                                                                                                                                                      |
+| state                  | character  | state or territory                                                                                                                                        |
+| lon lat                | double     | longitude                                                                                                                                                 |
+| lat                    | double     | latitude                                                                                                                                                  |
+| koppen                 | character  | Köppen climate classiﬁcation                                                                                                                              |
+| elevation              | double     | elevation in meters                                                                                                                                       |
+| distance_to_coast      | double     | distance_to_coast in miles                                                                                                                                |
+| wind                   | double     | mean wind speed                                                                                                                                           |
+| elevation_change_four  | double     | greatest elevation change in meters out of the four closest points to this city in a collection of elevations used by the team at Saint Louis University  |
+| elevation_change_eight | double     | greatest elevation change in meters out of the eight closest points to this city in a collection of elevations used by the team at Saint Louis University |
+| avg_annual_precip      | double     | average annual precipitation in inches                                                                                                                    |
+
+## `outlook_meanings.csv`
+
+| variable          | class      |
+|-------------------|------------|
+| forecast_outlook  | character  |
+| meaning           | character  |
+
+# Submission
+
+Your submission will be a short report detailing your findings.
+
+# Rubric
+
+A **successful** project will:
+
+- [ ] Include all necessary components pushed to GitHub and linked to gradescope
+- [ ] Contain code, plots, and written summary in a single .qmd document
+- [ ] The .qmd has all necessary and no unnecessary code
+- [ ] Use both `weather_forecasts.csv` and `forecast_cities.csv`
+- [ ] Investigate the accuracy of the forecasts
+- [ ] Investigate possible reasons some areas struggle with accuracy
+- [ ] Data sets were correctly imported 
+- [ ] Data sets were correctly joined
+- [ ] All wrangling was implemented correctly 
+- [ ] Variable types are manipulated correctly (e.g. dates are treated as dates, factors are treated as factors)
+- [ ] Meet minimum submission quality standards
+    -   Very few grammatical mistakes, spelling mistakes, or typos
+    -   Informative title for your report is included
+    -   Any graphs are readable with appropriate titles and labels
+    -   The rendered document does not contain any unnecessary content (package loading messages, warnings, etc.)
+    -   The rendered document *does not* echo your code
+    -   Rendered document is a `gfm` ("github flavored markdown" - this means that it is rendered to markdown output which is formattable by github). Instead of a PDF or html file, your rendered report will be a `.md` file. You can check to see that it worked by opening the rendered file within github. If you can see your plots, it worked! 
+
+An **excellent** project will meet all of the requirements for a successful project, plus
+
+- [ ] Identify the data quality issue in `weather_forecasts.csv` (*Hint:* looking through `forecast_cities` first might give you an idea of what to look for)
+    - Please include a section of your report describing the issue and showing it through a table/graph/etc.
+- [ ] Meet high submission quality standards
+    -   No grammatical mistakes, spelling mistakes, or typos
+    -   Graphs have been customized (theme, color palette, scales, size, xetc.) 
+
+::: callout-note
+## A note on the data quality issue
+
+This is tricky to find and will likely take a lot of time exploring the data. It is not obvious and easy to miss. So if you feel crunched for time and stressed that you can't find it, remember that only 2 out of 4 projects need to meet the "excellent" criteria in order to earn an A - it's OK to say "maybe I'll pass on this one", and you can always submit a revision down the road if you change your mind!
+:::
+
+# Can I work with someone? 
+
+This project can be done individually or in pairs. If you'd like to work with a partner, please notify me by messaging on Ed **before class on Friday** so I can make a joint repo for you. 
+
+From the syllabus: *You are expected to collaborate with your group, but cannot rely on external sources other than to help motivate the questions or provide other background information (including online forums like StackExchange or Reddit). You may use any resources from class and package documentation, but getting answers on significant parts of solutions from outside resources is not allowed.*
+
+A note/reminder on AI: *Large-language models (e.g. ChatGPT, Gemini, etc.) should only be used for coding or debugging help after you’ve attempted to solve the problem on your own. You should never copy and paste any course materials into a large-language model, and you should never copy and paste anything out of a large-language model into your course materials. Copying, paraphrasing, summarizing, or submitting work generated by anyone but yourself without proper attribution is considered academic dishonesty (this includes output from LLMs). You are not allowed to upload datasets or assignment prompts into a large language model.*
+
+# FAQ
+
+If you have any questions, please post them on Ed with a #portfolio-projects tag!

@@ -1,0 +1,33 @@
+---
+title: "Useful links"
+---
+
++----------------------------+-----------------------------------------------------------------------------+
+| RStudio Server             | 🔗  [Carleton's Maize Server](maize.mathcs.carleton.edu)                    |
++----------------------------+-----------------------------------------------------------------------------+
+| Course GitHub organization | 🔗 [GitHub](github.com/stat220-s25)                                         |
++----------------------------+-----------------------------------------------------------------------------+
+| Gradebook                  | 🔗 on [Moodle](https://moodle.carleton.edu/course/view.php?id=44937)        |
++----------------------------+-----------------------------------------------------------------------------+
+| Spend a Token              | 🔗 [Spend a token](https://forms.gle/aa59m9WVn7u2Bhwo8)                     |
++----------------------------+-----------------------------------------------------------------------------+
+| Textbooks                  | 🔗 [Modern Data Science with R (MDS)](https://mdsr-book.github.io/mdsr3e/)  |
+|                            |                                                                             |
+|                            | 🔗 [R for Data Science (R4DS)](https://r4ds.hadley.nz/)                     |
+|                            |                                                                             |
+|                            | 🔗 [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/)    |
++----------------------------+-----------------------------------------------------------------------------+
+| Package documentation      | 🔗 ggplot2: [ggplot2.tidyverse.org](https://ggplot2.tidyverse.org/)         |
+|                            |                                                                             |
+|                            | 🔗 dplyr: [dplyr.tidyverse.org](https://dplyr.tidyverse.org/)               |
+|                            |                                                                             |
+|                            | 🔗 tidyr: [tidyr.tidyverse.org](https://tidyr.tidyverse.org/)               |
+|                            |                                                                             |
+|                            | 🔗 forcats: [forcats.tidyverse.org](https://forcats.tidyverse.org/)         |
+|                            |                                                                             |
+|                            | 🔗 stringr: [stringr.tidyverse.org](https://stringr.tidyverse.org/)         |
+|                            |                                                                             |
+|                            | 🔗 lubridate: [lubridate.tidyverse.org](https://lubridate.tidyverse.org/)   |
+|                            |                                                                             |
+|                            | 🔗 readr: [readr.tidyverse.org](https://readr.tidyverse.org/)               |
++----------------------------+-----------------------------------------------------------------------------+

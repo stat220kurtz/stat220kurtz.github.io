@@ -1,0 +1,105 @@
+---
+title: "18: Iteration II"
+---
+
+```{r}
+library(tidyverse)
+```
+
+# Load the Data
+
+```{r}
+unscaled_cancer <- read_csv("https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/refs/heads/main/data/wdbc_unscaled.csv")
+
+
+bakeoff = read_csv("https://stat220-w26.github.io/data/bakeoff-episodes.csv") |>
+  filter(series == 14)
+
+# us_castaway_results
+load(url("https://stat220-w26.github.io/data/combining-data-examples.Rda"))
+
+# penguins
+library(palmerpenguins)
+```
+
+
+
+## Try it: `map`
+
+1. Edit the code chunk below so it returns a numeric vector (remove `eval: false`)
+
+2. Edit the code chunk so it only `map`s to the numeric columns (3-12) of `unscaled cancer`
+
+```{r}
+#| eval: false
+map(unscaled_cancer, mean)
+```
+
+3. `map` the `summary` function to all columns in the {palmerpenguins} `penguins` data
+
+```{r}
+# your code here
+```
+
+## Your turn: `penguins` and `map`
+
+Using the `penguins` data, use `map` to calculate the `range` of a numeric variable and the `table` of a factor variable. (It may be helpful to first write a custom function for this output)
+
+Your result should be a list (it will have length 8).
+
+```{r}
+# your code here
+```
+
+## More practice: survivor data
+
+```{r}
+us_castaway_results 
+```
+
+1. Write a function called `finalists` that takes the input of a survivor season (as a `numeric`) and outputs a string of the finalists' names for that season. The finalists' names should be separated with a comma. 
+
+2. Use `map_chr` to return a character vector of finalists for seasons 31-40. 
+
+## Your turn: `sample_finalists`
+
+Some survivor seasons only had 16 players, while others had 22. This could result in some seasons being slightly under/overrepresented in our sample. Let's account for this.
+
+Edit this experiment to instead randomly sample one player from each season (this results in 47 players) and then sample 20 players from the 47 random ones. 
+
+(*Hint:* look at the `by` argument in `slice_sample`)
+
+```{r}
+# edit this function
+sample_finalists = function(n){
+    us_castaway_results %>%
+    slice_sample(n = n) %>%
+    filter(finalist) %>%
+    count() %>%
+    pull(n)
+}
+```
+
+```{r}
+# your iteration code here
+```
+
+# Permutation test
+
+
+```{r}
+unscaled_cancer %>%
+  group_by(Class) %>%
+  summarize(
+    mean = mean(Radius)
+  )
+```
+
+1. Define a function to run the experiment
+    - Create a new column of `unscaled_cancer` called `class_shuffled`, which is a permutation of the original `Class` variable (*Hint:* see `sample` function)
+    - Group by `class_shuffled` and compute the group means
+    - Find the difference in the means
+2. Repeat the experiment 1000 times, making sure to save the difference in means
+3. Make a histogram of the simulated differences. How (un)likely is the difference we observed?
+
+

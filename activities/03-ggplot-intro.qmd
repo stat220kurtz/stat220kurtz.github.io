@@ -1,0 +1,232 @@
+---
+title: Intro to `ggplot2`
+execute:
+  eval: false
+---
+
+```{r setup, include=FALSE}
+#| eval: true
+q <- 0
+```
+
+::: callout-tip
+## Note: 
+
+The YAML header includes the line `eval: false`. Make sure to delete this when you are ready to render your file.
+:::
+
+```{r}
+#| out.width: 50%
+#| fig.align: center
+#| eval: TRUE
+#| echo: FALSE
+
+knitr::include_graphics("https://cdn.freebiesupply.com/logos/large/2x/survivor-logo-png-transparent.png")
+```
+
+The data we're using today contains information about all seasons of *Survivor* and comes from the [survivoR](https://github.com/doehm/survivoR) R package. In the show, a group of people (called castaways) are placed in an isolated location, where they must provide food, fire, and shelter for themselves. The castaways compete in challenges testing the contestants' physical abilities like running and swimming or their mental abilities like puzzles and endurance challenges for rewards and immunity from elimination. The castaways are progressively eliminated from the game as they are voted out by their fellow contestants until only two or three remain. At that point, the players who were eliminated (the "jury") vote for the winner. The winner is given the title of "Sole Survivor" and is awarded the grand prize of \$1,000,000
+
+```{r}
+#| eval: TRUE
+
+season_summary = readr::read_csv("https://raw.githubusercontent.com/stat220-w26/stat220-w26.github.io/refs/heads/main/data/survivor_season_summary.csv")
+```
+
+- `season`: the number of each season
+- `country`: the country each season was filmed in
+- `winner`: the eventual winner of the season (spoilers!!!)
+- `viewers_premiere`: the number of viewers of the first episode of the season
+- `viewers_finale`: the number of viewers for the last episode of the season
+- `imdb_mean`: the average IMDB rating of the season
+
+# Speed Groupwork
+
+## Round 1: View the data and summary statistics
+
+**`r (q <- q+1)`.** To get started, load the `{tidyverse}` and and take a `glimpse` at the dataset. How many rows and columns are there? What does each row represent?
+
+Loading the `{tidyverse}` loads 8 packages, one of which is `{ggplot2}`. You can certainly load each package individually, but it's often easier to just load the whole thing. 
+
+**`r (q <- q+1)`.** To access a column in the dataset, we can use `$`. For example, the chunk below selects the `viewers_reunion` column. 
+
+```{r}
+season_summary$viewers_reunion
+```
+
+Run `summary(season_summary$viewers_reunion)` and describe what you find. 
+
+**`r (q <- q+1)`.** Another handy function is `unique()`. Run `unique()` on the `timeslot` variable to see all the different times that Survivor has aired over the years. 
+
+::: callout-important
+## Wait!
+
+Stop here and wait for the next round of groups before moving on
+:::
+
+## Round 2: Scatterplots
+
+First, let’s create a scatterplot of `viewers_finale` (the number of viewers for the last episode of the season) vs. `viewers_premiere` (the number of viewers for the first episode of the season).
+
+A note on wording: when we say `viewers_finale` vs. `viewers_premiere`, this should be interpreted as “variable on the y-axis” vs. “variable on the x-axis”.
+
+**`r (q <- q+1)`.** Fill in the data and aesthetic mapping in the below code chunk. What is returned? What’s missing?
+
+```{r}
+# Fill in the blanks
+ggplot(data = ___, mapping = aes(x = ___, y = ___))
+```
+
+**`r (q <- q+1)`.** Add the appropriate `geom`etric object to create the scatterplot. This is called adding a layer to a plot. Remember to always put the `+` at the end of a line, never at the start.
+
+```{r}
+# Copy your code from the previous chunk and add a geom
+```
+
+What do you notice? Write a sentence or two describing your findings
+
+**`r (q <- q+1)`.** You must remember to put the aesthetic mappings in the `aes()` function! What happens if you forget?
+
+```{r}
+# Add a layer and see what happens
+ggplot(data = ___, x = ___, y = ___)
+```
+
+**`r (q <- q+1)`.** The aesthetic mappings can be specified in the `geom` layer if you prefer, instead of the main `ggplot()` call. Give it a try:
+
+```{r}
+# Rebuild the scatterplot with your aesthetic mapping in the geom layer
+ggplot(data = ___)
+```
+
+::: callout-important
+## Wait!
+
+Stop here and wait for the next round of groups before moving on
+:::
+
+## Round 3: Additional Aesthetics
+
+`x` and `y` are not the only aesthetic mappings possible. In this section you’ll explore the `color`, `size`, `shape`, and `alpha` (i.e. transparency) aesthetics.
+
+**`r (q <- q+1)`.** Create a scatterplot of `viewers_finale` vs. `viewers_premiere`. Add the `color` aesthetic to map `country2` to the point color.
+
+```{r}
+ggplot(data = ___) +
+  geom_point(aes(x = ___, y = ___, color = ___))
+```
+
+**`r (q <- q+1)`.** Create a scatterplot of `viewers_finale` vs. `viewers_premiere`. Use `shape` to represent `country2`. Is this plot easier or harder to interpret than the previous plot?
+
+**`r (q <- q+1)`.** Create a scatterplot of `viewers_finale` vs. `viewers_premiere`. Use both `shape` and `color` to represent the `country2`. Is this plot easier or harder to interpret than the previous two plots?
+
+**`r (q <- q+1)`.** Create a scatterplot of `viewers_finale` vs. `viewers_premiere`. Use `color` to represent the `season`. What did you learn from the plot?
+
+**`r (q <- q+1)`.** Create a scatterplot of `viewers_finale` vs. `viewers_premiere`. Use `size` to represent the `season`.
+
+**`r (q <- q+1)`.** Look back at your scatterplots from the last few questions. Explain the differences when you map aesthetics to discrete and continuous variables.
+
+**`r (q <- q+1)`.** Create a scatterplot of `viewers_finale` vs. `viewers_premiere`. Use `alpha` to represent the `season`.
+
+::: callout-important
+## Wait!
+
+Stop here and wait for the next round of groups before moving on
+:::
+
+## Round 4: Visualizing Distributions
+
+**`r (q <- q+1)`.** Build a histogram of `viewers_mean` using `geom_histogram()`. Don’t hesitate to look at the ggplot2 cheat sheet for help!
+
+```{r}
+# Fill in the blanks
+ggplot(___) +
+  geom_histogram(aes(x = ___))
+```
+
+What have you learned about the distribution of average viewership?
+
+**`r (q <- q+1)`.** By default, `ggplot2` uses 30 bins. To change the number of bins, to say 15, add the argument `bins = 15` to `geom_histogram()`. Note: this is not an aesthetic mapping.
+
+```{r}
+# Fill in the blanks
+ggplot(___) +
+  geom_histogram(aes(x = ___), bins = ___)
+```
+
+**`r (q <- q+1)`.** Instead of a histogram, let’s create a kernel density plot. To do this, substitute geom_density() into your code for question `r q-2`.
+
+**`r (q <- q+1)`.** Now, let's make side-by-side boxplots of `viewers_mean` for each `country2`.
+
+```{r}
+# Fill in the blanks
+ggplot(___) +
+  geom_boxplot(aes(x = ___, y = ___))
+```
+
+**`r (q <- q+1)`.** A violin plot is a kernel density on its side, made symmetric. Change your code from question `r q-1` to use `geom_violin()`. Which plot do you prefer, boxplots or violin plots? Why?
+
+```{r}
+# Put your violin plot code here
+```
+
+::: callout-important
+## Wait!
+
+Stop here and wait for the next round of groups before moving on
+:::
+
+## Round 5: Bar and column charts + Labeling
+
+How many seasons were filmed in each country? Let's find out!
+
+**`r (q <- q+1)`.** Make a bar chart of the number of seasons filmed in each `country2` using `geom_bar()`
+
+```{r}
+# Fill in the blanks
+ggplot(___) +
+  geom_bar(aes(x = ___))
+```
+
+**`r (q <- q+1)`.** `country2` has a category called "other". Make a bar chart of `country` (which includes all individual countries) instead.
+
+```{r}
+# Fill in the blanks
+ggplot(___) +
+  geom_bar(aes(x = ___))
+```
+
+**`r (q <- q+1)`.** When you have lots of categories, it's sometimes hard to read the labels on the x-axis. One trick is to flip the axes. Change `geom_bar()` to use the `y` aesthetic from your code in question `r q-1` instead.
+
+**`r (q <- q+1)` .** Sometimes, the variable we want to show up in the bar chart shows up explicitly in our data. Put `n_tribes` on the x-axis, and `season_name` on the y-axis. Use `geom_col` (column) as the geom. How is this different than a bar plot?
+
+```{r}
+# Fill in the blanks
+ggplot(___) +
+  geom_col(aes(x = ___, y = ___))
+```
+
+**`r (q <- q+1)`.** In ggplot2 you can add/change the title, subtitle, caption, and x- and y-axis labels by adding a labs() layer. Below is an example illustrating it’s use. Choose one graph from today and add all labels.
+
+```{r}
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  labs(
+    title = "Put your informative title here",
+    subtitle = "and your subtitle here",
+    x = "New x label",
+    y = "New y label",
+    caption = "Put a caption here"
+  )
+```
+
+
+::: callout-important
+## When you're done
+
+Make a post on the "Week 1 - Friday" discussion thread on Ed. 
+
+- Option 1: If you have any lingering questions about ggplot, feel free to post them
+- Option 2: You can also post your final graph for the last question! 
+:::
+
+

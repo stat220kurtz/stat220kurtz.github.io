@@ -1,0 +1,74 @@
+---
+title: Maps
+---
+
+```{r}
+library(tidyverse)
+library(maps)
+library(mapproj)
+library(ggthemes)
+```
+
+# Create Original Map
+
+```{r}
+states <- map_data("state")
+ggplot(states, aes(x=long, y=lat, group=group)) + 
+    geom_polygon(color="gold2", fill="navyblue")
+```
+
+## Your turn
+
+Edit the code so that each state is a different color
+
+```{r}
+states <- map_data("state")
+ggplot(states, aes(x=long, y=lat, group=group)) + 
+    geom_polygon(color="gold2", fill="navyblue")
+```
+
+# Your turn: ACS data
+
+## Load Data
+
+```{r}
+acs_state_data = read_csv("acs_state_data_2022_5y.csv") 
+acs_state_data$state = tolower(acs_state_data$NAME)
+```
+
+Variable information:
+
+-   `med_age`: median age
+-   `med_income`: median age
+-   `race_X`: estimated population of (self-reported) race
+-   `born_in_state`: estimated population who were born in state
+-   `X_age_married`: average age at first marriage for self-reported male and female respondents
+-   `hs_diploma`, `associate_degree`, `prof_degree`, etc.: estimated number with a high school diploma, associate's degree, professional degree, etc.
+-   `internet_X`: estimated number of people who have internet services
+
+## ACS Data Starter Map
+
+**Important note:** we're using `geom_map` as a shortcut here to make a chloropleth map. This saves us the step of encoding the lat/long borders of states, and lets us directly fill the state colors using `acs_state_data` *only*. If you're asked to make a chloropleth map with data that only includes, e.g., state name, use this starter code.
+
+```{r}
+ggplot(acs_state_data) + 
+  geom_map(
+    aes(map_id = state, fill = NAME),
+    map = states
+  ) +
+  expand_limits(x = states$long, y = states$lat) +
+  coord_map() +
+  theme_map()
+```
+
+### Your turn 1
+
+Comment out the `expand_limits` line using `#`. What happened? 
+
+### Your turn 2
+
+Edit your chloropleth map by: 
+
+- Choosing a different variable in `acs_state_data` to map to `fill`
+- Choosing a different color scale
+- Updating the title, axis labels, and legend title

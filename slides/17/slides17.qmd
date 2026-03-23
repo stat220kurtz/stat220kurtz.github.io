@@ -1,0 +1,599 @@
+---
+title: "Iteration"
+subtitle: Day 17
+title-slide-attributes:
+  data-background-image: ../img/horst_bakers_4.png
+  data-background-size: 70%
+  data-background-position: bottom right
+  data-background-opacity: "0.8"
+  data-slide-number: none
+format: 
+  revealjs:
+    incremental: true
+    code-copy: true
+    code-link: true
+    scrollable: true
+auto-stretch: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+library(countdown)
+library(tidyverse)
+library(lubridate)
+library(palmerpenguins)
+library(patchwork)
+library(ggthemes)
+library(nycflights23)
+library(here)
+library(fontawesome)
+library(tictoc)
+slides_theme = theme_minimal(
+  base_family = "Atkinson Hyperlegible",
+  base_size = 16)
+
+theme_set(slides_theme)
+
+set.seed(0206)
+
+unscaled_cancer <- read_csv("https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/refs/heads/main/data/wdbc_unscaled.csv")
+```
+
+
+## Recap from last class: Standardizing a vector
+
+Here's a short function that standardizes an input vector
+
+```{r}
+standardize <- function(x, na.rm = TRUE) {
+  (x - mean(x, na.rm = na.rm)) / sd(x, na.rm = na.rm)
+}
+```
+
+Now we can easily standardize all of our variables, right?
+
+## Cancer data
+
+::: nonincremental
+- Set of digitized breast cancer image features
+- Row = an image of a tumor sample 
+- Variables include the diagnosis (benign or malignant) and measurements 
+:::
+
+```{r echo=FALSE}
+glimpse(unscaled_cancer)
+```
+
+
+## Standardizing cancer data
+
+```{r}
+scaled_cancer <- unscaled_cancer %>%
+  mutate(
+    Radius = standardize(Radius),
+    Texture = standardize(Texture),
+    Perimeter = standardize(Perimeter),
+    Area = standardize(Area),
+    Smoothness = standardize(Smoothness),
+    Compactness = standardize(Compactness),
+    Concavity = standardize(Concavity),
+    Concave_points = standardize(Concave_Points),
+    Symmetry = standardize(Symmetry),
+    Fractal_dimension = standardize(Fractal_Dimension)
+  )
+```
+
+## 
+
+> You should consider ~~writing a function~~ iterating<br> 
+> whenever you’ve copied and pasted a  <br>
+> block of code more than twice 
+
+>—~~Hadley Wickham~~ <br>
+>-Amanda Luby
+
+## Iteration
+
+- Programmatically repeat the code
+
+- We have two options for doing this:
+
+  + using a `for` loop, or similar (imperative programming)
+
+  + `map`ping with functional programming
+  
+## for loops
+
+- `for` loops are the simplest and most common type of loop in R 
+
+- Given a vector iterate through the elements and evaluate the code block for each
+
+. . . 
+
+**Goal:** Standardize all of the numeric columns via for loops. 
+
+## for loops
+
+#### (1) Set up a object to store results
+
+```{r}
+scaled_cancer <- unscaled_cancer %>%
+  mutate(
+    Radius = NA,
+    Texture = NA,
+    Perimeter = NA,
+    Area = NA,
+    Smoothness = NA,
+    Compactness = NA,
+    Concavity = NA,
+    Concave_Points = NA,
+    Symmetry = NA,
+    Fractal_dimension = NA
+  )
+
+scaled_cancer
+```
+
+## for loops
+
+#### (2) Determine an index over which to iterate
+
+Columns 3 to 12 are numeric, our index is `3:12`
+
+
+```{r}
+#| echo: false
+
+scaled_cancer
+```
+
+## for loops
+
+#### (3) Iterate through the index, standardize and save results <br> `i <- 3`
+
+```{r for-loop-i1, include=FALSE}
+i = 3
+scaled_cancer[, i] <- standardize(unscaled_cancer[[i]])
+```
+
+
+```{r eval=FALSE}
+for (i in 3:12){
+  scaled_cancer[, i] <- standardize(unscaled_cancer[[i]])
+}
+```
+```{r echo=FALSE}
+print(scaled_cancer, n=5)
+```
+
+## for loops
+
+#### (3) Iterate through the index, standardize and save results <br> `i <- 4`
+
+```{r for-loop-i2, include=FALSE}
+i = 4
+scaled_cancer[, i] <- standardize(unscaled_cancer[[i]])
+```
+
+
+```{r eval=FALSE}
+for (i in 3:12){
+  scaled_cancer[, i] <- standardize(unscaled_cancer[[i]])
+}
+```
+```{r echo=FALSE}
+print(scaled_cancer, n=5)
+```
+
+## for loops
+
+#### (3) Iterate through the index, standardize and save results <br> `i <- 5`
+
+```{r for-loop-i3, include=FALSE}
+i = 5
+scaled_cancer[, i] <- standardize(unscaled_cancer[[i]])
+```
+
+
+```{r eval=FALSE}
+for (i in 3:12){
+  scaled_cancer[, i] <- standardize(unscaled_cancer[[i]])
+}
+```
+```{r echo=FALSE}
+print(scaled_cancer, n=5)
+```
+
+## for loops
+
+#### (3) Iterate through the index, standardize and save results <br> `i <- 6`
+
+```{r for-loop-i4, include=FALSE}
+i = 6
+scaled_cancer[, i] <- standardize(unscaled_cancer[[i]])
+```
+
+
+```{r eval=FALSE}
+for (i in 3:12){
+  scaled_cancer[, i] <- standardize(unscaled_cancer[[i]])
+}
+```
+```{r echo=FALSE}
+print(scaled_cancer, n=5)
+```
+
+## Putting it all together:
+
+
+```{r}
+# Preallocate storage
+scaled_cancer <- unscaled_cancer %>%
+  mutate(
+    Radius = NA,
+    Texture = NA,
+    Perimeter = NA,
+    Area = NA,
+    Smoothness = NA,
+    Compactness = NA,
+    Concavity = NA,
+    Concave_Points = NA,
+    Symmetry = NA,
+    Fractal_dimension = NA
+  )
+
+# Iterate over numeric columns and save
+for (i in 3:12){
+  scaled_cancer[, i] <- standardize(unscaled_cancer[[i]])
+}
+
+scaled_cancer
+```
+
+## Your turn
+
+::: {.task .nonincremental}
+Load the `palmerpenguins` package.
+
+Write a `for` loop that calculates the mean of the numeric variables in the `penguins` data set and stores the means in a named vector.
+:::
+
+```{r echo=FALSE}
+glimpse(penguins)
+```
+
+```{r}
+#| echo: false
+
+countdown(3)
+```
+
+## Preallocate storage to increase speed
+
+::::: columns
+::: {.column width="50%"}
+```{r include=FALSE}
+tic()
+```
+
+```{r results='hide'}
+#| code-line-numbers: "2"
+
+add_to_vector <- function(n) {
+  output <- NULL 
+  for (i in 1:n) {
+    output <- c(output, i)
+  }
+  output
+}
+
+add_to_vector(10000)
+```
+
+```{r echo=FALSE}
+toc()
+```
+:::
+
+::: {.column width="50%"}
+```{r include=FALSE}
+tic()
+```
+
+
+```{r results='hide'}
+#| code-line-numbers: "2"
+
+add_to_vector2 <- function(n) {
+  output <- vector("integer", n)  
+  for (i in 1:n) {
+   output[i] <- i
+  }
+  output
+}
+
+add_to_vector2(10000)
+```
+
+
+```{r echo=FALSE}
+toc()
+```
+:::
+:::::
+
+## The difference is noticable for larger n
+
+::::: columns
+::: {.column width="50%"}
+```{r include=FALSE}
+#| eval: false
+tic()
+```
+
+```{r}
+#| results: hide
+#| code-line-numbers: "2,9"
+#| cache: true
+
+add_to_vector <- function(n) {
+  output <- NULL 
+  for (i in 1:n) {
+    output <- c(output, i)
+  }
+  output
+}
+
+add_to_vector(100000)
+```
+
+```{r echo=FALSE}
+#| eval: false
+toc()
+```
+
+```
+6.38 sec elapsed
+```
+
+:::
+
+::: {.column width="50%"}
+```{r include=FALSE}
+#| eval: false
+tic()
+```
+
+
+```{r}
+#| results: hide
+#| code-line-numbers: "2,9"
+
+
+add_to_vector2 <- function(n) {
+  output <- vector("integer", n)  
+  for (i in 1:n) {
+   output[i] <- i
+  }
+  output
+}
+
+add_to_vector2(100000)
+```
+
+
+```{r echo=FALSE}
+#| eval: false
+toc()
+```
+
+```
+0.438 sec elapsed
+```
+
+:::
+:::::
+
+## Preallocating output
+
+Here are a few useful ways to preallocate storage for a vector of length `n`:
+
+
+```{r eval=FALSE}
+output <- double(n)    # numeric vector
+output <- integer(n)   # integer vector
+output <- character(n) # character vector
+output <- rep(NA, n)   # vector of NAs
+```
+
+
+. . . 
+
+You can make tibbles of NAs by combining vectors via `tibble()`
+
+
+```{r eval=FALSE}
+output_tbl <- tibble(
+  a = double(n),
+  b = integer(n),
+  c = character(n),
+  d = rep(NA, n)
+)
+```
+
+
+## Create index vector
+
+Useful ways to create index vector to iterate over:
+
+- `1:n` - manual creation if you already have `n` stored
+
+- `seq_along(df)` - construct an index "along" the columns of your data frame/tibble
+
+    e.g. `seq_along(unscaled_cancer)` <br>
+    ⚠️ Use this instead of `1:nrow(df)`or `1:length(x)`
+
+- `x` - pass in a vector, there's no reason it needs to be an "index"
+
+    e.g. `colnames(unscaled_cancer)`
+    
+
+## Your turn: 
+
+::: {.task .nonincremental}
+Revisit the {palmerpenguins} `penguins` data.
+
+Write a `for` loop that calculates the `summary()` of a numeric variable and the `table()` of a factor variable.
+
+Store the results in a list (it will have length 8).
+:::
+
+```{r}
+#| echo: false
+
+countdown::countdown(3)
+```
+
+```{r}
+#| include: false
+
+output = vector("list", length = 8)
+
+for(ii in seq_along(penguins)){
+  if(is.numeric(penguins[[ii]])){
+    output[[ii]] = summary(penguins[[ii]])
+  }
+  if(is.factor(penguins[[ii]])){
+    output[[ii]] = table(penguins[[ii]])
+  }
+}
+```
+
+# `across()` {.maize}
+
+## R has lots of alternatives to `for` loops
+
+- The basic data type in R is a vector
+- In R, an "integer" is the same as a vector of integers of length 1
+- In more general-purpose programming languages, single items are stored differently than arrays of those items
+- This means that R is highly optimized for vectorized operations
+
+## `across()` 
+
+::::: columns
+::: {.column width="50%"}
+- `.cols`: columns to apply function to 
+- `.fns` function to apply
+:::
+
+::: {.column width="50%"}
+```{r}
+#| eval: false
+across(.cols, 
+       .fns)
+```
+:::
+:::::
+
+## `across()` on unscaled cancer data
+
+::: panel-tabset
+
+### One Function
+
+```{r}
+unscaled_cancer |>
+  summarize(across(Radius:Fractal_Dimension, mean))
+```
+
+### Multiple Functions
+
+```{r}
+unscaled_cancer |>
+  summarize(across(Radius:Fractal_Dimension, list(mean = mean, 
+                                                  sd = sd)))
+```
+
+### Mutate
+
+```{r}
+unscaled_cancer |>
+  mutate(across(Radius:Fractal_Dimension, standardize))
+```
+
+:::
+
+## Helper functions for `across()`
+
+::: {.nonincremental}
+- `where(is.numeric)` selects all numeric columns.
+- `where(is.character)` selects all string columns.
+- `where(is.Date)` selects all date columns.
+- `where(is.logical)` selects all logical columns.
+:::
+
+## `across()` on unscaled cancer data
+
+```{r}
+unscaled_cancer %>%
+  mutate(across(where(is.numeric), standardize))
+```
+
+## `across()` with a new function
+
+Let's say we want the range of each quantitative variable (`max(x) - min(x)`). We could name a new function, or we could do it directly in `across()`
+
+. . . 
+
+```{r}
+#| output-location: fragment
+
+
+unscaled_cancer %>%
+  summarize(across(where(is.numeric), function(x) max(x) - min(x)))
+```
+
+. . . 
+
+Or we can use an *anonymous function*
+
+```{r}
+unscaled_cancer %>%
+  summarize(across(where(is.numeric), \(x) max(x) - min(x)))
+```
+
+## Your turn
+
+::: {.task .nonincremental}
+Use `summarize` and `across` to find the *range* of any quantitative variables, and the *number of levels* of any factor variables in the `penguins` dataset.
+:::
+
+```{r}
+#| include: false
+penguins |>
+  summarize(
+    across(where(is.numeric), \(x) mean(x, na.rm = TRUE)),
+    across(where(is.factor), \(x) length(levels(x)))
+  )
+```
+
+```{r}
+countdown(4)
+```
+
+
+## 
+
+The good news: we can use `across` to do lots of for-loop-type tasks in our {dplyr} pipelines. 
+
+. . . 
+
+The bad news: `across()` only works with {dplyr} functions like `mutate` or `summarize`
+
+. . . 
+
+The good news: there's a more general-purpose solution in the {tidyverse} (which we'll see next time!)
+

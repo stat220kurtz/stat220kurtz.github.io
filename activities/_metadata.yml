@@ -1,0 +1,18 @@
+institute: "Carleton College <br> Stat 220 - Winter 2026"
+author: "Prof Amanda Luby"
+footer: "[🔗 stat220-w26.github.io](https://stat220-w26.github.io)"
+format:
+  html:
+    code-tools: true
+    highlight-style: github
+editor: source
+execute:
+  freeze: auto
+  echo: true
+  warning: false
+  message: false
+engine: knitr
+knitr:
+  opts_chunk: 
+    R.options:
+      width: 80

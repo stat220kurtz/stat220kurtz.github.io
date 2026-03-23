@@ -1,0 +1,11 @@
+https://dept.stat.lsa.umich.edu/~jerrick/courses/stat506_f24/07-sql.html
+
+https://github.com/bradleygrant/sakila-sqlite3
+
+https://beanumber.github.io/tidy-databases/tidy_databases_slides.html#databases-in-the-tidyverse
+
+SELECT * 
+FROM get_fit_now_check_in ci 
+JOIN get_fit_now_member m
+ON ci.membership_id = m.id
+WHERE check_in_date = 

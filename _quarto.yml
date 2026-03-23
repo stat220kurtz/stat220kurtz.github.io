@@ -1,0 +1,78 @@
+project:
+  type: website
+  resources: 
+    - "data/"
+    - "files/"
+
+website:
+  page-navigation: true
+  title: "Stat 220"
+  description: "Homepage for Stat 220 - Intro to Data Science at Carleton College, Winter 2026."
+
+  repo-url: https://github.com/stat220-w26/stat220-w26.github.io
+
+  sidebar:
+    background: "#FFD24F" # Maize (Pantone 120)
+    logo: "images/logo.png"
+    pinned: true
+    align: center
+    tools:
+      - icon: github
+        href: https://github.com/stat220-w26
+        text: "GitHub organization"
+      - icon: code-square
+        href: https://maize.mathcs.carleton.edu/
+        text: "RStudio Server"
+      - icon: person-fill
+        href: https://moodle.carleton.edu/course/view.php?id=48308
+        text: "Moodle"
+
+    style: docked
+    search: true
+    collapse-level: 1
+    contents:
+      - section: "Course information"
+        contents:
+          - href: course-syllabus.qmd
+            text: Syllabus
+          - href: index.qmd
+            text: Schedule
+          - href: course-links.qmd
+            text: Useful links
+          - href: course-faq.qmd
+            text: FAQ
+      - section: "Computing"
+        contents:
+          - href: computing/computing-access.qmd
+            text: Access
+          - href: computing/rstudio-stat220.qmd
+            text: Rstudio in Stat 220
+          - href: computing/git-stat220.qmd
+            text: Git/Github in Stat 220
+          - href: computing/computing-cheatsheets.qmd
+            text: Cheatsheets
+          
+  page-footer:
+    right: "This page is built with ☕️ and [Quarto](https://quarto.org/)."
+    left: "Material 2025, Amanda Luby <br> Design by Mine Çetinkaya-Rundel"
+    background: "#FFD24F" # Maize (Pantone 120)
+    
+format:
+  html:
+    theme:
+      light: [cosmo, style/stat220.scss]
+      dark: [cosmo, style/stat220.scss, style/dark.scss]
+    linkcolor: "#866fa3" # Glossy Grape
+    toc: true
+    code-copy: true
+    code-overflow: wrap
+    mainfont: "Atkinson Hyperlegible"
+    highlight-style: github
+    code-link: true
+
+execute:
+  freeze: auto
+  message: false
+  warning: false
+
+editor: source

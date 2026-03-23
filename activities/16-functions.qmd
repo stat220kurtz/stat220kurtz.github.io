@@ -1,0 +1,91 @@
+---
+title: "16-functions"
+---
+
+```{r}
+library(tidyverse)
+library(palmerpenguins) # load penguins data
+```
+
+# Load the Data
+
+```{r}
+unscaled_cancer <- read_csv("https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/refs/heads/main/data/wdbc_unscaled.csv")
+
+unscaled_cancer
+```
+
+## Your turn: 3 functions
+
+Turn the following code snippets into functions. Think about what each function does before you begin, and be sure to give each function an informative name.
+
+1. `mean(is.na(x))`
+
+1. `x / sum(x, na.rm = TRUE)`
+
+1. `sd(x, na.rm = TRUE) / mean(x, na.rm = TRUE)`
+
+
+## Your turn: `column_mean`
+
+- Write a function called `column_mean` that takes a data set and column name (as a string) as inputs and returns the column mean as output. (*Hint:* access the column using `[[`)
+
+- You should also include a `na.rm` argument and set the default to `TRUE` so that `NA`s are removed from the calculation by default.
+
+- Test your function on the `mtcars` data set.
+
+```
+> column_mean(mtcars, "cyl")
+[1] 6.1875
+```
+
+## Your turn: `scatterplot`
+
+Write a plotting function that makes a scatterplot of any two quantitative variables, coloring the points by a 3rd categorical variable. 
+
+Test your function with the following examples:
+
+`scatterplot(unscaled_cancer, Radius, Texture, Class)`
+
+`scatterplot(penguins, bill_length_mm, bill_depth_mm, species)`
+
+## Your turn: `scatterplot` 2
+
+Edit your `scatterplot` function to include an argument called `draw_line`. If `draw_line` is `TRUE`, your function should add a line of best fit to your scatterplot. Test your function with the following examples
+
+`scatterplot(unscaled_cancer, Radius, Texture, Class, draw_line = FALSE)`
+
+`scatterplot(penguins, bill_length_mm, bill_depth_mm, species, draw_line = TRUE)`
+
+# More practice (if time)
+
+## 1
+
+Consider the following function and subsequent call of that function. What causes this error? How can you fix it?
+
+```{r}
+#| eval: false
+summarize_species <- function(pattern = "Human") {
+  starwars |>
+    filter(species == pattern) |>
+    summarize(
+      num_people = n(),
+      avg_height = mean(height, na.rm = TRUE)
+    )
+}
+
+summarize_species(Wookiee)
+```
+
+## 2
+
+You can tell R to print messages using `print("your message here")`. Edit the function above to first check if `pattern` is one of the `species` in the dataset. If it's not, your function should print an informative message and then `return()`. 
+
+## 3 
+
+Given a vector of birthdates, write a function to compute the age in years. See if your function works on the `easy` vector first, then try the `hard` vector. 
+
+```{r}
+hard <- c("15 Feb 1992", "10 March 1985", "03/28/2024", "09/30/2005")
+easy <- mdy(c("2/15/1992", "3/10/1985", "3/28/2024", "9/30/2005"))
+```

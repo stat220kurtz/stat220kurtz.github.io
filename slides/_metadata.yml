@@ -1,0 +1,20 @@
+institute: "Carleton College <br> Stat 220 - Spring 2026"
+author: "Prof Emily Kurtz"
+footer: "[🔗 stat220-s26.github.io](https://stat220-s26.github.io)"
+format:
+  revealjs:
+    theme: slides.scss
+    transition: fade
+    slide-number: true
+    chalkboard: true
+    highlight-style: a11y-dark
+    code-block-border-left: "#31BAE9"
+    incremental: true
+    code-copy: true
+    scrollable: true
+editor: source
+execute:
+  freeze: auto
+  echo: true
+  warning: true
+engine: knitr

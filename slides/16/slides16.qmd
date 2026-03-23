@@ -1,0 +1,856 @@
+---
+title: "Functions"
+subtitle: Day 16
+title-slide-attributes:
+  data-background-image: ../img/function-machine.png
+  data-background-size: 45%
+  data-background-position: bottom right
+  data-background-opacity: "0.8"
+  data-slide-number: none
+format: 
+  revealjs:
+    incremental: true
+    code-copy: true
+    code-link: true
+    scrollable: true
+auto-stretch: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+library(countdown)
+library(tidyverse)
+library(lubridate)
+library(palmerpenguins)
+library(patchwork)
+library(ggthemes)
+library(nycflights23)
+library(here)
+library(fontawesome)
+slides_theme = theme_minimal(
+  base_family = "Atkinson Hyperlegible",
+  base_size = 16)
+
+theme_set(slides_theme)
+
+set.seed(0206)
+```
+
+## Today
+
+1. Writing Functions
+
+2. Conditional Execution 
+
+## Warm up 
+
+::: task
+What does the `mutate` code below do? 
+:::
+
+```{r}
+#| echo: false
+df <- tibble(
+  a = rnorm(5),
+  b = rnorm(5),
+  c = rnorm(5),
+  d = rnorm(5),
+)
+```
+
+```{r}
+df %>% slice_head(n = 3)
+```
+
+```{r}
+#| eval: false
+
+
+df |> mutate(
+  a = (a - mean(a, na.rm = TRUE)) / 
+    sd(a, na.rm = TRUE),
+  b = (b - mean(b, na.rm = TRUE)) / 
+    sd(b, na.rm = TRUE),
+  c = (c - mean(a, na.rm = TRUE)) / 
+    sd(c, na.rm = TRUE),
+  d = (d - mean(d, na.rm = TRUE)) / 
+    sd(d, na.rm = TRUE)
+)
+```
+
+```{r}
+#| echo: false
+countdown(1)
+```
+
+## Rescaling variables
+
+Standardizing/rescaling/normalizing variables is often an essential first step in predictive modeling
+
+. . . 
+
+### Example:
+
+- Set of digitized breast cancer image features 
+
+- Each row in the data set represents an image of a tumor sample, including the diagnosis (benign or malignant) and several other measurements (nucleus texture, perimeter, area, etc.)
+
+- Diagnosis for each image was conducted by physicians.
+
+## 
+
+```{r echo=FALSE}
+unscaled_cancer <- read_csv("https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/refs/heads/main/data/wdbc_unscaled.csv")
+print(unscaled_cancer, n = 16)
+```
+
+## Standardizing variables
+
+**Goal:** standardize the 10 quantitative variables in the data set
+
+. . . 
+
+**Approach:** subtract sample mean, divide by sample standard deviation
+
+. . . 
+
+
+```{r}
+scaled_cancer <- unscaled_cancer %>%
+  mutate(
+    Radius = (Radius - mean(Radius)) / sd(Radius),
+    Texture = (Texture - mean(Texture)) / sd(Texture),
+    Perimeter = (Perimeter - mean(Perimeter)) / sd(Perimeter),
+    Area = (Area - mean(Area)) / sd(Area),
+    Smoothness = (Smoothness - mean(Smoothness)) / sd(Smoothness),
+    Compactness = (Compactness - mean(Compactness)) / sd(Compactness),
+    Concavity = (Concavity - mean(Concavity)) / sd(Concavity),
+    Concave_Points = (Concave_Points - mean(Concave_Points)) / sd(Concave_Points),
+    Symmetry = (Symmetry - mean(Symmetry)) / sd(Symmetry),
+    Fractal_Dimension = (Fractal_Dimension - mean(Fractal_Dimension)) / sd(Fractal_Dimension) 
+  )
+```
+
+
+## Don't repeat yourself (DRY)
+
+- We've copied, pasted, and edited the same code chunk many times
+
+- That's a lot of work when the only change in the code is the variable name!
+
+. . . 
+
+```{r}
+scaled_cancer <- unscaled_cancer %>%
+  mutate(
+    Radius = (Radius - mean(Radius)) / sd(Radius), 
+    Texture = (Texture - mean(Texture)) / sd(Texture), 
+    Perimeter = (Perimeter - mean(Perimeter)) / sd(Perimeter), 
+    Area = (Area - mean(Area)) / sd(Area), 
+    Smoothness = (Smoothness - mean(Smoothness)) / sd(Smoothness), 
+    Compactness = (Compactness - mean(Compactness)) / sd(Compactness),
+    Concavity = (Concavity - mean(Concavity)) / sd(Concavity), 
+    Concave_Points = (Concave_Points - mean(Concave_Points)) / sd(Concave_Points), 
+    Symmetry = (Symmetry - mean(Symmetry)) / sd(Symmetry), 
+    Fractal_Dimension = (Fractal_Dimension - mean(Fractal_Dimension)) / sd(Fractal_Dimension) 
+  )
+```
+
+## {.center}
+
+> You should consider writing a function<br> 
+> whenever you’ve copied and pasted a  <br>
+> block of code more than twice <br> <br>  —Hadley Wickham
+
+
+
+
+## Why functions?
+
+Automate common tasks in a more powerful and more general way than copy-and-pasting
+
+- You can give a function an evocative name that makes your code easier to understand.
+
+- As requirements change, you only need to update code in one place, instead of many.
+
+- You eliminate the chance of making incidental mistakes when you copy and paste (i.e. updating a variable name in one place, but not in another).
+
+. . . 
+
+Down the line — Improve your reach as a data scientist by writing functions (and packages!) that others use
+
+
+## Anatomy of a function
+
+::::: columns
+::: {.column width="50%"}
+- A short but informative **name**, preferably a verb
+:::
+
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+
+calc_this <- function() { 
+
+}
+```
+:::
+:::::
+
+## Anatomy of a function
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+- A short but informative **name**, preferably a verb
+- **Arguments** of the function inside `function()`
+:::
+
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+
+calc_this <- function(..arguments..) { 
+
+}
+```
+:::
+:::::
+
+## Anatomy of a function
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+- A short but informative **name**, preferably a verb
+- **Arguments** of the function inside `function()`
+- Place the **code** you have developed in body of the function, a `{` block that immediately follows `function(...)`.
+:::
+
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+
+calc_this <- function(..arguments..) { 
+  # do stuff with arguments 
+  # last result will be returned 
+}
+```
+:::
+:::::
+
+## Building `standardize`
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+- A short but informative **name**, preferably a verb
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "1"
+
+standardize <- function() { 
+
+}
+```
+:::
+:::::
+
+## Building `standardize`
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+- A short but informative **name**, preferably a verb
+- **Arguments** of the function inside `function()`
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "1"
+
+standardize <- function(x) { 
+
+}
+```
+:::
+:::::
+
+## Building `standardize`
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+- A short but informative **name**, preferably a verb
+- **Arguments** of the function inside `function()`
+- Place the **code** you have developed in body of the function, a `{` block that immediately follows `function(...)`.
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| code-line-numbers: "1"
+
+standardize <- function(x) { 
+  (x - mean(x, na.rm = TRUE)) / sd(x, na.rm = TRUE)
+}
+```
+:::
+:::::
+
+## Does it work?
+
+Standardized `Compactness`
+
+```{r}
+std_compact <- standardize(unscaled_cancer$Compactness)
+head(std_compact)
+```
+
+. . . 
+
+Unstandardized `Compactness`
+
+
+```{r}
+head(unscaled_cancer$Compactness)
+```
+
+## Your turn
+
+::: {.task .nonincremental}
+Turn the following code snippets into functions. Think about what each function does before you begin, and be sure to give each function an informative name.
+
+1. `mean(is.na(x))`
+
+1. `x / sum(x, na.rm = TRUE)`
+
+1. `sd(x, na.rm = TRUE) / mean(x, na.rm = TRUE)`
+
+:::
+
+You can test your functions on variables from the `palmerpenguins::penguins` dataset (e.g.  `my_func(penguins$flipper_length_mm)`).
+
+```{r echo=FALSE}
+countdown(6)
+```
+
+
+## Return values
+
+The value returned by the function is usually the last statement it evaluates
+
+
+```{r}
+standardize <- function(x) { 
+  (x - mean(x, na.rm = TRUE)) / sd(x, na.rm = TRUE)
+}
+```
+
+. . . 
+
+You can force a function to return early using `return()`. 
+
+This is often paired with conditional execution (more later).
+
+```{r}
+standardize <- function(x) { 
+ return((x - mean(x, na.rm = TRUE)) / sd(x, na.rm = TRUE))
+}
+```
+
+## Adding arguments
+
+We can include `na.rm` as an argument to give the user control over it
+    
+```{r}
+standardize <- function(x, na.rm) {
+  (x - mean(x, na.rm = na.rm)) / sd(x, na.rm = na.rm)
+}
+```
+
+. . . 
+
+```{r}
+std_compact <- standardize(unscaled_cancer$Compactness, na.rm = TRUE)
+head(std_compact)
+```
+
+## Setting defaults
+
+Unless a default value is set for an argument, R will require a value to be specified in the function call
+
+```{r eval=FALSE}
+std_compact <- standardize(unscaled_cancer$Compactness)
+```
+
+```
+ Error in mean(x, na.rm = na.rm) : 
+  argument "na.rm" is missing, with no default 
+```
+
+## Setting defaults
+
+To set a default, set the value in the function definition
+
+
+```{r}
+standardize <- function(x, na.rm = TRUE) { 
+  (x - mean(x, na.rm = na.rm)) / sd(x, na.rm = na.rm)
+}
+```
+
+```{r}
+std_compact <- standardize(unscaled_cancer$Compactness)
+```
+
+## Your turn
+
+
+::: {.task .nonincremental}
+- Write a function called `column_mean` that takes a data set and column name (as a string) as inputs and returns the column mean as output. (*Hint:* access the column using `[[`)
+
+- You should also include a `na.rm` argument and set the default to `TRUE` so that `NA`s are removed from the calculation by default.
+
+- Test your function on the `mtcars` data set.
+
+:::
+
+```{r include=FALSE}
+column_mean <- function(data, col, na.rm = TRUE) {
+  data %>% pull(col) %>% mean(., na.rm = na.rm)
+}
+
+column_mean2 <- function(data, col, na.rm = TRUE) {
+  mean(data[[col]], na.rm = na.rm)
+}
+```
+
+```{r}
+column_mean(mtcars, "cyl")
+```
+
+```{r echo=FALSE}
+countdown(5)
+```
+
+
+## Plotting functions
+
+```{r}
+#| output-location: column
+#| echo: true 
+#| fig-height: 10
+#| fig-width: 8
+
+
+p1 = unscaled_cancer %>%
+  ggplot(aes(x = Radius, fill = Class)) + 
+  geom_histogram(col = "white", bins = 20, alpha = .7) 
+
+p2 = unscaled_cancer %>%
+  ggplot(aes(x = Texture, fill = Class)) + 
+  geom_histogram(col = "white", bins = 20, alpha = .7) 
+
+p3 = unscaled_cancer %>%
+  ggplot(aes(x = Perimeter, fill = Class)) + 
+  geom_histogram(col = "white", bins = 20, alpha = .7) 
+
+p4 = unscaled_cancer %>%
+  ggplot(aes(x = Area, fill = Class)) + 
+  geom_histogram(col = "white", bins = 20, alpha = .7) 
+
+(p1 + p2)/(p3 + p4)
+```
+
+## Custom `histogram()` function
+
+```{r}
+#| eval: false
+#| echo: true 
+
+histogram <- function(df, var, bins = 20) {
+  df %>%
+    ggplot(aes(x = var, fill = Class)) + 
+    geom_histogram(col = "white", bins = 20, alpha = .7) 
+}
+
+histogram(unscaled_cancer, Radius)
+```
+
+. . . 
+
+```
+Error in `geom_histogram()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error:
+! object 'Radius' not found
+```
+
+## 🤗 **embracing** 🤗
+
+This issue arises in {dplyr} and {ggplot} functions because they use a special kind of evaluation, which allows us to refer to our variable names directly. 
+
+. . . 
+
+To write our own functions that use these packages, we use 🤗 **embracing** 🤗 (wrap the variable in braces). This tells R to use the value stored inside the argument, not the argument as the literal variable name. 
+
+. . . 
+
+One way to remember what’s happening is to think of { } as looking down a tunnel — { var } will make a dplyr function look inside of var rather than looking for a variable called var.
+
+## `histogram()` function 
+
+```{r}
+#| echo: true 
+#| output-location: column-fragment
+
+histogram <- function(df, var, bins = 20) {
+  df %>%
+    ggplot(aes(x = {{var}}, fill = Class)) + 
+    geom_histogram(col = "white", bins = 20, alpha = .7) 
+}
+
+histogram(unscaled_cancer, Radius)
+```
+
+
+
+## Your turn
+
+::: task
+Write a plotting function that makes a scatterplot of any two quantitative variables, coloring the points by a 3rd categorical variable. 
+
+Test your function with the following examples:
+:::
+
+```{r}
+#| echo: false
+scatterplot <- function(df, xvar, yvar, cvar) {
+  df %>%
+    ggplot(aes(x = {{xvar}}, y = {{yvar}}, col = {{cvar}})) + 
+    geom_point(alpha = .9)
+}
+
+```
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+```{r}
+scatterplot(unscaled_cancer, 
+            Radius, 
+            Texture, 
+            Class)
+```
+:::
+
+::: {.column .nonincremental width="50%"}
+```{r}
+scatterplot(penguins, 
+            bill_length_mm, 
+            bill_depth_mm, 
+            species)
+```
+:::
+:::::
+
+
+```{r}
+#| echo: false
+
+countdown(2)
+```
+
+## Functions with conditional execution
+
+- Sometimes, we want our function to do different things depending on the arguments we feed it. 
+- Example: a `histobar` function that makes a `histo`gram if the variable is quantitative and a `bar`chart if the variable is categorical. 
+
+. . . 
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+
+```{r}
+#| echo: true
+#| eval: false
+
+histobar(unscaled_cancer, Radius)
+```
+
+```{r}
+#| echo: false
+ggplot(unscaled_cancer, aes(x = Radius)) +
+  geom_histogram(col = "white")
+```
+
+:::
+
+::: {.column .nonincremental width="50%"}
+
+```{r}
+#| echo: true
+#| eval: false
+
+histobar(unscaled_cancer, Class)
+```
+
+```{r}
+#| echo: false
+ggplot(unscaled_cancer, aes(x = Class)) +
+  geom_bar() 
+```
+
+:::
+:::::
+
+## Conditional execution
+
+The `if()` statement allows us to control which statements are executed.
+
+```{r eval=FALSE}
+if(condition) {
+  # commands when TRUE
+}
+```
+
+
+```{r eval=FALSE}
+if(condition) {
+  # commands when TRUE
+} else {
+  # commands when FALSE
+}
+```
+
+## Conditional execution
+
+A basic example
+
+
+```{r}
+#| output-location: fragment
+
+
+x <- 5
+if (x > 5) {
+  x <- x + 1
+}
+x
+```
+
+. . . 
+
+```{r}
+#| output-location: fragment
+
+x <- 6
+if (x > 5) {
+  x <- x + 1
+}
+x
+```
+
+## Conditional execution
+
+Another basic example
+
+```{r}
+#| output-location: fragment
+x <- 5
+if (x > 5) {
+  x <- x + 1
+} else {
+  x <- x - 1
+}
+
+x
+```
+
+## `histobar`
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "1|2|3-4|6-9"
+histobar <- function(df, var){
+  if(is.numeric(class({{var}}))){
+    ggplot(df, aes(x = {{var}})) + 
+      geom_histogram(col = "white")
+  }
+  else {
+    ggplot(df, aes(y = {{var}})) + 
+      geom_bar()
+  }
+}
+```
+
+. . . 
+
+```{r}
+#| echo: true
+#| eval: false
+histobar(unscaled_cancer, Radius)
+```
+
+. . . 
+
+```
+Error: object 'Radius' not found
+```
+
+## `histobar`
+
+`{{var}}` is a column in a data frame/tibble, but `is.numeric` only works on vectors
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "2"
+histobar <- function(df, var){
+  if(is.numeric(class({{var}}))){
+    ggplot(df, aes(x = {{var}})) + 
+      geom_histogram(col = "white")
+  }
+  else {
+    ggplot(df, aes(y = {{var}})) + 
+      geom_bar()
+  }
+}
+```
+
+## `histobar`
+
+```{r}
+#| echo: true
+#| code-line-numbers: "2"
+
+histobar <- function(df, var){
+  if(is.numeric(df %>% pull({{var}}))){
+    ggplot(df, aes(x = {{var}})) + 
+      geom_histogram(col = "white")
+  }
+  else {
+    ggplot(df, aes(y = {{var}})) + 
+      geom_bar()
+  }
+}
+```
+
+## Testing `histobar`
+
+```{r}
+#| output-location: fragment
+
+histobar(unscaled_cancer, Radius)
+```
+
+## Testing `histobar`
+
+```{r}
+#| output-location: fragment
+
+histobar(unscaled_cancer, Class)
+```
+
+## Testing `histobar`
+
+```{r}
+#| output-location: fragment
+
+histobar(palmerpenguins::penguins, species)
+```
+
+## Testing `histobar`
+
+```{r}
+#| output-location: fragment
+
+histobar(palmerpenguins::penguins, flipper_length_mm)
+```
+
+## Your turn
+
+::: {.task .nonincremental}
+Edit your `scatterplot` function to include an argument called `draw_line`. If `draw_line` is `TRUE`, your function should add a line of best fit to your scatterplot. Test your function with the following examples
+:::
+
+```{r}
+#| echo: false
+
+scatterplot <- function(df, xvar, yvar, cvar, draw_line = FALSE) {
+  plot <- df %>%
+    ggplot(aes(x = {{xvar}}, y = {{yvar}}, col = {{cvar}})) + 
+    geom_point(alpha = .9)
+  if(draw_line){
+    plot <- plot + 
+      geom_smooth(method = "lm", se = FALSE)
+  }
+  plot
+}
+
+```
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+```{r}
+scatterplot(unscaled_cancer, 
+            Radius, 
+            Texture, 
+            Class, 
+            draw_line = FALSE)
+```
+:::
+
+::: {.column .nonincremental width="50%"}
+```{r}
+scatterplot(palmerpenguins::penguins, 
+            bill_length_mm, 
+            bill_depth_mm, 
+            species, 
+            draw_line = TRUE)
+```
+:::
+:::::
+
+```{r}
+#| echo: false
+
+countdown(2)
+```
+
+## Coding style
+
+It's ok to drop the curly braces if you have a **very short** `if` statement that can fit on **one line** (no more than 80 characters!)
+
+```{r eval=FALSE}
+if (y < 20) "Too low" 
+```
+
+```{r eval=FALSE}
+if (y < 20) "Too low" else "Too high"
+```
+
+## Coding style
+
+- Part of writing reproducible and shareable code is - following good style guidelines. 
+
+- Mostly, this means choosing good object names and using white space in a consistent and clear way.
+
+- [Tidyverse style guide](https://style.tidyverse.org/syntax.html) has guidelines for writing funtions and if statements
+
+

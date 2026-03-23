@@ -1,0 +1,61 @@
+---
+title: "14-text-case-study"
+---
+
+```{r}
+library(tidyverse)
+library(tidytext) # functions for doing text analysis
+```
+
+# Load the Data
+
+```{r}
+en_coursera_reviews <- read_csv("https://stat220-w26.github.io/data/en_coursera_sample.csv")
+glimpse(en_coursera_reviews)
+```
+
+
+# Tokenize
+
+```{r}
+library(tidytext)
+en_coursera_reviews |>
+  unnest_tokens(output = word, input = Review) |>
+  select(CourseId, word)
+```
+
+# Count the tokens
+
+```{r}
+en_coursera_reviews |>
+  unnest_tokens(output = word, input = Review) |>
+  anti_join(get_stopwords(source = "stopwords-iso"), by = "word") |>
+  filter(str_detect(CourseId, "data-science")) |> 
+  group_by(CourseId) %>%
+  count(word) %>%
+  slice_max(n, n = 10) %>%
+  ggplot(aes(x = n, y = fct_reorder(word, n))) + 
+  geom_col() + 
+  facet_wrap(~CourseId, scales = "free_y", nrow = 2) + 
+  labs(
+    y = "Word"
+  )
+```
+
+# Create "clean" reviews
+
+```{r}
+coursera_reviews <- en_coursera_reviews |>
+  unnest_tokens(word, Review) |>
+  anti_join(get_stopwords(source = "stopwords-iso"), by = "word") |>
+  group_by(CourseId, review_id) |>
+  summarize(review_clean = paste(word, collapse = " "))
+```
+
+# Your turn
+
+Explore the `en_coursera_reviews` dataset with the folks around you. Can you replicate my analyses, and try a few of your own? Here are some ideas: 
+
+- Explore another subject (besides `data-science`)
+- `Label` contains the numeric rating for the course. How does the review text differ between highly rated and low-rated courses?
+- `stopwords::stopwords_getsources()` gives the available stopword dictionaries. How do these differ, and how do they change your results?

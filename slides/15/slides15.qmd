@@ -1,0 +1,168 @@
+---
+title: "Sentiment <br>Analysis"
+subtitle: Day 15
+title-slide-attributes:
+  data-background-image: ../img/horst_stringr.jpeg
+  data-background-size: 70%
+  data-background-position: bottom right
+  data-background-opacity: "0.8"
+  data-slide-number: none
+format: 
+  revealjs:
+    incremental: true
+    code-copy: true
+    code-link: true
+    scrollable: true
+auto-stretch: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+library(countdown)
+library(tidyverse)
+library(lubridate)
+library(palmerpenguins)
+library(patchwork)
+library(ggthemes)
+library(nycflights23)
+library(here)
+slides_theme = theme_minimal(
+  base_family = "Atkinson Hyperlegible",
+  base_size = 16)
+
+theme_set(slides_theme)
+
+set.seed(0206)
+```
+
+## Today
+
+1. Sentiment analysis
+2. Lab Quiz 2! 
+
+## {background-image="../img/coursera-data-sci.png"}
+
+## Data for today
+
+Random (?) sample of 26,882 reviews of coursera courses
+
+```{r}
+en_coursera_reviews <- read_csv("https://stat220-w26.github.io/data/en_coursera_sample.csv")
+en_coursera_reviews
+```
+
+::: aside
+Source: [Kaggle](https://www.kaggle.com/datasets/septa97/100k-courseras-course-reviews-dataset/data)
+
+:::
+
+
+
+## Are these positive or negative reviews?
+
+"thank you so much it was great course"  
+
+"Too reliant on materials directly collected by professor, too little context of larger artistic community." 
+
+"Excellent! easy to follow and engaging!"  
+
+"Slow and redundant. Would have preferred a faster-paced and more substantive course." 
+
+"Way too shallow and way too english :("   
+
+## Sentiment analysis
+
+One way to analyze the *sentiment* is to consider the text as a combination of the individual words. It's computationally convenient because we're able to use the `tidy` tools that we've been building up: 
+
+1. *tokenize* the text
+2. *join* the sentiment values to each token
+3. *group* the words in the document to *summarize* the overall sentiment
+
+## Sentiment datasets: `bing`
+
+```{r}
+#| output-location: column
+library(tidytext)
+get_sentiments("bing") %>%
+  slice_sample(n = 20)
+```
+
+## Sentiment datasets: `afinn`
+
+```{r}
+#| output-location: column
+library(textdata)
+get_sentiments("afinn") %>%
+  slice_sample(n = 20)
+```
+
+## 
+
+```{r}
+en_coursera_reviews 
+```
+
+## `inner_join`
+
+![](../img/inner-join.gif)
+
+## `join`ing the sentiment data
+
+```{r}
+#| output-location: column-fragment
+#| code-line-numbers: "1|2-3|4"
+bing_sentiments = get_sentiments("bing")
+en_coursera_reviews %>%
+  unnest_tokens(word, Review) %>% 
+  inner_join(bing_sentiments, by = "word") %>%
+  select(-c(CourseId, cld2))
+```
+
+## `group_by` review ID, `summarize` overall sentiment
+
+```{r}
+#| output-location: column-fragment
+#| code-line-numbers: "4|5-8"
+bing_review_scores <- en_coursera_reviews %>%
+  unnest_tokens(word, Review) %>% 
+  inner_join(bing_sentiments, by = "word") %>%
+  group_by(review_id) %>%
+  summarize(
+    sum = (sum(sentiment == "positive") - sum(sentiment == "negative"))
+  )
+
+bing_review_scores
+```
+
+## Most positive review (by `sum`): 
+
+```{r}
+#| output-location: column-fragment
+#| code-line-numbers: "1|2|3|4"
+
+en_coursera_reviews %>%
+  left_join(bing_review_scores, by = "review_id") %>%
+  slice_max(sum) %>%
+  pull(Review)
+```
+
+## Most negative reviews (by `sum`): 
+
+```{r}
+#| output-location: column
+
+en_coursera_reviews %>%
+  left_join(bing_review_scores, by = "review_id") %>%
+  slice_min(sum) %>%
+  pull(Review) %>%
+  pluck(1)
+```
+
+# What weaknesses do you notice about this analysis? 
+
+What could we change?
+
+# Live coding time

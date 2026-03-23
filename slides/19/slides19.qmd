@@ -1,0 +1,575 @@
+---
+title: "APIs"
+subtitle: Day 19
+title-slide-attributes:
+  data-background-image: ../img/horst-doorway.png
+  data-background-size: 50%
+  data-background-position: bottom right
+  data-background-opacity: "0.8"
+  data-slide-number: none
+format: 
+  revealjs:
+    incremental: true
+    code-copy: true
+    code-link: true
+    scrollable: true
+auto-stretch: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+library(countdown)
+library(tidyverse)
+library(lubridate)
+library(palmerpenguins)
+library(patchwork)
+library(ggthemes)
+library(nycflights23)
+library(here)
+slides_theme = theme_minimal(
+  base_family = "Atkinson Hyperlegible",
+  base_size = 16)
+
+theme_set(slides_theme)
+```
+
+
+## What is an API? 
+
+"API stands for **A**pplication **P**rogramming **I**nterface. It is a set of rules and protocols that lets different software applications communicate with each other. 
+
+In this class, we'll use APIs to allow R to communicate with websites. These APIs focus on transmitting raw data, rather than images, fonts, etc. that humans interact with when they visit the page. 
+
+
+## How do we use them? 
+
+In this class, we're going to cover two ways to access API's: 
+
+1. with a *wrapper* R package
+2. directly with httr requests
+
+## API wrapper packages
+
+- To find a wrapper package search for "R package", plus the name of the website, plus "data"
+    - "R package nytimes data"
+    - "R package reddit data"
+    - "R package weather.com data" 
+    
+## Example: nytimes data
+
+
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+
+![](https://github.com/mkearney/nytimes/raw/master/man/figures/logo.png){width=70%}
+:::
+
+:::{.column .nonincremental width="50%"}
+- R functions for accessing New York Times’ APIs
+
+- Functionality for “article search”, “most popular”, and “Times newswire” APIs.
+```{r}
+#| eval: false
+
+remotes::install_github("mkearney/nytimes")
+library(nytimes)
+```
+
+:::
+:::::
+
+## `nyt_search`
+
+Allows R to interact with the NY Times
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+
+```{r}
+#| eval: false
+mn_search <- nyt_search(q = "minnesota", 
+                        n = 50, 
+                        end_date = "20240101")
+```
+:::
+
+::: {.column .nonincremental width="50%"}
+- `q`: search term
+- `n`: number of articles to return
+- `end_date`: which date to start searching *backwards* from
+:::
+:::::
+
+## Output is designed for computers to read
+
+```{r}
+#| echo: false
+library(nytimes)
+mn_search <- readRDS("mn_search.rds")
+```
+
+```{r}
+str(mn_search)
+```
+
+## Convert response to tibble
+
+```{r}
+mn_tbl <- as_tibble(mn_search)
+mn_tbl
+```
+
+## Let's take a peek at a couple of columns:
+
+```{r}
+mn_tbl %>%
+  select(pub_date, headline, document_type, keywords)
+```
+
+## Pros of using an API: 
+
+- Provenance: we've accessed our data directly from the source and didn't have to save it in a file format or open it in a different program
+- Reproducibility: accessing data via code allows others to reproduce our work
+- Customizability: we can generate as specific (or broad) of a dataset as we would like
+
+## But, I've hidden some steps from you
+
+- Most APIs require you to sign up for an *API key*
+- This allows the website to track who is accessing their data, how many requests they are making, how often they are making them, etc. 
+- Most APIs (especially if they're free) are *rate limited*
+    - The NYTimes API limits you to 500 requests per day and 5 requests per minute
+    - This seems like a lot, but you can burn through them quickly when you're not sure what you're doing! 
+- In addition to signing up for a key, we need to make sure R knows how to find it
+
+## Census data
+
+- Every ten years, the US Census Bureau runs a census of the US population. The goal is to survey *everybody* in the country. 
+- They also run the *American Community Survey*, which tracks demographic indicators among a random sample of people every 1, 3, or 5 years
+- They also collect a variety of other data: 
+    - PSEO
+    - Household pulse survey
+    - Health insurance, poverty statistics, business owners, etc. 
+    
+. . . 
+
+Importantly, the data is paid for by the public (via taxes) and is available for use by the public
+
+## {.center}
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+
+![](https://walker-data.com/tidycensus/logo.png){width=70%}
+:::
+
+:::{.column .nonincremental width="50%"}
+- R functions for accessing *some* census data
+
+- Includes geospatial information for mapping
+
+- Designed to work within the tidyverse ecosystem
+
+```{r}
+#| eval: false
+
+install.packages("tidycensus")
+library(tidycensus)
+```
+
+```{r}
+#| echo: false
+
+library(tidycensus)
+```
+:::
+:::::
+
+## Example call
+
+```{r}
+#| eval: false
+acs_mn_2020 <- tidycensus::get_acs(
+    year = 2020,
+    state = "MN",
+    geography = "tract",
+    variables = c("B01003_001", "B19013_001"),
+    output = "wide",
+    geometry = TRUE
+)
+```
+
+## Storing your API key
+
+::: {.nonincremental}
+1. Create a new text file in the same folder as your .rmd
+2. Copy and paste your census key into the empty file
+3. Save the file as `census_api_key.txt`
+:::
+
+Read in the key with the following code: 
+
+```{r}
+#| eval: false
+my_key <- readLines("census_api_key.txt")
+```
+
+and tell `tidycensus` what your API key is with:
+
+```{r}
+#| eval: false
+census_api_key(my_key)
+```
+
+*Do not commit and push `census_api_key.txt` to github*
+
+## Example call
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+
+```{r}
+#| eval: false
+acs_mn_2020 <- tidycensus::get_acs(
+    year = 2020,
+    state = "MN",
+    geography = "county",
+    variables = c("B01003_001", "B19013_001"),
+    output = "wide",
+    geometry = TRUE
+)
+```
+
+```{r}
+#| eval: false
+#| echo: false 
+
+
+acs_mn_2020_2 <- tidycensus::get_acs(
+    year = 2020,
+    state = "MN",
+    geography = "county",
+    variables = c("B01003_001", "B19013_001"),
+    output = "wide",
+    geometry = TRUE,
+    show_call = TRUE
+)
+```
+
+:::
+
+::: {.column .nonincremental width="50%"}
+- `geography = "tract"`: What level of detail to get summary statistics. Other options include "state", "county", "combined statistical area", etc.
+- `variables = c("B01003_001", "B19013_001")`: Which survey questions should we get responses to? 
+:::
+:::::
+## Example
+
+```
+Simple feature collection with 87 features and 6 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: -97.23921 ymin: 43.49937 xmax: -89.49398 ymax: 49.38436
+Geodetic CRS:  NAD83
+First 10 features:
+   GEOID                        NAME B01003_001E B01003_001M B19013_001E B19013_001M                       geometry
+1  27167    Wilkin County, Minnesota        6264          NA       56829        5145 MULTIPOLYGON (((-96.79109 4...
+2  27133      Rock County, Minnesota        9386          NA       65744        4462 MULTIPOLYGON (((-96.45341 4...
+3  27119      Polk County, Minnesota       31384          NA       58682        4958 MULTIPOLYGON (((-97.14638 4...
+4  27069   Kittson County, Minnesota        4272          NA       55410        2948 MULTIPOLYGON (((-97.23921 4...
+5  27125  Red Lake County, Minnesota        4005          NA       59698        9122 MULTIPOLYGON (((-96.48255 4...
+6  27023  Chippewa County, Minnesota       11876          NA       57301        4675 MULTIPOLYGON (((-96.0367 45...
+7  27075      Lake County, Minnesota       10571          NA       65201        3145 MULTIPOLYGON (((-91.55375 4...
+8  27137 St. Louis County, Minnesota      199499          NA       57480        1156 MULTIPOLYGON (((-93.09802 4...
+9  27061    Itasca County, Minnesota       45180          NA       55744        1908 MULTIPOLYGON (((-94.41896 4...
+10 27145   Stearns County, Minnesota      159788          NA       65244        1675 MULTIPOLYGON (((-95.13964 4...
+```
+
+## Example
+
+```{r}
+#| eval: false
+
+acs_mn_2020 |>
+  mutate(
+    name = str_remove(NAME, ", Minnesota"),
+    name = str_remove(name, " County")
+  ) |> 
+  ggplot(aes(x = B19013_001E, 
+                          xmin = B19013_001E - B19013_001M, 
+                          xmax = B19013_001E + B19013_001M, 
+                          y = fct_reorder(name, B19013_001E))) + 
+  geom_point() + 
+  geom_errorbarh() + 
+  labs(
+    x = "",
+    y = ""
+  )
+```
+
+```{r}
+#| echo: false
+#| eval: false
+
+ggsave("acs-mn-county.png", width = 4, height = 12)
+```
+
+## 
+
+![](../img/acs-mn-county.png)
+
+## More info about how census/ACS data is reported
+
+<https://data.census.gov/>
+
+<https://www.census.gov/acs/www/data/data-tables-and-tools/subject-tables/>
+
+## Searching for variables
+
+Getting variables from the Census or ACS requires knowing the variable ID - and there are thousands of these IDs across the different Census files. 
+
+. . . 
+
+```{r}
+acs_vars <- load_variables(2020, "acs5", cache = TRUE) 
+acs_vars 
+```
+
+## The two we used were: 
+
+```{r}
+acs_vars %>%
+  filter(name %in% c("B01003_001", "B19013_001"))
+```
+
+## But we could search for other variables using `label`
+
+```{r}
+acs_vars %>%
+  filter(str_detect(label, "degree"))
+```
+
+## Your turn
+
+```{r}
+acs_vars <- load_variables(2020, "acs5", cache = TRUE) 
+```
+
+::: {.task .nonincremental}
+- Search for two new variables using `load_variables` (Can you explain what they are?)
+- Run another call to `tidycensus::get_acs` using your two variables
+:::
+
+```{r}
+countdown(5)
+```
+
+## What is `get_acs` doing underneath the hood?
+
+```{r}
+get_acs
+```
+
+## 
+
+If we add `show_call = TRUE`, we obtain the following output: 
+
+```
+Getting data from the 2016-2020 5-year ACS
+Downloading feature geometry from the Census website.  To cache shapefiles for use in future sessions, set `options(tigris_use_cache = TRUE)`.
+Using FIPS code '27' for state 'MN'
+Census API call: https://api.census.gov/data/2020/acs/acs5?get=B01003_001E%2CB01003_001M%2CB19013_001E%2CB19013_001M%2CNAME&for=tract%3A%2A&in=state%3A27
+```
+
+## What's going on behind the scenes with `get_acs`?
+
+Let's take a peek at the [census API user guide](https://www.census.gov/data/developers/guidance/api-user-guide.html). There's a menu option for "Example API Queries". We'll talk through the ACS Example. 
+
+- "E" means Estimate, "M" means "Margin of Error"
+- "PE" means Percentage Estimate, "PM" means "Percentage Margin of Error"
+
+## Example: the total number of Hmong people living in each U.S. state 
+
+API *Query*: <https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M‌&for=state:*>
+
+This URL-looking-thing communicates to the Census API exactly the search terms we want in the data it returns to us
+
+## Let's break it down:
+
+1. Host name: https://api.census.gov/data
+2. Year: https://api.census.gov/data***/2019***
+3. Dataset name: https://api.census.gov/data/2019***/acs/acs1***
+4. "get" https://api.census.gov/data/2019/acs/acs1***?get=***
+5. Variables to get: https://api.census.gov/data/2019/acs/acs1?get=***NAME,B02015_009E,B02015_009M***
+   - Get variables that are NAMEd B02015_009E (total number of Hmong people) and B02015_009E (corresponding margin of error)
+6. Geographies to use:  https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M***&for=state:* ***
+   - & separates variables from geographies
+   - state:* means "all states"
+   
+# How do we talk to the API?
+
+## {.center}
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+
+![](https://httr2.r-lib.org/logo.png)
+:::
+
+:::{.column .nonincremental width="50%"}
+- "hitter2"
+- allows us to send "queries" to any API via R
+
+```{r}
+#| eval: false
+
+install.packages("httr2")
+library(httr2)
+```
+
+```{r}
+#| echo: false
+
+library(httr2)
+```
+:::
+:::::
+
+## Sending our census query
+
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "1"
+hmong_state_request <- request("https://api.census.gov/data") %>% 
+    req_url_path_append("2019") %>% 
+    req_url_path_append("acs") %>% 
+    req_url_path_append("acs1") %>% 
+    req_url_query(get = c("NAME", "B02015_009E", "B02015_009M"), `for` = I("state:*"), key = census_api_key, .multi = "comma")
+```
+
+`request` sets the host name
+
+## Sending our census query
+
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "2-4"
+hmong_state_request <- request("https://api.census.gov/data") %>% 
+    req_url_path_append("2019") %>% 
+    req_url_path_append("acs") %>% 
+    req_url_path_append("acs1") %>% 
+    req_url_query(get = c("NAME", "B02015_009E", "B02015_009M"), `for` = I("state:*"), key = census_api_key, .multi = "comma")
+```
+
+`req_url_path_append` adds the year and dataset that we are trying to access
+
+
+
+## Sending our census query
+
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "5-8"
+hmong_state_request <- request("https://api.census.gov/data") %>% 
+    req_url_path_append("2019") %>% 
+    req_url_path_append("acs") %>% 
+    req_url_path_append("acs1") %>% 
+    req_url_query(get = c("NAME", "B02015_009E", "B02015_009M"), 
+                  `for` = I("state:*"), 
+                  key = census_api_key, 
+                  .multi = "comma")
+```
+
+`req_url_query` is where we specify what to return: 
+
+  - The `.multi` argument controls how multiple values for a given key are combined.
+  - The `I()` function around `"state:*"` inhibits parsing of special characters like `:` and `*`. (It’s known as the “as-is” function.)
+  - The backticks around `for` are needed because `for` is a reserved word in R (for for-loops). You’ll need backticks whenever the key name has special characters (like spaces, dashes).
+  - We also tell the census what our API key is
+
+
+## Results in a `<httr2_request>`
+
+```{r}
+#| echo: false
+
+load("hmong-state-httr.Rda")
+```
+
+```{r}
+hmong_state_request
+```
+```
+<httr2_request>
+GET
+https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&for=state:*&key=4a2344XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Body: empty
+```
+
+## Why on earth would we do this instead of using the URL
+
+- To generalize the code with functions (this is what wrapper packages do!) 
+- To handle special characters (URLs can't contain spaces)
+- To iterate over multiple years, or multiple geometries, or .... 
+
+## Actually getting the data
+
+```{r}
+#| eval: false
+#| echo: true
+hmong_state_response <- req_perform(hmong_state_request)
+hmong_state_response
+```
+```
+<httr2_response>
+GET
+https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&for=state:*&key=4a2344XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Status: 200 OK
+Content-Type: application/json
+Body: In memory (1691 bytes)
+```
+
+## Actually getting the data in the form we can work with
+
+```{r}
+hmong_state_tbl <- hmong_state_response %>%
+  resp_body_json(simplifyVector = TRUE) %>%
+  janitor::row_to_names(1) %>%
+  as_tibble()
+
+hmong_state_tbl
+```
+
+## Your turn
+
+::: {.task .nonincremental}
+- Edit the `httr` code to access a new variable of your choice
+- Make a `httr` request to access the 1-year ACS data from 2018, 2019, 2021, and 2022. Make sure to save your results from each call! 
+- Combine all years into a single dataset
+- Make a time series plot with your chosen variable on the `y-axis`, year on the `x-axis`, colored by `state.` 
+    - You may want to first filter to only a few states
+    - You will need to do some cleaning of the data
+:::
+
+## Neat Wrapper packages or APIs
+
+- [SportsDataverse](https://www.sportsdataverse.org/) has a ton of R packages for accessing a variety of sports data
+- [Public APIs](https://github.com/public-apis/public-apis)
+- [Urban Institute's Education Data Portal](https://educationdata.urban.org/documentation/) and [R package](https://github.com/UrbanInstitute/education-data-package-r)  
+- [ROpenSci](https://ropensci.org/packages/data-access/) 
+
+## Credits/Further resources
+
+- [Jenny Bryan's Stat545](https://stat545.com/api-wrappers.html)
+- [Leslie Myint's Stat/Comp 212](https://lmyint.github.io/212_spring_2024/13-apis.html)
+- [Census API User Guide](https://www.census.gov/data/developers/guidance/api-user-guide.Example_API_Queries.html#list-tab-559651575)
+- [TidyCensus vignette](https://walker-data.com/tidycensus/articles/basic-usage.html) 

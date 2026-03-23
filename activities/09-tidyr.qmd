@@ -1,0 +1,158 @@
+---
+title: "`tidyr` 2: Reshaping Data"
+---
+
+```{r}
+library(tidyverse)
+library(ggthemes)
+```
+
+
+# Last time
+
+Here is a data frame with the ratings for each episode of The Great British Bakeoff for series 1-8.
+
+```{r}
+bakeoff_ratings <- read_csv("https://stat220-w26.github.io/data/bakeoff_messy_ratings.csv")
+bakeoff_ratings
+```
+
+and here is the code we used last time to tidy the data: 
+
+```{r}
+bakeoff_ratings %>%
+  pivot_longer(cols = e1:e10, names_to = "episode", values_to = "rating") %>%
+  mutate(
+    episode = parse_number(episode) 
+  )
+```
+
+# `messyratings2`
+
+```{r}
+messy_ratings2 <- read_csv("https://stat220-w26.github.io/data/messy_ratings2.csv")
+messy_ratings2
+```
+
+## Task 1
+
+Tidy this data set by
+
+1.  Selecting the `series` and `e*_7day` columns
+2.  Pivoting the data to add a column for `episode` and a column for `rating` (we'll clean up the episode column later)
+
+```{r}
+# include your code here
+```
+
+## Task 2
+
+::: {.task .nonincremental}
+-   Clean the `episode` and `period` column
+-   Make a *line plot* with episode on the x-axis, rating on the y-axis, colored by series. (You will also need to map the `group` aesthetic to series)
+:::
+
+# More Practice
+
+## `relig_income`
+
+The `relig_income` dataset in the {tidyr} package stores counts based on a survey which (among other things) asked people about their religion and annual income:
+
+```{r}
+relig_income
+```
+
+Use `pivot_longer()` to tidy this dataset.
+
+## `anscombe`
+
+[Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet) is a built-in dataset in R.
+
+```{r}
+anscombe
+```
+
+This dataset contains four pairs of variables (`x1` and `y1`, `x2` and `y2`, etc) that underlie Anscombe’s quartet, a collection of four datasets that have the same summary statistics (`mean`, `sd`, `correlation` etc), but have quite different data. We want to produce a dataset with columns `set`, `x` and `y`:
+
+```         
+# A tibble: 44 × 3
+   set       x     y
+   <chr> <dbl> <dbl>
+ 1 1        10  8.04
+ 2 2        10  9.14
+ 3 3        10  7.46
+```
+
+There are (at least) two ways to do this. The first is a little more intuitive, but not as efficient:
+
+1.  First, we'll create a new "index" column, so we don't lose track of which x values map to which y values.
+
+```{r}
+anscombe <- anscombe %>%
+  mutate(
+    index = 1:nrow(anscombe)
+  )
+```
+
+2.  Next, use `pivot_longer()` on all of the columns but `index`. Use the default for `names_to` and `values_to`. The first few rows of your result should look like this:
+
+```         
+# A tibble: 88 × 3
+   index name  value
+   <int> <chr> <dbl>
+ 1     1 x1    10   
+ 2     1 x2    10   
+ 3     1 x3    10  
+```
+
+3.  Next, separate `name` into `variable` and `set`. This is a little tricky, since there's no separator character (the values of `name` are `x1` and `x2` instead of `x_1` or `x_2`). Instead, set `sep = 1`, which tells R to split the column after the first character. The first few rows of your result should look like this:
+
+```         
+# A tibble: 88 × 4
+   index variable set   value
+   <int> <chr>    <chr> <dbl>
+ 1     1 x        1     10   
+ 2     1 x        2     10   
+ 3     1 x        3     10   
+```
+
+4.  Finally, use `pivot_wider()` with `names_from` `variable` and `values_from` `value`. Call your tidy dataset `anscombe_tidy`.
+
+If all went well, you should be able to run the following two chunks to generate the summary statistics and scatterplots for Anscombe's quartet.
+
+```{r}
+#| eval: false
+
+
+anscombe_tidy %>%
+  group_by(set) %>%
+  summarize(
+    mean_x = mean(x),
+    mean_y = mean(y),
+    sd_x = sd(x),
+    sd_y = sd(y),
+    cor = cor(x,y)
+  )
+```
+
+```{r}
+#| eval: false
+
+anscombe_tidy %>%
+  ggplot(aes(x = x, y = y)) + 
+  geom_point() + 
+  facet_wrap(~set)
+```
+
+The second way to do this is directly within `pivot_longer()`:
+
+```{r}
+anscombe %>%
+  pivot_longer(
+    -index,
+    names_to = c(".value", "set"),
+    names_pattern = "(.)(.)"
+  )
+```
+
+pull up the help page for `pivot_longer` and try to explain the new arguments.

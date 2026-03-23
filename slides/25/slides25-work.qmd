@@ -1,0 +1,193 @@
+---
+title: "Intro to SQL"
+subtitle: Day 25
+title-slide-attributes:
+  data-background-image: ../img/shiny-logo.png
+  data-background-size: 40%
+  data-background-position: right
+  data-background-opacity: "0.8"
+  data-slide-number: none
+format: 
+  revealjs:
+    incremental: true
+    code-copy: true
+    code-link: true
+    scrollable: true
+auto-stretch: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+library(countdown)
+library(tidyverse)
+library(lubridate)
+library(palmerpenguins)
+library(patchwork)
+library(ggthemes)
+library(nycflights23)
+library(here)
+library(httr2)
+library(rvest)
+library(mdsr)
+library(DBI)
+slides_theme = theme_minimal(
+  base_family = "Atkinson Hyperlegible",
+  base_size = 16)
+
+theme_set(slides_theme)
+```
+
+## Warm up: more time for shiny app??
+
+
+## Warm Up: on your own
+
+::: {.task .nonincremental}
+Load `flights23 <- nycflights23::flights` and write {dplyr} code to do the following
+
+1. Compute the number of flights in each year in the dataset
+2. Compute the average flight delay by carrier for flights to Minneapolis
+:::
+
+```{r}
+#| echo: false
+countdown(3)
+```
+
+## Warm Up: in groups of ~3
+
+::: {.task .nonincremental}
+????
+:::
+
+```{r}
+#| echo: false
+countdown(4)
+```
+
+## 
+
+If you run the following code in R.... 
+
+```{r}
+year_summary <- nycflights23::flights %>%
+  group_by(year) %>%
+  summarize(
+    n = n()
+  )
+
+class(year_summary)
+```
+
+## 
+
+```{r}
+#| code-line-numbers: "1|2|3"
+#| eval: false
+db <- dbConnect_scidb("airlines")
+flights <- tbl(db, "flights")
+carriers <- tbl(db, "carriers")
+```
+
+## 
+
+```{r}
+#| eval: false
+
+year_summary <- flights %>% 
+  group_by(year) %>%
+  summarize(
+    n = n()
+  )
+
+class(year_summary)
+```
+
+##
+
+```{r}
+#| eval: false
+
+year_summary |>
+  collect() |>
+  class()
+```
+
+## Under the hood...
+
+```{r}
+#| eval: false
+
+year_summary |>
+  show_query()
+```
+
+# SQL {.maize}
+
+## Five main clauses:
+
+- `SELECT`
+- `FROM`
+- `WHERE`
+- `ORDER BY`
+- `GROUP BY`
+
+. . . 
+
+Every SQL query must have `SELECT` and `FROM`
+
+## Example: 
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+
+flights |>
+  show_query()
+```
+:::
+
+::: {.column .fragment width="50%"}
+SELECT (everything) FROM (the flights database)
+:::
+:::::
+
+## Example
+
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+
+year_summary |>
+  show_query()
+```
+:::
+
+::: {.column .fragment width="50%"}
+- SELECT (the `year` column) .... FROM (the flights database)
+- COUNT (all rows) and save it AS a new variable called `n`
+- Also, results should be GROUPed BY year
+:::
+:::::
+
+## Your turn
+
+
+
+## Example
+
+```{r}
+#| eval: false
+
+flights |>
+  filter(dest == "MSP") |>
+  arrange(dep_delay)
+```
+
+

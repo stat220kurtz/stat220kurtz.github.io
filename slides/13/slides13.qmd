@@ -1,0 +1,579 @@
+---
+title: "Working with <br>Strings"
+subtitle: Day 12
+title-slide-attributes:
+  data-background-image: ../img/horst_stringr.jpeg
+  data-background-size: 70%
+  data-background-position: bottom right
+  data-background-opacity: "0.8"
+  data-slide-number: none
+format: 
+  revealjs:
+    incremental: true
+    code-copy: true
+    code-link: true
+auto-stretch: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+library(countdown)
+library(tidyverse)
+library(lubridate)
+library(palmerpenguins)
+library(patchwork)
+library(ggthemes)
+library(nycflights23)
+library(here)
+slides_theme = theme_minimal(
+  base_family = "Atkinson Hyperlegible",
+  base_size = 16)
+
+theme_set(slides_theme)
+```
+
+## Today
+
+1. Lab Quiz 2 Info
+2. Local versions of R/RStudio/GitHub
+3. Intro to strings
+
+# string {.maize}
+
+any finite sequence of characters (i.e., letters, numerals, symbols and punctuation marks).
+
+## Strings in R 
+
+Anything surrounded by quotes(`"`) or single quotes(`'`).
+
+```{r}
+#| eval: false
+"Carleton College"
+"2025"
+'"Hello World"'
+```
+
+## `str_view`
+
+`str_view` is a handy function that prints the underlying representation of a string and can also be used to check pattern matching (which we'll see in a bit!) 
+
+```{r}
+str_view("Carleton College")
+str_view("2025")
+str_view('"Hello World"')
+```
+
+
+## 
+
+The "escape" backslash \ is used to escape the special use of certain characters
+
+```{r}
+#| eval: false
+str_view("Math\Stats")
+```
+```
+Error: '\S' is an unrecognized escape in character string (<input>:1:16)
+```
+
+. . . 
+
+```{r}
+str_view("\"")
+str_view("\\")
+str_view("Math\\Stats")
+```
+
+## {.center}
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+
+![](https://stringr.tidyverse.org/logo.png)
+:::
+
+:::{.column .nonincremental width="50%"}
+- Simple, consistent functions for working with strings.
+
+- Part of the `tidyverse`
+
+```{r}
+# loaded with tidyverse
+library(stringr)
+```
+
+:::
+:::::
+
+## String length
+
+`str_length()` determines the length of a string.
+
+```{r}
+cc <- "Carleton College"
+str_length(cc)
+```
+
+## Combine strings
+
+`str_c()` allows us to easily create strings from variables/vectors.
+
+
+```{r}
+#| output-location: fragment
+
+
+building <- "CMC"
+room <- "306"
+begin_time <- "11:10 a.m."
+end_time <- "12:20 p.m."
+days <- "MW"
+class <- "STAT 220"
+str_c(class, "meets from", begin_time, "to", end_time, 
+      days, "in", building, room, sep=" ")
+```
+
+## Concatenate Strings
+
+`str_c()` works with vectors
+
+```{r}
+letters
+```
+
+. . . 
+
+```{r}
+str_c(letters, 1:26)
+```
+
+. . . 
+
+```{r}
+str_c(letters, 1:26, sep = "")
+```
+
+. . . 
+
+
+```{r}
+str_c(letters, 1:26, sep = "-")
+```
+
+## Case conversion
+
+`str_to_lower()` and `str_to_upper()` can help "fix" the case
+
+```{r}
+text <- "NoRthFieLd, mN"
+str_to_lower(text)
+```
+
+. . . 
+
+```{r}
+str_to_upper(text)
+```
+
+## Babynames
+
+```{r}
+library(babynames)
+babynames
+```
+
+## Popularity of "Amanda" over time
+
+```{r}
+#| echo: false
+babynames %>%
+  filter(name == "Amanda") %>%
+  ggplot(aes(x = year, y = prop, col = sex)) +
+  geom_line(size = 1.5) + 
+  scale_color_colorblind() 
+```
+
+::: {.task}
+Replicate this plot with your own name. If your name doesn't have enough data, try a friend or professor's name
+:::
+
+## Babynames
+::::: columns
+::: {.column .nonincremental width="50%"}
+```{r}
+babynames
+```
+:::
+
+:::{.column .nonincremental .fragment width="35%" style="text-align: right;"}
+Example questions: 
+
+- How many names end in a vowel? 
+- How many names contain the pattern "stat"
+- How many names contain 3 A's?
+
+:::
+
+:::::
+
+
+## Extract substrings
+
+```{r eval=FALSE}
+str_sub(string, start = 1, end = -1)
+```
+
+- `string` = character vector
+- `start` / `end` = position of the first and last characters
+
+## Extract substrings
+
+We can pull apart strings from the start...
+
+
+```{r}
+cc <- "Carleton College"
+str_sub(cc, 10)  # end defaults to last character
+```
+
+. . . 
+
+```{r}
+str_sub(cc, 1, 8)
+```
+ 
+. . . 
+
+```{r}
+# match the elements of each vector for positions
+str_sub(cc, c(1, 10), c(8, 16))
+```
+
+
+## Extract substrings
+
+... or the end
+
+```{r}
+cc <- "Carleton College"
+str_sub(cc, -3)
+```
+
+. . . 
+
+```{r}
+str_sub(cc, -8, -3)
+```
+
+## Your turn: 
+
+::: task
+What will the following commands return?
+
+:::
+
+```{r eval=FALSE}
+str_sub("Amanda Luby", 1, 4)
+str_sub("Amanda Luby", 4)
+str_sub("Amanda Luby", -5)
+```
+
+
+```{r echo=FALSE}
+countdown(2)
+```
+
+## Your turn (again):
+
+::: {.task .nonincremental}
+Confer with folks around you. Fill in the blanks of the .Rmd file to...
+
+1. Isolate the last letter of every name
+
+2. Create a logical variable that displays whether the last letter is one of "a", "e", "i", "o", "u", or "y".
+
+3. Use a weighted mean to calculate the proportion of children whose name ends in a vowel by year (see `?weighted.mean`)
+
+4. and then display the results as a line plot.
+:::
+
+```{r echo=FALSE}
+countdown(6)
+```
+
+## Extract substrings
+
+What about a vector of strings?
+
+
+```{r}
+fruits <- c("apple", "pineapple", "Pear", "orange", "peach", "banana")
+str_sub(fruits, 2, 4)
+```
+
+. . . 
+
+
+```{r}
+str_sub(fruits, 2, 2)
+```
+
+. . . 
+
+
+```{r}
+str_sub(fruits, 4, 4)
+```
+
+. . . 
+
+
+```{r}
+str_sub(fruits, c(2, 4, 2, 4, 2, 4), c(2, 4, 2, 4, 2, 4))
+```
+
+
+## Pad strings
+
+We can add character(s) to the beginning or end of a string
+
+```{r}
+nums <- 1:10
+as.character(nums)
+```
+
+. . . 
+
+```{r}
+str_pad(nums, 2, pad ="0")
+```
+
+. . . 
+
+```{r}
+str_pad(nums, 3, pad ="0")
+```
+
+. . . 
+
+```{r}
+str_pad(nums, 3, pad ="0", side = "right")
+```
+
+. . . 
+
+```{r}
+str_pad(nums, 3, pad ="0", side = "both")
+```
+
+## {.smaller}
+
+::: {.task .nonincremental}
+
+Use the `courses` dataset in the .rmd file to answer the following:
+
+(a) How many of the course numbers end in `.00`? Use `str_detect()` or `str_count()` to help you answer this question.
+
+
+(b) The section number appears after the decimal point. Use `mutate()` and `str_sub()` to create a `section` column containing this number.
+
+
+(c) How many courses contain the word `Introduction`? Does case matter here?
+
+
+(d) What is the longest course name (in terms of characters)? What is the shortest course name? Use `str_length()` to help you answer this question.
+
+(e) Which course name is comprised of the most words? To do this, create a new column containing the words in each title using `mutate()` and `str_split()`. Then, create another column calculating the `length()` of the values in column you just created.
+
+
+(f) Use `str_subset()` to return the course names that contain exclamation points (`!`).
+:::
+
+```{r}
+countdown::countdown(10)
+```
+
+# Regular Expressions {.maize}
+
+## Regular expressions
+
+- Sometimes the patterns we wish to detect, extract, etc. too complex for exact matching 
+
+    + Extract all time stamps of the form `HH:MM:SS`
+    + Extract the string that comes after the dash (e.g. `hw01-aluby`)
+
+- **Regular expressions** (regexps) are a very terse language that allow you to describe patterns in strings
+
+- Confusing at first, but extremely useful
+
+## Example
+
+Suppose we wish to anonymize phone numbers in survey results 
+
+```{r}
+a1 <- "Home: 507-645-5489"
+a2 <- "Cell: 219.917.9871"
+a3 <- "My work phone is 507-202-2332"
+a4 <- "I don't have a phone"
+info <- c(a1, a2, a3, a4)
+```
+
+```{r echo=FALSE}
+info
+```
+
+## Visualizing matches
+
+The helper function `str_view()` finds regex matches
+
+```{r}
+str_view(a1, "5")
+```
+
+## `.` match any character
+
+Find a "-" and any (.) character that follows
+
+```{r eval=require('stringr')}
+str_view(a1, "-.")
+```
+
+## `[]` match any occurence
+
+Find any numbers between 0 and 9
+
+```{r }
+str_view(a1, "[0123456789]")
+```
+
+## `[]` match any occurence
+
+Find any numbers between 2 and 7
+
+```{r }
+str_view(a1, "[2-7]")
+```
+
+## Your turn:
+
+::: task
+Detect  either "." or "-" in the `info` vector.
+:::
+
+```{r}
+a1 <- "Home: 507-645-5489"
+a2 <- "Cell: 219.917.9871"
+a3 <- "My work phone is 507-202-2332"
+a4 <- "I don't have a phone"
+info <- c(a1, a2, a3, a4)
+```
+
+
+```{r echo=FALSE}
+countdown(2)
+```
+
+## Special patterns 
+
+There are a number of special patterns that match more than one character
+
+::: nonincremental 
+- `\\d` - digit
+- `\\s` - white space
+- `\\w` - word
+- `\\t` - tab
+- `\\n` - newline
+:::
+
+. . . 
+
+```{r }
+str_view(a1, "\\d")
+```
+
+::: aside
+Outside of R, these would be single back slashes.
+:::
+
+## Caution!
+
+```{r }
+str_view(a1, "\\w")
+```
+
+## `[^]` match any occurence except
+
+ANYTHING BUT numbers between 2 and 7
+
+```{r }
+str_view(a1, "[^2-7]")
+```
+
+::: aside
+Common pitfall: forgetting the brackets
+:::
+
+## Anchors
+
+Anchors look for matches at the start `^` or end `$`
+
+```{r}
+#| echo: false
+str_view(info)
+```
+
+::: panel-tabset
+
+### Entries that start with a digit
+
+```{r}
+str_view(info, "^\\d")
+```
+
+
+### Entries that end with a digit
+
+```{r}
+str_view(info, "\\d$")
+```
+
+:::
+
+## Use regex in `str_detect`, `str_sub`, etc: 
+
+```{r }
+str_view(info)
+```
+
+```{r }
+str_detect(info, "\\d")
+```
+
+```{r }
+str_replace_all(info, "\\d", "X")
+```
+
+## Your turn
+
+::: task
+
+Fill in the code to determine how many baby names in 2015 ended with a vowel.
+
+Use a regular expression to specify the pattern.
+:::
+
+```{r eval=FALSE}
+babynames %>% 
+  ___(___ == ___) %>%                       # extract year 2015
+  ___(ends_with_vowel = ___(___, ___)) %>%  # create logical column
+  count(ends_with_vowel)                    # create a frequency table
+```
+
+
+
+```{r echo=FALSE}
+countdown(3)
+```

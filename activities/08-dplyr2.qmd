@@ -1,0 +1,89 @@
+---
+title: "`dplyr` 2: Pipes and Groups"
+---
+
+```{r}
+library(tidyverse)
+library(ggthemes)
+library(nycflights23)
+```
+
+# Wrangling the `nycflights23` data
+
+## `summarize()`
+
+Using the `flights` data from the {nycflights23} package, use `summarize()` to compute statistics about the data:
+
+1.  The lowest and highest `distance` traveled
+
+2.  The lowest and highest `air_time`
+
+3.  The median `dep_delay`
+
+```{r}
+flights
+```
+
+## `summarize()` II
+
+Using the `flights` data from the {nycflights23} package, extract the rows for Delta flights. (Hint: the carrier code is “DL”)
+
+Then use `summarize()` and a summary function to find:
+
+1.  The number of flights in this subset
+
+2.  The median `dep_delay`. How does it compare to the overall median?
+
+
+```{r}
+flights
+```
+
+## `group_by()`
+
+Use `group_by()`, `summarize()`, and `slice_max()` to display the five `dest` airports with the most flights from NYC airports in 2023. Your display should include the median flight delay for these airports.
+
+```{r}
+flights
+```
+
+# Intro to Tidy Data
+
+```{r}
+bakeoff_ratings <- read_csv("https://stat220-w26.github.io/data/bakeoff_messy_ratings.csv")
+bakeoff_ratings
+```
+
+## Discuss
+
+Is this dataset in tidy format? Why or why not?
+
+If not, what would a tidy data set look like? Sketch out the first few rows of this data set in tidy format
+
+## `tidy`ing bakeoff ratings
+
+Follow along with the slides to tidy the `bakeoff_ratings` dataset
+
+# `messyratings2`
+
+```{r}
+messy_ratings2 <- read_csv("https://stat220-w26.github.io/data/messy_ratings2.csv")
+messy_ratings2
+```
+
+## Task 1
+
+Tidy this data set by
+
+1.  Selecting the `series` and `e*_7day` columns
+2.  Pivoting the data to add a column for `episode` and a column for `rating` (we'll clean up the episode column later)
+
+```{r}
+# include your code here
+```
+
+## Task 2
+
+-   Clean the `episode` and `period` column
+-   Make a *line plot* with episode on the x-axis, rating on the y-axis, colored by series. (You will also need to map the `group` aesthetic to series)
+

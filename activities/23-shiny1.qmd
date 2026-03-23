@@ -1,0 +1,23 @@
+---
+title: "23-shiny"
+---
+
+
+# Editing a shiny app: Part 1
+
+`23-app-1.R` in the activities repo contains a starter app. Your tasks for today are: 
+
+1. Run the app! See what we already have working, and what still needs to be done. 
+
+2. Read the code: Where are the plots/tables being made vs displayed? What pieces are showing up in the app, and what have yet to be displayed?
+
+3. Create the appropriate `ggplots` to match the original app
+
+4. Now, edit the `tabsetPanel` code in the `ui()` function to output the ggplots. 
+
+5. What elements from the original app do we still have to implement? Try to get the remainder of the `ui()` function set up. What other inputs could we add? Are there any other outputs?
+
+
+::: aside
+Credit: [Mine Çetinkaya-Rundel's](https://vizdata.org/) Ask a Manager application exercise
+:::

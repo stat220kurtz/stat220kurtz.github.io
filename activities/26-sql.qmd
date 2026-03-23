@@ -1,0 +1,66 @@
+---
+title: "26-sql"
+---
+
+```{r}
+#library(tidyverse)
+#library(mdsr) # for connecting to database
+#library(DBI) # database tools
+```
+
+# Warm Up 
+
+Using `nycflights23::flights`, answer the following using {dplyr} code: 
+
+- How many flights are in this dataset? 
+- How many flights flew to MSP from JFK in 2023?
+- What was the average flight delay for MSP flights in Sept 2023?
+
+```{r}
+#nycflights23::flights
+```
+
+# Intro to SQL
+
+## Your turn: Set up database connection
+
+```{r}
+#| eval: false
+#db <- dbConnect_scidb(dbname = "imdb")
+```
+
+```{r}
+#| eval: false
+#db %>%
+#  dbGetQuery("SELECT * FROM kind_type
+#             LIMIT 0,10;")
+```
+
+What `kind_type` corresponds to movies?
+
+
+## Your turn: simple queries
+
+1.  Find your favorite movie in the `title` table
+2. Find [Viola Davis](https://www.imdb.com/name/nm0205626/?ref_=nv_sr_1) in the `name` table 
+3.  Make note of Viola Davis's `person_id` 
+
+## Your turn: finding data info
+
+List the fields in the `name`, `cast_info`, and `char_name` tables. Do they have fields in common? How do you think these tables fit together?
+
+```{r}
+#| eval: false
+#dbListTables(db)
+#dbListFields(db, "title")
+```
+
+## Your turn: `JOIN`ing Viola Davis
+
+1. Find all the rows in `cast_info` that correspond to Viola Davis as an actress
+
+2. Add the names of the characters she played by `JOIN`ing the `char_name` table
+
+## Your turn: full filmography
+
+Find Viola Davis’s full filmography, in chronological order. Include each movie’s `title`, `production_year`, and the `name` of the character that she played.

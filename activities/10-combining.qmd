@@ -1,0 +1,199 @@
+---
+title: "`bind_` and `_join`: Combining Data"
+---
+
+```{r}
+library(tidyverse)
+library(ggthemes)
+```
+
+Click the "code" button above to copy and paste the source code, or pull a fresh version of the ["activities" repo](https://github.com/stat220-w25/activities) from GitHub.
+
+# Warm Up
+
+```{r}
+load(url("https://stat220-w26.github.io/data/combining-data-examples.Rda"))
+```
+
+## Example 1: Star Wars Characters 
+
+
+
+Dataset 1: 
+
+- Each row in the dataset corresponds to a star wars character
+- The columns include their `name`, `height`, `mass`, `homeworld`, `species`, and the `first_film` they appeared in
+
+```{r}
+#| echo: true
+starwars_characters
+```
+
+Dataset 2:
+
+The dataset is formatted the same, but includes two characters that were first introduced in *The Last Jedi*, a Star Wars movie that came out after the first dataset was released. 
+
+```{r}
+#| echo: true
+starwars_lastjedi
+```
+
+How should these datasets be combined?
+
+## Example 2: Stats Sections
+
+Dataset 1:
+
+This dataset includes the number of sections of stats courses offered in Fall 2024 and Winter 2025 terms.
+
+```{r}
+#| echo: true
+stats_sections_fw
+```
+
+Dataset 2: 
+
+This dataset includes the number of sections of stats courses offered in the Spring 2025 term.
+
+```{r}
+#| echo: true
+stats_sections_s
+```
+
+How should these datasets be combined?
+
+
+## Example 3: Survivor castaways
+
+Dataset 1:
+
+- This dataset includes information about each castaway's performance in a given season of *Survivor* (US seasons)
+- It includes a castaway ID, first name, season name and number, and the results for that castaway in that season (their overall `place`, whether they made the `jury`, and whether they were a `finalist`)
+
+```{r}
+#| echo: true
+us_castaway_results
+```
+
+Dataset 2:
+
+- This dataset includes information about each castaway who has appeared on *Survivor* (including non-US seasons)
+- It includes a castaway ID, their full name, date of birth, gender and occupation as presented in the show, and their Myers-Briggs personality type.  
+
+```{r}
+#| echo: true
+cast_details
+```
+
+We are interested in exploring the relationship between overall place on a Survivor season and personality type. How should these datasets be combined?
+
+
+**Stop here**
+
+
+# Bakeoff Ratings (again)
+
+We'll start with our `messy_ratings2` dataset from last week:
+
+```{r}
+messy_ratings2 <- read_csv("https://stat220-w26.github.io/data/messy_ratings2.csv")
+messy_ratings2
+```
+
+On Friday, we tidied the data[^1] using the following code:
+
+[^1]: Talk it over: does everybody remember what makes a dataset "tidy"?
+
+-   `select` columns of interest
+-   `pivot_longer` to extract the variable encoded in the column names
+-   `separate` to separate episode number from ratings period
+-   `parse_number` to format columns as numeric
+
+```{r}
+tidy_ratings2 <- messy_ratings2 %>%
+  select(series, contains("7day")) %>%
+  pivot_longer(-series, names_to = "episode", values_to = "viewers") %>%
+  separate(episode, into = c("episode", "period")) %>%
+  mutate(
+    episode = parse_number(episode),
+    period = parse_number(period)
+  )
+
+tidy_ratings2
+```
+
+
+## Task: Add series 9-14 to the dataset
+
+The code chunk below loads the new dataset
+
+```{r}
+messy_ratings2b <- read_csv("https://stat220-w26.github.io/data/messy_ratings2_9_14.csv")
+messy_ratings2b
+```
+
+### Combine with `bind_rows()`
+
+Combine the two `messy` datasets by using `bind_rows()`. Be sure to look at your resulting dataset and make sure it has the right format
+
+```{r}
+# your code here
+```
+
+### Combine with `join()`
+
+We'll practice `join`ing with the tidy versions of the data. First, create `tidy_ratings2b` using the new dataset. Follow the same steps as what was used to create `tidy_ratings2`
+
+```{r}
+# your code here
+```
+
+Once you're satisfied, that the two tidy datasets look similar enough to combine, remove `#| eval: false` from the following code chunk and run it. Did it work? Why or why not?
+
+```{r}
+#| eval: false
+tidy_ratings = tidy_ratings2 %>%
+  left_join(tidy_ratings2b)
+```
+
+Use the correction `_join` function here. Save your dataset to the `tidy_ratings` object.
+
+```{r}
+# your code here
+```
+
+### Combine with `bind_cols`
+
+To join the two datasets using `bind_cols`, you'll first have to un-tidy your tidy datasets, so that each episode number is in a *row* and each series number is in a *column*. After using `bind_cols()` the first few rows of your final dataset should look like this:
+
+```         
+# A tibble: 10 × 16
+   episode period    s1    s2    s3    s4    s5    s6    s7    s8    s9   s10   s11   s12   s13   s14
+     <dbl>  <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+ 1       1      7  2.24  3.1   3.85  6.6   8.51  11.6  13.6  9.46  9.55  9.62  11.2  9.57  8.3   7.84
+ 2       2      7  3     3.53  4.6   6.65  8.79  11.6  13.4  9.23  9.31  9.38  10.8  8.98  7.6   7.54
+ 3       3      7  3     3.82  4.53  7.17  9.28  12.0  13.0  8.68  8.91  8.94  10.7  8.69  7.35  7.28
+```
+
+**Stop here** and let Amanda know you've finished
+
+# `join` the episodes data
+
+The `episodes` data has information about each episode of GBBO. In particular, it includes:
+
+-   `baker`: each baker that competed on that episode
+-   `signature`: the name of the dessert they made for the signature challenge
+-   `technical`: the place the baker earned in the technical challenge
+-   `showstopper`: the name of the dessert they made for the showstopper challenge
+-   `result`: whether the baker was "Safe" or "Eliminated"
+
+```{r}
+episodes = read_csv("https://stat220-w26.github.io/data/bakeoff-episodes.csv")
+episodes
+```
+
+Join the tidy dataset (all 14 seasons) with the `episodes` data.
+
+Your task is to print the "signature" desserts that were made on the 10 episodes that had the highest 7-day viewership.
+
+**Stop here** and let Amanda know you've finished

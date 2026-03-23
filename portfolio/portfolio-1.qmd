@@ -1,0 +1,125 @@
+---
+title: "Portfolio Project 1"
+subtitle: "Posing and answering research questions"
+---
+
+```{r}
+library(tidyverse)
+```
+
+# Overview
+
+In your first portfolio project, you'll explore a dataset and pose your own research questions.  You'll then apply what you've learned about `ggplot2` and design principles to answer the questions.
+
+Your final report should include
+
+(1) A paragraph introduction to your data 
+(2) A section for Research Question 1 that includes: 
+    - Your question
+    - Why that question is interesting/important
+    - A graph that answers the question
+    - A written answer to the question based on the graph
+(3) A section for Research Question 2 that includes: 
+    - Your question. This should focus on a variable that was not included in Research Question 1.
+    - Why that question is interesting/important
+    - A graph that answers the question
+    - A written answer to the question based on the graph
+(4) A section describing your design choices
+    - This should be about a paragraph telling me why you chose the geometries, aesthetics, scales, themes, etc. that you did
+    
+Each of the two questions you come up with should involve more than two variables to answer. You should phrase them in a way that the is within the scope of inference of your data. For example, if you have an observational dataset, you shouldn’t phrase your question in a causal way. Your questions shouldn't be identical to the example questions in the TidyTuesday repo pages.
+
+Your rendered file should *not* `echo` the code used to create the graphs, but the code in your `.qmd` should be clean and readable. Your report should not be long! If rendering to a PDF, I expect the entire report to be about 3 pages. 
+
+# Options 
+
+Choosing a dataset is something you should do carefully but also relatively quickly. The dataset you choose should allow for two distinct questions to be asked and answered using a not-completely-overlapping set of variables, i.e., Question 1 requires the use of variables x, y, and z and Question 2 requires the use of variables a, b, c, and d or x, a, and b. Some shared variables are ok, but the set of variables should not be completely overlapping, i.e., Question 2 can’t also require the use of variables x, y, and z.
+
+## 1. Income Inequality before and after taxes
+
+```{r}
+income_inequality_raw <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-08-05/income_inequality_raw.csv') |>
+  filter(Year > 1963)
+
+income_inequality_raw
+```
+
+For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-08-05/readme.md). For more information about the data itself, read the original [Our World In Data](https://ourworldindata.org/income-inequality-before-and-after-taxes) article. 
+
+## 2. Billboard Hot100 Number Ones
+
+```{r}
+billboard <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-08-26/billboard.csv')
+billboard
+```
+
+For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-08-26/readme.md). For more information about the data itself and an example analysis, see the [*Can't get much higher](https://www.cantgetmuchhigher.com/p/the-greatest-two-hit-wonders) newsletter. 
+
+
+## 3. NSF grant terminations
+
+```{r}
+nsf_terminations <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-05-06/nsf_terminations.csv')
+nsf_terminations
+```
+
+For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-06/readme.md). For more information about the data itself, see [Grant Watch](https://grant-witness.us/). 
+
+## 4. Water Quality at Sydney Beaches
+
+```{r}
+water_quality <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-05-20/water_quality.csv')
+water_quality
+```
+
+For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-20/readme.md). For more information about the data itself, see [BeachWatch](https://www.beachwatch.nsw.gov.au/whatIsBeachwatch/aboutBeachwatch). 
+
+## 5. Pokemon
+
+```{r}
+pokemon_df <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-04-01/pokemon_df.csv')
+
+pokemon_df
+```
+
+For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-04-01/readme.md). For more information about the data itself, see [PokeAPI](https://pokeapi.co/about). 
+
+## 6. BYO 
+
+If none of the options listed here speak to you, you can also choose your own dataset. The data should have at least two quantitative and two categorical variables, at least eight variables total, and be "complicated" enough to demonstrate an advanced understanding of `ggplot` and design principles from class. I'd encourage you to run your idea by me before diving too deep! 
+
+# Submission
+
+Your submission should include two visualizations (replication and improvement), a written overview of your work, and all associated code. You should work in a `quarto` file. Your rendered file can be either pdf or html. I will distribute GitHub skeleton repos that you should fill in as you work. You should commit your final code and output file to your repo and link your repo to gradescope to submit.
+
+# Rubric
+
+A **successful** project will:
+
+- [ ] Include all necessary components pushed to GitHub and linked to gradescope
+    - There should be at least two commits with substantial changes between the two
+- [ ] Contain code, plots, and written summary in a single .qmd document
+- [ ] The .qmd file contains all necessary code for recreation
+- [ ] The .qmd file does not include unnecessary code
+- [ ] Both research questions posed are appropriate, thoughtful, and multivariate (involve at least two variables)
+- [ ] The graphs are appropriate to answer the research questions
+- [ ] The two graphs use different `geom`s and aesthetics
+- [ ]  Meet minimum submission quality standards
+    -   Very few grammatical mistakes, spelling mistakes, or typos
+    -   Appropriate labels and font sizes
+    -   A readable theme
+    -   The rendered document does not contain any unnecessary content (package loading messages, warnings, etc.)
+
+An **excellent** project will meet all of the requirements for a successful project, plus
+
+- [ ] At least one question uses three variables from the data at once
+- [ ] At least one graph uses two or more geometry layers (this might be two layers of data, or a map + points, annotations, direct labeling with `geom_text`, etc.) OR includes a ggplot element that goes beyond what we discussed in class (eg., a new ggplot extension package or a geometry we didn't discuss or see in homework)
+- [ ] Graphs use consistent themes that have been customized beyond a full theme (eg `theme_minimal` or `theme_bw`) 
+- [ ] Both graphs contain a custom `scale_` element (color, x/y axis, size, etc.)
+- [ ] A clear history of commits that show your progress (e.g. commit 1: load data and make basic graph, commit 2: make graph #2, commit 3: change idea for graph #1, etc.)
+
+This is an *individual* portfolio project. 
+
+# FAQ
+
+If you have any questions, please post them to Ed with the "portfolio projects" tag

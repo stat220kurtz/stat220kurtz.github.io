@@ -1,0 +1,63 @@
+---
+title: "Portfolio Project 4"
+subtitle: "Incorporating Interactivity"
+---
+
+# Overview
+
+For your fourth portfolio project, you'll apply what you've learned about interactivity and revisit a previous portfolio project. (If you'd prefer to revisit a homework problem, etc. that is also OK!) 
+
+Your task is to choose one of the previous portfolio projects that you've done, and add interactivity to it! 
+
+Some tools you might consider: 
+
+  - plotly
+  - leaflet
+  - DataTable
+  - Shiny
+  
+You should think carefully about how your chosen interactive components can *add* to the static version of your previous project, and include a 1 paragraph summary of why you chose the interactivity that you did. I want to see that you can implement the technical tools that we've covered, but also that you know how to deploy them effectively. 
+
+# Submission
+
+Your submission will be a github repo **and** your published product. This should be either a knitted .html file that has been published to the web, or a shiny app hosted on shinyapps.io. 
+
+*Please test your published version before submitting!* 
+
+# Rubric
+
+A **successful** project will:
+
+- [ ] Include all necessary components pushed to GitHub and linked to gradescope
+-   [ ] Demonstrate a history of work in progress and revision through your git commit history
+- [ ] Contain code, plots, and written summary in a single .rmd document
+- [ ] The .rmd (or .R) has all necessary and no unnecessary code
+- [ ] The output file is .html and published online. 
+    - I recommend using [RPubs](https://rpubs.com/about/getting-started) as it's very easy to publish a standalone website through RStudio, but if you have a public-facing website, that's great too! Please include a URL in your README.md file so I can find your report when grading
+    -   There are lots of reasons you might not want the world to know that you are enrolled in this class, and this is one of your rights under FERPA. If you're not comfortable including your name, you don't have to! Your public document can be authored by "Student" (which has a [history](https://www.science.org/doi/10.1126/science.351.6280.1406) of being used in statistics).
+- [ ] There are at least two interactive components (a plotly counts as one; each shiny input counts as one)
+- [ ] The README file includes (1) a link to your published report (2) an explanation of how to navigate your repo, (3) a paragraph explaining the interactivity that you've added and why it is an improvement over the original static version
+- [ ] Meet minimum submission quality standards
+    -   [ ] Very few grammatical mistakes, spelling mistakes, or typos
+    -   [ ] Informative title for your report is included
+    -   [ ] Any graphs are readable with appropriate titles and labels
+    -   [ ] The rendered document does not contain any unnecessary content (package loading messages, warnings, etc.)
+
+An **excellent** project will meet all of the requirements for a successful project, plus
+
+- [ ] Include a shiny app published on shinyapps.io
+- [ ] Meet high submission quality standards
+    - [ ] No grammatical mistakes, spelling mistakes, or typos
+    - [ ] Graphs have been customized (theme, color palette, scales, etc.) 
+
+# Can I work with someone? 
+
+Yes! You can work individually or with a partner for this portfolio project. Your partner should be someone *not* in your final project group. 
+
+# Are revisions allowed on this project? 
+
+The project is due Friday of Week 9, and I cannot accept any coursework except for the final project past the last day of class due to College policy. If you submit this portfolio project on the due date, I will grade it by Monday night, giving you two days to make revisions if needed. If you use a token, I can't guarantee to grade it in time for you to make a revision.
+
+# FAQ
+
+If you have any questions, please post them to the #portfolio-projects channel on slack.

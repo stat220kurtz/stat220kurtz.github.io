@@ -1,0 +1,110 @@
+---
+title: "Computing Setup" 
+---
+
+## R/RStudio
+
+I expect you to use RStudio to run R in this course. You have two options for using RStudio:
+
+### Server version
+
+We have a Carleton server hosting Rstudio at <https://maize.mathcs.carleton.edu/>. Your files on this account will be accessible as long as you are a student at Carleton. Use your Carleton credentials to access your account and you need to be running the Carleton VPN (below) to access this server. Use this option if
+
+- your personal computer is old and/or slow
+- you prefer to use school computers (lab or library computers)
+
+### A local version of RStudio installed on your machine
+
+You can also run R/RStudio from your personal computer. If you use a local version of R/RStudio this term, make sure that you have recently updated both R and RStudio.
+
+To check your version of R, run the command `getRversion()` and
+compare your version to the newest version posted on
+<https://cran.r-project.org/>. If you need an update, then
+install the newer version using the installation directions
+above.
+
+In RStudio, check for updates with the menu option
+`Help > Check for updates`. Follow directions if an update is
+needed.
+
+For a fresh download: 
+
+-   Download the latest version of R for your operating system from <https://cran.r-project.org/>
+
+-   Download the free RStudio desktop version from <https://posit.co/download/rstudio-desktop/>
+
+Use the default download and install options for each. 
+
+
+------------------------------------------------------------------------
+
+## VPN
+
+If you plan to use the maize server and you plan to do any work off campus this term (e.g., while on a field trip, travel for athletics, or just sitting in Little Joy) you need to install Carleton’s VPN to have access.
+
+To install the GlobalProtect VPN follow [directions provided by ITS](https://wiki.carleton.edu/display/itskb/GlobalProtect+VPN).
+
+
+------------------------------------------------------------------------
+
+## Git and GitHub
+
+[Git](https://happygitwithr.com/big-picture.html#why-git) is version
+control software that you install locally on your computer. Git is
+already installed on the maize RStudio server.
+
+[Github](https://happygitwithr.com/big-picture.html#why-github) is a
+cloud-based service for hosting git projects. It allows multiple users
+to share and contribute to projects and it is how you will be submitting
+homework assignments and projects for this class. More information about
+Github for this class is found on Moodle.
+
+If you are using a local install of R/RStudio, then you will need to
+install Git.
+
+### Installing Git
+
+Directions for both Windows & Mac here at
+<http://happygitwithr.com/install-git.html>.
+
+-   If you are using **maize**, then there is nothing you need to
+    install.
+
+-   Windows users should follow Option 1 in 6.2.
+
+-   Mac users can follow Option 1 in 6.3 if comfortable, otherwise
+    follow Option 2
+
+-   Linux users can follow 6.4.
+
+------------------------------------------------------------------------
+
+
+## LaTeX
+
+You need a LaTeX compiler to create a pdf document from a R Markdown file. If you use the maize server, you don’t need to install anything (the server already has a LaTeX compiler). If you are using a local RStudio, you should install a Latex compiler.
+
+
+### Installing LaTeX (not needed if you are using the maize server)
+
+
+If you don’t already have a tex package installed on your computer, the easiest option to create pdf’s is to use the tinytex R package. This can be installed with the following R commands:
+
+```{r eval=FALSE}
+install.packages("tinytex")
+tinytex::install_tinytex()  # install TinyTeX
+```
+
+If you’d like a stand alone LaTeX package, you could install the basic installations of either:
+
+-   [MacTeX](https://www.tug.org/mactex/) for Mac (3.2GB!)
+
+-   [MiKTeX](https://miktex.org/download) for Windows (190MB)
+
+
+------------------------------------------------------------------------
+
+#### Acknowledgements
+
+This installation guide was written by Adam Loy and is based on the guide from stat545.com and is
+licensed under the CC BY-NC 3.0 Creative Commons License.

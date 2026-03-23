@@ -1,0 +1,57 @@
+---
+title: "24-shiny2"
+---
+
+# Understanding Reactivity
+
+Your group's task is to improve a Shiny app through the use of *reactive expressions*. To do this, you will identify flaws in the above version of the Shiny app and edit the code to implement solutions.
+
+This activity will guide your through the adaptation of this Shiny app.
+
+## Part 1: on your own
+
+Start by downloading [`24-reactivity.R`](https://stat220-w26.github.io/files/24-reactivity.R)
+
+1.  To begin, you need to understand what the Shiny app is doing. Run the Shiny app. What output changes when you change...
+
+  a.  the number of bootstrap resamples?
+
+  b.  the number of histogram bins?
+
+  c.  the confidence level?
+
+2.  Looking back at #1, are there any surprises? Does anything change/update unexpectedly? Does anything fail to update?
+
+## Part 2: with those around you (I recommend groups of 3)
+
+3.  Discuss your answers to Part 1 with your group and be ready to report back.
+
+4.  Read through the code in the `renderPlot()` and `renderPrint()` reactive expressions. Note the key tasks executed within each.
+
+5.  Based on your answers to #4, Is there any replication? That is, are any key tasks executed multiple times? Record your group's answers and be ready to report back.
+
+::: callout-warning
+## Stop here
+
+Stop here and let Amanda know that you've finished. We'll regroup and discuss reactivity shortly
+:::
+
+## Part 3
+
+6.  Create a list of reactive values/expressions that should be created outside the `render*` statements. Recall that reactive values are the inputs/objects that observers watch for updates.
+
+7.  For each reactive expression you identify in step #6, identify which output (the histogram or the confidence interval) should *observe* that expression and update when it is changed?
+
+8.  Use your answers to steps #6-7 to reorganize the server-side code for this Shiny app. (You don't need to change the inputs!) To do this, first create any reactive expressions. Next, adapt the `renderPlot()` and `renderPrint()` chunks to use your reactive expressions. Remember to run your app regularly to help pinpoint bugs.
+
+9.  Compare and contrast the performance and readability of the revised app's code to the original "non-modularized" version.
+
+::: callout-warning
+## Stop here
+
+Stop here and let Amanda know that you've finished. 
+:::
+
+# `manager-survey` app
+
+Finish `23-app1.R` from last time. Ask if you have questions!

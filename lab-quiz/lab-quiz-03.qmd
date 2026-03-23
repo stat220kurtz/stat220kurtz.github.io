@@ -1,0 +1,213 @@
+---
+title: Lab Quiz 03 Info
+author: Stat220 -- W25
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+library(tidyverse)
+library(ggthemes)
+library(nycflights23)
+```
+
+Our third lab quiz is scheduled for **Friday of Week 7**. The first half of class will cover new content, and the second half of class you will complete the in-person portion of the lab quiz. The format of this lab quiz will remain the same as Lab Quiz 2. 
+
+# Guidelines
+
+This is a *limited note*, *closed internet resources*, *closed other people* lab quiz. I want to see what's in your brain! You may use the help pages built-in to R (accessed by `?ggplot`), the Posit cheatsheets provided by me, and one side of one 3x5 notecard of your own handwritten notes. 
+
+On the resubmission, you may use my slides and your own notes from class, but you shouldn't use other internet resources or get help from anybody but me.
+
+The lab quizzes are not written to be tricky or complex If you've been completing the in-class activities and the homework, and putting the time and effort in to understand them, you should do well on the lab quizzes.
+
+# Skills
+
+The third quiz will assess your proficiency working with strings and with basic programming concepts in R (`functions`, `if` statements, `for` loops, `across()`, and `map`). 
+
+## Strings
+
+-   Given a string, subset some portion of it
+    - `str_sub`, `str_subset`, `str_extract`, 
+- Given two strings, use `str_c` to concatenate them
+- Given a *simple* regular expression, state what will be matched
+    - Literal characters, special characters (`\\d`, `\\w`, `[:alpha:]`, `\\n`, `\\`), anchors for start/end characters (`^` and `$`), quantifiers (`+`, `*`, `{n}`, `{n,}`, `{n,m}`)
+
+## Functions
+
+-   Use `function()` to build an R function
+-   Specify required arguments and default values
+-   Understand how to return a value or object
+-   Use a logical statement to control the flow of the function
+
+## Iteration
+
+- Be able to write a `for` loop to accomplish an iterative task 
+    - Preallocate storage 
+    - Define an index to iterate through
+- Be able to read a `for` loop and determine what it's doing
+- Use `across()` and `where()` to apply {dplyr} functions to columns in a dataset
+- Explain what a `map` command is doing
+- Write a basic `map` command for group-wise data operations
+
+
+# Grading
+
+For the in-class portion, I will grade your .rmd's and be looking directly at your code. You'll earn points through the following:
+
+-   1 point per question (successful or not successful)
+-   1 point if I can successfully knit your file
+-   1 point for submitting via GitHub
+
+If you have trouble knitting or submitting via GitHub, submit your .rmd via email. There will be a 5 minute grace period past the end of class to submit, but I will not accept submissions beyond that point. You can always check and see if your submission worked by looking at your repo on gitub.com
+
+If you have code that is not working, you can tell R not to run that chunk of code with: 
+
+```
+#| eval: false
+
+code_attempt_here
+```
+
+It's perfectly OK to submit code that isn't working properly! When I grade the in-class quizzes, I am primarily looking to see that you *understood the problem* and *tried to use the right technique* to solve it. 
+
+## Resubmission
+
+You may resubmit the lab quiz by **11am on Sunday (48 hours)**. Resubmissions will be submitted through Gradescope. 
+
+# Practice Quiz
+
+## Rules
+
+1.  Your solutions must be written up in the R Markdown (Rmd) file called lab-quiz-03.Rmd. This file must include your code and write up for each task. Your "submission" will be whatever is in your exam repository at the deadline. Commit and push the Rmd and outputs of that file.
+
+2.  This exam is limited notes, closed internet, closed other people.
+
+3.  You have until 10:45am to complete this exam and turn it in via your personal Github repo - late work will not be accepted. Once you leave the classroom, you cannot make any changes to your in-class submission. Technical difficulties are not an excuse for late work - do not wait until the last minute to knit / commit / push.
+
+    -   If you do have technical issues, you will be able to solve them for the resubmission, but if you do not turn in the in-class portion you will not receive any points
+        -   Example: I run into a knitting issue and don't leave myself time to commit to github, so I'm not able to turn anything in for the in-class portion. I work hard over the weekend to make sure everything is correct for the resubmission. I earn 0/10 on the in-class and 10/10 on the resubmission, so my score for the lab quiz is 10/20.
+        -   Example: I run into a knitting issue 2 minutes before the deadline, but make sure to commit my .rmd and submit to gradescope before trying to solve the issue. I fix the knitting issue over over the weekend, and also find an error in one of my problems I submitted. I earn 8/10 on the in-class (1 unsuccessful problem + no output file) and 10/10 on the resubmission, so my score for the lab quiz is 18/20.
+
+4.  Even if the answer seems obvious from the R output, make sure to state it in your narrative as well. For example, if the question is asking what is 2 + 2, and you have the code in your document, you should additionally have a sentence that states "2 + 2 is 4."
+
+5.  You may only use the packages provided in the initial .rmd file for this assignment. Your solutions may not use any other R packages.
+
+## Data
+
+The `nycflights23` package contains information about all flights that departed from NYC (e.g. EWR, JFK and LGA) in 2023. The main data is in the `flights` data frame, but there are additional data sets which may help understand what causes delays, specifically:
+
+-   `weather`: hourly meteorological data for each airport
+-   `planes`: construction information about each plane
+-   `airports`: airport names and locations
+-   `airlines`: translation between two letter carrier codes and names
+
+
+```{r}
+library(tidyverse)
+library(nycflights23)
+q <- 0
+```
+
+## Questions
+
+### Question `r (q<- q+1)`
+
+One of the columns in the `airport` dataset is the `name` of the airport. Most airports with international flights have the word "International" in them. Create a new logical column called `international` based on whether the `name` of the airport contains the word "international". 
+
+### Question `r (q<- q+1)`
+
+```{r}
+airport_names <- airports$name
+```
+
+Your output document should print the words, don’t use the viewer to show them. For example, if I was looking for every word in the `words` vector that contained a "q", my output would look like: 
+
+```
+ [1] "equal"    "quality"  "quarter"  "question" "quick"    "quid"     "quiet"   
+ [8] "quite"    "require"  "square"  
+```
+
+#### a
+
+Find all airport names that contain a "Z"
+
+#### b
+
+Find all airport names that start with the word "Red"
+
+#### c
+
+Find all airport names that contain a period (`.`)
+
+```{r}
+#| include: false
+str_subset(airport_names, "Z")
+str_subset(airport_names, "^Red")
+str_subset(airport_names, "\\.")
+```
+
+
+### Question `r (q<- q+1)`
+
+Use `across` to find the minimum and maximum for each of the quantitative columns in `airports`. 
+
+### Question `r (q<- q+1)`
+
+#### a
+
+Give a 1 sentence description of what the following function does. 
+
+```{r}
+my_function = function(x){
+  flights |>
+    filter(dest == x) |>
+    count() |>
+    pull(n)
+}
+```
+
+#### b 
+
+Edit this function so that the default value of x is "MSP". 
+
+### Question `r (q<- q+1)`
+
+The following code chunk creates a vector of some airports in Minnesota. 
+
+```{r}
+mn_airports = c("Bemidji Regional Airport", 
+                "Brainerd Lakes Regional Airport", 
+                "Duluth International Airport", 
+                "Ely Municipal Airport", 
+                "Redwood Falls Municipal Airport", 
+                "Rochester International Airport", 
+                "Thief River Falls Regional Airport",
+                "Minneapolis-St Paul International/Wold-Chamberlain Airport")
+```
+
+- What is the purpose of `results = numeric(length(mn_airports))` in the code chunk below? 
+- What does `seq_along(mn_airports)` do? 
+- What is saved in the `x` object? 
+- What is saved in the `results` object?
+
+```{r}
+results = numeric(length(mn_airports))
+
+for(k in seq_along(mn_airports)){
+  x <- airports |>
+    filter(name == mn_airports[k]) |>
+    pull(faa)
+  
+  results[k] = my_function(x)
+}
+
+results
+```
+
+### Question `r (q<- q+1)`
+
+I'm attempting to use a `map` solution instead of my `for` loop above. Does the `map` code below accomplish the task? If yes, explain how you can tell. If no, explain what you think the issue is. 
+
+```{r}
+map(mn_airports, my_function)
+```

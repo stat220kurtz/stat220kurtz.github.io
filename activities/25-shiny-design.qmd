@@ -1,0 +1,76 @@
+---
+title: "25-shiny-design"
+---
+
+```{r}
+library(tidyverse)
+```
+
+# Warm Up
+
+Open the following shinyapps and explore a little bit. 
+
++ [Data Wrangling](https://psu-eberly.shinyapps.io/data_wrangling/)
++ [Biodiversity in NPS](https://abenedetti.shinyapps.io/bioNPS/)
++ [Hex Memory Game](https://dreamrs.shinyapps.io/memory-hex/)
++ [Lake Profile Dashboard](https://gallery.shinyapps.io/lake-profile-dashboard/)
++ [Classification Trees](https://asluby.shinyapps.io/GSS_classification/)
+
+With the folks around you, discuss: 
+
+1. Did any apps stand out as enjoyable or useful? 
+2. What features or design choices make an app stand out? 
+3. Are there any small tweaks you could make to make them more usable?
+
+# AskAManager App 
+
+Use the version you've been working on, or use a new starter app at [https://stat220-w26.github.io/files/25-starter-app.R](https://stat220-w26.github.io/files/25-starter-app.R) (it is also in the solutions repo)
+
+## Part 1
+
+- Move the initial data preparation code to an R **script** called `data-prep.R`
+- Write the cleaned dataset to a CSV or .Rds file
+    + `write_rds(manager_survey, "manager-survey/data/manager-survey.rds")`
+- In the `app.R` file, load the data with `read_csv`
+    + `manager_survey <- read_rds("data/manager-survey.rds")`
+
+## Part 2
+
+- Add a `sliderInput` to the appropriate tab panel
+
+```{r}
+#| eval: false
+sliderInput(
+  inputId = "ylim",
+  label = _______ ,
+  min = 0,
+  value = c(0, 1000000),
+  max = __________,
+  width = "100%"
+)
+```
+
+- Edit your ggplot code for the individual salary plot to display only the data points that are within these slider values
+
+## Part 3
+
+- Add a custom theme to the AskAManager app
+- Update the ggplot themes to match
+
+## (If Time)
+
+Set up shinyapps.io account and deploy either (a) Portfolio 4 or (b) the AskAManager app
+
+
+- You can deploy shiny apps online
+    + using Posit's cloud server (free/fee) - https://www.shinyapps.io/
+        - ["Getting started"](https://docs.posit.co/shinyapps.io/guide/getting_started/) guide will walk you through connecting RStudio to your shinyapps.io account
+        - note: there is also now an option to deploy via Connect Cloud from your github. Feel free to try it!
+    + creating a shiny server
+
+- Your app and files should be in their own **folder** and the entire folder is what you "deploy". You do *not* want multiple `app.R` or `.Rmd` files in that folder! 
+
+
+::: aside
+Credit: [Mine Çetinkaya-Rundel's](https://vizdata.org/) Ask a Manager application exercise
+:::

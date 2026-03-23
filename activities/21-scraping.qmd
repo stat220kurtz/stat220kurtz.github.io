@@ -1,0 +1,93 @@
+---
+title: "21-scraping"
+---
+
+```{r}
+#library(tidyverse)
+#library(rvest)
+```
+
+# `paths_allowed`
+
+```{r warning=FALSE}
+#library(robotstxt)
+#paths_allowed("http://www.zillow.com")
+```
+
+# Box Office Mojo
+
+```{r}
+#| eval: false 
+#page <- read_html("https://www.boxofficemojo.com/year/2024/")
+
+```
+
+# Carleton Class Schedule 
+
+<https://www.carleton.edu/catalog/current/search/?subject=STAT&term=25WI>
+
+View the page source to try to find the html elements where this data is located (e.g. 'h1', 'p', 'table')
+
+- Course number
+- Course title
+- Course description
+- Course meetings
+- Faculty
+- Course meetings
+
+```{r}
+#listings = read_html("https://www.carleton.edu/catalog/current/search/?subject=STAT&term=25WI")
+```
+
+# SelectorGadget
+
+- Use the SelectorGadget to explore http://www.imdb.com/chart/top
+
+- What should the columns of our target dataset be? Do they correspond to any specific css selectors?
+
+# Scraping IMDb Movie Page 
+
+```{r}
+#imdb <- read_html("http://www.imdb.com/chart/top")
+```
+
+```{r, eval=FALSE}
+#| eval: false
+
+#_______ <- imdb %>%
+#  html_elements(".with-margin .ipc-title__text") %>%
+#  html_text()
+
+#_______ <- imdb %>%
+#  html_elements(".cli-title-metadata-item:nth-child(1)") %>%
+#  html_text()
+
+#_______ <- imdb %>%
+#  html_elements(".cli-title-metadata-item:nth-child(2)") %>%
+#  html_text()
+
+#_______ <- imdb %>%
+#  html_elements(".cli-title-metadata-item:nth-child(3)") %>%
+#  html_text()
+
+#imdb_top_250 <- tibble(
+  
+#  )
+
+#imdb_top_250
+```
+
+# Your Turn: IMDb TV Shows Page
+
+In an R script:
+
+  - Scrape the names, scores, and years of most popular TV shows on IMDB:
+  [www.imdb.com/chart/tvmeter](http://www.imdb.com/chart/tvmeter)
+  
+  - Create a data frame called `tvshows` with the variables:
+    `rank`, `title`, `stars`, `year`, `episodes`, `n_ratings`
+    
+  - Wrangle your resulting data so that all variable types are imported correctly
+  
+  - Use `write_csv` to save your file. If time, read it into the `21-scraping.rmd` and make a graph
+  

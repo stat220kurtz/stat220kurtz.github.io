@@ -1,0 +1,33 @@
+---
+title: "17: Iteration"
+---
+
+```{r}
+library(tidyverse)
+```
+
+# Load the Data
+
+```{r}
+unscaled_cancer <- read_csv("https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/refs/heads/main/data/wdbc_unscaled.csv")
+
+unscaled_cancer
+```
+
+## Your turn: For loop
+
+Load the `palmerpenguins` package.
+
+Write a `for` loop that calculates the mean of the numeric variables in the `penguins` data set and stores the means in a named vector.
+
+## Your turn: summary/table for loop
+
+Revisit the {palmerpenguins} `penguins` data.
+
+Write a `for` loop that calculates the `summary()` of a numeric variable and the `table()` of a factor variable.
+
+Store the results in a list (it will have length 8).
+
+## Your turn: across
+
+Use `summarize` and `across` to find the range of any quantitative variables, and the number of levels of any factor variables in the `penguins` dataset.

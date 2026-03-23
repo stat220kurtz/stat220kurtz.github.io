@@ -1,0 +1,494 @@
+---
+title: Welcome to Stat 220
+subtitle: Day 01
+title-slide-attributes:
+  data-background-image: ../conveyor-belt-doodle.jpg
+  data-background-size: 60%
+  data-background-position: bottom
+  data-background-opacity: "0.8"
+  data-slide-number: none
+format: 
+  revealjs:
+    incremental: true
+auto-stretch: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(gtrendsR)
+library(countdown)
+library(tidyverse)
+library(lubridate)
+library(scales)
+library(here)
+
+theme_set(theme_minimal(base_size = 16))
+```
+
+# Intros
+
+## About me
+
+::::: columns
+::: {.column width="60%"}
+-   First year at Carleton!
+-   PhD in Political Science from the University of Minnesota
+-   M.S. in Statistics from UMN
+-   Originally from(ish) Cleveland, Ohio
+-   Went to Wellesley College for undergrad
+-   Have an almost 2 year old toddler named Glenn
+-   Like to walk around lakes, bike, play video games, and try out local restaurants
+:::
+
+::: {.column width="40%"}
+%![](../img/about-me.jpg)
+:::
+:::::
+
+## Proud of/ Nervous about {.center}
+
+## In groups of 5ish
+
+::: {.task .nonincremental}
+1.  Introduce yourselves.
+2.  1-2 in each group come up with a question to ask the group that can be measured as a:
+  - Category, AKA factor (e.g. gender)
+  - Number (e.g. how much sleep did you get last night?)
+  - Free text (e.g. favorite restaurant in town)
+3.  Ask each other these questions - any common themes?
+3.  Share a bit about why you're taking this class
+:::
+
+```{r}
+#| echo: false
+
+countdown::countdown(8)
+```
+
+## What is this class about?
+
+-   **Develop** research questions that can be answered with data
+-   **Acquire** data from multiple sources
+-   **Wrangle** common types of data
+-   **Visualize** data to provide insight
+-   **Communicate** your findings
+-   **Document** your code and **collaborate** on coding projects
+
+## Sneak peek: class survey data
+
+```{r}
+#| echo: false
+#| message: false
+survey <- read_csv(here(here(), "data/class_survey_sm.csv"))
+survey |> sample_n(10)
+```
+
+## 
+
+:::::: columns
+::: {.column width="33%"}
+You took a survey
+
+![](../img/01-google-forms-logo.png)
+:::
+
+::: {.column width="33%"}
+Google saved your responses in a sheet
+
+![](../img/01-google-sheets.png)
+:::
+
+::: {.column width="33%"}
+I read your data into R, cleaned it, and saved it as a CSV
+
+![](../img/01-rstudio-logo.png)
+:::
+::::::
+
+## Multiple choice question where you could only pick one option
+
+What class year are you?
+
+::: nonincremental
+-   First year
+-   Sophomore
+-   Junior
+-   Senior
+:::
+
+## Visualize
+
+```{r}
+#| code-fold: true
+survey |>
+  count(class_year) |>
+  mutate(prop = n/sum(n)) |>
+  ggplot(aes(y = class_year, x = prop, fill = class_year)) + 
+  geom_col(show.legend = FALSE) + 
+  scale_x_continuous(labels = percent_format(accuracy = 1), breaks = c(0, .1, .2, .3, .4, .5)) + 
+  labs(
+    title = "Class year among Stat220 Students",
+    y = "",
+    x = "Proportion",
+    caption = "Self-reported data collected from Stat220 students by 10am on Jan 5"
+  ) + 
+  scale_fill_viridis_d(end = .75, option = "plasma")
+```
+
+## Question where you could enter a number
+
+How many hours of sleep per night do you typically get during the term?
+
+```{r}
+summary(survey$sleep)
+```
+
+## Open-ended question
+
+Where can you find the best food in Northfield?
+
+```{r}
+survey$northfield_food
+```
+
+## Visualize
+
+```{r}
+#| code-fold: true
+
+survey |>
+  count(northfield_food) |>
+  mutate(prop = n/sum(n)) |>
+  ggplot(aes(y = northfield_food, x = prop, fill = northfield_food)) + 
+  geom_col(show.legend = FALSE) + 
+  scale_x_continuous(labels = percent_format(accuracy = 1), breaks = c(0, .1, .2, .3, .4, .5)) + 
+  labs(
+    title = "Where can you find the best food in Northfield?",
+    y = "",
+    x = "Proportion",
+    caption = "Self-reported data collected from Stat220 students by 10am on Jan 5"
+  ) + 
+  scale_fill_viridis_d(end = .75, option = "plasma")
+```
+
+##  {background-image="../img/data_scientist_infographic.png" background-position="right" background-size="50%"}
+
+:::: columns
+::: {.column width="50%"}
+### What skills do you need?
+
+-   programming with data
+
+-   statistical modeling
+
+-   domain knowledge
+
+-   communication
+:::
+::::
+
+## What is this class all about?
+
+![](../img/01-ds-cycle.png){.r-stretch}
+
+::: aside
+Image by Adam Loy <br> adapted from work of Joe Blitzstein, Hanspeter Pfister,<br> and Hadley Wickham
+:::
+
+## Why R?
+
+> *And the second reason, which is both a huge strength of R and a bit of a weakness, is that R is **not just a programming language**. It was designed from day 1 to be an **environment that can do data analysis**. So, compared to the other options like Python, you can get up and running in R doing data science, learning much, much less about programming to get started. And that generally makes it like **easier to get up and running if you don’t have formal training in computer science or software engineering**.*
+
+> -Hadley Wickham, [Advice to Young (and Old) Programmers: A Conversation with Hadley Wickham](https://www.r-bloggers.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/)
+
+##  {background-image="../img/wordcloud-nervous.png" background-size="contain"}
+
+##  {.smaller}
+
+::::: columns
+::: {.column .center width="60%"}
+![](../img/horst_error.jpeg){fig-align="left"}
+:::
+
+::: {.column width="40%"}
+It’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. **Everyone gets frustrated**. I still get frustrated occasionally when writing R code. **It’s just a natural part of programming**. So, it happens to everyone and gets less and less over time. *Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.*
+:::
+:::::
+
+::: aside
+Hadley Wickham, [Advice to Young (and Old) Programmers: A Conversation with Hadley Wickham](https://www.r-bloggers.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/);<br> Artwork by Allison Horst
+:::
+
+## Maize Server
+
+::: {.large style="text-align: center;"}
+<https://maize.mathcs.carleton.edu>
+:::
+
+-   Browser based RStudio instance(s) provided by Carleton
+
+-   Requires internet connection to access
+
+-   Provides consistency in hardware and software environments
+
+-   Local R installations are also great! If you already have one, you should use it. You may need to install packages as we go.
+
+# A first example: UN Votes
+
+## On your own:
+
+::: {.task .nonincremental}
+1.  Log into the maize server: \<maize.mathcs.carleton.edu\>
+2.  Follow the directions at <https://stat220-w26.github.io/computing/rstudio-stat220> to create an "activities" folder
+3.  Open `01-example-unvotes` from <https://stat220-w26.github.io>, and follow the directions to open the file in Rstudio
+4.  Skim the file *without* running any code:
+    -   Where is the *code*?
+    -   Where is the *narrative*?
+5.  Run each code chunk in order. What does this analysis do?
+:::
+
+```{r echo=FALSE}
+countdown(minutes = 10, seconds = 0)
+```
+
+## What steps went into this analysis?
+
+-   Recording the original data
+-   Accessing data via an R package
+-   Combining multiple datasets into one
+-   Data cleaning: filtering, creating new columns, grouping, summarizing
+-   Making a graph
+-   Fitting a smooth line model
+
+## Your turn:
+
+::: task
+With your neighbor(s):
+
+Choose two countries to compare to the U.S. voting record in the U.N. over the years.
+
+What did you learn?
+:::
+
+```{r echo=FALSE}
+countdown(minutes = 4, seconds = 0)
+```
+
+# Syllabus highlights
+
+Read the full syllabus by next class
+
+## 
+
+### Course website
+
+::: {.large style="text-align: center;"}
+<https://stat220-w26.github.io>
+:::
+
+-   access slides
+-   see schedule
+
+### Course github organization
+
+::: {.large style="text-align: center;"}
+<https://github.com/stat220-w26>
+:::
+
+-   access repositories for homework and projects
+
+## Office hours (*tentative*)
+
+| Day       | Time       | Type    | Location |
+|:----------|:-----------|:--------|:---------|
+| Monday    | 1:30-2:30  | Drop-in | CMC 307  |
+| Tuesday   | 3-4        | Drop-in | CMC 307  |
+| Wednesday | 12:30-1:30 | Drop-in | CMC 307  |
+| Friday    | 10-11      | Appts   | CMC 223  |
+
+## Where is Amanda this term?
+
+![](../img/w26-schedule.png){.r-stretch}
+
+## What will you do in this course?
+
+::::: columns
+::: {.column width="50%"}
+**Graded work:**
+
+-   Homework
+-   Lab Quizzes
+-   Portfolio Projects
+-   Final Project
+:::
+
+::: {.column width="50%"}
+**Ungraded work:**
+
+-   Daily prep for class: read/watch/review/try
+-   In-class exercises
+-   Engagement in small and large group discussions
+:::
+:::::
+
+## What will a typical day/week look like?
+
+:::::: columns
+::: {.column width="30%"}
+**Before class:**
+
+-   Watch a video or read a chapter
+-   Come with questions
+-   Be prepared to try what was covered
+:::
+
+::: {.column width="30%"}
+**In class:**
+
+-   Mini lecture
+    -   Sometimes review
+    -   Sometimes new
+-   Hands-on coding in R
+:::
+
+::: {.column width="30%"}
+**After class:**
+
+-   Finish in-class exercises
+-   Work on homework and portfolio projects
+:::
+::::::
+
+## Grading system {.smaller}
+
+Homework and lab quiz problems will be graded as *successful*, *half credit*, or *not successful*. Projects will be graded as *excellent*, *successful*, or *not successful*. You will have the opportunity to resubmit the lab quizzes outside of class.
+
+To earn a course grade, you must meet **all** of the requirements in a given row:
+
+|   | Homework Problems | Lab Quiz Problems | Portfolio Projects (4 total) | Final Project |
+|------------|------------|------------|------------|------------|
+| A | 85% | 90% | 2 Excellent + 2 Successful | Excellent |
+| B | 75% | 80% | 4 Successful | Successful |
+| C | 65% | 70% | 3 Successful | Successful |
+| D | 55% | 50% | 2 Successful | Successful |
+
+"+" and "-" grades are determined by partially meeting the requirements in a given row.
+
+*Note:* I expect daily attendance and participation. Missing \>5 class meetings or consistent issues with being on-task will result in a 1/3 grade deduction.
+
+## Benefits
+
+-   You decide what grade you're aiming for, and what you have to do to earn it
+-   Clear guidelines for "successful" and "excellent" grades on projects
+-   Opportunity to revise and resubmit
+
+## Possible drawbacks
+
+-   No traditional partial credit!
+-   Half-credit is for *completed* and *mostly correct*
+-   Revisions take time
+-   Categories don't "average out"
+
+## Tokens
+
+You can use a token to:
+
+-   Revise a portfolio project that did not earn a "successful" or "excellent"
+-   72-hour extension on a homework assignment or portfolio project submission (the request must be submitted before the deadline)
+-   Retake a lab quiz \[\*\]
+-   By passing the syllabus quiz, you'll activate your 5 tokens for the term. I will track token balances in the moodle gradebook (updated weekly, typically Thursdays)
+
+## Collaboration policy {.smaller}
+
+|   | Collaboration Allowed |
+|------------------------------------|------------------------------------|
+| Homework Problems | You are allowed and encouraged to collaborate on homework. You may also use outside resources, but your submitted work must be your own and reflect your own understanding . |
+| Lab Quiz Problems | **No collaboration is allowed at all** . You may use your own notes for resubmissions, but should not use outside resources. |
+| Portfolio Projects | You are expected to collaborate with your group, but cannot rely on external sources other than to help motivate the questions or provide other background information. Getting answers on significant parts of solutions from outside resources is not allowed. |
+| Final Project | You are expected to collaborate with your group, but cannot rely on external sources other than to help motivate the questions or provide other background information. Any outside resources should be properly cited. |
+
+: {tbl-colwidths="\[15,85\]"}
+
+## Use of generative artificial intelligence (AI) {.smaller}
+
+-   Treat generative AI, such as ChatGPT or Gemini, the same as other online resources.
+
+-   Guiding principles:
+
+    -   \(1\) *Cognitive dimension:* Working with AI should not reduce your ability to think clearly. AI should facilitate—rather than hinder—learning.
+
+    -   \(2\) *Ethical dimension***:** If you use AI, you should be transparent about it and make sure it aligns with academic integrity.
+
+-   **❌ AI tools for writing code:** You may not use generative AI to take a "first pass" at a coding task. Do not type coursework prompts directly into AI tools.
+
+-   **✅ AI tools for debugging code:** You may make use of the technology to get help with error messages or trying to fix issues. Rule of thumb: never type code into or out of an AI interface
+
+-   **❌ AI tools for narrative:** Unless instructed otherwise, you may not use generative AI to write narrative on assignments. In general, you may use generative AI as a resource as you complete assignments but not to answer the exercises for you.
+
+::: aside
+Adapted from Mine Çetinkaya-Rundel
+:::
+
+## GitHub {.smaller}
+
+::: {.large style="text-align: center;"}
+https://github.com/stat220-w26
+:::
+
+-   GitHub organization for the course
+
+-   All of your work and your membership (enrollment) in the organization is private
+
+-   Each assignment is a private repo on GitHub, I distribute the assignments on GitHub.
+
+-   You will work on your assignment, then "render ➡️ commit ✅ push ⤴️"
+
+-   You'll then be able to submit your PDF via gradescope
+
+. . .
+
+::: task
+Fill out the *Welcome Survey* for collection of your account names, later this week you will be invited to the course organization.
+:::
+
+## Username advice {.smaller}
+
+::: hand
+in case you don't yet have a GitHub account...
+:::
+
+Some brief advice about selecting your account names (particularly for GitHub),
+
+-   Incorporate your actual name! People like to know who they're dealing with and makes your username easier for people to guess or remember
+
+-   Reuse your username from other contexts, e.g., your Carleton email or gmail account
+
+-   Pick a username you will be comfortable revealing to your future boss
+
+-   Shorter is better than longer, but be as unique as possible
+
+-   Make it timeless. Avoid highlighting your current university, employer, or place of residence
+
+# Wrap up
+
+## Your tasks before next class
+
+::: {.task .nonincremental}
+1.  Create a GitHub account if you don't have one
+
+2.  Complete the welcome survey if you haven't already
+
+3.  Join the slack workspace and post an `#intro` message
+
+4.  Read the syllabus and pass syllabus quiz
+
+5.  Make sure you can log in to the maize server or update your local R/RStudio versions
+
+6.  Complete the readings for next class
+:::
+

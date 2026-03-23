@@ -1,0 +1,40 @@
+/*-- scss:defaults --*/
+
+@import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
+
+$font-family: "Atkinson Hyperlegible", sans-serif;
+
+/*-- scss:rules --*/
+
+.boxed-text {
+  border: 2px solid #333; /* Sets a 2px solid border with a dark grey color */
+  padding: 10px;          /* Adds 10px of space between the text and the border */
+  display: inline-block;  /* Optional: Makes the div behave like an inline element but with block properties,
+                             allowing it to wrap around the text content and not take up the full width.
+                             Use 'block' if you want it to take up the full available width. */
+  border-radius: 5px;     /* Optional: Adds rounded corners to the box */
+}
+
+.render-commit-push {
+  padding: 0.5em 0.5em 0em 3em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: #f8f8f8 5px center/3em no-repeat;
+  border-top: 1px solid #3A5883;
+  border-bottom: 1px solid #3A5883;
+  background-image: url("images/render-commit-push.png");
+  background-size: 2em;
+  background-position: 0.5em 0.5em;
+}
+
+.pull {
+  padding: 0.5em 0.5em 0em 3em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: #f8f8f8 5px center/3em no-repeat;
+  border-top: 1px solid #FFBE98;
+  border-bottom: 1px solid #FFBE98;
+  background-image: url("images/pull.png");
+  background-size: 1em;
+  background-position: 1em 0.5em;
+}

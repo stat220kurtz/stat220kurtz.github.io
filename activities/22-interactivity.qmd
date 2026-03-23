@@ -1,0 +1,54 @@
+---
+title: "22-interactivity"
+---
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+library(DT)
+library(plotly)
+library(flexdashboard)
+library(leaflet)
+```
+
+# Plotly 1
+
+Load the palmerpenguins data set and create a scatterplot of body_mass_g vs. flipper_length_mm from the penguins data set. Use color and shape to specify the species.
+
+Once you have a static graphic you’re happy with, load plotly and convert it to an interactive graphic.
+
+- What tools tips are included by default?
+- Change the default tooltip to include “Species”
+- (If time) use stringr so that the tooltip shows: “Species: Adelie” instead of just “Adelie”
+
+# Plotly 2
+
+Create a bar chart of species from the penguins data set, then convert it to an interactive bar chart.
+
+- What tools tips are included by default?
+- What would you change?
+
+# Leaflet
+
+- Find the names of the 3 islands in `penguins`
+- Find appropriate lat/long locations for each of the islands in `penguins` using the internet
+- Create a leaflet map with markers for each island (*Tip:* Start with the world map with no zoom)
+- Include a popup with the island name
+
+
+# DT Table
+
+- Create a {DT} table of the penguins dataset
+- Add the option to filter, and make the font size 14pt
+
+# Putting it all together 
+
+new file --> rmarkdown --> from template --> flexdashboard (with bslib theme)
+
+  - Make all graphs plotly's with appropriate tooltips
+  - Replace the data output with your {DT} datatable
+  - Include your leaflet map on a new *page* 
+  - Add [value boxes](https://rstudio.github.io/flexdashboard/articles/using.html#value-boxes) on the same page as your map that show the number of penguins that live on each island
+  - Change the [theme](https://pkgs.rstudio.com/flexdashboard/articles/using.html#appearance) of the dashboard
+  
+

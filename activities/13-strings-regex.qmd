@@ -1,0 +1,142 @@
+---
+title: "13: Intro to Strings/Regex"
+---
+
+```{r}
+library(babynames)
+library(tidyverse)
+```
+
+# `babynames` intro
+
+Replicate the "Amanda" plot with your own name using the starter code below. If your name doesn't have enough data, try a friend or professor's name
+
+```{r}
+#| eval: false 
+babynames %>%
+  ___(name == ___ ) %>%
+  ggplot(aes(x = ___, y = ___, col = ___)) +
+  geom____() 
+```
+
+# Practice with `stringr`
+
+## Your turn 
+
+No code needed, just think about what it returns
+
+
+## Your turn 2
+
+Fill in the blanks of the .Rmd file to...
+
+1. Isolate the last letter of every name
+
+2. and create a logical variable that displays whether the last letter is one of "a", "e", "i", "o", "u", or "y".
+
+3. Use a weighted mean to calculate the proportion of children whose name ends in a vowel, by year (see `?weighted.mean`).
+
+4. and then display the results as a line plot.
+
+```{r}
+#| eval: false # Remember to remove this line
+
+
+babynames %>%
+  mutate(last = ___, 
+         vowel = ___) %>%
+  group_by(___) %>%
+  ___(p_vowel = weighted.mean(vowel, n)) %>%
+  ___ +
+  ___
+```
+
+
+## Example: Carleton courses
+
+The below code chunk imports a data set of the 6-credit courses offered at Carleton in Winter 2023. All three columns are character vectors.
+
+```{r}
+courses <- read_csv("https://stat220-w26.github.io/data/winter2023_course_tbl.csv", col_types = list(course = col_character()))
+```
+
+### (a)
+
+How many of the course numbers end in `.00`? Use `str_detect()` or `str_count()` to help you answer this question.
+
+Note that `.` is a special character in strings, so use `\\.` to get the literal period.
+
+
+### (b)
+
+The section number appears after the decimal point. Use `mutate()` and `str_sub()` to create a `section` column containing this number.
+
+
+### (c)
+
+How many courses contain the word `Introduction`? Does case matter here?
+
+
+### (d)
+
+What is the longest course name (in terms of characters)? What is the shortest course name? Use `str_length()` to help you answer this question.
+
+### (e)
+
+Use `str_subset()` to return the course names that contain exclamation points (`!`).
+
+# Practice with Regular Expressions
+
+## Your turn 1
+
+Detect  either "." or "-" in the `info` vector.
+
+```{r}
+a1 <- "Home: 507-645-5489"
+a2 <- "Cell: 219.917.9871"
+a3 <- "My work phone is 507-202-2332"
+a4 <- "I don't have a phone"
+info <- c(a1, a2, a3, a4)
+```
+
+
+## Your turn: ends with a vowel
+
+Fill in the code to determine how many baby names in 2015 ended with a vowel.
+
+```{r}
+#| eval: false # remember to remove this line
+
+
+babynames %>% 
+  ___(___ == ___) %>%                       # extract year 2015
+  ___(ends_with_vowel = ___(___, ___)) %>%  # create logical column
+  count(ends_with_vowel)                    # create a frequency table
+```
+
+## Additional practice (if time)
+
+A vector called `words` is loaded with `stringr` and contains a corpus of 980 words used in text analysis. Use `stringr` functions and regular expressions to find the words that satisfy the following descriptions. 
+
+
+#### 1. Find all words that start with `y`.
+
+```{r}
+pattern <- "type your pattern here"
+str_subset(words, pattern)
+```
+
+#### 2. Find all words that end with `x`.
+
+#### 3. Find all words that are exactly three letters long.
+
+#### 4. Find all words that start with a vowel.
+
+#### 5. Find all words that start with consonants.
+
+#### 7. Find all words that end with `ing` or `ise`.
+
+#### 8. Find all words that have seven letters or more.
+
+#### 9. Find all words that start with three consonants.
+

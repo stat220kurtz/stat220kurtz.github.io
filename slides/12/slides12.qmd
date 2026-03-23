@@ -1,0 +1,645 @@
+---
+title: "Working with <br>Factors"
+subtitle: Day 12
+title-slide-attributes:
+  data-background-image: ../img/horst-forcats.png
+  data-background-size: 65%
+  data-background-position: bottom right
+  data-background-opacity: "0.8"
+  data-slide-number: none
+format: 
+  revealjs:
+    incremental: true
+    code-copy: true
+    code-link: true
+    scrollable: true
+auto-stretch: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+library(countdown)
+library(tidyverse)
+library(lubridate)
+library(palmerpenguins)
+library(patchwork)
+library(ggthemes)
+library(nycflights23)
+library(here)
+library(flextable)
+slides_theme = theme_minimal(
+  base_family = "Atkinson Hyperlegible",
+  base_size = 16)
+
+theme_set(slides_theme)
+```
+
+
+## Survivor `castaways` data
+
+```{r}
+#| echo: false
+castaways = survivoR::castaways %>%
+  mutate(
+    version = as.factor(version),
+    jury1 = as.numeric(jury),
+    jury2 = as.factor(jury)
+  )
+castaways
+```
+
+## Both of these are categorical variables
+
+
+```{r}
+unique(castaways$version)
+```
+
+```{r}
+unique(castaways$full_name) %>% head()
+```
+ 
+. . . 
+
+### But are stored as different types 
+
+```{r}
+class(castaways$version)
+```
+
+```{r}
+class(castaways$full_name) 
+```
+
+## Same graph, colored by the same categorical variable
+
+```{r}
+#| echo: false
+p1 = ggplot(castaways %>% filter(version == "US"), aes(x = season, y = place, color = jury1)) + 
+  geom_point()
+
+p2 = ggplot(castaways %>% filter(version == "US"), aes(x = season, y = place, color = jury2)) + 
+  geom_point()
+
+p1 + p2
+```
+
+
+## Factors
+
+R’s representation of categorical data. Consists of:
+
+1. A set of **values**
+
+1. An ordered set of valid **levels**
+
+. . . 
+
+```{r}
+eyes <- factor(x = c("blue", "green", "green"), 
+               levels = c("blue", "brown", "green"))
+eyes
+```
+
+
+## Factors
+
+Stored as an integer vector with a levels attribute
+
+```{r}
+unclass(eyes)
+```
+
+## {.center}
+
+::::: columns
+::: {.column .nonincremental .center width="40%"}
+
+![](https://forcats.tidyverse.org/logo.png)
+:::
+
+:::{.column .nonincremental width="60%"}
+- Simple functions for working with factors.
+
+- Part of the `tidyverse`
+
+```{r}
+# loaded with tidyverse
+library(forcats)
+```
+
+:::
+:::::
+
+## `gss_cat`
+
+A sample of data from the General Social Survey, a long-running US survey conducted by NORC at the University of Chicago.
+
+```{r echo=FALSE}
+gss_cat
+```
+
+## Warm up
+
+::: {.task .nonincremental}
+Use `gss_cat` to answer the following questions.
+
+1. Which religions watch the least TV?
+
+2. Do married people watch more or less TV than single people?
+
+::: 
+
+```{r echo=FALSE}
+countdown(4)
+```
+
+
+```{r}
+#| label: gss-religion-tv
+#| fig-width: 3
+#| fig-height: 3.5
+#| out-width: 100%
+#| echo: false
+#| eval: false
+gss_cat %>%
+  drop_na(tvhours) %>%
+  group_by(relig) %>%
+  summarize(tvhours = mean(tvhours)) %>%
+  ggplot(aes(tvhours, relig)) +
+    geom_point()
+```
+
+`r flipbookr::chunq_reveal("gss-religion-tv", font_size_code="70%", title = "Which religions watch the least TV?")`
+
+
+## Which do you prefer?
+
+```{r}
+#| fig-width: 8
+#| fig-height: 3.5
+#| out-width: 100%
+#| echo: false
+p1 <- gss_cat %>%
+  drop_na(tvhours) %>%
+  group_by(relig) %>%
+  summarize(tvhours = mean(tvhours)) %>%
+  ggplot(aes(tvhours, relig)) +
+    geom_point()
+
+p2 <- gss_cat %>%
+  drop_na(tvhours) %>%
+  group_by(relig) %>%
+  summarize(tvhours = mean(tvhours)) %>%
+  ggplot(aes(tvhours, fct_reorder(relig, tvhours))) +
+    geom_point() +
+  labs(y = "relig")
+
+p1 + p2
+```
+
+## Why is the y-axis in this order?
+
+```{r}
+#| fig-width: 4.5
+#| fig-height: 3.5
+#| out-width: 60%
+#| echo: false
+
+p1
+
+```
+
+
+## `levels()`
+
+Use `levels()` to access a factor’s levels
+
+```{r}
+gss_cat %>% pull(relig) %>% levels()
+```
+
+## Most useful factor skills: {.center}
+
+
+### 1. **Reorder** the levels
+
+### 2. **Recode** the levels
+
+### 3. **Collapse** levels
+
+## `fct_reorder`
+
+::::: columns
+::: {.column width="50%"}
+- `.f` factor vector
+- `.x` variable to reorder by 
+(in conjunction with `.fun`)
+- `.fun` function to reorder by
+- `.desc` put levels in descending order?
+:::
+::: {.column .nonincremental width="50%"}
+```{r}
+#| eval: false
+fct_reorder(
+  .f, 
+  .x, 
+  .fun = median, 
+  ...,
+  .desc = FALSE 
+  )
+```
+:::
+:::::
+
+```{r reorder-tv-relig}
+#| fig-width: 4.5
+#| fig-height: 3.5
+#| echo: false
+#| eval: false
+
+
+gss_cat %>%
+  drop_na(tvhours) %>%
+  group_by(relig) %>%
+  summarize(tvhours = mean(tvhours)) %>%
+  ggplot(aes(
+    x = tvhours, 
+    y = relig  #ROTATE
+    y = fct_reorder(relig, tvhours)                 #ROTATE
+  )) +
+    geom_point()
+```
+
+`r flipbookr:::chunq_reveal("reorder-tv-relig", break_type = "rotate", widths = c(1.2,1), title = "Reorder relig by tvhours")`
+
+## Try it
+
+::: {.task .nonincremental}
+Use `rincome_summary` to construct a dotplot of `rincome` against `age`.
+
+Reorder `rincome` by `age`
+
+::: 
+
+```{r}
+rincome_summary <- gss_cat %>%
+  group_by(rincome) %>%
+  summarize(
+    age = mean(age, na.rm = TRUE),
+    tvhours = mean(tvhours, na.rm = TRUE),
+    n = n()
+  )
+```
+
+```{r echo=FALSE}
+countdown(2, 30)
+```
+
+## Which do you prefer? {.center}
+
+```{r gss-age-marital}
+#| fig-width: 10
+#| fig-height: 3.5
+#| out-width: 100%
+#| echo: false
+
+lp1 <- gss_cat %>%
+  drop_na(age) %>%
+  count(age, marital) %>%
+  group_by(age) %>%
+  mutate(prop = n / sum(n)) %>%
+  ggplot(aes(age, prop, color = marital)) +
+    geom_line() +
+  scale_color_colorblind("")
+
+lp2 <- gss_cat %>%
+  drop_na(age) %>%
+  count(age, marital) %>%
+  group_by(age) %>%
+  mutate(prop = n / sum(n)) %>%
+  ggplot(aes(age, prop, 
+    color = fct_reorder2(marital, age, prop))) +
+    geom_line() +
+  scale_color_colorblind("")
+
+lp1 + lp2
+```
+
+## `fct_reorder2`
+
+Reorders the levels of a factor by the Y values associated with the largest X values.
+
+
+::::: columns
+::: {.column width="50%"}
+- `.f` factor vector
+- `.x` X variable
+- `.y` Y variable
+- `.fun` function to reorder by
+- `.desc` put levels in descending order?
+:::
+::: {.column .nonincremental width="50%"}
+```{r}
+#| eval: false
+fct_reorder2(
+  .f, 
+  .x, 
+  .y, 
+  .fun = median, 
+  ...,
+  .desc = FALSE
+  )
+```
+:::
+:::::
+
+```{r}
+#| label: reorder-marital-age
+#| echo: false
+#| eval: false
+gss_cat %>%
+  drop_na(age) %>%
+  count(age, marital) %>%
+  group_by(age) %>%
+  mutate(prop = n / sum(n)) %>%
+  ggplot(
+    aes(age, 
+        prop, 
+        color = marital )) + #ROTATE
+        color = fct_reorder2(marital, .x = age, .y = prop))) + #ROTATE
+  
+  geom_line() +
+  scale_color_colorblind("")
+```
+
+`r flipbookr:::chunq_reveal("reorder-marital-age", title = "Reorder marital",  break_type = "rotate", lcolw = "40", rcolw = "60")`
+
+```{r}
+#| label: other-reordering-functions
+#| echo: false
+#| eval: false
+gss_cat %>%
+  ggplot() + 
+  geom_bar(aes(x = marital))#ROTATE
+  geom_bar(aes(x = fct_infreq(marital)))#ROTATE
+  geom_bar(aes(x = fct_rev(fct_infreq(marital))))#ROTATE
+```
+
+`r flipbookr:::chunq_reveal("other-reordering-functions", title = "Other reordering functions",  break_type = "rotate", lcolw = "40", rcolw = "60")`
+
+## Which political leaning watches more TV?
+
+```{r}
+#| echo: false
+#| fig-width: 7
+#| fig-height: 5
+#| fig-align: center
+gss_cat %>%
+   drop_na(tvhours) %>%
+   group_by(partyid) %>%
+   summarize(tvhours = mean(tvhours)) %>%
+   ggplot(aes(tvhours, fct_reorder(partyid, tvhours))) +
+     geom_point() +
+     labs(y = "partyid")
+```
+
+How could we improve the `partyid` labels?
+ 
+## `fct_recode`
+
+Changes values of levels
+
+
+
+::::: columns
+::: {.column width="50%"}
+- `.f` factor vector
+- `...` new level = old level pairs (as a named character vector)
+:::
+::: {.column .nonincremental width="50%"}
+```{r}
+#| eval: false
+fct_recode(.f, ...)
+```
+:::
+:::::
+
+```{r}
+#| label: fct-recode-partyid
+#| echo: false
+#| eval: false
+gss_cat %>%
+  drop_na(tvhours) %>%
+  select(partyid, tvhours) %>%
+    mutate(partyid = fct_recode(partyid,
+    "Republican, strong"    = "Strong republican",
+    "Republican, weak"      = "Not str republican",
+    "Independent, near rep" = "Ind,near rep",
+    "Independent, near dem" = "Ind,near dem",
+    "Democrat, weak"        = "Not str democrat",
+    "Democrat, strong"      = "Strong democrat")) %>% 
+  group_by(partyid) %>%
+  summarize(tvhours = mean(tvhours)) %>%
+  ggplot(aes(tvhours, fct_reorder(partyid, tvhours))) +
+  geom_point() + 
+  labs(y = "partyid")
+```
+
+`r flipbookr:::chunq_reveal("fct-recode-partyid", title = "Recoding partyid",  lcolw = "40", rcolw = "60")`
+
+## How can we combine these factor levels?
+
+```{r}
+#| echo: false
+gss_cat %>%
+  drop_na(tvhours) %>%
+  select(partyid, tvhours) %>%
+    mutate(partyid = fct_recode(partyid,
+    "Republican, strong"    = "Strong republican",
+    "Republican, weak"      = "Not str republican",
+    "Independent, near rep" = "Ind,near rep",
+    "Independent, near dem" = "Ind,near dem",
+    "Democrat, weak"        = "Not str democrat",
+    "Democrat, strong"      = "Strong democrat")) %>% 
+  group_by(partyid) %>%
+  summarize(tvhours = mean(tvhours)) %>%
+  ggplot(aes(tvhours, fct_reorder(partyid, tvhours))) +
+  geom_point() + 
+  labs(y = "partyid") + 
+  coord_cartesian(xlim = c(2, 3.6), 
+                      clip = 'off') + 
+  annotate("rect", xmin = 1.5, xmax = 2, ymin = 1.5, ymax = 4.5, col = "darkred", fill = "darkred", alpha = .3) + 
+  annotate("rect", xmin = 1.5, xmax = 2, ymin = 5.5, ymax = 7.5, col = "darkblue", fill = "darkblue", alpha = .3) + 
+  annotate("rect", xmin = 1.5, xmax = 2, ymin = 9.5, ymax = 10.5, col = "darkblue", fill = "darkblue", alpha = .3) 
+```
+
+## `fct_collapse()`
+
+Changes multiple levels into single levels
+
+::::: columns
+::: {.column width="50%"}
+- `.f` factor vector
+- `...` named arguments set to a character vector (levels in the vector will be collapsed to the name of the argument)
+:::
+::: {.column .nonincremental width="50%"}
+```{r eval=FALSE}
+fct_collapse(.f, ...)
+```
+:::
+:::::
+
+```{r fct-collapse-partyid, eval=FALSE, echo=FALSE}
+gss_cat %>%
+  drop_na(tvhours) %>%
+  select(partyid, tvhours) %>%
+  mutate(
+    partyid = 
+      fct_collapse(
+        partyid,
+        conservative = c("Strong republican", 
+                         "Not str republican", 
+                         "Ind,near rep"),
+        liberal = c("Strong democrat", 
+                    "Not str democrat", 
+                    "Ind,near dem"))
+  ) %>% 
+  group_by(partyid) %>%
+  summarize(tvhours = mean(tvhours)) %>%
+  ggplot(aes(tvhours, fct_reorder(partyid, tvhours))) +
+  geom_point() + 
+  labs(y = "partyid")
+```
+
+`r flipbookr:::chunq_reveal("fct-collapse-partyid", title = "Collapsing partyid",  lcolw = "40", rcolw = "60")`
+
+```{r include=FALSE}
+gss_cat <- gss_cat %>%
+  drop_na(tvhours) %>%
+  mutate(
+    partyid = 
+      fct_collapse(
+        partyid,
+        conservative = c("Strong republican", 
+                         "Not str republican", 
+                         "Ind,near rep"),
+        liberal = c("Strong democrat", 
+                    "Not str democrat", 
+                    "Ind,near dem"))
+  )
+```
+
+## Your turn
+
+
+::: {.task .nonincremental}
+Collapse the `marital` variable to have levels `Married`, `Not married`, and `No answer`
+
+Include `"Never married"`, `"Divorced"`, and "`Widowed"` in `Not married`
+:::
+
+```{r echo=FALSE}
+countdown(2)
+```
+
+## There are relatively few points in each of these groups
+
+```{r}
+#| echo: false
+
+
+gss_cat %>%
+  group_by(partyid) %>%
+  summarize(tvhours = mean(tvhours)) %>%
+  ggplot(aes(tvhours, fct_reorder(partyid, tvhours))) +
+  geom_point() + 
+  labs(y = "partyid") + 
+  coord_cartesian(xlim = c(2, 3.6), 
+                      clip = 'off') + 
+  gghighlight::gghighlight(partyid %in% c("No answer", "Other party")) +
+  annotate("rect", xmin = 1.6, xmax = 2, ymin = .5, ymax = 1.5, col = "darkgreen", fill = "darkgreen", alpha = .3) + 
+  annotate("rect", xmin = 1.6, xmax = 2, ymin = 2.5, ymax = 3.5, col = "darkgreen", fill = "darkgreen", alpha = .3) + 
+  annotate("rect", xmin = 1.6, xmax = 2, ymin = 5.5, ymax = 6.5, col = "darkgreen", fill = "darkgreen", alpha = .3)
+  
+```
+
+## There are relatively few points in each of these groups
+
+```{r echo=FALSE}
+gss_cat %>%
+  ggplot(aes(x = fct_infreq(partyid))) +
+  geom_bar() +
+  gghighlight::gghighlight(partyid %in% c("No answer", "Other party")) +
+  labs(x = "partyid")
+```
+
+## `fct_lump()`
+
+Collapses levels with fewest values into a single level. 
+
+By default collapses as many levels as possible such that the new level is still the smallest.
+
+::::: columns
+::: {.column width="50%"}
+- `f` factor vector
+- `n` preserve the most common n levels
+- `other_level = "Other"`
+:::
+::: {.column .nonincremental width="50%"}
+```{r eval=FALSE}
+fct_lump(
+  f, 
+  n, 
+  other_level = "Other", 
+  ...
+)
+```
+:::
+:::::
+
+
+```{r fct-lump-partyid, eval=FALSE, echo=FALSE}
+gss_cat %>%
+  mutate(partyid = partyid) %>% #ROTATE
+  mutate(partyid = fct_lump(partyid, n = 2)) %>% #ROTATE
+  mutate(partyid = fct_lump(partyid, n = 3)) %>% #ROTATE
+  ggplot(aes(partyid)) + 
+  geom_bar() +
+  labs(x = "partyid")
+```
+
+`r flipbookr:::chunq_reveal("fct-lump-partyid", title = "Lumping parytid",  break_type = "rotate", lcolw = "40", rcolw = "60")`
+
+## Your turn: hotel bookings
+
+::: {.task .nonincremental}
+The remainder of the activity file has you fixing up some plots using hotel bookings data from Tidy Tuesday
+:::
+
+```{r}
+#| echo: false
+hotels <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv", show_col_types = FALSE)
+
+hotels %>%
+  group_by(hotel, arrival_date_month) %>%   # group by hotel type and arrival month
+  summarize(mean_adr = mean(adr)) %>%       # calculate mean adr for each group
+  ggplot(aes(
+    x = arrival_date_month,                 # x-axis = arrival_date_month
+    y = mean_adr,                           # y-axis = mean_adr calculated above
+    group = hotel,                          # group lines by hotel type
+    color = hotel)                          # and color by hotel type
+    ) +
+  geom_line() +                             # use lines to represent data
+  theme_minimal() +                         # use a minimal theme
+  labs(
+    x = "Arrival month",                    # customize labels
+    y = "Mean ADR (average daily rate)",
+    title = "Comparison of resort and city hotel prices across months",
+    subtitle = "Resort hotel prices soar in the summer while ciry hotel prices remain relatively constant throughout the year",
+    color = "Hotel type"
+    )
+```

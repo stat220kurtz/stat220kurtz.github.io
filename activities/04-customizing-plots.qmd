@@ -1,0 +1,29 @@
+---
+title: "04: Customizing plots"
+---
+
+::: callout-tip
+If you need a refresher for how to access the quarto file from this document, see [Activity01](01-un-votes.html)
+:::
+
+```{r}
+library(tidyverse)
+library(ggthemes)
+```
+
+## Load Data
+
+*Note:* This code reads the same dataset in that we used last time and then creates two new columns based on an old one. Make sure to run this chunk before trying to make your graph! 
+
+```{r}
+season_summary = readr::read_csv("https://raw.githubusercontent.com/stat220-w26/stat220-w26.github.io/refs/heads/main/data/survivor_season_summary.csv") |>
+  separate(timeslot, into = c("day_of_week", "time"))
+```
+
+## Replicate histogram
+
+```{r}
+# Include your code here
+
+```
+

@@ -1,0 +1,15 @@
+---
+title: "FAQ"
+---
+
+## Where can I get help? 
+
+
+### Office hours and appointments
+
+The best place to come for help is my office hours! I can help with anything related to the course. You can stop by at any point during my MWF office hours, and you can reserve time on [my calendar](https://calendar.app.google/1mCMAVFgsKNhXsaV6) for a one-on-one appointment during my Tuesday office hours if you'd like to discuss anything more privately. 
+
+### Stats Lab
+
+Students needing help with their Statistics coursework and R/Rstudio questions can get help from Stats Lab Assistants in the Stats Lab in CMC 304.
+

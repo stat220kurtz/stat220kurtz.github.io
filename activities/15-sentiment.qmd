@@ -1,0 +1,48 @@
+---
+title: "15-sentiment"
+---
+
+```{r}
+#library(tidyverse)
+#library(tidytext) # functions for doing text analysis
+```
+
+# Load the Data
+
+Random (?) sample of 26,882 reviews of coursera courses (Source: [Kaggle](https://www.kaggle.com/datasets/septa97/100k-courseras-course-reviews-dataset/data))
+
+```{r}
+#en_coursera_reviews <- read_csv("https://stat220-w26.github.io/data/en_coursera_sample.csv")
+#en_coursera_reviews
+```
+
+# Load Sentiment data
+
+## "bing"
+
+```{r}
+#bing_sentiments = get_sentiments("bing") %>%
+#  slice_sample(n = 20)
+```
+
+## "afinn"
+
+```{r}
+#library(textdata)
+#get_sentiments("afinn") %>%
+#  slice_sample(n = 20)
+```
+
+# Sentiment of each review
+
+```{r}
+#bing_review_scores <- en_coursera_reviews %>%
+#  unnest_tokens(word, Review) %>% 
+#  inner_join(bing_sentiments, by = "word") %>%
+#  group_by(review_id) %>%
+#  summarize(
+#    sum = (sum(sentiment == "positive") - sum(sentiment == "negative"))
+#  )
+
+#bing_review_scores
+```

@@ -1,0 +1,153 @@
+---
+title: "Final Project"
+---
+
+🚧 Under construction 🚧
+
+# Goal
+
+The goal of this project is for you to demonstrate proficiency in the areas of the data science lifecycle we've focused on:
+
+-   Acquire
+-   Wrangle
+-   Visualize
+-   Communicate
+-   Document
+
+This project is intentionally open-ended. There is no limit on what tools or packages you may use, but you should demonstrate proficiency with the {tidyverse} tools that we've focused on in class. You should focus on data that was not accessible to you in previous stat classes.
+
+## Acquire
+
+-   Acquire data from at least 2 sources
+-   Acquire data using one of the advanced techniques discussed in class
+-   Consider the who, what, when, why, and how of your datasets, with particular attention given to the ethical considerations
+-   Work with a type of data that was not accessible to you as a Stat120, 230, or 250 student (eg text, spatial, network, etc.)
+
+## Wrangle
+
+-   Demonstrate proficiency with `join`ing data
+-   Demonstrate proficiency with tidying data
+-   Demonstrate proficiency using non-numeric data types
+    -   Geospatial data
+    -   Text data
+    -   Date/time data
+    -   Factors
+
+## Visualize
+
+-   Create high-quality, customized graphics using R/ggplot
+
+## Communicate
+
+You'll communicate your findings through a final product produced in R:
+
+-   Website
+-   Interactive shiny app
+-   Slideshow
+-   etc.
+
+Whatever product form you choose, I'll be looking for a high degree of professionalism and polish.
+
+## Document
+
+-   All group members have a commit history on GitHub
+-   Code is well-documented and clean
+-   Project is organized and I can navigate your repo
+
+# Rubric
+
+See [google sheet](https://docs.google.com/spreadsheets/d/1M1K7k6YkfuZNjgJ_lV-ZCAj21ijUXO2Jt5K9rCVjP9I/edit?usp=sharing) for current rubric
+
+# Final Project Submission
+
+You should submit your final GitHub repo to gradescope by noon on the last day of the finals period. I will start by looking at your README.md, which should contain: 
+
+1. A link to your published project (rpubs or shinyapps)
+2. A technical overview of what you did for your project
+    - Please indicate to me what your primary accomplishments were for each of the "acquire", "wrangle", "visualize", and "communicate" goals. 
+    - If there are any specific features that you would like me to look at when grading, please tell me if it is not already clearly indicated in your app
+    - You can use the rubric for some ideas of what to mention
+3. How to navigate your repo (where is your data? where is your report file? do you have any other R scripts that you used?)
+
+
+# Milestones
+
+-   Week 7 Friday: Submit final project idea form (individual or in pairs)
+-   Week 8 Monday: Submit final project ranking form (everyone should submit a form, but you can indicate a partner)
+-   Week 8 Wednesday: I will notify groups and create repos
+-   Week 9 Wednesday: "Sketch" drafts:
+    -   This should be a .rmd file that:
+        1.  Reads in at least one dataset
+        2.  Makes at least one graph or summary table
+        3.  Lists at least 5 research questions
+-   Week 10: Project progress demos and peer feedback
+    -   5-10 minute slideshow presentation
+    -   Overview of data and research questions (these do not have to be the same as your sketch draft)
+    -   Approx. 4 static graphs or summary tables
+    -   Outline of interactive component or additional technical work to be done
+-   Final project due: end of finals period
+
+Meeting these milestones will make up part of your final grade. If you do not fill out the google forms, I may or may not assign you to a group. If you are not assigned to a group, you won't be able to demonstrate that you're able to work collaboratively on GitHub, which will impact your final grade.
+
+## Project progress demos
+
+You should prepare a 6 minute presentation of your progress so far on the final projects. This presentation will make up 15-20% of your final project grade. Please focus on:
+
+-   The data you've gathered/will gather
+-   Your research questions
+
+Your presentation should include:
+
+-   [ ] An overview of your data *source(s)*
+    -   Are the sources trustworthy?
+    -   Is the data real/accurate?
+    -   Did you need to use any scraping/APIs/etc. to access the data?
+-   [ ] An overview of your data *structure*
+    -   What are the variables? What are the cases?
+    -   What is the level of detail/aggregation?
+    -   Does the data contain non-standard formats discussed in class? (text, spatial, time, etc.)
+-   [ ] Your primary research questions
+    -   Why are these questions fun/interesting/important to answer?
+    -   Is it clear that they are answerable with the data you have?
+-   [ ] 3-4 static graphs or tables
+    -   These should provide more context to your data (e.g. distributions or comparisons)
+    -   and/or begin to answer your research questions
+    -   Should be polished and easy to read/understand
+    -   If you have done a substantial amount of data gathering/cleaning work and would prefer to discuss that, it's OK to include only 1-2 static graphs or tables.
+-   [ ] End with a 1 slide overview of the additional work you plan to do
+    -   Are you adding interactivity?
+    -   Do you have additional data gathering to do?
+-   [ ] Did all group members speak?
+
+Each group has a 10 minute slot for the presentation (\~6 minutes) questions (\~2 minutes) and transitions (\~2 minutes). I will cut presentations off at 8 minutes, leaving less time for questions and feedback.
+
+I will circulate a peer feedback google form before the presentations. You will give each other feedback on what each project has done well, and what are some potential areas to focus on before the final version is submitted. The point is not to present a finished product, but to gather ideas and feedback before moving into the final stage of the project.
+
+You are welcome to provide feedback to all of the groups, but are only required to complete the form for the groups presenting on your non-presentation day. I also expect everybody to ask at least one question during the Q&A period over the two days. These aspects of participation will be a part of your final project grade.
+
+## Project Demos schedule (TBD)
+
+If your group would like to switch with another group, just let me know. If your group *needs* to present on the other day but you do not have a group to switch with, let me know ASAP.
+
+|           |               |                    |
+|-----------|---------------|--------------------|
+|           | **Monday**    | **Wednesday**      |
+| **10:00** | spotify-group-1    | spotify-au-da-ni |
+| **10:10** | data-divas   | jos  |
+| **10:20** | board-game-geek | march-madness   |
+| **10:30** | rice-county | nyt-new-word  |
+| **10:40** | mighty-icy-elephants | mental-health  |
+| **10:50** | crc-baseball  |  mystery-project |
+
+# FAQs
+
+## Can I work with someone?
+
+Yes! You will work in teams of 2-3 for this project. I will be forming groups, but you can sign up as an individual or a pair.
+
+## What if I'm assigned a group member who does not do their fair share of the work? 
+
+If this becomes an issue early in the project period, I may remove individuals from group projects. If you are removed from a group, it means that you are responsible for submitting a complete project on your own. Since you will not be able to demonstrate key aspects of the project goals which require working in groups, your final grade will also be impacted. 
+
+I will also ask everyone to complete a reflection form at the end of the project period. If a group member stops participating after the group presentations, their final grade will be impacted. 
+

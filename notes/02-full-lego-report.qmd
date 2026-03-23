@@ -1,0 +1,48 @@
+---
+title: "An Overview of Lego Sets on Rebrickable"
+date: "Last updated on `r Sys.Date()`"
+author: "Amanda Luby"
+output: html_document
+params:
+  data: "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-09-06/sets.csv.gz"
+  data_source: '[2022-09-09 repository](https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-09-06) on [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday)'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+```
+
+```{r}
+#| echo: false
+sets <- readr::read_csv(params$data)
+```
+
+# Overview
+
+[Rebrickable](https://rebrickable.com) is a website that shows you which LEGO sets you can build from the LEGO sets and parts that you already own. To do this, Rebrickable maintains a database of the entire LEGO catalog. In this document, we’ll summarize the LEGO sets in this database.
+
+The data set was originally obtained from the `r params$data_source`.
+
+## Summarizing the Lego dataset
+
+In the data set consists of `r nrow(sets)` LEGO sets (i.e., rows) and `r ncol(sets)` variables (i.e., columns). The data set includes LEGO sets from `r min(sets$year)` to `r max(sets$year)`. The average number of parts in a set was `r round(mean(sets$num_parts), 1)` with a standard deviation of `r round(sd(sets$num_parts), 2)`. However, there are `r sum(sets$num_parts == 0)` in the data set with 0 parts, making these summary statistics inaccurate.
+
+Below is a scatterplot with smoother describing how the typical number of parts in a set has changed from `r min(sets$year)` to `r max(sets$year)`.
+
+```{r}
+#| warning: false
+
+
+library(tidyverse)
+
+ggplot(sets, aes(year, num_parts)) +
+    geom_jitter(alpha = 0.2, size = .5) +
+    geom_smooth(color = "skyblue") +
+    scale_y_continuous(trans = "log10") +
+    coord_fixed(ratio = 10) +
+    labs(x = "Year", y = "Number of parts",
+             title = "LEGO sets are getting larger over the years",
+             caption = "Data source: brickable.com") +
+    theme_light()
+```
+

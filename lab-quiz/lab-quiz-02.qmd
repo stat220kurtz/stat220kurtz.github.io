@@ -1,0 +1,224 @@
+---
+title: Lab Quiz 02 Info
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+library(tidyverse)
+library(ggthemes)
+library(nycflights23)
+```
+
+Our second lab quiz is scheduled for **Friday of Week 5**. The first half of class will be spent taking the quiz, and the second half will cover new content. 
+
+
+
+# Guidelines
+
+This is a *closed note*, *closed internet resources*, *closed other people* lab quiz. I want to see what's in your brain! You may use the cheat sheets provided by me, but otherwise you may not use any resources.
+
+The lab quizzes are not written to be tricky or very difficult. If you've been completing the in-class activities and the homework, and putting the time and effort in to understand them, you should do well on the lab quizzes.
+
+# Format
+
+The reason I give lab quizzes is because your life will be easier if you know how to do basic tasks in R "on the fly". I also want to see what you **know** and not just what you can do with access to your resources. However, I also know this is not how data science works in the real world, and so there are two portions to the lab quiz. 
+
+1. The required in-class portion ("first pass")
+  - Pencil-and-paper questions
+  - Cheat sheets provided by me but no other resources
+  - Designed to assess what you know "on the fly" without access to resources
+
+2. An optional R-based "second pass" at the questions
+  - .qmd format similar to homework
+  - Allowed to use materials from class (slides, activities, notes, homework, etc.) but no out-of-class resources (google, textbooks, ChatGPT or other LLMs, StackOverflow, etc.)
+  - Designed to assess your coding skills and whether you can figure things out with access to class resources and R help pages
+
+Your score on the quiz will be the average of the two scores, unless you do not submit the revision, in which case your score will only be in your in-class score. If you earn 100% on the in-class portion, your overall score will be 100% and I will not grade your revision.
+
+# Skills
+
+## Data Wrangling
+
+-   Know how the following verbs act on a data set: `filter`, `distinct`, `slice`, `slice_min`, `slice_max`, `mutate`, `select`, `arrange`, `relocate`, `*_join` (all flavors discussed in class), `bind_rows`, `bind_cols`, `pivot_wider`, and `pivot_longer`, `separate`, `unite`, `group_by`, `ungroup`, `summarize`, `count`, `rowwise`
+    -   Syntax for using
+    -   Describe what the output would look like
+-   Given a data set and goal, identify and utilize the appropriate verb to create the data set of interest
+- Given a dataset, describe if it is tidy. If it is not, describe what a tidy format would look like
+
+## Dates/Times
+
+-   Use {lubridate} functions to parse dates into ISO8601 format
+    - `mdy` `ymd` `dmy` etc.
+-   Use {lubridate} functions to to extract elements of a date/time
+    - `year` `month` `day` `week` `wday` etc.
+
+## Factors
+
+- Create a factor to represent a categorical variable
+- Given a factor, modify the levels as needed for the analysis by recoding, reordering, or combining levels.
+    - `fct_reorder`, `fct_reorder2`, `fct_infreq`, `fct_rev`, `fct_recode`
+
+
+# Grading
+
+For the in-class portion, each question is worth 1 point, graded as "successful" (almost entirely correct), "not successful" (missing a key component), or "half credit" (mostly correct). 
+
+For the out-of-class revision, each question is worth 1 point, graded as "successful" (correct), "not successful" (missing a key component), or "half credit" (mostly correct). Since you will be able to run the code, you will only receive full credit for fully correct solutions.
+
+## Revision
+
+The in-class portion will be a pencil-and-paper quiz. After class, I will make everyone a repository on github with a `.qmd` version of the quiz. (The questions will remain essentially the same). The revision is **totally optional**. You will work on the repository just like homework and submit via gradescope if you wish to turn it in.
+
+- The in-class portion is worth 10 points
+- The out-of-class "second pass" is worth 10 points
+- If you don't submit the revision on gradescope, your quiz will be out of 10 points and if you do submit the revision your quiz will be out of 20 points. 
+
+The revision is due before class starts on Monday. You **may** use the cheat sheets, materials from our class (slides, activities, notes, your homework, etc.), and the built-in help pages within RStudio. You **may not** use textbooks, LLMs, search engines, stack overflow, etc. to complete the revision. If your submission contains code that did not appear in our course materials, you must include an explanation for where it came from (e.g. in what context you learned that code). Otherwise, you will not receive credit for that problem and may be reported to the Academic Standing Committee. 
+
+# Practice Questions
+
+## Data
+
+The `nycflights23` package contains information about all flights that departed from NYC (e.g. EWR, JFK and LGA) in 2023. The main data is in the `flights` data frame, but there are additional data sets which may help understand what causes delays, specifically:
+
+-   `weather`: hourly meteorological data for each airport
+-   `planes`: construction information about each plane
+-   `airports`: airport names and locations
+-   `airlines`: translation between two letter carrier codes and names
+
+
+```{r}
+library(tidyverse)
+library(nycflights23)
+q <- 0
+```
+
+## Questions
+
+**Know how the following verbs act on a data set**
+
+Carefully and clearly describe what each set of commands does
+
+(a) 
+```{r}
+cleaned <- flights |>
+  filter(origin == "JFK" & dest == "MSP")
+```
+
+(b)
+
+```{r}
+#| eval: false
+jfk_msp_flights %>%
+  group_by(month) %>%
+  summarize(
+    med_flight_delay = median(dep_delay, na.rm = TRUE)
+  )
+```
+
+(c) 
+
+Explain why `na.rm = TRUE` is included in the code chunk from part (b) 
+
+**Given a data set and goal, identify and utilize the appropriate verb to create the data set of interest**
+
+Use the plot below to answer the questions. 
+
+```{r}
+#| fig-height: 4
+#| fig-width: 8
+#| echo: false
+plot_data = flights %>%
+  left_join(airports, by = join_by("dest" == "faa")) %>%
+  group_by(name, tzone) %>%
+  summarize(
+    med_arr_delay = median(arr_delay, na.rm = TRUE),
+    n = n()
+  ) %>%
+  ungroup() %>%
+  mutate(
+    colorby = med_arr_delay > 0
+  ) %>%
+  filter(tzone == "America/Los_Angeles") 
+
+#write_csv(plot_data, here(here(), "data/lq2_plot_data.csv"))
+
+plot_data %>%
+  ggplot(
+    aes(x = med_arr_delay, y = name, col = colorby)
+  ) +
+  geom_point() + 
+  theme(legend.position = "bottom") + 
+  labs(
+    title = "Median Arrival Delay for flights from NYC airports in 2023",
+    subtitle = "Among West Coast time zone airports"
+  )
+```
+
+(a) To create this plot, I had to do a few things. First, I combined the `flights` dataset (which contains information about arrival delay) with the `airports` dataset (which contains the full name of the airports, along with their time zones). Did I use a `left_join`, `full_join`, `bind_rows`, or `bind_cols` to combine them? Explain how you can tell. 
+
+```{r}
+glimpse(flights)
+glimpse(airports)
+```
+
+(b) Next, I `group`ed by airport name and found the median arrival delay with `summarize`. I then created a new variable called `colorby` using `mutate` that I used to color the points. How do you think I computed this variable? Be as specific as possible.
+
+**Given a dataset, describe if it is tidy. If it is not, describe what a tidy format would look like**
+
+The dataset below contains the minimum and maximum wind speed recorded at JFK for each day in the dataset. Is this tidy? If not, how would we make it tidy? (You should provide R code AND sketch the tidy dataset)
+
+```{r}
+#| echo: false
+
+weather |>
+  filter(origin == "JFK") |>
+  group_by(year, month, day) |>
+  summarize(
+    min_wind_speed = min(wind_speed, na.rm = TRUE),
+    max_wind_speed = max(wind_speed, na.rm = TRUE)
+  ) |>
+  pivot_longer(min_wind_speed:max_wind_speed) |>
+  ungroup()
+```
+
+**Use {lubridate} functions to parse dates into ISO8601 format**
+
+(a) How would you parse `2/8/2023` to ISO format?
+(b) How would you parse `8 Feb 2023` to ISO format?
+
+**Use {lubridate} functions to to extract elements of a date/time**
+
+Use `mutate` to create a new column in the `flights` dataset that contains the day of the week of the flight ("Monday", "Tuesday", etc.). 
+
+**Create a factor to represent a categorical variable**
+
+Use `mutate` to create a new column in the `flights` dataset that contains the season of the flight according to the following: 
+
+- December - February: Winter
+- March - May: Spring
+- June - August: Summer
+- September - November: Fall
+
+**Given a factor, modify the levels as needed for the analysis by recoding, reordering, or combining levels**
+
+Here is the code that I used to create the `ggplot`. Edit this code so that the airports are listed in order of shortest arrival delay at the top to longest arrival delay at the bottom
+
+```{r}
+#| fig-height: 4
+#| fig-width: 8
+#| eval: false
+
+plot_data = read_csv("https://stat220-s25.github.io/data/lq2_plot_data.csv")
+
+plot_data %>%
+  ggplot(
+    aes(x = med_arr_delay, y = name, col = colorby)
+  ) +
+  geom_point() + 
+  theme(legend.position = "bottom") + 
+  labs(
+    title = "Median Arrival Delay for flights from NYC airports in 2023",
+    subtitle = "Among West Coast time zone airports"
+  )
+```

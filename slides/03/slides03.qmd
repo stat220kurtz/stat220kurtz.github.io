@@ -1,0 +1,249 @@
+---
+title: ggplot2
+subtitle: Day 03
+title-slide-attributes:
+  data-background-image: ../img/02-ggplot-layers.png
+  data-background-size: 60%
+  data-background-position: right
+  data-background-opacity: "0.8"
+  data-slide-number: none
+format: 
+  revealjs:
+    incremental: true
+auto-stretch: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+library(countdown)
+library(tidyverse)
+library(lubridate)
+library(ymlthis)
+library(palmerpenguins)
+library(patchwork)
+
+slides_theme = theme_minimal(
+  base_family = "Atkinson Hyperlegible",
+  base_size = 20)
+theme_set(slides_theme)
+```
+
+## Communication in Stat220
+
+Until HW2 is due on Wednesday, trying out both Slack and Ed
+
+::: nonincremental
+- For help with R or homework &rarr; slack/Ed
+- For quick communication  &rarr; slack/Ed
+- For personal situations &rarr; email
+:::
+
+I check Slack/Ed 2x daily and respond to everything, so you can expect a response within 24 hours during the work week. I try to respond to emails daily but Stat220 gets "lumped" with everything else. I'll try to respond within 48 hours during the week.
+
+## Plan for today:
+
+1.  Quick grammar of graphics recap
+2.  Speed Groupwork
+
+## What are the *essential* elements of this scatterplot?
+
+```{r}
+#| echo: false
+#| warning: false
+
+
+ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, col = species)) + 
+  geom_point()
+```
+
+# Data {background-image="../img/02-ggplot-layers.png" background-size="60%" background-position="right" background-opacity="0.8"}
+
+## Data 
+
+```{r}
+#| echo: false
+penguins %>%
+  knitr::kable() %>%
+  kableExtra::kable_paper("hover", full_width = F, position = "float_left") %>%
+  kableExtra::scroll_box(width = "70%")
+```
+
+## Aesthetic Mapping {background-image="../img/02-ggplot-layers.png" background-size="60%" background-position="right" background-opacity="0.5"}
+
+:::: columns
+::: {.column width="50%"}
+Visual properties that the data is mapped to
+
+-   x → body mass
+
+-   y → flipper length
+
+-   color → species
+:::
+::::
+
+## Geometric Object {background-image="../img/02-ggplot-layers.png" background-size="60%" background-position="right" background-opacity="0.5"}
+
+:::: columns
+::: {.column width="50%"}
+How the data are represented
+
+-   individual penguins → points
+:::
+::::
+
+## The basic ggplot template:
+
+```{r}
+#| echo: true
+#| eval: false
+ggplot(data = <dataset_name>) + 
+  <geom_function>(mapping = aes(<mappings>))
+```
+
+- data: `data = `
+- aesthetic: `mapping = aes(...)`
+- geometry: `geom_function`
+
+## Examples
+
+```{r}
+#| echo: true
+#| layout-ncol: 2
+
+ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, col = species)) + 
+  geom_point()
+
+ggplot(penguins, aes(x = body_mass_g)) + 
+  geom_histogram()
+```
+
+# Other layers next week!
+
+<!-- ## Facets -->
+
+<!-- ```{r} -->
+<!-- #| echo: true -->
+<!-- ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, col = species)) +  -->
+<!--   geom_point() +  -->
+<!--   facet_wrap(vars(species)) + -->
+<!--   theme(legend.position = "none") -->
+<!-- ``` -->
+
+<!-- ## Statistical Transformations -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- #| warning: false -->
+<!-- #| message: false -->
+
+<!-- p1 = ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, col = species)) +  -->
+<!--   geom_point() + -->
+<!--   labs( -->
+<!--     title = "Raw Data" -->
+<!--   ) -->
+
+<!-- p2 = ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, col = species)) +  -->
+<!--   geom_smooth(se = FALSE) + -->
+<!--   labs( -->
+<!--     title = "Transformation" -->
+<!--   ) -->
+
+<!-- p3 = ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, col = species)) +  -->
+<!--   geom_point() +  -->
+<!--   geom_smooth(se = FALSE) + -->
+<!--   labs( -->
+<!--     title = "Data + Fit" -->
+<!--   ) -->
+
+<!-- p1 + p2 + p3 & theme(legend.position = "none") -->
+<!-- ``` -->
+
+<!-- ## Coordinates {background-image="../img/02-coordinates.png" background-position="right" background-size="50%"} -->
+
+<!-- ::: aside -->
+<!-- Source: Nathan Yau, Data Points -->
+<!-- ::: -->
+
+<!-- ## Scales/guides {background-image="../img/02-scales.png" background-position="right" background-size="60%"} -->
+
+<!-- ::: aside -->
+<!-- Source: Nathan Yau, Data Points -->
+<!-- ::: -->
+
+<!-- ## Themes -->
+
+<!-- All non-data ink (e.g. background color, appearance of grid lines) -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- #| warning: false -->
+<!-- #| message: false -->
+
+
+<!-- p1 = ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, col = species)) +  -->
+<!--   geom_point() + -->
+<!--   theme_gray() -->
+
+<!-- p2 = ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, col = species)) +  -->
+<!--   geom_point() + -->
+<!--   theme_minimal() -->
+
+<!-- p3 = ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, col = species)) +  -->
+<!--   geom_point() + -->
+<!--   hrbrthemes::theme_ft_rc() -->
+
+<!-- p1 + p2 + p3 & theme(legend.position = "none") -->
+<!-- ``` -->
+
+# Speed Group Work {.maize}
+
+## How it works
+
+::: nonincremental
+
+1.  Draw a card
+2.  Find your number's location
+3.  Introduce yourselves
+4.  Get to work!
+:::
+
+::: callout-important
+## Wait!
+
+If you finish the problems in one section, please wait to move on until the next round of groups
+:::
+
+## Round 1: View the data + pipes
+
+```{r echo=FALSE}
+countdown(8)
+```
+
+## Round 2: Scatterplots
+
+```{r echo=FALSE}
+countdown(8)
+```
+
+## Round 3: Additional Aesthetics
+
+```{r echo=FALSE}
+countdown(8)
+```
+
+## Round 4: Visualizing Distributions
+
+```{r echo=FALSE}
+countdown(8)
+```
+
+## Round 5: Bar and column charts + Labeling
+
+```{r echo=FALSE}
+countdown(8)
+```
+
