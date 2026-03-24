@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
   resources: 
     - "data/"
     - "files/"
@@ -7,7 +8,7 @@ project:
 website:
   page-navigation: true
   title: "Stat 220"
-  description: "Homepage for Stat 220 - Intro to Data Science at Carleton College, Winter 2026."
+  description: "Homepage for Stat 220 - Intro to Data Science at Carleton College, Spring 2026."
 
   repo-url: https://github.com/stat220-w26/stat220-w26.github.io
 
