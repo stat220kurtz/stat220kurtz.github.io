@@ -15,7 +15,6 @@ library(gt)
 library(tidyverse)
 gs4_deauth()
 d <- read_sheet("https://docs.google.com/spreadsheets/d/1VQ3bmJ2cQUn9wQOYuk7wBCe6xMPhsRtiQlzj7l-BKiM/edit?usp=sharing")
-#d <- read.csv("Stat220-s26-schedule.csv")
 
 ```
 
