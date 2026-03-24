@@ -5,11 +5,9 @@ title: "Useful links"
 +----------------------------+-----------------------------------------------------------------------------+
 | RStudio Server             | 🔗  [Carleton's Maize Server](maize.mathcs.carleton.edu)                    |
 +----------------------------+-----------------------------------------------------------------------------+
-| Course GitHub organization | 🔗 [GitHub](github.com/stat220-s25)                                         |
+| Course GitHub organization | 🔗 [GitHub](https://github.com/stat220kurtz)                                |
 +----------------------------+-----------------------------------------------------------------------------+
-| Gradebook                  | 🔗 on [Moodle](https://moodle.carleton.edu/course/view.php?id=44937)        |
-+----------------------------+-----------------------------------------------------------------------------+
-| Spend a Token              | 🔗 [Spend a token](https://forms.gle/aa59m9WVn7u2Bhwo8)                     |
+| Spend a Token              | 🔗 [Spend a token](https://forms.gle/jNGidVMhwKPmLK2F8)                     |
 +----------------------------+-----------------------------------------------------------------------------+
 | Textbooks                  | 🔗 [Modern Data Science with R (MDS)](https://mdsr-book.github.io/mdsr3e/)  |
 |                            |                                                                             |

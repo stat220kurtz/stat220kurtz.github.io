@@ -213,7 +213,7 @@
     "href": "course-links.html",
     "title": "Useful links",
     "section": "",
-    "text": "RStudio Server\n🔗 Carleton’s Maize Server\n\n\nCourse GitHub organization\n🔗 GitHub\n\n\nGradebook\n🔗 on Moodle\n\n\nSpend a Token\n🔗 Spend a token\n\n\nTextbooks\n🔗 Modern Data Science with R (MDS)\n🔗 R for Data Science (R4DS)\n🔗 Fundamentals of Data Visualization\n\n\nPackage documentation\n🔗 ggplot2: ggplot2.tidyverse.org\n🔗 dplyr: dplyr.tidyverse.org\n🔗 tidyr: tidyr.tidyverse.org\n🔗 forcats: forcats.tidyverse.org\n🔗 stringr: stringr.tidyverse.org\n🔗 lubridate: lubridate.tidyverse.org\n🔗 readr: readr.tidyverse.org",
+    "text": "RStudio Server\n🔗 Carleton’s Maize Server\n\n\nCourse GitHub organization\n🔗 GitHub\n\n\nSpend a Token\n🔗 Spend a token\n\n\nTextbooks\n🔗 Modern Data Science with R (MDS)\n🔗 R for Data Science (R4DS)\n🔗 Fundamentals of Data Visualization\n\n\nPackage documentation\n🔗 ggplot2: ggplot2.tidyverse.org\n🔗 dplyr: dplyr.tidyverse.org\n🔗 tidyr: tidyr.tidyverse.org\n🔗 forcats: forcats.tidyverse.org\n🔗 stringr: stringr.tidyverse.org\n🔗 lubridate: lubridate.tidyverse.org\n🔗 readr: readr.tidyverse.org",
     "crumbs": [
       "Course information",
       "Useful links"
@@ -1296,5 +1296,60 @@
     "title": "Welcome to Stat 220",
     "section": "In groups of 5ish",
     "text": "In groups of 5ish\n\n\nIntroduce yourselves.\n1-2 in each group come up with a question to ask the group that can be measured as a:\n\n\nCategory, AKA factor (e.g. gender)\nNumber (e.g. how much sleep did you get last night?)\nFree text (e.g. favorite restaurant in town)\n\n\nAsk each other these questions - any common themes?\nShare a bit about why you’re taking this class"
+  },
+  {
+    "objectID": "computing/computing-access.html",
+    "href": "computing/computing-access.html",
+    "title": "Computing Setup",
+    "section": "",
+    "text": "I expect you to use RStudio to run R in this course. You have two options for using RStudio:\n\nWe have a Carleton server hosting Rstudio at https://maize.mathcs.carleton.edu/. Your files on this account will be accessible as long as you are a student at Carleton. Use your Carleton credentials to access your account, and you need to either be on campus or use the Carleton VPN if not to use this server. Use this option if\n\nyour personal computer is old and/or slow\nyou prefer to use school computers (lab or library computers)\n\nYou can also run R/RStudio from your personal computer. If you use a local version of R/RStudio this term, make sure that you have recently updated both R and RStudio.\nTo check your version of R, run the command getRversion() and compare your version to the newest version posted on https://cran.r-project.org/. If you need an update, then install the newer version using the installation directions above.\nIn RStudio, check for updates with the menu option Help &gt; Check for updates. Follow directions if an update is needed.\nFor a fresh download:\n\nDownload the latest version of R for your operating system from https://cran.r-project.org/\nDownload the free RStudio desktop version from https://posit.co/download/rstudio-desktop/\n\nUse the default download and install options for each.",
+    "crumbs": [
+      "Computing",
+      "Access"
+    ]
+  },
+  {
+    "objectID": "computing/computing-access.html#rrstudio",
+    "href": "computing/computing-access.html#rrstudio",
+    "title": "Computing Setup",
+    "section": "",
+    "text": "I expect you to use RStudio to run R in this course. You have two options for using RStudio:\n\nWe have a Carleton server hosting Rstudio at https://maize.mathcs.carleton.edu/. Your files on this account will be accessible as long as you are a student at Carleton. Use your Carleton credentials to access your account, and you need to either be on campus or use the Carleton VPN if not to use this server. Use this option if\n\nyour personal computer is old and/or slow\nyou prefer to use school computers (lab or library computers)\n\nYou can also run R/RStudio from your personal computer. If you use a local version of R/RStudio this term, make sure that you have recently updated both R and RStudio.\nTo check your version of R, run the command getRversion() and compare your version to the newest version posted on https://cran.r-project.org/. If you need an update, then install the newer version using the installation directions above.\nIn RStudio, check for updates with the menu option Help &gt; Check for updates. Follow directions if an update is needed.\nFor a fresh download:\n\nDownload the latest version of R for your operating system from https://cran.r-project.org/\nDownload the free RStudio desktop version from https://posit.co/download/rstudio-desktop/\n\nUse the default download and install options for each.",
+    "crumbs": [
+      "Computing",
+      "Access"
+    ]
+  },
+  {
+    "objectID": "computing/computing-access.html#vpn",
+    "href": "computing/computing-access.html#vpn",
+    "title": "Computing Setup",
+    "section": "VPN",
+    "text": "VPN\nIf you plan to use the maize server and you plan to do any work off campus this term (e.g., while on a field trip, travel for athletics, or just sitting in Little Joy) you need to install Carleton’s VPN to have access.\nTo install the GlobalProtect VPN follow directions provided by ITS.",
+    "crumbs": [
+      "Computing",
+      "Access"
+    ]
+  },
+  {
+    "objectID": "computing/computing-access.html#git-and-github",
+    "href": "computing/computing-access.html#git-and-github",
+    "title": "Computing Setup",
+    "section": "Git and GitHub",
+    "text": "Git and GitHub\nGit is version control software that you install locally on your computer. Git is already installed on the maize RStudio server.\nGitHub is a cloud-based service for hosting git projects. It allows multiple users to share and contribute to projects and it is how you will be submitting homework assignments and projects for this class.\nIf you are using a local install of R/RStudio, then you will need to install Git.\nInstalling Git\nDirections for both Windows & Mac here at http://happygitwithr.com/install-git.html.\n\nIf you are using maize, then there is nothing you need to install.\nWindows users should follow Option 1 in 6.2.\nMac users can follow Option 1 in 6.3 if comfortable, otherwise follow Option 2\nLinux users can follow 6.4.",
+    "crumbs": [
+      "Computing",
+      "Access"
+    ]
+  },
+  {
+    "objectID": "computing/computing-access.html#latex",
+    "href": "computing/computing-access.html#latex",
+    "title": "Computing Setup",
+    "section": "LaTeX",
+    "text": "LaTeX\nYou need a LaTeX compiler to create a pdf document from a R Markdown file. If you use the maize server, you don’t need to install anything (the server already has a LaTeX compiler). If you are using a local RStudio, you should install a LaTeX compiler.\nInstalling LaTeX (not needed if you are using the maize server)\nIf you don’t already have a tex package installed on your computer, the easiest option to create pdf’s is to use the tinytex R package. This can be installed with the following R commands:\n\ninstall.packages(\"tinytex\")\ntinytex::install_tinytex()  # install TinyTeX\n\nIf you’d like a stand alone LaTeX package, you could install the basic installations of either:\n\nMacTeX for Mac (3.2GB!)\nMiKTeX for Windows (190MB)\n\n\nAcknowledgements\nThis installation guide was written by Adam Loy and is based on the guide from stat545.com and is licensed under the CC BY-NC 3.0 Creative Commons License.",
+    "crumbs": [
+      "Computing",
+      "Access"
+    ]
   }
 ]

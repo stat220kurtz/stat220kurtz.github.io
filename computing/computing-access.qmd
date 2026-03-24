@@ -8,7 +8,7 @@ I expect you to use RStudio to run R in this course. You have two options for us
 
 ### Server version
 
-We have a Carleton server hosting Rstudio at <https://maize.mathcs.carleton.edu/>. Your files on this account will be accessible as long as you are a student at Carleton. Use your Carleton credentials to access your account and you need to be running the Carleton VPN (below) to access this server. Use this option if
+We have a Carleton server hosting Rstudio at <https://maize.mathcs.carleton.edu/>. Your files on this account will be accessible as long as you are a student at Carleton. Use your Carleton credentials to access your account, and you need to either be on campus or use the Carleton VPN if not to use this server. Use this option if
 
 - your personal computer is old and/or slow
 - you prefer to use school computers (lab or library computers)
@@ -53,11 +53,10 @@ To install the GlobalProtect VPN follow [directions provided by ITS](https://wik
 control software that you install locally on your computer. Git is
 already installed on the maize RStudio server.
 
-[Github](https://happygitwithr.com/big-picture.html#why-github) is a
+[GitHub](https://happygitwithr.com/big-picture.html#why-github) is a
 cloud-based service for hosting git projects. It allows multiple users
 to share and contribute to projects and it is how you will be submitting
-homework assignments and projects for this class. More information about
-Github for this class is found on Moodle.
+homework assignments and projects for this class.
 
 If you are using a local install of R/RStudio, then you will need to
 install Git.
@@ -82,7 +81,7 @@ Directions for both Windows & Mac here at
 
 ## LaTeX
 
-You need a LaTeX compiler to create a pdf document from a R Markdown file. If you use the maize server, you don’t need to install anything (the server already has a LaTeX compiler). If you are using a local RStudio, you should install a Latex compiler.
+You need a LaTeX compiler to create a pdf document from a R Markdown file. If you use the maize server, you don’t need to install anything (the server already has a LaTeX compiler). If you are using a local RStudio, you should install a LaTeX compiler.
 
 
 ### Installing LaTeX (not needed if you are using the maize server)
