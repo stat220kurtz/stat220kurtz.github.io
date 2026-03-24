@@ -10,47 +10,23 @@ format:
   syllabus-typst: default
 ---
 
-::: boxed-text
-+--------------+-----------------------------------------------------------------+------------+
-| Meetings     | MWF 4a                                                          | CMC 102    |
-|              |                                                                 |            |
-|              | 12:30-1:40 MW, 1:10-2:10 F                                      |            |
-+--------------+-----------------------------------------------------------------+------------+
-| Professor    | Emily Kurtz                                                     | CMC 225    |
-+--------------+-----------------------------------------------------------------+------------+
-|              | ekurtz\@carleton.edu                                            |            |
-+--------------+-----------------------------------------------------------------+------------+
-| Office Hours | Mon 2-3, Tues 10:30-11:30, Wed 11:30-12:30, Fri 12-1            | CMC 307    |
-|              |                                                                 |            |
-|              | Tues hours by appointment only through my Google Calendar       |            |
-+--------------+-----------------------------------------------------------------+------------+
-| Website      | github.com/stat220-s26                                          |            |
-+--------------+-----------------------------------------------------------------+------------+
-| Texts        | [*R for Data Science* (2nd Ed)](https://r4ds.hadley.nz/)        |            |
-|              | Wickham, Çetinkaya-Rundel, Grolemund                            |            |
-+--------------+-----------------------------------------------------------------+------------+
-|              | [*Modern Data Science with R*](https://mdsr-book.github.io/mdsr3e/)  |            |
-|              | Baumer, Kaplan, Horton                                          |            |
-+--------------+-----------------------------------------------------------------+------------+
-|              | *Fundamentals of Data Visualization*                            |            |
-|              |                                                                 |            |
-|              | <https://clauswilke.com/dataviz/>                               |            |
-|              |                                                                 |            |
-|              | Wilke                                                           |            |
-+--------------+-----------------------------------------------------------------+------------+
-| Software     | Maize RStudio Server \<maize.mathcs.carleton.edu\>              |            |
-+--------------+-----------------------------------------------------------------+------------+
-|              | R (optional) free from \<r-project.org\>                        |            |
-+--------------+-----------------------------------------------------------------+------------+
-|              | RStudio (optional) free from \<rstudio.com/downloads\>          |            |
-+--------------+-----------------------------------------------------------------+------------+
+# Important Info
 
-: {tbl-colwidths="\[20,70,10\]"}
-:::
+-   **Meetings:** MWF 4a, MW 12:30 - 1:40, F 1:10-2:10, CMC 102
+-   **Professor:** Emily Kurtz, ekurtz\@carleton.edu, CMC 225
+-   **Office Hours:** M 2-3, T 10:30 - 11:30 (by appointment only), W 11:30-12:30, F 12-1, CMC 225
+-   **Texts**
+  - [*R for Data Science* (2nd Ed)](https://r4ds.hadley.nz/) by Wickham, Çetinkaya-Rundel, Grolemund
+  - [*Modern Data Science with R*](https://mdsr-book.github.io/mdsr3e/) by Baumer, Kaplan, Horton 
+  - [*Fundamentals of Data Visualization*](https://clauswilke.com/dataviz/) by Wilke
+-   **Software**
+  - Maize RStudio Server \<maize.mathcs.carleton.edu\> 
+  - R (optional) free from \<r-project.org\>
+  - RStudio (optional) free from \<rstudio.com/downloads\>
 
-```{=typst}
-#colbreak()
-```
+
+
+
 # Course Description
 
 Stat 220 will cover the computational side of statistics that is not typically taught in an intro or methodology focused course like regression modeling. Most of the data you encounter in introductory stats course are contained in small, tidy .csv files with rows denoting your cases and columns containing your variables. Most of the messiness to these data may have been some missing values (NAs). In this course, we'll learn how to extract information from data in its "natural" state, which is often unstructured, messy and complex. To do this, we will learn methods for manipulating and merging data in standard and non-standard formats, data with date, time, or geolocation variables, text processing and regular expressions, and scraping the web for data. To effectively communicate the information contained in these data, we will cover advanced data visualization methods, including methods for creating interactive graphics. We will primarily use the statistical software R in this course, and cover best practices for reproducible analyses and sharing code.
@@ -63,8 +39,8 @@ After completing this course, you should be able to demonstrate your competency 
 -   **Acquire** data by importing different file types into R, accessing data through API's, and scraping data from the web
 -   **Wrangle** common types of data into the form that is needed for analysis
 -   **Visualize** data to provide insight and uncover relationships and patterns
--   **Communicate** your findings to stakeholders in written or oral format
--   **Document** your code and **collaborate** across coding projects.
+-   **Communicate** your findings in written or oral format
+-   **Document** your code and **collaborate** across coding projects
 
 # Course Components
 
@@ -74,7 +50,7 @@ There will be three course meetings per week (Mondays, Wednesdays, and Fridays).
 
 ## Assignments
 
-Homework will be assigned once-ish per week, distributed via GitHub. You will submit homework assignments via gradescope. You will use `quarto` for all assignments and submit all necessary work for each assignment on GitHub.
+Homework will be distributed via GitHub. You will submit homework assignments via Gradescope. You will use `quarto` for all assignments and submit all necessary work for each assignment on GitHub.
 
 ## Portfolio Projects
 
@@ -82,7 +58,7 @@ Portfolio project require you to integrate several smaller computational tasks a
 
 ## Final Project
 
-The final project is a capstone experience synthesizing everything you've learned over the course of the term. This is an opportunity for you to exercise your creativity and create something meaningful. The final project is wildly open-ended and more details will follow.
+The final project is a capstone experience synthesizing everything you've learned over the course of the term. This is an opportunity for you to exercise your creativity and create something meaningful. The final project is open-ended and more details will follow. You will work in small groups of about 3.
 
 ## Communication
 
