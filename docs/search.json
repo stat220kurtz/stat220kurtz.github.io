@@ -37,7 +37,7 @@
     "href": "course-syllabus.html",
     "title": "Stat220: Introduction to Data Science",
     "section": "",
-    "text": "Meetings: MWF 4a, MW 12:30 - 1:40, F 1:10-2:10, CMC 102\nProfessor: Emily Kurtz, ekurtz@carleton.edu, CMC 225\nOffice Hours: M 2-3, T 10:30 - 11:30 (by appointment only), W 11:30-12:30, F 12-1, CMC 225\nTexts\nR for Data Science (2nd Ed) by Wickham, Çetinkaya-Rundel, Grolemund\nModern Data Science with R by Baumer, Kaplan, Horton\nFundamentals of Data Visualization by Wilke\nSoftware\nMaize RStudio Server &lt;maize.mathcs.carleton.edu&gt;\nR (optional) free from &lt;r-project.org&gt;\nRStudio (optional) free from &lt;rstudio.com/downloads&gt;",
+    "text": "Meetings: MWF 4a, MW 12:30 - 1:40, F 1:10-2:10, CMC 102\nProfessor: Emily Kurtz, ekurtz@carleton.edu, CMC 225\nOffice Hours: M 2-3, T 10:30 - 11:30 (by appointment only), W 11:30-12:30, F 12-1, CMC 225\nTexts\nR for Data Science (2nd Ed) by Wickham, Çetinkaya-Rundel, Grolemund\nModern Data Science with R by Baumer, Kaplan, Horton\nFundamentals of Data Visualization by Wilke\nSoftware\nMaize RStudio Server\nR (optional), free\nRStudio (optional), free",
     "crumbs": [
       "Course information",
       "Syllabus"
@@ -125,7 +125,7 @@
     "href": "course-syllabus.html#earning-a-course-grade",
     "title": "Stat220: Introduction to Data Science",
     "section": "Earning a course grade",
-    "text": "Earning a course grade\nYour course grade is assigned using the table below. Each row indicates the minimum percentage of “Successful” results needed to satisfy the requirement of that grade. To earn a grade, complete all requirements listed in the row for that grade.\n\n\n\n\n\n\n\n\n\n\n\nHomework Problems\nLab Quiz Problems\nPortfolio Projects (4 total)\nFinal Project\n\n\n\n\nA\n85%\n90%\n2 Excellent, 2 Successful\nExcellent\n\n\nB\n75%\n80%\n4 Successful\nSuccessful\n\n\nC\n65%\n70%\n3 Successful\nSuccessful\n\n\nD\n55%\n50%\n2 Successful\nSuccessful\n\n\n\nExample: Ben finishes the course with 82% of homework problems successfully completed, 85% of lab quiz problems successfully completed, 2/4 portfolio projects marked “excellent”, and a “Successful” final project. Ben satisfies everything in the “B” row and earns a “B” in the course.",
+    "text": "Earning a course grade\nYour course grade is assigned using the table below. Each row indicates the minimum percentage of “Successful” results needed to satisfy the requirement of that grade. To earn a grade, complete all requirements listed in the row for that grade.\n\n\n\n\n\n\n\n\n\n\nHomework Problems\nPortfolio Projects (4 total)\nFinal Project\n\n\n\n\nA\n90%\n2 Excellent, 2 Successful\nExcellent\n\n\nB\n80%\n4 Successful\nSuccessful\n\n\nC\n70%\n3 Successful\nSuccessful\n\n\nD\n50%\n2 Successful\nSuccessful",
     "crumbs": [
       "Course information",
       "Syllabus"
@@ -136,7 +136,7 @@
     "href": "course-syllabus.html#plusminus-grades",
     "title": "Stat220: Introduction to Data Science",
     "section": "Plus/minus grades",
-    "text": "Plus/minus grades\n“Plus” and “minus” grades will be given if you complete all the requirements for a base letter grade and make sufficient progress toward the next grade. Below is an overview:\n\nIf “B” base grade:\n\nand A in two bins: “B+”\nand A in three bins: “A-”\n\nIf “C” base grade:\n\nand at least B in two bins: “C+”\nand at least B in three bins: “B-”\n\nIf “D” base grade:\n\nand at least C in two bins: “D+”\nand at least C in three bins: “C-”\n\nIf “F” base grade:\n\nand at least D in two bins: “D-”\n\n\nExample: Mira finishes the course with 88% of homework problems successfully completed, 85% of lab quiz problems successfully completed, 3/4 portfolio projects marked “excellent”, and a “Successful” final project. Mira satisfies everything in the “B” row, and meets the “A” threshold for two bins (homework and portfolio projects). Mira earns a B+. If Mira instead receives “excellent” marks on the final project, Mira earns an A-.",
+    "text": "Plus/minus grades\n“Plus” and “minus” grades will be given if you complete all the requirements for a base letter grade and make sufficient progress toward the next grade. Below is an overview:\n\nIf “B” base grade:\n\nand A in one bin: “B+”\nand A in two bins: “A-”\n\nIf “C” base grade:\n\nand at least B in one bin: “C+”\nand at least B in two bins: “B-”\n\nIf “D” base grade:\n\nand at least C in one bins: “D+”\nand at least C in two bins: “C-”\n\nIf “F” base grade:\n\nand at least D in two bins: “D-”\n\n\nExample: Mira finishes the course with 91% of homework problems successfully completed, 3/4 portfolio projects marked “excellent”, and a “Successful” final project. Mira satisfies everything in the “B” row, and meets the “A” threshold for two bins (homework and portfolio projects). Mira earns an A-.",
     "crumbs": [
       "Course information",
       "Syllabus"
@@ -158,7 +158,7 @@
     "href": "course-syllabus.html#important-points-about-this-grading-system",
     "title": "Stat220: Introduction to Data Science",
     "section": "Important points about this grading system",
-    "text": "Important points about this grading system\n\nDifferent categories of coursework do not “average together”: you can’t make up for less-than-great work on portfolio projects by doing very well on quizzes, for instance. Each course grade requires consistent quality across all bins to earn the grade\nYou do not have to do everything. If you want an “A” in the class, for example, you don’t have to complete every quiz question correctly, only 90% of them.",
+    "text": "Important points about this grading system\n\nDifferent categories of coursework do not “average together”: you can’t make up for less-than-great work on portfolio projects by doing very well on quizzes, for instance. Each course grade requires consistent quality across all bins to earn the grade\nYou do not have to do everything. If you want an “A” in the class, for example, you don’t have to do every portfolio assignment perfectly, just do at least two very well and two pretty well.",
     "crumbs": [
       "Course information",
       "Syllabus"
@@ -180,7 +180,7 @@
     "href": "course-syllabus.html#tokens",
     "title": "Stat220: Introduction to Data Science",
     "section": "Tokens",
-    "text": "Tokens\n\nTurning in a token provides either (a) a 72-hour extension on a homework assignment, (b) a revision on a portfolio project, or (c) a retake of a lab quiz a 72-hour extension on the lab quiz revision\nTokens may be used for extensions on the final project milestone check-ins, but not for the final due-date. Milestone check-ins cannot be revised\nYou can revise the same portfolio project multiple times, if needed, but you must spend a token each time.\nA portfolio project must be completed with a good-faith effort to be eligible for revision. If I deem a submission to be “not assessable” due to a lack of effort, then it cannot be revised.\nAll revisions must be submitted by 11:59pm on the last day of class.",
+    "text": "Tokens\nYou will each get 3 tokens for the term. If using a token for an extension, you must submit the token request form before the assignment/project/check-in is due. If using a token for a portfolio project revision, you must submit the form within a week of receiving your grade on the project. You will receive a confirmation email of your token request submission as a receipt that one token has been spent.\n\nTurning in a token provides either (a) a 48-hour extension on a homework assignment, portfolio project, or final project milestone check-in, or (b) a revision on a portfolio project\nTokens cannot be used for the final project due-date\nYou can only revise a portfolio project; you cannot revise homeworks, the final project, or final project milestone check-ins.\nYou can revise the same portfolio project multiple times, if needed, but you must spend a token each time.\nA portfolio project must be completed with a good-faith effort to be eligible for revision. If I deem a submission to be “not assessable” due to a lack of effort, then it cannot be revised\nAll revisions must be submitted by 5:00pm on the last day of class",
     "crumbs": [
       "Course information",
       "Syllabus"

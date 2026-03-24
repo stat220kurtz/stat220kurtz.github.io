@@ -212,11 +212,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#important-points-about-this-grading-system" id="toc-important-points-about-this-grading-system" class="nav-link" data-scroll-target="#important-points-about-this-grading-system">Important points about this grading system</a></li>
   <li><a href="#tokens" id="toc-tokens" class="nav-link" data-scroll-target="#tokens">Tokens</a></li>
   </ul></li>
-  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials">Materials</a>
-  <ul class="collapse">
-  <li><a href="#textbook" id="toc-textbook" class="nav-link" data-scroll-target="#textbook">Textbook</a></li>
-  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
-  </ul></li>
   <li><a href="#academic-integrity" id="toc-academic-integrity" class="nav-link" data-scroll-target="#academic-integrity">Academic Integrity</a></li>
   <li><a href="#commitment-to-an-inclusive-and-collaborative-atmosphere" id="toc-commitment-to-an-inclusive-and-collaborative-atmosphere" class="nav-link" data-scroll-target="#commitment-to-an-inclusive-and-collaborative-atmosphere">Commitment to an Inclusive and Collaborative Atmosphere</a></li>
   <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
@@ -257,9 +252,9 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://mdsr-book.github.io/mdsr3e/"><em>Modern Data Science with R</em></a> by Baumer, Kaplan, Horton</li>
 <li><a href="https://clauswilke.com/dataviz/"><em>Fundamentals of Data Visualization</em></a> by Wilke</li>
 <li><strong>Software</strong></li>
-<li>Maize RStudio Server &lt;maize.mathcs.carleton.edu&gt;</li>
-<li>R (optional) free from &lt;r-project.org&gt;</li>
-<li>RStudio (optional) free from &lt;rstudio.com/downloads&gt;</li>
+<li><a href="maize.mathcs.carleton.edu">Maize RStudio Server</a></li>
+<li><a href="r-project.org">R (optional), free</a></li>
+<li><a href="rstudio.com/downloads">RStudio (optional), free</a></li>
 </ul>
 </section>
 <section id="course-description" class="level1">
@@ -344,17 +339,15 @@ ul.task-list li input[type="checkbox"] {
 <p>Your course grade is assigned using the table below. Each row indicates the minimum percentage of “Successful” results needed to satisfy the requirement of that grade. To earn a grade, complete <em>all</em> requirements listed in the row for that grade.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 12%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 30%">
 <col style="width: 15%">
+<col style="width: 24%">
+<col style="width: 37%">
+<col style="width: 19%">
 </colgroup>
 <thead>
 <tr class="header">
 <th></th>
 <th>Homework Problems</th>
-<th>Lab Quiz Problems</th>
 <th>Portfolio Projects (4 total)</th>
 <th>Final Project</th>
 </tr>
@@ -362,35 +355,30 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>A</td>
-<td>85%</td>
 <td>90%</td>
 <td>2 Excellent, 2 Successful</td>
 <td>Excellent</td>
 </tr>
 <tr class="even">
 <td>B</td>
-<td>75%</td>
 <td>80%</td>
 <td>4 Successful</td>
 <td>Successful</td>
 </tr>
 <tr class="odd">
 <td>C</td>
-<td>65%</td>
 <td>70%</td>
 <td>3 Successful</td>
 <td>Successful</td>
 </tr>
 <tr class="even">
 <td>D</td>
-<td>55%</td>
 <td>50%</td>
 <td>2 Successful</td>
 <td>Successful</td>
 </tr>
 </tbody>
 </table>
-<p><em>Example:</em> Ben finishes the course with 82% of homework problems successfully completed, 85% of lab quiz problems successfully completed, 2/4 portfolio projects marked “excellent”, and a “Successful” final project. Ben satisfies everything in the “B” row and earns a “B” in the course.</p>
 </section>
 <section id="plusminus-grades" class="level2">
 <h2 class="anchored" data-anchor-id="plusminus-grades">Plus/minus grades</h2>
@@ -398,25 +386,25 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>If “B” base grade:
 <ul>
-<li><em>and</em> A in two bins: “B+”</li>
-<li><em>and</em> A in three bins: “A-”</li>
+<li><em>and</em> A in one bin: “B+”</li>
+<li><em>and</em> A in two bins: “A-”</li>
 </ul></li>
 <li>If “C” base grade:
 <ul>
-<li><em>and</em> at least B in two bins: “C+”</li>
-<li><em>and</em> at least B in three bins: “B-”</li>
+<li><em>and</em> at least B in one bin: “C+”</li>
+<li><em>and</em> at least B in two bins: “B-”</li>
 </ul></li>
 <li>If “D” base grade:
 <ul>
-<li><em>and</em> at least C in two bins: “D+”</li>
-<li><em>and</em> at least C in three bins: “C-”</li>
+<li><em>and</em> at least C in one bins: “D+”</li>
+<li><em>and</em> at least C in two bins: “C-”</li>
 </ul></li>
 <li>If “F” base grade:
 <ul>
 <li><em>and</em> at least D in two bins: “D-”</li>
 </ul></li>
 </ul>
-<p><em>Example:</em> Mira finishes the course with 88% of homework problems successfully completed, 85% of lab quiz problems successfully completed, 3/4 portfolio projects marked “excellent”, and a “Successful” final project. Mira satisfies everything in the “B” row, and meets the “A” threshold for two bins (homework and portfolio projects). Mira earns a B+. If Mira instead receives “excellent” marks on the final project, Mira earns an A-.</p>
+<p><em>Example:</em> Mira finishes the course with 91% of homework problems successfully completed, 3/4 portfolio projects marked “excellent”, and a “Successful” final project. Mira satisfies everything in the “B” row, and meets the “A” threshold for two bins (homework and portfolio projects). Mira earns an A-.</p>
 </section>
 <section id="attendance-and-participation-policy" class="level2">
 <h2 class="anchored" data-anchor-id="attendance-and-participation-policy">Attendance and participation policy</h2>
@@ -426,76 +414,27 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="important-points-about-this-grading-system">Important points about this grading system</h2>
 <ul>
 <li>Different categories of coursework do not “average together”: you can’t make up for less-than-great work on portfolio projects by doing very well on quizzes, for instance. Each course grade requires <em>consistent quality across all bins</em> to earn the grade</li>
-<li>You do not have to do everything. If you want an “A” in the class, for example, you don’t have to complete <em>every</em> quiz question correctly, only 90% of them.</li>
+<li>You do not have to do everything. If you want an “A” in the class, for example, you don’t have to do every portfolio assignment perfectly, just do at least two very well and two pretty well.</li>
 </ul>
 </section>
 <section id="tokens" class="level2">
 <h2 class="anchored" data-anchor-id="tokens">Tokens</h2>
+<p>You will each get 3 tokens for the term. If using a token for an extension, you must submit the <a href="https://forms.gle/GrYXUyMtLATkhq8e7">token request form</a> <strong>before</strong> the assignment/project/check-in is due. If using a token for a portfolio project revision, you must submit the form within a week of receiving your grade on the project. You will receive a confirmation email of your token request submission as a receipt that one token has been spent.</p>
 <ul>
-<li>Turning in a token provides either (a) a 72-hour extension on a homework assignment, (b) a revision on a portfolio project, or (c) <del>a retake of a lab quiz</del> a 72-hour extension on the lab quiz revision</li>
-<li>Tokens may be used for <em>extensions</em> on the final project milestone check-ins, but not for the final due-date. Milestone check-ins cannot be revised</li>
+<li>Turning in a token provides either (a) a 48-hour extension on a homework assignment, portfolio project, or final project milestone check-in, or (b) a revision on a portfolio project</li>
+<li>Tokens cannot be used for the final project due-date</li>
+<li>You can only revise a portfolio project; you cannot revise homeworks, the final project, or final project milestone check-ins.</li>
 <li>You can revise the same portfolio project multiple times, if needed, but you must spend a token each time.</li>
-<li>A portfolio project must be completed with a good-faith effort to be eligible for revision. If I deem a submission to be “not assessable” due to a lack of effort, then it cannot be revised.</li>
-<li>All revisions must be submitted by 11:59pm on the last day of class.</li>
+<li>A portfolio project must be completed with a good-faith effort to be eligible for revision. If I deem a submission to be “not assessable” due to a lack of effort, then it cannot be revised</li>
+<li>All revisions must be submitted by 5:00pm on the last day of class</li>
 </ul>
-</section>
-</section>
-<section id="materials" class="level1">
-<h1>Materials</h1>
-<section id="textbook" class="level2">
-<h2 class="anchored" data-anchor-id="textbook">Textbook</h2>
-<p>There is no “perfect” data science textbook. We will use excerpts from the following texts:</p>
-<ul>
-<li><a href="https://r4ds.hadley.nz/">R for Data Science 2e</a></li>
-<li><a href="https://mdsr-book.github.io/mdsr3e/">Modern Data Science with R 3e</a></li>
-<li><a href="https://clauswilke.com/dataviz/">Fundamentals of Data Visualization</a></li>
-</ul>
-<p>These books are all freely available online. If you prefer a hard copy, they are also available for purchase through the publisher.</p>
-</section>
-<section id="software" class="level2">
-<h2 class="anchored" data-anchor-id="software">Software</h2>
-<p>The use of the <a href="https://cran.rstudio.com/">R</a> programming language, with the <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> interface is an essential component of this course. You have two options for using RStudio:</p>
-<ol type="1">
-<li>The server version of RStudio on the web at https://maize.mathcs.carleton.edu. The advantage of using the server version is that all of your work will be stored in the cloud, where it is automatically saved and backed up. This means that you can access your work from any computer on campus using a web browser. The downside is that you have to share limited computational resources with each other!</li>
-<li>A local version of RStudio installed on your machine.The downside to this approach is that your work is only stored locally, but I get around this problem by keeping all of my work on GitHub. You will learn how to use GitHub throughout the course.</li>
-</ol>
-<p>Partway through the course, I will require you to download a local version of R and Rstudio. This is because the amount of computing power we will eventually need is more than the server can handle all at once. Both R and RStudio are free and open-source.</p>
 </section>
 </section>
 <section id="academic-integrity" class="level1">
 <h1>Academic Integrity</h1>
-<p>You are expected to follow Carleton’s <a href="https://www.carleton.edu/provost/advising/info-for-advisers/academic-progress/misconduct/">policies regarding academic integrity</a>. I encourage you to <em>discuss</em> homework problems with others to figure out tough problems. You should code and write up your solutions on your own. Lab quizzes must be done by yourself without communicating with others; all work must be your own. You should collaborate with your teammates on projects, and should use external resources for background research and debugging, but all work should be original. The use of textbook solution manuals (physical or online), course materials from other students, or materials from previous versions of this course are not allowed.</p>
+<p>You are expected to follow Carleton’s <a href="https://www.carleton.edu/provost/advising/info-for-advisers/academic-progress/misconduct/">policies regarding academic integrity</a>. I encourage you to <em>discuss</em> homework problems with others to figure out tough problems. You should code and write up your solutions on your own. You should collaborate with your teammates on projects, and should use external resources for background research and debugging, but all work should be original.</p>
 <p>Large-language models (e.g.&nbsp;ChatGPT, Gemini, etc.) should only be used for coding or debugging help after you’ve attempted to code the problem on your own, and you should never type homework problems directly into a prompt. You should never copy and paste any course materials <em>into</em> a large-language model, and you should never copy and paste anything <em>out of</em> a large-language model into your course materials. Copying, paraphrasing, summarizing, or submitting work generated by anyone but yourself without proper attribution is considered academic dishonesty (this includes output from LLMs).</p>
-<p>I also have a few rules in place to protect my intellectual property. You may not record my lectures using tools such as Otter.ai or upload any video or audio recordings to generate transcripts or study notes. You may not upload my course materials (slides, assignment prompts, note sets, etc.) into AI tools or homework help sites (such as chegg).</p>
-<p>“AI” tools are new for all of us and it’s OK to have questions about what is and isn’t appropriate. Please ask if you are unsure of whether or not your actions are complying with the assignment/quiz/project instructions. Always default to acknowledging any help received. Cases of suspected academic dishonesty are handled by the Provost’s Office and I am obligated to report any suspected violations of this policy.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 85%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td></td>
-<td>Collaboration Allowed</td>
-</tr>
-<tr class="even">
-<td>Homework Problems</td>
-<td>You are allowed and encouraged to collaborate on homework. You may also use outside resources, but your submitted work must be your own and reflect your own understanding (i.e.&nbsp;it can’t be copied). Any sources must be properly attributed. If you cannot explain each line of code to me with just your brain, you should not submit it as your own work.</td>
-</tr>
-<tr class="odd">
-<td>Lab Quiz Problems</td>
-<td><strong>No collaboration is allowed at all</strong> (including online forums like StackExchange or Reddit). |</td>
-</tr>
-<tr class="even">
-<td>Portfolio Projects</td>
-<td>You are expected to collaborate with your group members, but cannot rely on external sources other than to help motivate the questions or provide other background information (including online forums like StackExchange or Reddit). You may use any resources from class and package documentation, but getting answers on significant parts of solutions from outside resources is not allowed. |</td>
-</tr>
-<tr class="odd">
-<td>Final Project</td>
-<td>You are expected to collaborate with your group, but cannot rely on external sources other than to help motivate the questions or provide other background information. Any outside resources should be properly cited.</td>
-</tr>
-</tbody>
-</table>
+<p>“AI” tools are new for all of us and it’s OK to have questions about what is and isn’t appropriate. Please ask if you are unsure of whether or not your actions are complying with the assignment instructions. Always default to acknowledging any help received. Cases of suspected academic dishonesty are handled by the Provost’s Office and I am obligated to report any suspected violations of this policy.</p>
 </section>
 <section id="commitment-to-an-inclusive-and-collaborative-atmosphere" class="level1">
 <h1>Commitment to an Inclusive and Collaborative Atmosphere</h1>
@@ -508,7 +447,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>TUTORS:</strong> If you find you need more support than office hours and the stats lab can provide, the Academic Support Center offers peer tutoring on the basis of referrals, requests, and availability of tutors. You can request tutoring through a form on their website, or discuss your needs with me and I can submit a referral.</p>
 <p><strong>TITLE IX:</strong> Please be aware that all faculty are “responsible employees”, which means that if you tell me about a situation involving sexual harassment, sexual assault, dating violence, domestic violence, or stalking, I must share that information with the Title IX Coordinator. Although I have to make this notification, you will control how your case will be handled, including whether or not you wish to meet with the Title IX coordinator or pursue a formal complaint.</p>
 <p>And finally….</p>
-<p><strong>Take care of yourself.</strong>&nbsp;&nbsp;Do your best to maintain a healthy lifestyle this term by wearing a mask when you’re sick, eating a vegetable every now and then, exercising, avoiding excessive drug and alcohol use, getting enough sleep, and taking some time to relax. Your physical and mental health is more important than your grade in this course. There are many helpful resources available on campus and an important part of the college experience is learning how to ask for help. For more information, see Student Health and Counseling (SHAC), the Office of Health Promotion, or the Office of the Chaplain. If you are experiencing physical or mental health symptoms as a result of coursework, please speak with me so we can address the problem together.</p>
+<p><strong>Take care of yourself.</strong> Do your best to maintain a healthy lifestyle this term. Get some fresh air occasionally, especially when coursework has you frustrated. Take some time to rest, but don’t be tempted by excessive short-term dopamine hits that leave you even further behind. Wear a mask when you are sick, and get enough sleep. Your physical and mental health is more important than your grade in this course. There are many helpful resources available on campus and an important part of the college experience is learning how to ask for help. For more information, see Student Health and Counseling (SHAC), the Office of Health Promotion, or the Office of the Chaplain. If you are experiencing physical or mental health symptoms as a result of coursework, please speak with me so we can address the problem together.</p>
 
 
 </section>

@@ -20,9 +20,9 @@ format:
   - [*Modern Data Science with R*](https://mdsr-book.github.io/mdsr3e/) by Baumer, Kaplan, Horton 
   - [*Fundamentals of Data Visualization*](https://clauswilke.com/dataviz/) by Wilke
 -   **Software**
-  - Maize RStudio Server \<maize.mathcs.carleton.edu\> 
-  - R (optional) free from \<r-project.org\>
-  - RStudio (optional) free from \<rstudio.com/downloads\>
+  - [Maize RStudio Server](maize.mathcs.carleton.edu)
+  - [R (optional), free](r-project.org)
+  - [RStudio (optional), free](rstudio.com/downloads)
 
 
 
@@ -86,37 +86,35 @@ Each assignment will include a short rubric with the specifications of how I wil
 
 Your course grade is assigned using the table below. Each row indicates the minimum percentage of "Successful" results needed to satisfy the requirement of that grade. To earn a grade, complete *all* requirements listed in the row for that grade.
 
-+------------+-------------------+-------------------+------------------------------+---------------+
-|            | Homework Problems | Lab Quiz Problems | Portfolio Projects (4 total) | Final Project |
-+============+===================+===================+==============================+===============+
-| A          | 85%               | 90%               | 2 Excellent, 2 Successful    | Excellent     |
-+------------+-------------------+-------------------+------------------------------+---------------+
-| B          | 75%               | 80%               | 4 Successful                 | Successful    |
-+------------+-------------------+-------------------+------------------------------+---------------+
-| C          | 65%               | 70%               | 3 Successful                 | Successful    |
-+------------+-------------------+-------------------+------------------------------+---------------+
-| D          | 55%               | 50%               | 2 Successful                 | Successful    |
-+------------+-------------------+-------------------+------------------------------+---------------+
-
-*Example:* Ben finishes the course with 82% of homework problems successfully completed, 85% of lab quiz problems successfully completed, 2/4 portfolio projects marked "excellent", and a "Successful" final project. Ben satisfies everything in the "B" row and earns a "B" in the course.
++------------+-------------------+------------------------------+---------------+
+|            | Homework Problems | Portfolio Projects (4 total) | Final Project |
++============+===================+==============================+===============+
+| A          | 90%               | 2 Excellent, 2 Successful    | Excellent     |
++------------+-------------------+------------------------------+---------------+
+| B          | 80%               | 4 Successful                 | Successful    |
++------------+-------------------+------------------------------+---------------+
+| C          | 70%               | 3 Successful                 | Successful    |
++------------+-------------------+------------------------------+---------------+
+| D          | 50%               | 2 Successful                 | Successful    |
++------------+-------------------+------------------------------+---------------+
 
 ## Plus/minus grades
 
 "Plus" and "minus" grades will be given if you complete all the requirements for a base letter grade **and** make sufficient progress toward the next grade. Below is an overview:
 
 -   If "B" base grade:
-    -   *and* A in two bins: "B+"
-    -   *and* A in three bins: "A-"
+    -   *and* A in one bin: "B+"
+    -   *and* A in two bins: "A-"
 -   If "C" base grade:
-    -   *and* at least B in two bins: "C+"
-    -   *and* at least B in three bins: "B-"
+    -   *and* at least B in one bin: "C+"
+    -   *and* at least B in two bins: "B-"
 -   If "D" base grade:
-    -   *and* at least C in two bins: "D+"
-    -   *and* at least C in three bins: "C-"
+    -   *and* at least C in one bins: "D+"
+    -   *and* at least C in two bins: "C-"
 -   If "F" base grade:
     -   *and* at least D in two bins: "D-"
 
-*Example:* Mira finishes the course with 88% of homework problems successfully completed, 85% of lab quiz problems successfully completed, 3/4 portfolio projects marked "excellent", and a "Successful" final project. Mira satisfies everything in the "B" row, and meets the "A" threshold for two bins (homework and portfolio projects). Mira earns a B+. If Mira instead receives "excellent" marks on the final project, Mira earns an A-.
+*Example:* Mira finishes the course with 91% of homework problems successfully completed, 3/4 portfolio projects marked "excellent", and a "Successful" final project. Mira satisfies everything in the "B" row, and meets the "A" threshold for two bins (homework and portfolio projects). Mira earns an A-.
 
 ## Attendance and participation policy
 
@@ -125,60 +123,26 @@ I expect daily attendance and participation. Missing \>5 class meetings or ongoi
 ## Important points about this grading system
 
 -   Different categories of coursework do not "average together": you can't make up for less-than-great work on portfolio projects by doing very well on quizzes, for instance. Each course grade requires *consistent quality across all bins* to earn the grade
--   You do not have to do everything. If you want an "A" in the class, for example, you don't have to complete *every* quiz question correctly, only 90% of them.
+-   You do not have to do everything. If you want an "A" in the class, for example, you don't have to do every portfolio assignment perfectly, just do at least two very well and two pretty well.
 
 ## Tokens
 
--   Turning in a token provides either (a) a 72-hour extension on a homework assignment, (b) a revision on a portfolio project, or (c) ~~a retake of a lab quiz~~ a 72-hour extension on the lab quiz revision
--   Tokens may be used for *extensions* on the final project milestone check-ins, but not for the final due-date. Milestone check-ins cannot be revised
+You will each get 3 tokens for the term. If using a token for an extension, you must submit the [token request form](https://forms.gle/GrYXUyMtLATkhq8e7) **before** the assignment/project/check-in is due. If using a token for a portfolio project revision, you must submit the form within a week of receiving your grade on the project. You will receive a confirmation email of your token request submission as a receipt that one token has been spent.
+
+-   Turning in a token provides either (a) a 48-hour extension on a homework assignment, portfolio project, or final project milestone check-in, or (b) a revision on a portfolio project
+-   Tokens cannot be used for the final project due-date
+-   You can only revise a portfolio project; you cannot revise homeworks, the final project, or final project milestone check-ins.
 -   You can revise the same portfolio project multiple times, if needed, but you must spend a token each time.
--   A portfolio project must be completed with a good-faith effort to be eligible for revision. If I deem a submission to be "not assessable" due to a lack of effort, then it cannot be revised.
--   All revisions must be submitted by 11:59pm on the last day of class.
-
-# Materials
-
-## Textbook
-
-There is no "perfect" data science textbook. We will use excerpts from the following texts:
-
--   [R for Data Science 2e](https://r4ds.hadley.nz/)
--   [Modern Data Science with R 3e](https://mdsr-book.github.io/mdsr3e/)
--   [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/)
-
-These books are all freely available online. If you prefer a hard copy, they are also available for purchase through the publisher.
-
-## Software
-
-The use of the [R](https://cran.rstudio.com/) programming language, with the [RStudio](https://posit.co/download/rstudio-desktop/) interface is an essential component of this course. You have two options for using RStudio:
-
-1.  The server version of RStudio on the web at https://maize.mathcs.carleton.edu. The advantage of using the server version is that all of your work will be stored in the cloud, where it is automatically saved and backed up. This means that you can access your work from any computer on campus using a web browser. The downside is that you have to share limited computational resources with each other!
-2.  A local version of RStudio installed on your machine.The downside to this approach is that your work is only stored locally, but I get around this problem by keeping all of my work on GitHub. You will learn how to use GitHub throughout the course.
-
-Partway through the course, I will require you to download a local version of R and Rstudio. This is because the amount of computing power we will eventually need is more than the server can handle all at once. Both R and RStudio are free and open-source.
+-   A portfolio project must be completed with a good-faith effort to be eligible for revision. If I deem a submission to be "not assessable" due to a lack of effort, then it cannot be revised
+-   All revisions must be submitted by 5:00pm on the last day of class
 
 # Academic Integrity
 
-You are expected to follow Carleton's [policies regarding academic integrity](https://www.carleton.edu/provost/advising/info-for-advisers/academic-progress/misconduct/). I encourage you to *discuss* homework problems with others to figure out tough problems. You should code and write up your solutions on your own. Lab quizzes must be done by yourself without communicating with others; all work must be your own. You should collaborate with your teammates on projects, and should use external resources for background research and debugging, but all work should be original. The use of textbook solution manuals (physical or online), course materials from other students, or materials from previous versions of this course are not allowed.
+You are expected to follow Carleton's [policies regarding academic integrity](https://www.carleton.edu/provost/advising/info-for-advisers/academic-progress/misconduct/). I encourage you to *discuss* homework problems with others to figure out tough problems. You should code and write up your solutions on your own. You should collaborate with your teammates on projects, and should use external resources for background research and debugging, but all work should be original.
 
 Large-language models (e.g. ChatGPT, Gemini, etc.) should only be used for coding or debugging help after you’ve attempted to code the problem on your own, and you should never type homework problems directly into a prompt. You should never copy and paste any course materials *into* a large-language model, and you should never copy and paste anything *out of* a large-language model into your course materials. Copying, paraphrasing, summarizing, or submitting work generated by anyone but yourself without proper attribution is considered academic dishonesty (this includes output from LLMs).
 
-I also have a few rules in place to protect my intellectual property. You may not record my lectures using tools such as Otter.ai or upload any video or audio recordings to generate transcripts or study notes. You may not upload my course materials (slides, assignment prompts, note sets, etc.) into AI tools or homework help sites (such as chegg).
-
-“AI” tools are new for all of us and it’s OK to have questions about what is and isn’t appropriate. Please ask if you are unsure of whether or not your actions are complying with the assignment/quiz/project instructions. Always default to acknowledging any help received. Cases of suspected academic dishonesty are handled by the Provost’s Office and I am obligated to report any suspected violations of this policy.
-
-+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                    | Collaboration Allowed                                                                                                                                                                                                                                                                                                                                                                                  |
-+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Homework Problems  | You are allowed and encouraged to collaborate on homework. You may also use outside resources, but your submitted work must be your own and reflect your own understanding (i.e. it can't be copied). Any sources must be properly attributed. If you cannot explain each line of code to me with just your brain, you should not submit it as your own work.                                          |
-+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Lab Quiz Problems  | **No collaboration is allowed at all** (including online forums like StackExchange or Reddit). \|                                                                                                                                                                                                                                                                                                      |
-+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Portfolio Projects | You are expected to collaborate with your group members, but cannot rely on external sources other than to help motivate the questions or provide other background information (including online forums like StackExchange or Reddit). You may use any resources from class and package documentation, but getting answers on significant parts of solutions from outside resources is not allowed. \| |
-+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Final Project      | You are expected to collaborate with your group, but cannot rely on external sources other than to help motivate the questions or provide other background information. Any outside resources should be properly cited.                                                                                                                                                                                |
-+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-: {tbl-colwidths="\[15,85\]"}
+“AI” tools are new for all of us and it’s OK to have questions about what is and isn’t appropriate. Please ask if you are unsure of whether or not your actions are complying with the assignment instructions. Always default to acknowledging any help received. Cases of suspected academic dishonesty are handled by the Provost’s Office and I am obligated to report any suspected violations of this policy.
 
 # Commitment to an Inclusive and Collaborative Atmosphere
 
@@ -196,4 +160,4 @@ We all come to class with different backgrounds and experiences, and this divers
 
 And finally….
 
-**Take care of yourself.**  Do your best to maintain a healthy lifestyle this term by wearing a mask when you’re sick, eating a vegetable every now and then, exercising, avoiding excessive drug and alcohol use, getting enough sleep, and taking some time to relax. Your physical and mental health is more important than your grade in this course. There are many helpful resources available on campus and an important part of the college experience is learning how to ask for help. For more information, see Student Health and Counseling (SHAC), the Office of Health Promotion, or the Office of the Chaplain. If you are experiencing physical or mental health symptoms as a result of coursework, please speak with me so we can address the problem together.
+**Take care of yourself.** Do your best to maintain a healthy lifestyle this term. Get some fresh air occasionally, especially when coursework has you frustrated. Take some time to rest, but don't be tempted by excessive short-term dopamine hits that leave you even further behind. Wear a mask when you are sick, and get enough sleep. Your physical and mental health is more important than your grade in this course. There are many helpful resources available on campus and an important part of the college experience is learning how to ask for help. For more information, see Student Health and Counseling (SHAC), the Office of Health Promotion, or the Office of the Chaplain. If you are experiencing physical or mental health symptoms as a result of coursework, please speak with me so we can address the problem together.
