@@ -37,7 +37,7 @@
     "href": "course-syllabus.html",
     "title": "Stat220: Introduction to Data Science",
     "section": "",
-    "text": "Meetings\nMWF 4a\n12:30-1:40 MW, 1:10-2:10 F\nCMC 102\n\n\nProfessor\nEmily Kurtz\nCMC 225\n\n\n\nekurtz@carleton.edu\n\n\n\nOffice Hours\nMon 2-3, Tues 10:30-11:30, Wed 11:30-12:30, Fri 12-1\nTues hours by appointment only through my Google Calendar\nCMC 307\n\n\nWebsite\ngithub.com/stat220-s26\n\n\n\nTexts\nR for Data Science (2nd Ed)\nhttps://r4ds.hadley.nz/\nWickham, Çetinkaya-Rundel, Grolemund\n\n\n\n\nModern Data Science with R (3rd Ed)\nhttps://mdsr-book.github.io/mdsr3e/\nBaumer, Kaplan, Horton\n\n\n\n\nFundamentals of Data Visualization\nhttps://clauswilke.com/dataviz/\nWilke\n\n\n\nSoftware\nMaize RStudio Server &lt;maize.mathcs.carleton.edu&gt;\n\n\n\n\nR (optional) free from &lt;r-project.org&gt;\n\n\n\n\nRStudio (optional) free from &lt;rstudio.com/downloads&gt;",
+    "text": "Meetings: MWF 4a, MW 12:30 - 1:40, F 1:10-2:10, CMC 102\nProfessor: Emily Kurtz, ekurtz@carleton.edu, CMC 225\nOffice Hours: M 2-3, T 10:30 - 11:30 (by appointment only), W 11:30-12:30, F 12-1, CMC 225\nTexts\nR for Data Science (2nd Ed) by Wickham, Çetinkaya-Rundel, Grolemund\nModern Data Science with R by Baumer, Kaplan, Horton\nFundamentals of Data Visualization by Wilke\nSoftware\nMaize RStudio Server &lt;maize.mathcs.carleton.edu&gt;\nR (optional) free from &lt;r-project.org&gt;\nRStudio (optional) free from &lt;rstudio.com/downloads&gt;",
     "crumbs": [
       "Course information",
       "Syllabus"
@@ -59,7 +59,7 @@
     "href": "course-syllabus.html#assignments",
     "title": "Stat220: Introduction to Data Science",
     "section": "Assignments",
-    "text": "Assignments\nHomework will be assigned once-ish per week, distributed via GitHub. You will submit homework assignments via gradescope. You will use quarto for all assignments and submit all necessary work for each assignment on GitHub.",
+    "text": "Assignments\nHomework will be distributed via GitHub. You will submit homework assignments via Gradescope. You will use quarto for all assignments and submit all necessary work for each assignment on GitHub.",
     "crumbs": [
       "Course information",
       "Syllabus"
@@ -92,7 +92,7 @@
     "href": "course-syllabus.html#final-project",
     "title": "Stat220: Introduction to Data Science",
     "section": "Final Project",
-    "text": "Final Project\nThe final project is a capstone experience synthesizing everything you’ve learned over the course of the term. This is an opportunity for you to exercise your creativity and create something meaningful. The final project is wildly open-ended and more details will follow.",
+    "text": "Final Project\nThe final project is a capstone experience synthesizing everything you’ve learned over the course of the term. This is an opportunity for you to exercise your creativity and create something meaningful. The final project is open-ended and more details will follow. You will work in small groups of about 3.",
     "crumbs": [
       "Course information",
       "Syllabus"
@@ -114,7 +114,7 @@
     "href": "course-syllabus.html#how-each-assignment-is-graded",
     "title": "Stat220: Introduction to Data Science",
     "section": "How each assignment is graded",
-    "text": "How each assignment is graded\nEach assignment will include a short rubric with the specifications of how I will evaluate your work. In general, these are the “marks” that you can receive on each course component:\n\n\n\n\n\n\n\n\n\nHow it’s evaluated\nHow it’s recorded\n\n\n\n\nHomework Problems\nCompleteness, Correctness, and Effort\nSuccessful or Not Successful\n\n\nLab Quiz Problems\nCompleteness and Correctness\nSuccessful or Not Successful\n\n\nPortfolio Projects\nCompleteness, effort, correctness, and communication quality\nExcellent, Successful, or Revision\n\n\nFinal Project\nCompleteness, effort, correctness, and communication quality\nExcellent, Succesful, or Not Successful",
+    "text": "How each assignment is graded\nEach assignment will include a short rubric with the specifications of how I will evaluate your work. In general, these are the “marks” that you can receive on each course component:\n\n\n\n\n\n\n\n\n\nHow it’s evaluated\nHow it’s recorded\n\n\n\n\nHomework Problems\nCompleteness, Correctness, and Effort\nSuccessful or Not Successful\n\n\nPortfolio Projects\nCompleteness, effort, correctness, and communication quality\nExcellent, Successful, or Revision\n\n\nFinal Project\nCompleteness, effort, correctness, and communication quality\nExcellent, Succesful, or Not Successful",
     "crumbs": [
       "Course information",
       "Syllabus"

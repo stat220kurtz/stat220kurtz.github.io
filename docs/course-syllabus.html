@@ -192,7 +192,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#course-description" id="toc-course-description" class="nav-link active" data-scroll-target="#course-description">Course Description</a></li>
+  <li><a href="#important-info" id="toc-important-info" class="nav-link active" data-scroll-target="#important-info">Important Info</a></li>
+  <li><a href="#course-description" id="toc-course-description" class="nav-link" data-scroll-target="#course-description">Course Description</a></li>
   <li><a href="#course-objectives" id="toc-course-objectives" class="nav-link" data-scroll-target="#course-objectives">Course Objectives</a></li>
   <li><a href="#course-components" id="toc-course-components" class="nav-link" data-scroll-target="#course-components">Course Components</a>
   <ul class="collapse">
@@ -228,7 +229,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./course-syllabus.html">Course information</a></li><li class="breadcrumb-item"><a href="./course-syllabus.html">Syllabus</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Stat220: Introduction to Data Science</h1>
-<p class="subtitle lead">Winter 2026</p>
+<p class="subtitle lead">Spring 2026</p>
 </div>
 
 
@@ -245,80 +246,22 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="boxed-text">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 70%">
-<col style="width: 10%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>Meetings</td>
-<td><p>MWF 4a</p>
-<p>12:30-1:40 MW, 1:10-2:10 F</p></td>
-<td>CMC 102</td>
-</tr>
-<tr class="even">
-<td>Professor</td>
-<td>Emily Kurtz</td>
-<td>CMC 225</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>ekurtz@carleton.edu</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Office Hours</td>
-<td><p>Mon 2-3, Tues 10:30-11:30, Wed 11:30-12:30, Fri 12-1</p>
-<p>Tues hours by appointment only through my Google Calendar</p></td>
-<td>CMC 307</td>
-</tr>
-<tr class="odd">
-<td>Website</td>
-<td>github.com/stat220-s26</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Texts</td>
-<td><p><em>R for Data Science</em> (2nd Ed)</p>
-<p><a href="https://r4ds.hadley.nz/" class="uri">https://r4ds.hadley.nz/</a></p>
-<p>Wickham, Çetinkaya-Rundel, Grolemund</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p><em>Modern Data Science with R</em> (3rd Ed)</p>
-<p><a href="https://mdsr-book.github.io/mdsr3e/" class="uri">https://mdsr-book.github.io/mdsr3e/</a></p>
-<p>Baumer, Kaplan, Horton</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p><em>Fundamentals of Data Visualization</em></p>
-<p><a href="https://clauswilke.com/dataviz/" class="uri">https://clauswilke.com/dataviz/</a></p>
-<p>Wilke</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Software</td>
-<td>Maize RStudio Server &lt;maize.mathcs.carleton.edu&gt;</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>R (optional) free from &lt;r-project.org&gt;</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>RStudio (optional) free from &lt;rstudio.com/downloads&gt;</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
+<section id="important-info" class="level1">
+<h1>Important Info</h1>
+<ul>
+<li><strong>Meetings:</strong> MWF 4a, MW 12:30 - 1:40, F 1:10-2:10, CMC 102</li>
+<li><strong>Professor:</strong> Emily Kurtz, ekurtz@carleton.edu, CMC 225</li>
+<li><strong>Office Hours:</strong> M 2-3, T 10:30 - 11:30 (by appointment only), W 11:30-12:30, F 12-1, CMC 225</li>
+<li><strong>Texts</strong></li>
+<li><a href="https://r4ds.hadley.nz/"><em>R for Data Science</em> (2nd Ed)</a> by Wickham, Çetinkaya-Rundel, Grolemund</li>
+<li><a href="https://mdsr-book.github.io/mdsr3e/"><em>Modern Data Science with R</em></a> by Baumer, Kaplan, Horton</li>
+<li><a href="https://clauswilke.com/dataviz/"><em>Fundamentals of Data Visualization</em></a> by Wilke</li>
+<li><strong>Software</strong></li>
+<li>Maize RStudio Server &lt;maize.mathcs.carleton.edu&gt;</li>
+<li>R (optional) free from &lt;r-project.org&gt;</li>
+<li>RStudio (optional) free from &lt;rstudio.com/downloads&gt;</li>
+</ul>
+</section>
 <section id="course-description" class="level1">
 <h1>Course Description</h1>
 <p>Stat 220 will cover the computational side of statistics that is not typically taught in an intro or methodology focused course like regression modeling. Most of the data you encounter in introductory stats course are contained in small, tidy .csv files with rows denoting your cases and columns containing your variables. Most of the messiness to these data may have been some missing values (NAs). In this course, we’ll learn how to extract information from data in its “natural” state, which is often unstructured, messy and complex. To do this, we will learn methods for manipulating and merging data in standard and non-standard formats, data with date, time, or geolocation variables, text processing and regular expressions, and scraping the web for data. To effectively communicate the information contained in these data, we will cover advanced data visualization methods, including methods for creating interactive graphics. We will primarily use the statistical software R in this course, and cover best practices for reproducible analyses and sharing code.</p>
@@ -331,8 +274,8 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Acquire</strong> data by importing different file types into R, accessing data through API’s, and scraping data from the web</li>
 <li><strong>Wrangle</strong> common types of data into the form that is needed for analysis</li>
 <li><strong>Visualize</strong> data to provide insight and uncover relationships and patterns</li>
-<li><strong>Communicate</strong> your findings to stakeholders in written or oral format</li>
-<li><strong>Document</strong> your code and <strong>collaborate</strong> across coding projects.</li>
+<li><strong>Communicate</strong> your findings in written or oral format</li>
+<li><strong>Document</strong> your code and <strong>collaborate</strong> across coding projects</li>
 </ul>
 </section>
 <section id="course-components" class="level1">
@@ -343,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="assignments" class="level2">
 <h2 class="anchored" data-anchor-id="assignments">Assignments</h2>
-<p>Homework will be assigned once-ish per week, distributed via GitHub. You will submit homework assignments via gradescope. You will use <code>quarto</code> for all assignments and submit all necessary work for each assignment on GitHub.</p>
+<p>Homework will be distributed via GitHub. You will submit homework assignments via Gradescope. You will use <code>quarto</code> for all assignments and submit all necessary work for each assignment on GitHub.</p>
 </section>
 <section id="portfolio-projects" class="level2">
 <h2 class="anchored" data-anchor-id="portfolio-projects">Portfolio Projects</h2>
@@ -351,7 +294,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="final-project" class="level2">
 <h2 class="anchored" data-anchor-id="final-project">Final Project</h2>
-<p>The final project is a capstone experience synthesizing everything you’ve learned over the course of the term. This is an opportunity for you to exercise your creativity and create something meaningful. The final project is wildly open-ended and more details will follow.</p>
+<p>The final project is a capstone experience synthesizing everything you’ve learned over the course of the term. This is an opportunity for you to exercise your creativity and create something meaningful. The final project is open-ended and more details will follow. You will work in small groups of about 3.</p>
 </section>
 <section id="communication" class="level2">
 <h2 class="anchored" data-anchor-id="communication">Communication</h2>
@@ -384,16 +327,11 @@ ul.task-list li input[type="checkbox"] {
 <td>Successful or Not Successful</td>
 </tr>
 <tr class="even">
-<td>Lab Quiz Problems</td>
-<td>Completeness and Correctness</td>
-<td>Successful or Not Successful</td>
-</tr>
-<tr class="odd">
 <td>Portfolio Projects</td>
 <td>Completeness, effort, correctness, and communication quality</td>
 <td>Excellent, Successful, or Revision</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Final Project</td>
 <td>Completeness, effort, correctness, and communication quality</td>
 <td>Excellent, Succesful, or Not Successful</td>
