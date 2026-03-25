@@ -173,12 +173,6 @@ survey |>
   scale_fill_viridis_d(end = .75, option = "plasma")
 ```
 
-## Why R?
-
-> *And the second reason, which is both a huge strength of R and a bit of a weakness, is that R is **not just a programming language**. It was designed from day 1 to be an **environment that can do data analysis**. So, compared to the other options like Python, you can get up and running in R doing data science, learning much, much less about programming to get started. And that generally makes it like **easier to get up and running if you don’t have formal training in computer science or software engineering**.*
-
-> -Hadley Wickham, [Advice to Young (and Old) Programmers: A Conversation with Hadley Wickham](https://www.r-bloggers.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/)
-
 ##  {background-image="../img/wordcloud-nervous.png" background-size="contain"}
 
 ##  {.smaller}
