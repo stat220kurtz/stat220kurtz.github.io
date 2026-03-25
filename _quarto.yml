@@ -21,9 +21,6 @@ website:
       - icon: github
         href: https://github.com/stat220kurtz
         text: "GitHub organization"
-      - icon: code-square
-        href: https://maize.mathcs.carleton.edu/
-        text: "RStudio Server"
       - icon: person-fill
         href: https://moodle.carleton.edu/course/view.php?id=48307
         text: "Moodle"

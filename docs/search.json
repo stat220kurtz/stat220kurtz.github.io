@@ -252,7 +252,7 @@
     "href": "slides/01/slides01.html#sneak-peek-class-survey-data",
     "title": "Welcome to Stat 220",
     "section": "Sneak peek: class survey data",
-    "text": "Sneak peek: class survey data\n\n\n# A tibble: 10 × 3\n   class_year sleep northfield_food       \n   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;                 \n 1 Senior       8   El Triunfo            \n 2 Junior       7   Reunion or Blue Monday\n 3 Senior       7   Desi Diner            \n 4 Sophomore    9   DoorDash              \n 5 Sophomore    7   Desi Diner            \n 6 Senior       6   El tri                \n 7 Senior       6   &lt;NA&gt;                  \n 8 Senior       8.5 Reunion               \n 9 Sophomore    6   Desi Diner            \n10 Junior       8   Desi Diner"
+    "text": "Sneak peek: class survey data\n\n\n# A tibble: 10 × 3\n   class_year sleep northfield_food\n   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;          \n 1 Junior         7 Driving by car.\n 2 Senior         6 &lt;NA&gt;           \n 3 Sophomore      7 Desi Diner     \n 4 Junior         8 Desi Diner     \n 5 Senior         6 El tri         \n 6 Sophomore      9 DoorDash       \n 7 Junior         7 Desi diner     \n 8 First year     8 culvers        \n 9 Senior         7 Desi Diner     \n10 Sophomore      6 Desi Diner"
   },
   {
     "objectID": "slides/01/slides01.html#section",
@@ -322,7 +322,7 @@
     "href": "slides/01/slides01.html#section-3",
     "title": "Welcome to Stat 220",
     "section": "",
-    "text": "Course website\n\nhttps://stat220-w26.github.io\n\n\naccess slides\nsee schedule\n\nCourse github organization\n\nhttps://github.com/stat220-w26\n\n\naccess repositories for homework and projects"
+    "text": "Course website\n\nhttps://stat220kurtz.github.io/\n\n\naccess slides\nsee schedule\nguides for installing R, RStudio, using GitHub and GitHub Desktop\n\nCourse github organization\n\nhttps://github.com/stat220kurtz\n\n\naccess repositories for homework and projects"
   },
   {
     "objectID": "slides/01/slides01.html#maize-server",
@@ -364,7 +364,7 @@
     "href": "slides/01/slides01.html#office-hours-tentative",
     "title": "Welcome to Stat 220",
     "section": "Office hours (tentative)",
-    "text": "Office hours (tentative)\n\n\n\nDay\nTime\nType\nLocation\n\n\n\n\nMonday\n1:30-2:30\nDrop-in\nCMC 307\n\n\nTuesday\n3-4\nDrop-in\nCMC 307\n\n\nWednesday\n12:30-1:30\nDrop-in\nCMC 307\n\n\nFriday\n10-11\nAppts\nCMC 223"
+    "text": "Office hours (tentative)\n\n\n\nDay\nTime\nType\nLocation\n\n\n\n\nMonday\n2-3\nDrop-in\nCMC 225\n\n\nTuesday\n10:30-11:30\nAppt\nCMC 225\n\n\nWednesday\n11:30-12:30\nDrop-in\nCMC 225\n\n\nFriday\n12-1\nDrop-in\nCMC 225"
   },
   {
     "objectID": "slides/01/slides01.html#where-is-amanda-this-term",
@@ -392,7 +392,7 @@
     "href": "slides/01/slides01.html#grading-system",
     "title": "Welcome to Stat 220",
     "section": "Grading system",
-    "text": "Grading system\nHomework and lab quiz problems will be graded as successful, half credit, or not successful. Projects will be graded as excellent, successful, or not successful. You will have the opportunity to resubmit the lab quizzes outside of class.\nTo earn a course grade, you must meet all of the requirements in a given row:\n\n\n\n\n\n\n\n\n\n\n\nHomework Problems\nLab Quiz Problems\nPortfolio Projects (4 total)\nFinal Project\n\n\n\n\nA\n85%\n90%\n2 Excellent + 2 Successful\nExcellent\n\n\nB\n75%\n80%\n4 Successful\nSuccessful\n\n\nC\n65%\n70%\n3 Successful\nSuccessful\n\n\nD\n55%\n50%\n2 Successful\nSuccessful\n\n\n\n“+” and “-” grades are determined by partially meeting the requirements in a given row.\nNote: I expect daily attendance and participation. Missing &gt;5 class meetings or consistent issues with being on-task will result in a 1/3 grade deduction."
+    "text": "Grading system\nHomework and will be graded as successful, half credit, or not successful. Projects will be graded as excellent, successful, or not successful.\nTo earn a course grade, you must meet all of the requirements in a given row:\n\n\n\n\nHomework Problems\nPortfolio Projects (4 total)\nFinal Project\n\n\n\n\nA\n90%\n2 Excellent + 2 Successful\nExcellent\n\n\nB\n80%\n4 Successful\nSuccessful\n\n\nC\n70%\n3 Successful\nSuccessful\n\n\nD\n50%\n2 Successful\nSuccessful\n\n\n\n“+” and “-” grades are determined by partially meeting the requirements in a given row.\nNote: I expect daily attendance and participation. Missing &gt;5 class meetings or consistent issues with being on-task will result in a 1/3 grade deduction."
   },
   {
     "objectID": "slides/01/slides01.html#benefits",
@@ -413,7 +413,7 @@
     "href": "slides/01/slides01.html#tokens",
     "title": "Welcome to Stat 220",
     "section": "Tokens",
-    "text": "Tokens\nYou can use a token to:\n\nRevise a portfolio project that did not earn a “successful” or “excellent”\n72-hour extension on a homework assignment or portfolio project submission (the request must be submitted before the deadline)\nRetake a lab quiz [*]\nBy passing the syllabus quiz, you’ll activate your 5 tokens for the term. I will track token balances in the moodle gradebook (updated weekly, typically Thursdays)"
+    "text": "Tokens\nYou get 3 tokens. You can use a token to:\n\nRevise a portfolio project\n48-hour extension on a homework assignment or portfolio project submission (the request must be submitted before the deadline)"
   },
   {
     "objectID": "slides/01/slides01.html#collaboration-policy",
@@ -434,7 +434,7 @@
     "href": "slides/01/slides01.html#github",
     "title": "Welcome to Stat 220",
     "section": "GitHub",
-    "text": "GitHub\n\nhttps://github.com/stat220-w26\n\n\nGitHub organization for the course\nAll of your work and your membership (enrollment) in the organization is private\nEach assignment is a private repo on GitHub, I distribute the assignments on GitHub.\nYou will work on your assignment, then “render ➡️ commit ✅ push ⤴️”\nYou’ll then be able to submit your PDF via gradescope\n\n\n\nFill out the Welcome Survey for collection of your account names, later this week you will be invited to the course organization."
+    "text": "GitHub\n\nhttps://github.com/stat220kurtz\n\n\nGitHub organization for the course\nAll of your work and your membership (enrollment) in the organization is private\nEach assignment is a private repo on GitHub, I distribute the assignments on GitHub.\nYou will work on your assignment, then “render ➡️ commit ✅ push ⤴️”\nYou’ll then be able to submit your PDF via gradescope\n\n\n\nFill out the Welcome Survey for collection of your account names, later this week you will be invited to the course organization."
   },
   {
     "objectID": "slides/01/slides01.html#username-advice",
@@ -448,7 +448,7 @@
     "href": "slides/01/slides01.html#your-tasks-before-next-class",
     "title": "Welcome to Stat 220",
     "section": "Your tasks before next class",
-    "text": "Your tasks before next class\n\n\nCreate a GitHub account if you don’t have one\nComplete the welcome survey if you haven’t already\nJoin the slack workspace and post an #intro message\nRead the syllabus and pass syllabus quiz\nMake sure you can log in to the maize server or update your local R/RStudio versions\nComplete the readings for next class"
+    "text": "Your tasks before next class\n\n\nCreate a GitHub account if you don’t have one\nComplete the welcome survey if you haven’t already\nRead the syllabus\nDownload or update your local R/RStudio versions\nComplete the readings for next class"
   },
   {
     "objectID": "slides/01/slides01.html",
@@ -1529,6 +1529,6 @@
     "href": "slides/01/slides01.html#section-2",
     "title": "Welcome to Stat 220",
     "section": "",
-    "text": "It’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.\n\n\n\nHadley Wickham, Advice to Young (and Old) Programmers: A Conversation with Hadley Wickham; Artwork by Allison Horst"
+    "text": "It’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.\n\n\n\nHadley Wickham, Advice to Young (and Old) Programmers: A Conversation with Hadley Wickham"
   }
 ]
