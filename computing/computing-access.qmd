@@ -1,57 +1,40 @@
 ---
-title: "Computing Setup" 
+title: "R, RStudio, and GitHub Desktop" 
 ---
 
 ## R/RStudio
 
-I expect you to use RStudio to run R in this course. You have two options for using RStudio:
+I expect you to use RStudio to run R in this course. If you have taken STAT 120 or another STAT course, you have likely encountered and perhaps even used the [Maize server](https://maize.mathcs.carleton.edu/). For STAT 220, I highly encourage you to *not* use the Maize server and instead download your own version of R and RStudio. There are many reasons why your own version will be preferable for this class, but to list a few:
 
-### Server version
+- the computational needs for this class may at times (especially later in the term) collectively exceed what the Maize server can handle
+- part of this course will involve using Git and GitHub, and for beginners (and even more advanced users!) I believe using a Git client is easier
+- you don't have to have internet access or be on campus/VPN into campus to access RStudio
 
-We have a Carleton server hosting Rstudio at <https://maize.mathcs.carleton.edu/>. Your files on this account will be accessible as long as you are a student at Carleton. Use your Carleton credentials to access your account, and you need to either be on campus or use the Carleton VPN if not to use this server. Use this option if
+That said, if you do not have a personal computer or if yours is particularly old and slow (I've done plenty of R coding on #250, 5+ year old laptops, so this likely will not impact you), then the Maize server is a great option. If you think your computer will not be up to the task for this class, skip to the Maize section of this page and follow those instructions.
 
-- your personal computer is old and/or slow
-- you prefer to use school computers (lab or library computers)
+### Downloading R and RStudio
 
-### A local version of RStudio installed on your machine
-
-You can also run R/RStudio from your personal computer. If you use a local version of R/RStudio this term, make sure that you have recently updated both R and RStudio.
-
-To check your version of R, run the command `getRversion()` and
-compare your version to the newest version posted on
-<https://cran.r-project.org/>. If you need an update, then
-install the newer version using the installation directions
-above.
-
-In RStudio, check for updates with the menu option
-`Help > Check for updates`. Follow directions if an update is
-needed.
-
-For a fresh download: 
+You must download *both* R and RStudio. To do so, visit the sites below. Use the default download and install options for each, and make sure you are selecting the appropriate download for your operating system (Windows or MacOS). 
 
 -   Download the latest version of R for your operating system from <https://cran.r-project.org/>
 
 -   Download the free RStudio desktop version from <https://posit.co/download/rstudio-desktop/>
 
-Use the default download and install options for each. 
+If you have R and RStudio on your computer already, make sure that you have recently updated both.
 
+To check your version of R, run the command `getRversion()` and
+compare your version to the newest version posted on
+<https://cran.r-project.org/>.
 
-------------------------------------------------------------------------
+In RStudio, check for updates with the menu option
+`Help > Check for updates`.
 
-## VPN
-
-If you plan to use the maize server and you plan to do any work off campus this term (e.g., while on a field trip, travel for athletics, or just sitting in Little Joy) you need to install Carleton’s VPN to have access.
-
-To install the GlobalProtect VPN follow [directions provided by ITS](https://wiki.carleton.edu/display/itskb/GlobalProtect+VPN).
+If you need to update either R or RStudio, then simply download a fresh version following the download links at the beginning of this section.
 
 
 ------------------------------------------------------------------------
 
 ## Git and GitHub
-
-[Git](https://happygitwithr.com/big-picture.html#why-git) is version
-control software that you install locally on your computer. Git is
-already installed on the maize RStudio server.
 
 [GitHub](https://happygitwithr.com/big-picture.html#why-github) is a
 cloud-based service for hosting git projects. It allows multiple users
@@ -59,15 +42,72 @@ to share and contribute to projects and it is how you will be submitting
 homework assignments and projects for this class.
 
 If you are using a local install of R/RStudio, then you will need to
-install Git.
+install GitHub Desktop for this class.
 
-### Installing Git
+Before you do that, though, create a GitHub account at <https://github.com/>.
+
+### Installing GitHub Desktop and Setup
+
+[GitHub Desktop](https://github.com/apps/desktop) is a Git client, which allows you to perform Git commands using a GUI instead of the command line. You can click the green "Download now" button at that link to download and install GitHub Desktop. 
+
+Once you have installed GitHub Desktop, you can learn more about setting it up here: <https://docs.github.com/en/desktop/overview/getting-started-with-github-desktop>.
+
+
+------------------------------------------------------------------------
+
+## LaTeX
+
+When using your own local version of R and RStudio, you need a LaTeX compiler to create a pdf document from a R Markdown or Quarto file.
+
+### Installing LaTeX (not needed if you are using the maize server)
+
+If you don’t already have a tex package installed on your computer, the easiest option to create pdf’s is to use the tinytex R package. This can be installed with the following R commands (simply run them in the RStudio console):
+
+```{r eval=FALSE}
+install.packages("tinytex")
+tinytex::install_tinytex()  # install TinyTeX
+```
+
+------------------------------------------------------------------------
+
+## Maize
+
+We have a Carleton server hosting Rstudio at <https://maize.mathcs.carleton.edu/>. Your files on this account will be accessible as long as you are a student at Carleton. Use your Carleton credentials to access your account, and you need to either be on campus or use the Carleton VPN if not to use this server.
+
+### VPN
+
+If you use the Maize server and plan to do work off campus, you will need to use the Carleton VPN.
+
+To install the GlobalProtect VPN follow [directions provided by ITS](https://stolafcarleton.teamdynamix.com/TDClient/2092/Carleton/KB/ArticleDet?ID=137157&SIDs=10285).
+
+### Git and LaTeX
+
+You do not need to install Git or LaTeX if you use the Maize server, as these are already on campus computers. You can, by default, create pdf files from R Markdown or Quarto files when using the Maize server. However, you will not be able to use GitHub Desktop and will instead need to use Git at the command line. See the Git/Github in Stat 220 page.
+
+------------------------------------------------------------------------
+
+## Other Tangentially Related Information
+
+### LaTeX outside RStudio
+
+If you’d like a stand alone LaTeX package, you could install the basic installations of either:
+
+-   [MacTeX](https://www.tug.org/mactex/) for Mac (3.2GB!)
+
+-   [MiKTeX](https://miktex.org/download) for Windows (190MB)
+
+-   You could also write documents in LaTeX using [Overleaf](https://www.overleaf.com/).
+
+You may be interested in your own LaTeX if you are taking math classes or other classes where you'd like to incorporate a lot of mathematical symbols/equations into your writing. But you can actually do all of that in RStudio as well (albeit with slightly less/less obvious control over the layout and such).
+
+### Command Line Git
+
+For this class, I do *not* recommend using Git at the command line (in fact, while I used to use Git this way, these days I myself even use GitHub Desktop), but there are *some* more advanced workflows that are easier to do using command line Git. These will not be relevant to the class, but if you are interested (now or way in the future), here is more information.
+
+#### Installing Git
 
 Directions for both Windows & Mac here at
 <http://happygitwithr.com/install-git.html>.
-
--   If you are using **maize**, then there is nothing you need to
-    install.
 
 -   Windows users should follow Option 1 in 6.2.
 
@@ -78,32 +118,7 @@ Directions for both Windows & Mac here at
 
 ------------------------------------------------------------------------
 
-
-## LaTeX
-
-You need a LaTeX compiler to create a pdf document from a R Markdown file. If you use the maize server, you don’t need to install anything (the server already has a LaTeX compiler). If you are using a local RStudio, you should install a LaTeX compiler.
-
-
-### Installing LaTeX (not needed if you are using the maize server)
-
-
-If you don’t already have a tex package installed on your computer, the easiest option to create pdf’s is to use the tinytex R package. This can be installed with the following R commands:
-
-```{r eval=FALSE}
-install.packages("tinytex")
-tinytex::install_tinytex()  # install TinyTeX
-```
-
-If you’d like a stand alone LaTeX package, you could install the basic installations of either:
-
--   [MacTeX](https://www.tug.org/mactex/) for Mac (3.2GB!)
-
--   [MiKTeX](https://miktex.org/download) for Windows (190MB)
-
-
-------------------------------------------------------------------------
-
 #### Acknowledgements
 
-This installation guide was written by Adam Loy and is based on the guide from stat545.com and is
+This page borrows heavily from an installation guide written by Adam Loy and is based on the guide from stat545.com. It is
 licensed under the CC BY-NC 3.0 Creative Commons License.

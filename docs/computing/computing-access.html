@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.42">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Computing Setup – Stat 220</title>
+<title>R, RStudio, and GitHub Desktop – Stat 220</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -213,15 +213,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>
 <a href="#rrstudio" id="toc-rrstudio" class="nav-link active" data-scroll-target="#rrstudio">R/RStudio</a>
   <ul class="collapse">
-<li><a href="#server-version" id="toc-server-version" class="nav-link" data-scroll-target="#server-version">Server version</a></li>
-  <li><a href="#a-local-version-of-rstudio-installed-on-your-machine" id="toc-a-local-version-of-rstudio-installed-on-your-machine" class="nav-link" data-scroll-target="#a-local-version-of-rstudio-installed-on-your-machine">A local version of RStudio installed on your machine</a></li>
+<li><a href="#downloading-r-and-rstudio" id="toc-downloading-r-and-rstudio" class="nav-link" data-scroll-target="#downloading-r-and-rstudio">Downloading R and RStudio</a></li>
   </ul>
 </li>
-  <li><a href="#vpn" id="toc-vpn" class="nav-link" data-scroll-target="#vpn">VPN</a></li>
   <li>
 <a href="#git-and-github" id="toc-git-and-github" class="nav-link" data-scroll-target="#git-and-github">Git and GitHub</a>
   <ul class="collapse">
-<li><a href="#installing-git" id="toc-installing-git" class="nav-link" data-scroll-target="#installing-git">Installing Git</a></li>
+<li><a href="#installing-github-desktop-and-setup" id="toc-installing-github-desktop-and-setup" class="nav-link" data-scroll-target="#installing-github-desktop-and-setup">Installing GitHub Desktop and Setup</a></li>
   </ul>
 </li>
   <li>
@@ -230,11 +228,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="#installing-latex-not-needed-if-you-are-using-the-maize-server" id="toc-installing-latex-not-needed-if-you-are-using-the-maize-server" class="nav-link" data-scroll-target="#installing-latex-not-needed-if-you-are-using-the-maize-server">Installing LaTeX (not needed if you are using the maize server)</a></li>
   </ul>
 </li>
+  <li>
+<a href="#maize" id="toc-maize" class="nav-link" data-scroll-target="#maize">Maize</a>
+  <ul class="collapse">
+<li><a href="#vpn" id="toc-vpn" class="nav-link" data-scroll-target="#vpn">VPN</a></li>
+  <li><a href="#git-and-latex" id="toc-git-and-latex" class="nav-link" data-scroll-target="#git-and-latex">Git and LaTeX</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#other-tangentially-related-information" id="toc-other-tangentially-related-information" class="nav-link" data-scroll-target="#other-tangentially-related-information">Other Tangentially Related Information</a>
+  <ul class="collapse">
+<li><a href="#latex-outside-rstudio" id="toc-latex-outside-rstudio" class="nav-link" data-scroll-target="#latex-outside-rstudio">LaTeX outside RStudio</a></li>
+  <li><a href="#command-line-git" id="toc-command-line-git" class="nav-link" data-scroll-target="#command-line-git">Command Line Git</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../computing/computing-access.html">Computing</a></li><li class="breadcrumb-item"><a href="../computing/computing-access.html">Access</a></li></ol></nav><div class="quarto-title">
-<h1 class="title">Computing Setup</h1>
+<h1 class="title">R, RStudio, and GitHub Desktop</h1>
 </div>
 
 
@@ -249,53 +261,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><section id="rrstudio" class="level2"><h2 class="anchored" data-anchor-id="rrstudio">R/RStudio</h2>
-<p>I expect you to use RStudio to run R in this course. You have two options for using RStudio:</p>
-<section id="server-version" class="level3"><h3 class="anchored" data-anchor-id="server-version">Server version</h3>
-<p>We have a Carleton server hosting Rstudio at <a href="https://maize.mathcs.carleton.edu/" class="uri">https://maize.mathcs.carleton.edu/</a>. Your files on this account will be accessible as long as you are a student at Carleton. Use your Carleton credentials to access your account, and you need to either be on campus or use the Carleton VPN if not to use this server. Use this option if</p>
+<p>I expect you to use RStudio to run R in this course. If you have taken STAT 120 or another STAT course, you have likely encountered and perhaps even used the <a href="https://maize.mathcs.carleton.edu/">Maize server</a>. For STAT 220, I highly encourage you to <em>not</em> use the Maize server and instead download your own version of R and RStudio. There are many reasons why your own version will be preferable for this class, but to list a few:</p>
 <ul>
-<li>your personal computer is old and/or slow</li>
-<li>you prefer to use school computers (lab or library computers)</li>
-</ul></section><section id="a-local-version-of-rstudio-installed-on-your-machine" class="level3"><h3 class="anchored" data-anchor-id="a-local-version-of-rstudio-installed-on-your-machine">A local version of RStudio installed on your machine</h3>
-<p>You can also run R/RStudio from your personal computer. If you use a local version of R/RStudio this term, make sure that you have recently updated both R and RStudio.</p>
-<p>To check your version of R, run the command <code><a href="https://rdrr.io/r/base/numeric_version.html">getRversion()</a></code> and compare your version to the newest version posted on <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>. If you need an update, then install the newer version using the installation directions above.</p>
-<p>In RStudio, check for updates with the menu option <code>Help &gt; Check for updates</code>. Follow directions if an update is needed.</p>
-<p>For a fresh download:</p>
+<li>the computational needs for this class may at times (especially later in the term) collectively exceed what the Maize server can handle</li>
+<li>part of this course will involve using Git and GitHub, and for beginners (and even more advanced users!) I believe using a Git client is easier</li>
+<li>you don’t have to have internet access or be on campus/VPN into campus to access RStudio</li>
+</ul>
+<p>That said, if you do not have a personal computer or if yours is particularly old and slow (I’ve done plenty of R coding on #250, 5+ year old laptops, so this likely will not impact you), then the Maize server is a great option. If you think your computer will not be up to the task for this class, skip to the Maize section of this page and follow those instructions.</p>
+<section id="downloading-r-and-rstudio" class="level3"><h3 class="anchored" data-anchor-id="downloading-r-and-rstudio">Downloading R and RStudio</h3>
+<p>You must download <em>both</em> R and RStudio. To do so, visit the sites below. Use the default download and install options for each, and make sure you are selecting the appropriate download for your operating system (Windows or MacOS).</p>
 <ul>
 <li><p>Download the latest version of R for your operating system from <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></p></li>
 <li><p>Download the free RStudio desktop version from <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></p></li>
 </ul>
-<p>Use the default download and install options for each.</p>
-<hr></section></section><section id="vpn" class="level2"><h2 class="anchored" data-anchor-id="vpn">VPN</h2>
-<p>If you plan to use the maize server and you plan to do any work off campus this term (e.g., while on a field trip, travel for athletics, or just sitting in Little Joy) you need to install Carleton’s VPN to have access.</p>
-<p>To install the GlobalProtect VPN follow <a href="https://wiki.carleton.edu/display/itskb/GlobalProtect+VPN">directions provided by ITS</a>.</p>
-<hr></section><section id="git-and-github" class="level2"><h2 class="anchored" data-anchor-id="git-and-github">Git and GitHub</h2>
-<p><a href="https://happygitwithr.com/big-picture.html#why-git">Git</a> is version control software that you install locally on your computer. Git is already installed on the maize RStudio server.</p>
+<p>If you have R and RStudio on your computer already, make sure that you have recently updated both.</p>
+<p>To check your version of R, run the command <code><a href="https://rdrr.io/r/base/numeric_version.html">getRversion()</a></code> and compare your version to the newest version posted on <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>.</p>
+<p>In RStudio, check for updates with the menu option <code>Help &gt; Check for updates</code>.</p>
+<p>If you need to update either R or RStudio, then simply download a fresh version following the download links at the beginning of this section.</p>
+<hr></section></section><section id="git-and-github" class="level2"><h2 class="anchored" data-anchor-id="git-and-github">Git and GitHub</h2>
 <p><a href="https://happygitwithr.com/big-picture.html#why-github">GitHub</a> is a cloud-based service for hosting git projects. It allows multiple users to share and contribute to projects and it is how you will be submitting homework assignments and projects for this class.</p>
-<p>If you are using a local install of R/RStudio, then you will need to install Git.</p>
-<section id="installing-git" class="level3"><h3 class="anchored" data-anchor-id="installing-git">Installing Git</h3>
-<p>Directions for both Windows &amp; Mac here at <a href="http://happygitwithr.com/install-git.html" class="uri">http://happygitwithr.com/install-git.html</a>.</p>
-<ul>
-<li><p>If you are using <strong>maize</strong>, then there is nothing you need to install.</p></li>
-<li><p>Windows users should follow Option 1 in 6.2.</p></li>
-<li><p>Mac users can follow Option 1 in 6.3 if comfortable, otherwise follow Option 2</p></li>
-<li><p>Linux users can follow 6.4.</p></li>
-</ul>
+<p>If you are using a local install of R/RStudio, then you will need to install GitHub Desktop for this class.</p>
+<p>Before you do that, though, create a GitHub account at <a href="https://github.com/" class="uri">https://github.com/</a>.</p>
+<section id="installing-github-desktop-and-setup" class="level3"><h3 class="anchored" data-anchor-id="installing-github-desktop-and-setup">Installing GitHub Desktop and Setup</h3>
+<p><a href="https://github.com/apps/desktop">GitHub Desktop</a> is a Git client, which allows you to perform Git commands using a GUI instead of the command line. You can click the green “Download now” button at that link to download and install GitHub Desktop.</p>
+<p>Once you have installed GitHub Desktop, you can learn more about setting it up here: <a href="https://docs.github.com/en/desktop/overview/getting-started-with-github-desktop" class="uri">https://docs.github.com/en/desktop/overview/getting-started-with-github-desktop</a>.</p>
 <hr></section></section><section id="latex" class="level2"><h2 class="anchored" data-anchor-id="latex">LaTeX</h2>
-<p>You need a LaTeX compiler to create a pdf document from a R Markdown file. If you use the maize server, you don’t need to install anything (the server already has a LaTeX compiler). If you are using a local RStudio, you should install a LaTeX compiler.</p>
+<p>When using your own local version of R and RStudio, you need a LaTeX compiler to create a pdf document from a R Markdown or Quarto file.</p>
 <section id="installing-latex-not-needed-if-you-are-using-the-maize-server" class="level3"><h3 class="anchored" data-anchor-id="installing-latex-not-needed-if-you-are-using-the-maize-server">Installing LaTeX (not needed if you are using the maize server)</h3>
-<p>If you don’t already have a tex package installed on your computer, the easiest option to create pdf’s is to use the tinytex R package. This can be installed with the following R commands:</p>
+<p>If you don’t already have a tex package installed on your computer, the easiest option to create pdf’s is to use the tinytex R package. This can be installed with the following R commands (simply run them in the RStudio console):</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tinytex"</span><span class="op">)</span></span>
 <span><span class="fu">tinytex</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tinytex/man/install_tinytex.html">install_tinytex</a></span><span class="op">(</span><span class="op">)</span>  <span class="co"># install TinyTeX</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<hr></section></section><section id="maize" class="level2"><h2 class="anchored" data-anchor-id="maize">Maize</h2>
+<p>We have a Carleton server hosting Rstudio at <a href="https://maize.mathcs.carleton.edu/" class="uri">https://maize.mathcs.carleton.edu/</a>. Your files on this account will be accessible as long as you are a student at Carleton. Use your Carleton credentials to access your account, and you need to either be on campus or use the Carleton VPN if not to use this server.</p>
+<section id="vpn" class="level3"><h3 class="anchored" data-anchor-id="vpn">VPN</h3>
+<p>If you use the Maize server and plan to do work off campus, you will need to use the Carleton VPN.</p>
+<p>To install the GlobalProtect VPN follow <a href="https://stolafcarleton.teamdynamix.com/TDClient/2092/Carleton/KB/ArticleDet?ID=137157&amp;SIDs=10285">directions provided by ITS</a>.</p>
+</section><section id="git-and-latex" class="level3"><h3 class="anchored" data-anchor-id="git-and-latex">Git and LaTeX</h3>
+<p>You do not need to install Git or LaTeX if you use the Maize server, as these are already on campus computers. You can, by default, create pdf files from R Markdown or Quarto files when using the Maize server. However, you will not be able to use GitHub Desktop and will instead need to use Git at the command line. See the Git/Github in Stat 220 page.</p>
+<hr></section></section><section id="other-tangentially-related-information" class="level2"><h2 class="anchored" data-anchor-id="other-tangentially-related-information">Other Tangentially Related Information</h2>
+<section id="latex-outside-rstudio" class="level3"><h3 class="anchored" data-anchor-id="latex-outside-rstudio">LaTeX outside RStudio</h3>
 <p>If you’d like a stand alone LaTeX package, you could install the basic installations of either:</p>
 <ul>
 <li><p><a href="https://www.tug.org/mactex/">MacTeX</a> for Mac (3.2GB!)</p></li>
 <li><p><a href="https://miktex.org/download">MiKTeX</a> for Windows (190MB)</p></li>
+<li><p>You could also write documents in LaTeX using <a href="https://www.overleaf.com/">Overleaf</a>.</p></li>
 </ul>
-<hr>
-<section id="acknowledgements" class="level4"><h4 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h4>
-<p>This installation guide was written by Adam Loy and is based on the guide from stat545.com and is licensed under the CC BY-NC 3.0 Creative Commons License.</p>
+<p>You may be interested in your own LaTeX if you are taking math classes or other classes where you’d like to incorporate a lot of mathematical symbols/equations into your writing. But you can actually do all of that in RStudio as well (albeit with slightly less/less obvious control over the layout and such).</p>
+</section><section id="command-line-git" class="level3"><h3 class="anchored" data-anchor-id="command-line-git">Command Line Git</h3>
+<p>For this class, I do <em>not</em> recommend using Git at the command line (in fact, while I used to use Git this way, these days I myself even use GitHub Desktop), but there are <em>some</em> more advanced workflows that are easier to do using command line Git. These will not be relevant to the class, but if you are interested (now or way in the future), here is more information.</p>
+<section id="installing-git" class="level4"><h4 class="anchored" data-anchor-id="installing-git">Installing Git</h4>
+<p>Directions for both Windows &amp; Mac here at <a href="http://happygitwithr.com/install-git.html" class="uri">http://happygitwithr.com/install-git.html</a>.</p>
+<ul>
+<li><p>Windows users should follow Option 1 in 6.2.</p></li>
+<li><p>Mac users can follow Option 1 in 6.3 if comfortable, otherwise follow Option 2</p></li>
+<li><p>Linux users can follow 6.4.</p></li>
+</ul>
+<hr></section><section id="acknowledgements" class="level4"><h4 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h4>
+<p>This page borrows heavily from an installation guide written by Adam Loy and is based on the guide from stat545.com. It is licensed under the CC BY-NC 3.0 Creative Commons License.</p>
 
 
 </section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

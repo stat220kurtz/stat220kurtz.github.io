@@ -18,7 +18,7 @@ If you are **not** working on the maize RStudio server, then make sure that you 
 
 Everyone needs to connect Git and GitHub by doing the following:
 
-1.  Register for account on GitHub (<https://github.com/>). I recommend using a username that incorporates your name (e.g. aluby). Please use your Carleton email with this account (you can connect multiple emails to a single GitHub account)
+1.  Register for account on GitHub (<https://github.com/>). I recommend using a username that incorporates your name (e.g. emilylucindakurtz). Please use your Carleton email with this account (you can connect multiple emails to a single GitHub account)
 
 2.  Setup options in Git by running the following code chunk in your console:
 
