@@ -10,7 +10,7 @@ I expect you to use RStudio to run R in this course. If you have taken STAT 120 
 - part of this course will involve using Git and GitHub, and for beginners (and even more advanced users!) I believe using a Git client is easier
 - you don't have to have internet access or be on campus/VPN into campus to access RStudio
 
-That said, if you do not have a personal computer or if yours is particularly old and slow (I've done plenty of R coding on #250, 5+ year old laptops, so this likely will not impact you), then the Maize server is a great option. If you think your computer will not be up to the task for this class, skip to the Maize section of this page and follow those instructions.
+That said, if you do not have a personal computer or if yours is particularly old and slow (I've done plenty of R coding on $250, 5+ year old laptops, so this likely will not impact you), then the Maize server is a great option. If you think your computer will not be up to the task for this class, skip to the Maize section of this page and follow those instructions.
 
 ### Downloading R and RStudio
 
@@ -82,7 +82,7 @@ To install the GlobalProtect VPN follow [directions provided by ITS](https://sto
 
 ### Git and LaTeX
 
-You do not need to install Git or LaTeX if you use the Maize server, as these are already on campus computers. You can, by default, create pdf files from R Markdown or Quarto files when using the Maize server. However, you will not be able to use GitHub Desktop and will instead need to use Git at the command line. See the Git/Github in Stat 220 page.
+You do not need to install Git or LaTeX if you use the Maize server, as these are already on campus computers. You can, by default, create pdf files from R Markdown or Quarto files when using the Maize server. However, you will not be able to use GitHub Desktop and will instead need to use Git at the command line. See the Command Line Git page on this website.
 
 ------------------------------------------------------------------------
 
