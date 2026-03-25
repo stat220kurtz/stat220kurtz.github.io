@@ -11,6 +11,10 @@ There will be a lot of RStudio content thrown your way this term, most in the fo
 
 To get started with this organization, follow the steps below.
 
+## File organization: Using your own RStudio
+
+Create a folder called **stat220** somewhere on your computer. Within this folder create an **assignments** subfolder. Then complete **step 5** from below (the Maize section) to create a **activities** RStudio project folder.
+
 ## File organization: Using maize
 
 The server (online) version of RStudio is run from a Unix server. You can navigate this file system using Unix commands, but I assume that most or all of you will just use RStudio to access your files on this server.
@@ -68,25 +72,11 @@ knitr::include_graphics("images/maize_Rproj.png")
 
 **Warning: Do not** create an RStudio project in the main stat220 folder because it is not good practice to have RStudio projects in subfolders of another project (e.g. a project within a project is not recommended).
 
-## File organization: Using your own RStudio
-
-Create a folder called **stat220** somewhere on your computer. Within this folder create an **assignments** subfolder. Then complete **step 5** from above to create a **activities** RStudio project folder.
-
 ## RStudio projects
 
-Once you've created a project, your R session should be running within that project folder. You can check which project you are in by checking the project name in the upper right part of your RStudio window. Here we see the **activities** project is open:
+Once you've created a project, your R session should be running within that project folder. You can check which project you are in by checking the project name in the upper left part of your RStudio window.
 
-```{r echo=FALSE, fig.align='center'}
-knitr::include_graphics("images/maize_content.png")
-```
-
-Running R from an RStudio project sets your **working directory** to the project folder:
-
-```{r echo=FALSE, fig.align='center'}
-knitr::include_graphics("images/maize_getwd.png")
-```
-
-This allows for easy file path access to all files related to this project.
+Running R from an RStudio project sets your **working directory** to the project folder. This allows for easy file path access to all files related to this project.
 
 To **start** a project, click on the `.Rproj` file or use the **Open Project...** option shown in step 5 above.
 
@@ -96,8 +86,6 @@ To **start** a project, click on the `.Rproj` file or use the **Open Project...*
 -   Do not use gmail as a file storage system! Avoid emailing yourself files that you created (and saved) on a lab computer. Eventually you will lose work this way.
 -   Avoid using online versions of google drive and dropbox. Similar to gmail, downloading, editing a doc, then uploading it back to drive/dropbox is another great way to lose work.
 -   Avoid [this](https://xkcd.com/1459/) and [this](http://phdcomics.com/comics.php?f=1531).
-
-
 
 
 ## Acknowledgments {.appendix}

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.42">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Using RStudio in Stat 220 – Stat 220</title>
+
+
+<title>Command Line Git – Stat 220</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,7 +20,42 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
+
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -25,8 +63,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../computing/git-stat220.html" rel="next">
-<link href="../computing/computing-access.html" rel="prev">
+<link href="../computing/computing-cheatsheets.html" rel="next">
+<link href="../computing/git-stat220.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -37,7 +75,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-3021f7aae5c5f93844abbcf46df64d48.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-07dda2090bcc851cffc0d6f22959cfd1.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-dark-07dda2090bcc851cffc0d6f22959cfd1.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -64,26 +103,36 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+
+
 </head>
+
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../computing/computing-access.html">Computing</a></li><li class="breadcrumb-item"><a href="../computing/rstudio-stat220.html">Rstudio in Stat 220</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../computing/computing-access.html">Computing</a></li><li class="breadcrumb-item"><a href="../computing/commandline.html">Command Line Git</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
       <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/stat220kurtz" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
     <a href="https://maize.mathcs.carleton.edu/" title="RStudio Server" class="quarto-navigation-tool px-1" aria-label="RStudio Server"><i class="bi bi-code-square"></i></a>
@@ -98,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item sidebar-item-section">
+        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Course information</span></a>
@@ -106,8 +155,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../course-syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
@@ -132,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -141,8 +190,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../computing/computing-access.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Access</span></a>
@@ -150,13 +199,19 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../computing/rstudio-stat220.html" class="sidebar-item-text sidebar-link active">
+  <a href="../computing/rstudio-stat220.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rstudio in Stat 220</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../computing/git-stat220.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git/GitHub in Stat 220</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing/commandline.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Command Line Git</span></a>
   </div>
 </li>
@@ -167,25 +222,27 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#file-organization-using-your-own-rstudio" id="toc-file-organization-using-your-own-rstudio" class="nav-link active" data-scroll-target="#file-organization-using-your-own-rstudio">File organization: Using your own RStudio</a></li>
-  <li><a href="#file-organization-using-maize" id="toc-file-organization-using-maize" class="nav-link" data-scroll-target="#file-organization-using-maize">File organization: Using maize</a></li>
-  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects">RStudio projects</a></li>
-  <li><a href="#best-practices-or-what-not-to-do" id="toc-best-practices-or-what-not-to-do" class="nav-link" data-scroll-target="#best-practices-or-what-not-to-do">Best practices (or what not to do)</a></li>
-  
-  </ul></nav>
+  <li><a href="#getting-setup-with-git-and-github" id="toc-getting-setup-with-git-and-github" class="nav-link active" data-scroll-target="#getting-setup-with-git-and-github">Getting setup with Git and GitHub</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../computing/computing-access.html">Computing</a></li><li class="breadcrumb-item"><a href="../computing/rstudio-stat220.html">Rstudio in Stat 220</a></li></ol></nav><div class="quarto-title">
-<h1 class="title">Using RStudio in Stat 220</h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../computing/computing-access.html">Computing</a></li><li class="breadcrumb-item"><a href="../computing/commandline.html">Command Line Git</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Command Line Git</h1>
 </div>
 
 
@@ -199,129 +256,60 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header><p>There will be a lot of RStudio content thrown your way this term, most in the form of .qmd (Quarto) files. To stay organized, I <em>strongly</em> suggest you create a <strong>stat220</strong> folder that contains the following subfolders:</p>
-<ul>
-<li>
-<strong>stat220</strong> folder
-<ul>
-<li><p><strong>Assignments subfolder:</strong> This folder will contain subfolders for each assignment. Each assignment subfolder (e.g.&nbsp;homework1, homework2, …) will be a Github connected RStudio project that you will create <strong>once an assignment is posted.</strong></p></li>
-<li><p><strong>Activities subfolder:</strong> This folder should be used to save any non-assignment files (e.g.&nbsp;slides, examples) for this class. You will create this subfolder by creating an RStudio project (see step 5 below).</p></li>
-</ul>
-</li>
-</ul>
-<p>To get started with this organization, follow the steps below.</p>
-<section id="file-organization-using-your-own-rstudio" class="level2"><h2 class="anchored" data-anchor-id="file-organization-using-your-own-rstudio">File organization: Using your own RStudio</h2>
-<p>Create a folder called <strong>stat220</strong> somewhere on your computer. Within this folder create an <strong>assignments</strong> subfolder. Then complete <strong>step 5</strong> from below (the Maize section) to create a <strong>activities</strong> RStudio project folder.</p>
-</section><section id="file-organization-using-maize" class="level2"><h2 class="anchored" data-anchor-id="file-organization-using-maize">File organization: Using maize</h2>
-<p>The server (online) version of RStudio is run from a Unix server. You can navigate this file system using Unix commands, but I assume that most or all of you will just use RStudio to access your files on this server.</p>
-<p><strong>1.</strong> In RStudio, click the <strong>Files</strong> <em>tab</em> in the lower right-hand window. Note: this is <strong>not</strong> the same as the <strong>File</strong> <em>menu</em> option.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/maize_files.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="206"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>2.</strong> Verify that you are in your <strong>HOME</strong> folder (should simply say Home right under the New Folder button). To navigate to your Home folder (if somehow you are not in it), click the <strong>…</strong> button (far right side of the <strong>Files</strong> tab) and enter a ~ (tilde) symbol</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/maize_home.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="217"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>3.</strong> Click the <strong>New Folder</strong> button and name the folder <strong>stat220</strong>.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/maize_newfolder.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="212"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>4.</strong> Click on this newly created (empty) <strong>stat220</strong> folder. Within the folder create another <strong>New Folder</strong> and name it <strong>assignments</strong>.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/maize_stat220.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="105"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>5.</strong> Within the <strong>stat220</strong> folder, create an <strong>RStudio project</strong> called <strong>activities</strong> with the following steps:</p>
-<ul>
-<li>
-<strong>a.</strong> Click the <strong>Project</strong> button in the upper right corner of your RStudio window and select <strong>New Project…</strong>.</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/maize_project.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="164"></p>
-</figure>
-</div>
-</div>
-</div>
-<ul>
-<li>
-<strong>b.</strong> Select <strong>New Directory</strong> and then <strong>New Project</strong>
-</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/maize_newdirectory.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/maize_newdirectory2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<ul>
-<li>
-<strong>c.</strong> Enter <strong>activities</strong> as the <strong>Directory name</strong> and use the <strong>Browse</strong> button to find your <strong>stat220</strong> folder. Then click <strong>Create Project</strong>.</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/maize_create.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<ul>
-<li>
-<strong>d.</strong> You should now have a new folder called <strong>activities</strong> in your <strong>stat220</strong> folder and this folder will contain an RStudio project <code>.Rproj</code>. Feel free to add subfolders to this <strong>activities</strong> folder (e.g.&nbsp;slides, examples, etc).</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/maize_Rproj.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="216"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>Warning: Do not</strong> create an RStudio project in the main stat220 folder because it is not good practice to have RStudio projects in subfolders of another project (e.g.&nbsp;a project within a project is not recommended).</p>
-</section><section id="rstudio-projects" class="level2"><h2 class="anchored" data-anchor-id="rstudio-projects">RStudio projects</h2>
-<p>Once you’ve created a project, your R session should be running within that project folder. You can check which project you are in by checking the project name in the upper left part of your RStudio window.</p>
-<p>Running R from an RStudio project sets your <strong>working directory</strong> to the project folder. This allows for easy file path access to all files related to this project.</p>
-<p>To <strong>start</strong> a project, click on the <code>.Rproj</code> file or use the <strong>Open Project…</strong> option shown in step 5 above.</p>
-</section><section id="best-practices-or-what-not-to-do" class="level2"><h2 class="anchored" data-anchor-id="best-practices-or-what-not-to-do">Best practices (or what not to do)</h2>
-<ul>
-<li>Never save files to a lab computer hard drive (e.g.&nbsp;desktop, downloads, etc). They will be erased when you log off.</li>
-<li>Do not use gmail as a file storage system! Avoid emailing yourself files that you created (and saved) on a lab computer. Eventually you will lose work this way.</li>
-<li>Avoid using online versions of google drive and dropbox. Similar to gmail, downloading, editing a doc, then uploading it back to drive/dropbox is another great way to lose work.</li>
-<li>Avoid <a href="https://xkcd.com/1459/">this</a> and <a href="http://phdcomics.com/comics.php?f=1531">this</a>.</li>
-</ul></section><div id="quarto-appendix" class="default"><section id="acknowledgments" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Acknowledgments</h2><div class="quarto-appendix-contents">
-<p>This guide is based on the guide from Katie St.&nbsp;Clair and is licensed under the CC BY-NC 3.0 Creative Commons License.</p>
+</header>
 
 
-</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+<p>This is a guide for students using the Maize server (or those who are otherwise interested in using Git at the command line) to setup Git and GitHub for use in Stat 220.</p>
+<p>If you are using the maize RStudio server, then you can connect to GitHub without any extra software downloads. If you are using RStudio on your computer, then you will need to download Git software (as directed in <a href="../computing/computing-access.html">Computing Access</a>) to use GitHub connected projects.</p>
+<p>I will host all of our course materials on GitHub, and you will use GitHub to submit homework and collaborate on projects.</p>
+<hr>
+<section id="getting-setup-with-git-and-github" class="level2">
+<h2 class="anchored" data-anchor-id="getting-setup-with-git-and-github">Getting setup with Git and GitHub</h2>
+<p>If you are <strong>not</strong> working on the maize RStudio server, then make sure that you have installed all of the software mentioned in <a href="../computing/computing-access.html">Computing Access</a>. In addition, you should install the <code>usethis</code> and <code>gitcreds</code> R packages.</p>
+<p>If you plan to use command line Git, then you need to connect Git and GitHub by doing the following:</p>
+<ol type="1">
+<li><p>If you haven’t already, register for account on GitHub (<a href="https://github.com/" class="uri">https://github.com/</a>). I recommend using a username that incorporates your name (e.g.&nbsp;emilylucindakurtz). Please use your Carleton email with this account (you can connect multiple emails to a single GitHub account)</p></li>
+<li><p>Setup options in Git by running the following code chunk in your console:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"Jane Doe"</span>, <span class="at">user.email =</span> <span class="st">"jane@example.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>changing the first two lines to your own name and email (this should be the email associated with your GitHub account).</p></li>
+<li><p>In order to commit and push to GitHub via R, you need to create a <strong>PAT (Personal Access Token)</strong>. This is like a Password 2.0. When RStudio prompts you for your GitHub username and password, use your PAT instead.</p>
+<ul>
+<li>Complete the steps in <a href="https://happygitwithr.com/https-pat">Happy Git with R Ch 9.3</a> to get a personal access token. I recommend using the “classic” token, but either should work. You will need <code>workflow</code>, <code>user</code>, and <code>repo</code> scopes (permissions) for this class, and I recommend setting it for 90 days so you won’t need a new one through the end of the term. Make sure to save this somewhere safe!</li>
+</ul></li>
+<li><p>It will be annoying to type your PAT in anytime you want to push to github. If you’re working on your own computer you can tell R to store your git credentials. First, save your name and email:</p></li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"Jane Doe"</span>, <span class="at">user.email =</span> <span class="st">"jane@example.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then, run the following command:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When prompted for your password, use your PAT from Step 3.</p>
+<pre><code>&gt; gitcreds::gitcreds_set()
+
+? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+-&gt; Adding new credentials...
+-&gt; Removing credentials from cache...
+-&gt; Done.</code></pre>
+<p>To see if things are set up correctly, run</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">git_sitrep</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and one of the results should be something like the following:</p>
+<pre><code>── GitHub user 
+• Default GitHub host: "https://github.com"
+• Personal access token for "https://github.com": &lt;discovered&gt;
+• GitHub user: "aluby"
+• Token scopes: "repo", "user", and "workflow"
+• Email(s): "aluby@carleton.edu"</code></pre>
+<p>if instead of <code>&lt;discovered&gt;</code> you see <code>&lt;unset&gt;</code>, you may need to enter your PAT again.</p>
+<hr>
+<section id="acknowledgements" class="level4">
+<h4 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h4>
+<p>Most of this content in this guide was taken from <a href="https://github.com/jfiksel/github-classroom-for-students" class="uri">https://github.com/jfiksel/github-classroom-for-students</a> and edited by Adam Loy for our classroom use. and is licensed under the CC BY-NC 3.0 Creative Commons License.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -881,19 +869,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../computing/computing-access.html" class="pagination-link" aria-label="Access">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Access</span>
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../computing/git-stat220.html" class="pagination-link" aria-label="Git/GitHub in Stat 220">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git/GitHub in Stat 220</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../computing/git-stat220.html" class="pagination-link" aria-label="Command Line Git">
-        <span class="nav-page-text">Command Line Git</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../computing/computing-cheatsheets.html" class="pagination-link" aria-label="Cheatsheets">
+        <span class="nav-page-text">Cheatsheets</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Many thanks to Amanda Luby <br> Design by Mine Çetinkaya-Rundel</p>
 </div>   
@@ -905,6 +896,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+
+
 
 
 </body></html>

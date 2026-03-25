@@ -49,6 +49,8 @@ website:
           - href: computing/rstudio-stat220.qmd
             text: Rstudio in Stat 220
           - href: computing/git-stat220.qmd
+            text: Git/GitHub in Stat 220
+          - href: computing/commandline.qmd
             text: Command Line Git
           - href: computing/computing-cheatsheets.qmd
             text: Cheatsheets

@@ -1373,5 +1373,137 @@
       "Computing",
       "Access"
     ]
+  },
+  {
+    "objectID": "computing/rstudio-stat220.html",
+    "href": "computing/rstudio-stat220.html",
+    "title": "Using RStudio in Stat 220",
+    "section": "",
+    "text": "There will be a lot of RStudio content thrown your way this term, most in the form of .qmd (Quarto) files. To stay organized, I strongly suggest you create a stat220 folder that contains the following subfolders:\nTo get started with this organization, follow the steps below.",
+    "crumbs": [
+      "Computing",
+      "Rstudio in Stat 220"
+    ]
+  },
+  {
+    "objectID": "computing/rstudio-stat220.html#file-organization-using-your-own-rstudio",
+    "href": "computing/rstudio-stat220.html#file-organization-using-your-own-rstudio",
+    "title": "Using RStudio in Stat 220",
+    "section": "File organization: Using your own RStudio",
+    "text": "File organization: Using your own RStudio\nCreate a folder called stat220 somewhere on your computer. Within this folder create an assignments subfolder. Then complete step 5 from below (the Maize section) to create a activities RStudio project folder.",
+    "crumbs": [
+      "Computing",
+      "Rstudio in Stat 220"
+    ]
+  },
+  {
+    "objectID": "computing/rstudio-stat220.html#file-organization-using-maize",
+    "href": "computing/rstudio-stat220.html#file-organization-using-maize",
+    "title": "Using RStudio in Stat 220",
+    "section": "File organization: Using maize",
+    "text": "File organization: Using maize\nThe server (online) version of RStudio is run from a Unix server. You can navigate this file system using Unix commands, but I assume that most or all of you will just use RStudio to access your files on this server.\n1. In RStudio, click the Files tab in the lower right-hand window. Note: this is not the same as the File menu option.\n\n\n\n\n\n\n\n\n2. Verify that you are in your HOME folder (should simply say Home right under the New Folder button). To navigate to your Home folder (if somehow you are not in it), click the … button (far right side of the Files tab) and enter a ~ (tilde) symbol\n\n\n\n\n\n\n\n\n3. Click the New Folder button and name the folder stat220.\n\n\n\n\n\n\n\n\n4. Click on this newly created (empty) stat220 folder. Within the folder create another New Folder and name it assignments.\n\n\n\n\n\n\n\n\n5. Within the stat220 folder, create an RStudio project called activities with the following steps:\n\n\na. Click the Project button in the upper right corner of your RStudio window and select New Project….\n\n\n\n\n\n\n\n\n\n\n\nb. Select New Directory and then New Project\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nc. Enter activities as the Directory name and use the Browse button to find your stat220 folder. Then click Create Project.\n\n\n\n\n\n\n\n\n\n\n\nd. You should now have a new folder called activities in your stat220 folder and this folder will contain an RStudio project .Rproj. Feel free to add subfolders to this activities folder (e.g. slides, examples, etc).\n\n\n\n\n\n\n\n\n\nWarning: Do not create an RStudio project in the main stat220 folder because it is not good practice to have RStudio projects in subfolders of another project (e.g. a project within a project is not recommended).",
+    "crumbs": [
+      "Computing",
+      "Rstudio in Stat 220"
+    ]
+  },
+  {
+    "objectID": "computing/rstudio-stat220.html#rstudio-projects",
+    "href": "computing/rstudio-stat220.html#rstudio-projects",
+    "title": "Using RStudio in Stat 220",
+    "section": "RStudio projects",
+    "text": "RStudio projects\nOnce you’ve created a project, your R session should be running within that project folder. You can check which project you are in by checking the project name in the upper left part of your RStudio window.\nRunning R from an RStudio project sets your working directory to the project folder. This allows for easy file path access to all files related to this project.\nTo start a project, click on the .Rproj file or use the Open Project… option shown in step 5 above.",
+    "crumbs": [
+      "Computing",
+      "Rstudio in Stat 220"
+    ]
+  },
+  {
+    "objectID": "computing/rstudio-stat220.html#best-practices-or-what-not-to-do",
+    "href": "computing/rstudio-stat220.html#best-practices-or-what-not-to-do",
+    "title": "Using RStudio in Stat 220",
+    "section": "Best practices (or what not to do)",
+    "text": "Best practices (or what not to do)\n\nNever save files to a lab computer hard drive (e.g. desktop, downloads, etc). They will be erased when you log off.\nDo not use gmail as a file storage system! Avoid emailing yourself files that you created (and saved) on a lab computer. Eventually you will lose work this way.\nAvoid using online versions of google drive and dropbox. Similar to gmail, downloading, editing a doc, then uploading it back to drive/dropbox is another great way to lose work.\nAvoid this and this.",
+    "crumbs": [
+      "Computing",
+      "Rstudio in Stat 220"
+    ]
+  },
+  {
+    "objectID": "computing/rstudio-stat220.html#acknowledgments",
+    "href": "computing/rstudio-stat220.html#acknowledgments",
+    "title": "Using RStudio in Stat 220",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nThis guide is based on the guide from Katie St. Clair and is licensed under the CC BY-NC 3.0 Creative Commons License.",
+    "crumbs": [
+      "Computing",
+      "Rstudio in Stat 220"
+    ]
+  },
+  {
+    "objectID": "computing/commandline.html",
+    "href": "computing/commandline.html",
+    "title": "Command Line Git",
+    "section": "",
+    "text": "This is a guide for students using the Maize server (or those who are otherwise interested in using Git at the command line) to setup Git and GitHub for use in Stat 220.\nIf you are using the maize RStudio server, then you can connect to GitHub without any extra software downloads. If you are using RStudio on your computer, then you will need to download Git software (as directed in Computing Access) to use GitHub connected projects.\nI will host all of our course materials on GitHub, and you will use GitHub to submit homework and collaborate on projects.",
+    "crumbs": [
+      "Computing",
+      "Command Line Git"
+    ]
+  },
+  {
+    "objectID": "computing/commandline.html#getting-setup-with-git-and-github",
+    "href": "computing/commandline.html#getting-setup-with-git-and-github",
+    "title": "Command Line Git",
+    "section": "Getting setup with Git and GitHub",
+    "text": "Getting setup with Git and GitHub\nIf you are not working on the maize RStudio server, then make sure that you have installed all of the software mentioned in Computing Access. In addition, you should install the usethis and gitcreds R packages.\nIf you plan to use command line Git, then you need to connect Git and GitHub by doing the following:\n\nIf you haven’t already, register for account on GitHub (https://github.com/). I recommend using a username that incorporates your name (e.g. emilylucindakurtz). Please use your Carleton email with this account (you can connect multiple emails to a single GitHub account)\nSetup options in Git by running the following code chunk in your console:\nlibrary(usethis)\nuse_git_config(user.name = \"Jane Doe\", user.email = \"jane@example.org\")\nchanging the first two lines to your own name and email (this should be the email associated with your GitHub account).\nIn order to commit and push to GitHub via R, you need to create a PAT (Personal Access Token). This is like a Password 2.0. When RStudio prompts you for your GitHub username and password, use your PAT instead.\n\nComplete the steps in Happy Git with R Ch 9.3 to get a personal access token. I recommend using the “classic” token, but either should work. You will need workflow, user, and repo scopes (permissions) for this class, and I recommend setting it for 90 days so you won’t need a new one through the end of the term. Make sure to save this somewhere safe!\n\nIt will be annoying to type your PAT in anytime you want to push to github. If you’re working on your own computer you can tell R to store your git credentials. First, save your name and email:\n\nuse_git_config(user.name = \"Jane Doe\", user.email = \"jane@example.org\")\nThen, run the following command:\ngitcreds::gitcreds_set()\nWhen prompted for your password, use your PAT from Step 3.\n&gt; gitcreds::gitcreds_set()\n\n? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n-&gt; Adding new credentials...\n-&gt; Removing credentials from cache...\n-&gt; Done.\nTo see if things are set up correctly, run\nusethis::git_sitrep()\nand one of the results should be something like the following:\n── GitHub user \n• Default GitHub host: \"https://github.com\"\n• Personal access token for \"https://github.com\": &lt;discovered&gt;\n• GitHub user: \"aluby\"\n• Token scopes: \"repo\", \"user\", and \"workflow\"\n• Email(s): \"aluby@carleton.edu\"\nif instead of &lt;discovered&gt; you see &lt;unset&gt;, you may need to enter your PAT again.\n\n\nAcknowledgements\nMost of this content in this guide was taken from https://github.com/jfiksel/github-classroom-for-students and edited by Adam Loy for our classroom use. and is licensed under the CC BY-NC 3.0 Creative Commons License.",
+    "crumbs": [
+      "Computing",
+      "Command Line Git"
+    ]
+  },
+  {
+    "objectID": "computing/git-stat220.html",
+    "href": "computing/git-stat220.html",
+    "title": "GitHub Class Guide for STAT 220",
+    "section": "",
+    "text": "If you followed the suggestions in the Using Rstudio in Stat 220 page, then you should already have an assignments folder on your computer or maize account.\nEach new assignment/project will be posted as a repository on GitHub and added directly to your account (within the Stat220 organization). This repository will contain assignment details (README, .Rmd).\n\n\nGo to our course GitHub organization page and find your homework repo, such as hw01-username (where your username is attached).\nEnter the online assignment repository on GitHub. Click the green “Code” button. Most of you should just use the default setting which is to “clone” (copy) using HTTPS. Click the clipboard to the right of the URL to copy the repo location. (If you are using SSH, make sure it says “Clone with SSH” in bold in the top left of the pop-up box. If not, click the “SSH” button and copy the link in the box to your clipboard.)\nNow open up RStudio and create a project as follows:\n\n\nClick the Project button in the upper right corner of your RStudio window and select New Project…\n\n\n\n\n\n\n\n\n\n\n\nSelect Version Control and then New Project\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPaste the link you just copied into the Repository URL box. Leave the Project directory name blank (or keep the auto-filled name). Use the Browse button to find your assignments folder, then click Create Project\n\n\n\n\n\n\n\n\n\n\nWarning: If you received an error in the above steps, you may have to clone with HTTPS instead of SSH (or vice versa). You can do this by again clicking on the “Clone or Download” button in the repository page, then clicking “Use HTTPS” in the top right of the pop-up box. Now copy the link and repeat this step.\n\nAn RStudio project should now open, which will allow you to start working on your homework assignment. You should see the project assignment name in the top right side of Rstudio. You will probably see a blank console screen when you open a new project. Look in the Files tab for your homework .Rmd file. Click on whatever file you want to edit (probably the .Rmd file) and edit away. Make sure that your current assignment’s project is the one open and showing in the upper right project name. To open a project, click on the .Rproj file or use the Open Project… option available in the upper right project link.\n\nAfter you make changes to the homework assignment, commit them. What are commits you ask? Commits are essentially taking a snapshot of your projects. Commits save this snapshot to your local version of Git (located on your hard drive or the maize server). For example, if I make changes to a code so that it prints “Hello world”, and then commit them with an informative message, I can look at the history of my commits and view the code that I wrote at that time. If I made some more changes to the function that resulted in an error, I could go back to the commit where the code was originally working. This prevents you from creating several versions of your homework (homework-v1, homework-v2, …) or from trying to remember what your code originally looked like.\nYou can make commits in the Git tab in RStudio.\n\n\n\n\n\n\n\n\nClick the Commit button in the Git tab. Check the boxes of the files that you want to commit, enter your commit message (briefly state what changes have been made), then hit Commit. You can read how to do this in RStudio in more detail here: http://r-pkgs.had.co.nz/git.html#git-commit.\nTwo things about committing.\n\nYou should commit somewhat frequently. At minimum, if you’re doing a homework assignment, you should make a commit each time that you’ve finished a question.\nLeave informative commit messages. “Added stuff” will not help you if you’re looking at your commit history in a year. A message like “Added initial version of hello-world function” will be more useful.\n\nAt some point you’ll want to get the updated version of the assignment back onto GitHub, either so that we can help you with your code or so that it can be graded. You will also want to push work frequently when you have a shared GitHub repo for project collaborations (i.e. more than one person is working on a project and code). If you are ready to push, you can again click on the “Up” Push arrow in the Git tab or in the Commit pop-up window or in the Git tab (shown above).\nTo “turn in” an assignment, all you need to do is push all your relevant files to Github by the deadline, and then link your submission on gradescope.",
+    "crumbs": [
+      "Computing",
+      "Git/GitHub in Stat 220"
+    ]
+  },
+  {
+    "objectID": "computing/git-stat220.html#individual-assignments",
+    "href": "computing/git-stat220.html#individual-assignments",
+    "title": "GitHub Class Guide for STAT 220",
+    "section": "",
+    "text": "If you followed the suggestions in the Using Rstudio in Stat 220 page, then you should already have an assignments folder on your computer or maize account.\nEach new assignment/project will be posted as a repository on GitHub and added directly to your account (within the Stat220 organization). This repository will contain assignment details (README, .Rmd).\n\n\nGo to our course GitHub organization page and find your homework repo, such as hw01-username (where your username is attached).\nEnter the online assignment repository on GitHub. Click the green “Code” button. Most of you should just use the default setting which is to “clone” (copy) using HTTPS. Click the clipboard to the right of the URL to copy the repo location. (If you are using SSH, make sure it says “Clone with SSH” in bold in the top left of the pop-up box. If not, click the “SSH” button and copy the link in the box to your clipboard.)\nNow open up RStudio and create a project as follows:\n\n\nClick the Project button in the upper right corner of your RStudio window and select New Project…\n\n\n\n\n\n\n\n\n\n\n\nSelect Version Control and then New Project\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPaste the link you just copied into the Repository URL box. Leave the Project directory name blank (or keep the auto-filled name). Use the Browse button to find your assignments folder, then click Create Project\n\n\n\n\n\n\n\n\n\n\nWarning: If you received an error in the above steps, you may have to clone with HTTPS instead of SSH (or vice versa). You can do this by again clicking on the “Clone or Download” button in the repository page, then clicking “Use HTTPS” in the top right of the pop-up box. Now copy the link and repeat this step.\n\nAn RStudio project should now open, which will allow you to start working on your homework assignment. You should see the project assignment name in the top right side of Rstudio. You will probably see a blank console screen when you open a new project. Look in the Files tab for your homework .Rmd file. Click on whatever file you want to edit (probably the .Rmd file) and edit away. Make sure that your current assignment’s project is the one open and showing in the upper right project name. To open a project, click on the .Rproj file or use the Open Project… option available in the upper right project link.\n\nAfter you make changes to the homework assignment, commit them. What are commits you ask? Commits are essentially taking a snapshot of your projects. Commits save this snapshot to your local version of Git (located on your hard drive or the maize server). For example, if I make changes to a code so that it prints “Hello world”, and then commit them with an informative message, I can look at the history of my commits and view the code that I wrote at that time. If I made some more changes to the function that resulted in an error, I could go back to the commit where the code was originally working. This prevents you from creating several versions of your homework (homework-v1, homework-v2, …) or from trying to remember what your code originally looked like.\nYou can make commits in the Git tab in RStudio.\n\n\n\n\n\n\n\n\nClick the Commit button in the Git tab. Check the boxes of the files that you want to commit, enter your commit message (briefly state what changes have been made), then hit Commit. You can read how to do this in RStudio in more detail here: http://r-pkgs.had.co.nz/git.html#git-commit.\nTwo things about committing.\n\nYou should commit somewhat frequently. At minimum, if you’re doing a homework assignment, you should make a commit each time that you’ve finished a question.\nLeave informative commit messages. “Added stuff” will not help you if you’re looking at your commit history in a year. A message like “Added initial version of hello-world function” will be more useful.\n\nAt some point you’ll want to get the updated version of the assignment back onto GitHub, either so that we can help you with your code or so that it can be graded. You will also want to push work frequently when you have a shared GitHub repo for project collaborations (i.e. more than one person is working on a project and code). If you are ready to push, you can again click on the “Up” Push arrow in the Git tab or in the Commit pop-up window or in the Git tab (shown above).\nTo “turn in” an assignment, all you need to do is push all your relevant files to Github by the deadline, and then link your submission on gradescope.",
+    "crumbs": [
+      "Computing",
+      "Git/GitHub in Stat 220"
+    ]
+  },
+  {
+    "objectID": "computing/git-stat220.html#group-work",
+    "href": "computing/git-stat220.html#group-work",
+    "title": "GitHub Class Guide for STAT 220",
+    "section": "Group work",
+    "text": "Group work\nCollaborative Github assignments are pretty similar to individual assignments.\nCreating a group/partner assignment repo and project\nGo to our course GitHub organization page and find the repo for your group, for example if your group name is “team01” the you might find the mp1-team01 repo. Clone this repo to your computer/maize account using the same steps done for an individual assignment (see steps 2-3).\nWorking with collaborative repos\nFor group homework, I suggest that only the recorder edit the group-homework-x.Rmd file to avoid merge conflicts! Other group members can create a new Markdown doc to run and save commands. Only the recorder needs to push changes (answers) to the Github repo and all others can then pull these changes (i.e. the final answers) after the HW is submitted.\nWhen you are working together on a Github project, you should commit and push your modifications frequently. You will also need to frequently pull updates from Github down to your local version of RStudio. These updates are changes that your teammates have made since your last pull. To pull in changes, click the “Down” Pull arrow in the Git tab (shown above).\nIf you get an error about conflict after pulling or pushing, don’t freak out! This can happen if you edit a file (usually an .Rmd or .R file) in a location that was also changed by a teammate. When this happens you should attempt to fix the merge conflict. Take a look at this resource site and try to fix the merge conflict in Rstudio. If that doesn’t work contact me!",
+    "crumbs": [
+      "Computing",
+      "Git/GitHub in Stat 220"
+    ]
+  },
+  {
+    "objectID": "computing/git-stat220.html#additional-resources",
+    "href": "computing/git-stat220.html#additional-resources",
+    "title": "GitHub Class Guide for STAT 220",
+    "section": "Additional resources",
+    "text": "Additional resources\n\nHappy Git and GitHub for the useR\nRstudio, Git and GitHub\nInteractive learning guide for Git\nGitHub Guides\nGit setup for Windows (video)\nGit setup for Mac (video)\nHow to clone, edit, and push homework assignments with GitHub Classroom (video)\n\n\nAcknowledgements\nMost of this content in this guide was taken from https://github.com/jfiksel/github-classroom-for-students and edited by Adam Loy for our classroom use. and is licensed under the CC BY-NC 3.0 Creative Commons License.",
+    "crumbs": [
+      "Computing",
+      "Git/GitHub in Stat 220"
+    ]
   }
 ]

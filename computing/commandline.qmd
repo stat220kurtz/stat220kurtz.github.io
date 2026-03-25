@@ -1,0 +1,80 @@
+---
+title: "Command Line Git" 
+---
+
+This is a guide for students using the Maize server (or those who are otherwise interested in using Git at the command line) to setup Git and GitHub for use in Stat 220.
+
+If you are using the maize RStudio server, then you can connect to GitHub without any extra software downloads. If you are using RStudio on your computer, then you will need to download Git software (as directed in [Computing Access](computing-access.qmd)) to use GitHub connected projects.
+
+I will host all of our course materials on GitHub, and you will use GitHub to submit homework and collaborate on projects.
+
+------------------------------------------------------------------------
+
+## Getting setup with Git and GitHub
+
+If you are **not** working on the maize RStudio server, then make sure that you have installed all of the software mentioned in [Computing Access](computing-access.qmd). In addition, you should install the `usethis` and `gitcreds` R packages.
+
+If you plan to use command line Git, then you need to connect Git and GitHub by doing the following:
+
+1.  If you haven't already, register for account on GitHub (<https://github.com/>). I recommend using a username that incorporates your name (e.g. emilylucindakurtz). Please use your Carleton email with this account (you can connect multiple emails to a single GitHub account)
+
+2.  Setup options in Git by running the following code chunk in your console:
+
+    ``` r
+    library(usethis)
+    use_git_config(user.name = "Jane Doe", user.email = "jane@example.org")
+    ```
+
+    changing the first two lines to your own name and email (this should be the email associated with your GitHub account).
+
+3.  In order to commit and push to GitHub via R, you need to create a **PAT (Personal Access Token)**. This is like a Password 2.0. When RStudio prompts you for your GitHub username and password, use your PAT instead. 
+
+    -   Complete the steps in [Happy Git with R Ch 9.3](https://happygitwithr.com/https-pat) to get a personal access token. I recommend using the "classic" token, but either should work. You will need `workflow`, `user`, and `repo` scopes (permissions) for this class, and I recommend setting it for 90 days so you won't need a new one through the end of the term. Make sure to save this somewhere safe! 
+
+4. It will be annoying to type your PAT in anytime you want to push to github. If you're working on your own computer you can tell R to store your git credentials. First, save your name and email: 
+
+  ``` r
+  use_git_config(user.name = "Jane Doe", user.email = "jane@example.org")
+  ```
+
+Then, run the following command:
+
+  ``` r
+  gitcreds::gitcreds_set()
+  ```
+
+When prompted for your password, use your PAT from Step 3. 
+
+```
+> gitcreds::gitcreds_set()
+
+? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+-> Adding new credentials...
+-> Removing credentials from cache...
+-> Done.
+```
+
+To see if things are set up correctly, run
+
+  ``` r
+  usethis::git_sitrep()
+  ```
+
+and one of the results should be something like the following: 
+
+```
+── GitHub user 
+• Default GitHub host: "https://github.com"
+• Personal access token for "https://github.com": <discovered>
+• GitHub user: "aluby"
+• Token scopes: "repo", "user", and "workflow"
+• Email(s): "aluby@carleton.edu"
+```
+
+if instead of `<discovered>` you see `<unset>`, you may need to enter your PAT again. 
+
+------------------------------------------------------------------------
+
+#### Acknowledgements
+
+Most of this content in this guide was taken from <https://github.com/jfiksel/github-classroom-for-students> and edited by Adam Loy for our classroom use. and is licensed under the CC BY-NC 3.0 Creative Commons License.
