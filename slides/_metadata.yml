@@ -1,6 +1,6 @@
 institute: "Carleton College <br> Stat 220 - Spring 2026"
 author: "Prof Emily Kurtz"
-footer: "[🔗 stat220-s26.github.io](https://stat220-s26.github.io)"
+footer: "[🔗 stat220kurtz.github.io](https://stat220kurtz.github.io/), [Illustrations](https://allisonhorst.com/other-r-fun)"
 format:
   revealjs:
     theme: slides.scss

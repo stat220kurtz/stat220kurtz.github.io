@@ -26,7 +26,7 @@
     "href": "index.html",
     "title": "Stat 220: Intro to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n1\nM\nMon, Mar 30\n📝complete welcome survey\n\nWelcome + data, R review\ntbd\n\n\n\n1\nW\nWed, Apr 1\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus and pass syllabus quiz to activate tokens\nGithub + reproducible reports\ntbd\n\n\n\n1\nF\nFri, Apr 3\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\n\nggplot\ntbd\nHW 1\n\n\n2\nM\nMon, Apr 6\n📚 DataViz 17-21 \n\nTheming + Design\ntbd\n\n\n\n2\nW\nWed, Apr 8\n📚 DataViz 15 \n\nMaps/spatial data\ntbd\nHW 2\n\n\n2\nF\nFri, Apr 10\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\n\nAccesibility for data viz\ntbd\n\n\n\n3\nM\nMon, Apr 13\n📚 R4DS 3.1-3.4 \n\nVerbs\ntbd\n\n\n\n3\nW\nWed, Apr 15\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \n\nGroups and summarizing Tidy data\ntbd\nHW 3\n\n\n3\nF\nFri, Apr 17\n📚 R4DS 4 \n\nCode style\ntbd\n\n\n\n4\nM\nMon, Apr 20\n📚 R4DS 19.1-19.3\n\nCombining datasets\ntbd\n\n\n\n4\nW\nWed, Apr 22\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \n\nImport data and dates/times\ntbd\nHW 4\n\n\n4\nF\nFri, Apr 24\nNO CLASS\nNO CLASS\ntbd\n\n\n\n5\nM\nMon, Apr 27\n📚 R4DS 16 \n\nWorking with factors\ntbd\nPortfolio 1\n\n\n5\nW\nWed, Apr 29\n📚 R4DS 14  📚 R4DS 15.1-15.5\n\nWorking with strings and Regex\ntbd\n\n\n\n5\nF\nFri, May 1\n📚 MDSR 19.2  🌎 Google ngram viewer\n\nIntro to Text Analysis\ntbd\nHW 5\n\n\n6\nM\nMon, May 4\n\n🏝️ Midterm Break; no class\ntbd\n\n\n\n6\nW\nWed, May 6\n📚 The Trouble with Sentiment Analysis\n\nText Analysis\ntbd\n\n\n\n6\nF\nFri, May 8\n📚 R4DS 25\n\nFunctions\ntbd\n\nPortfolio 2\n\n\n\n7\nM\nMon, May 11\n📚 MDSR 7.1-7.3\n\nIteration\ntbd\nHW6\n\n\n7\nW\nWed, May 13\n\nIteration II\ntbd\n\n\n\n7\nF\nFri, May 15\n\nAPIs\ntbd\nHW7\n\n\n8\nM\nMon, May 18\n\nScraping I\ntbd\nFinal Project Idea Form\n\n\n8\nW\nWed, May 20\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\n\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nF\nFri, May 22\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\n\nIntro to Interactivity\ntbd\n\nHW8 Portfolio 3\n\n\n\n9\nM\nMon, May 25\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\n\nShiny 1\ntbd\n\n\n\n9\nW\nWed, May 27\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\n\nShiny 2\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, May 29\n\nShiny 3\ntbd\n\n\n\n10\nM\nMon, Jun 1\n\nProject Demos\ntbd\n\n\n\n10\nW\nWed, Jun 3\n\nProject Demos\ntbd\nHW9\n\n\n\nNA\nMon, Jun 8\n\nFinal Project Due @ noon\ntbd\nFinal Project",
+    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\nX9\nX10\n\n\n\n1\nM\nMon, Mar 30\n📝complete welcome survey\n\nWelcome + data, R review\ntbd\n\nNA\nNA\n\n\n1\nW\nWed, Apr 1\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus and pass syllabus quiz to activate tokens\nGithub + reproducible reports\ntbd\n\nNA\nNA\n\n\n1\nF\nFri, Apr 3\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\n\nggplot\ntbd\nHW 1\nNA\nNA\n\n\n2\nM\nMon, Apr 6\n📚 DataViz 17-21 \n\nTheming + Design\ntbd\n\nNA\nNA\n\n\n2\nW\nWed, Apr 8\n📚 DataViz 15 \n\nMaps/spatial data\ntbd\nHW 2\nNA\nNA\n\n\n2\nF\nFri, Apr 10\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\n\nAccesibility for data viz\ntbd\n\nNA\nNA\n\n\n3\nM\nMon, Apr 13\n📚 R4DS 3.1-3.4 \n\nVerbs\ntbd\n\nNA\nNA\n\n\n3\nW\nWed, Apr 15\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \n\nGroups and summarizing Tidy data\ntbd\nHW 3\nNA\nNA\n\n\n3\nF\nFri, Apr 17\n📚 R4DS 4 \n\nCode style\ntbd\n\nNA\nNA\n\n\n4\nM\nMon, Apr 20\n📚 R4DS 19.1-19.3\n\nCombining datasets\ntbd\n\nNA\nNA\n\n\n4\nW\nWed, Apr 22\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \n\nImport data and dates/times\ntbd\nHW 4\nNA\nNA\n\n\n4\nF\nFri, Apr 24\nNO CLASS - FEEL FREE TO TAKE A BREAK, CATCH UP, OR LEARN TO BUILD A WEBSITE\nOPTIONAL: building a website using GitHub Pages\ntbd\n\nNA\nNA\n\n\n5\nM\nMon, Apr 27\n📚 R4DS 16 \n\nWorking with factors\ntbd\nPortfolio 1\nNA\nNA\n\n\n5\nW\nWed, Apr 29\n📚 R4DS 14  📚 R4DS 15.1-15.5\n\nWorking with strings and Regex\ntbd\n\nNA\nNA\n\n\n5\nF\nFri, May 1\n📚 MDSR 19.2  🌎 Google ngram viewer\n\nIntro to Text Analysis\ntbd\nHW 5\nNA\nNA\n\n\n6\nM\nMon, May 4\n\n🏝️ Midterm Break; no class\ntbd\n\nNA\nNA\n\n\n6\nW\nWed, May 6\n📚 The Trouble with Sentiment Analysis\n\nText Analysis\ntbd\n\nNA\nNA\n\n\n6\nF\nFri, May 8\n📚 R4DS 25\n\nFunctions\ntbd\n\nPortfolio 2\n\nNA\n/portfolio/portfolio-2.html\n\n\n7\nM\nMon, May 11\n📚 MDSR 7.1-7.3\n\nIteration\ntbd\nHW6\nNA\nNA\n\n\n7\nW\nWed, May 13\n\nIteration II\ntbd\n\nNA\nNA\n\n\n7\nF\nFri, May 15\n\nAPIs\ntbd\nHW7\nNA\nNA\n\n\n8\nM\nMon, May 18\n\nScraping I\ntbd\nFinal Project Idea Form\nNA\nNA\n\n\n8\nW\nWed, May 20\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\n\nScraping II\ntbd\nFinal Project Ranking Form\nNA\nNA\n\n\n8\nF\nFri, May 22\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\n\nIntro to Interactivity\ntbd\n\nHW8 Portfolio 3\n\nNA\nNA\n\n\n9\nM\nMon, May 25\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\n\nShiny 1\ntbd\n\nNA\nNA\n\n\n9\nW\nWed, May 27\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\n\nShiny 2\ntbd\nFinal Project sketch\nNA\nNA\n\n\n9\nF\nFri, May 29\n\nShiny 3\ntbd\n\nNA\nNA\n\n\n10\nM\nMon, Jun 1\n\nProject Demos\ntbd\nPortfolio 4\nNA\nNA\n\n\n10\nW\nWed, Jun 3\n\nProject Demos\ntbd\nHW9\nNA\nNA\n\n\n\nNA\nMon, Jun 8\n\nFinal Project Due @ noon\ntbd\nFinal Project\nNA\nNA",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -224,7 +224,7 @@
     "href": "slides/01/slides01.html#about-me",
     "title": "Welcome to Stat 220",
     "section": "About me",
-    "text": "About me\n\n\n\nFirst year at Carleton!\nPhD in Political Science from the University of Minnesota\nM.S. in Statistics from UMN\nOriginally from(ish) Cleveland, Ohio\nWent to Wellesley College for undergrad\nHave an almost 2 year old toddler named Glenn\nLike to walk around lakes, bike, play video games, and try out local restaurants\n\n\n%"
+    "text": "About me\n\n\n\nFirst year at Carleton!\nPhD in Political Science from the University of Minnesota\nM.S. in Statistics from UMN\nOriginally from(ish) Cleveland, Ohio\nWent to Wellesley College for undergrad\nHave an almost 2 year old toddler named Glenn\nLike to walk around lakes, bike, and try out local restaurants"
   },
   {
     "objectID": "slides/01/slides01.html#proud-of-nervous-about",
@@ -252,7 +252,7 @@
     "href": "slides/01/slides01.html#sneak-peek-class-survey-data",
     "title": "Welcome to Stat 220",
     "section": "Sneak peek: class survey data",
-    "text": "Sneak peek: class survey data\n\n\n# A tibble: 10 × 3\n   class_year sleep northfield_food\n   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;          \n 1 Sophomore      7 Desi Diner     \n 2 Sophomore      7 New Buffet     \n 3 Junior         7 Driving by car.\n 4 Junior         8 Desi Diner     \n 5 Senior         7 El Tri         \n 6 Sophomore      6 Desi Diner     \n 7 Junior         7 Desi diner     \n 8 First year    NA Pho            \n 9 Senior         8 El Triunfo     \n10 First year     8 culvers"
+    "text": "Sneak peek: class survey data\n\n\n# A tibble: 10 × 3\n   class_year sleep northfield_food       \n   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;                 \n 1 Senior       8   El Triunfo            \n 2 Junior       7   Reunion or Blue Monday\n 3 Senior       7   Desi Diner            \n 4 Sophomore    9   DoorDash              \n 5 Sophomore    7   Desi Diner            \n 6 Senior       6   El tri                \n 7 Senior       6   &lt;NA&gt;                  \n 8 Senior       8.5 Reunion               \n 9 Sophomore    6   Desi Diner            \n10 Junior       8   Desi Diner"
   },
   {
     "objectID": "slides/01/slides01.html#section",
@@ -322,7 +322,7 @@
     "href": "slides/01/slides01.html#section-3",
     "title": "Welcome to Stat 220",
     "section": "",
-    "text": "It’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.\n\n\n\nHadley Wickham, Advice to Young (and Old) Programmers: A Conversation with Hadley Wickham; Artwork by Allison Horst"
+    "text": "Course website\n\nhttps://stat220-w26.github.io\n\n\naccess slides\nsee schedule\n\nCourse github organization\n\nhttps://github.com/stat220-w26\n\n\naccess repositories for homework and projects"
   },
   {
     "objectID": "slides/01/slides01.html#maize-server",
@@ -1295,7 +1295,7 @@
     "href": "slides/01/slides01.html#in-groups-of-5ish",
     "title": "Welcome to Stat 220",
     "section": "In groups of 5ish",
-    "text": "In groups of 5ish\n\n\nIntroduce yourselves.\n1-2 in each group come up with a question to ask the group that can be measured as a:\n\n\nCategory, AKA factor (e.g. gender)\nNumber (e.g. how much sleep did you get last night?)\nFree text (e.g. favorite restaurant in town)\n\n\nAsk each other these questions - any common themes?\nShare a bit about why you’re taking this class"
+    "text": "In groups of 5ish\nTo get to know you all better, you will make a dataset about yourselves to share with the class. You have 30 minutes to do so. You should hit on the following buckets:\n\n\nDescribe your data: What are you interested in describing as part of your dataset? What are you not?\nCollect: Gather your data in one place\nClean: Edit the dataset so that it’s in a presentable, clean format\nAnalyze: What stories are in your dataset?\nDistribute: How will you share it back to me?"
   },
   {
     "objectID": "computing/computing-access.html",
@@ -1516,5 +1516,19 @@
       "Computing",
       "Cheatsheets"
     ]
+  },
+  {
+    "objectID": "slides/01/slides01.html#r-and-rstudio",
+    "href": "slides/01/slides01.html#r-and-rstudio",
+    "title": "Welcome to Stat 220",
+    "section": "R and RStudio",
+    "text": "R and RStudio\n\nInstalling R and RStudio\n\nHeavily encouraging you to have your own local R and RStudio\n\nYou may have to install packages as we go - use install.packages function\nYou may be used to Maize\nOkay to use that for now, but work on downloading R and RStudio\nNot strictly mandatory but highly encouraged - come to me with any issues"
+  },
+  {
+    "objectID": "slides/01/slides01.html#section-2",
+    "href": "slides/01/slides01.html#section-2",
+    "title": "Welcome to Stat 220",
+    "section": "",
+    "text": "It’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.\n\n\n\nHadley Wickham, Advice to Young (and Old) Programmers: A Conversation with Hadley Wickham; Artwork by Allison Horst"
   }
 ]
