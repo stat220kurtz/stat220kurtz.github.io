@@ -1,0 +1,59 @@
+---
+title: "An Overview of UN Votes over Time"
+date: "Last updated on `r Sys.Date()`"
+author: "Emily Kurtz"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+library(tidyverse)
+library(lubridate)
+library(scales)
+library(DT)
+library(unvotes)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+unvotes <- un_votes %>%
+  inner_join(un_roll_calls, by = "rcid") %>%
+  inner_join(un_roll_call_issues, by = "rcid")
+
+countrySample <- c("United Kingdom", "United States", "Turkey")
+```
+
+## Summarizing the dataset
+
+The `unvotes` R package contains many datasets on votes among UN member nations at General Assembly meetings. In this document, we will merge two of these datasets, un_roll_calls and un_roll_call_issues, summarize some information from this merged dataset, and create a visual that shows a handful of countries' voting patterns over time. In the merged dataset unvotes, each row represents a country's vote on some issue domain (e.g. human rights) in a given session. The merged dataset consists of `r nrow(unvotes)` country-session-issues (i.e. rows) and `r ncol(unvotes)` variables (i.e., columns). There are `r length(unique(unvotes$country))` unique member nations in the dataset. The dataset includes votes from `r min(year(unvotes$date))` to `r max(year(unvotes$date))`.
+
+## UN Voting Patterns
+
+Below is a data visualization that displays how the voting records of `r countrySample[1]`, `r countrySample[2]`, and `r countrySample[3]` changed over time from `r min(year(unvotes$date))` to `r max(year(unvotes$date))`.
+
+```{r plot-yearly-yes-issue, message = FALSE, fig.width=10, fig.height=6}
+#| echo: false
+#| warning: false
+unvotes %>%
+  filter(country %in% countrySample) %>%
+  mutate(year = year(date)) %>%
+  group_by(country, year, issue) %>%
+  summarize(percent_yes = mean(vote == "yes")) %>%
+  ggplot(mapping = aes(x = year, y = percent_yes, color = country)) +
+  geom_point(alpha = 0.4) +
+  geom_smooth(method = "loess", se = FALSE) +
+  facet_wrap(~issue) +
+  labs(
+    title = "Percentage of 'Yes' votes in the UN General Assembly",
+    subtitle = "1946 to 2019",
+    y = "% Yes",
+    x = "Year",
+    color = "Country"
+  )
+```

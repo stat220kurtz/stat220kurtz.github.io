@@ -1,0 +1,103 @@
+---
+title: "02: UN Votes Report"
+---
+
+*Note:* Use this file as starter code and extra information. Your goal is to create a knitted report file that matches the "UN report to replicate" file linked on the schedule for today. You should replicate the "Summarizing the dataset" section exactly, but use inline R code to replace hard coding the five numbers and years in that section. You should also replicate the "UN Voting Patterns" section - again using inline R code to for the three countries and two years listed - but with one change: use three new countries (or more if you'd like the slight added challenge). Reflect with your neighbor on what you find - use the questions in the Introduction section as a starting point.
+
+# Getting started
+
+You should open this document in **RStudio**. To do so: 
+
+1. Either open your local RStudio program or navigate to <maize.mathcs.carleton.edu> in your browser and log in. 
+2. Go to file --> New file --> Quarto document ... --> "Create empty document". This should open a new .qmd file in your Rstudio session. Delete _everything_ in this file so that you have a totally blank document.
+3. Next, we need to copy this template into your new quarto file. 
+    a) come back to this page and click the "code" button at the top of the page. 
+    b) Click the "copy" symbol in the upper right corner of the popup file
+    c) Navigate back to your empty .qmd file and "paste" the text there
+4. You should now be able to see this document in your own session, and you can run code and edit it as you need to! I suggest making a folder (perhaps name it Stat220) that organizes all of the documents for this class, including this one, and saving this document to that folder. 
+
+## Introduction
+
+How do various countries vote in the United Nations General Assembly, how have their voting patterns evolved throughout time, and how similarly or differently do they view certain issues? Answering these questions (at a high level) is the focus of this analysis.
+
+### Packages
+
+We will use the **tidyverse**, **lubridate**, and **scales** packages for data wrangling and visualization, and the **DT** package for interactive display of tabular output, and the **unvotes** package for the data.
+
+```{r load-packages, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(lubridate)
+library(scales)
+library(DT)
+library(unvotes)
+```
+
+### Data
+
+The data we're using originally come from the **unvotes** package. In the chunk below we modify the data by joining the various data frames provided in the package to help you get started with the analysis.
+
+```{r}
+#| warning: false
+unvotes <- un_votes %>%
+  inner_join(un_roll_calls, by = "rcid") %>%
+  inner_join(un_roll_call_issues, by = "rcid")
+```
+
+## UN voting patterns
+
+Let's create a data visualization that displays how the voting record of the UK & Northern Ireland (together listed under UK) changed over time on a variety of issues, and compares it to two other countries: the US and Turkey.
+
+We can easily change which countries are being plotted by changing which countries the code above `filter`s for. Note that the country name should be spelled and capitalized exactly the same way as it appears in the data. See the [Appendix](#appendix) for a list of the countries in the data.
+
+```{r plot-yearly-yes-issue, message = FALSE, fig.width=10, fig.height=6}
+unvotes %>%
+  filter(country %in% c("United Kingdom", "United States", "Turkey")) %>%
+  mutate(year = year(date)) %>%
+  group_by(country, year, issue) %>%
+  summarize(percent_yes = mean(vote == "yes")) %>%
+  ggplot(mapping = aes(x = year, y = percent_yes, color = country)) +
+  geom_point(alpha = 0.4) +
+  geom_smooth(method = "loess", se = FALSE) +
+  facet_wrap(~issue) +
+  scale_y_continuous(labels = percent) +
+  labs(
+    title = "Percentage of 'Yes' votes in the UN General Assembly",
+    subtitle = "1946 to 2019",
+    y = "% Yes",
+    x = "Year",
+    color = "Country"
+  )
+```
+
+## Starter Code
+
+These pieces of code will help you with the R inline coding portions of the report creation:
+
+```{r}
+nrow(unvotes)
+ncol(unvotes)
+length(unique(unvotes$country))
+min(year(unvotes$date))
+max(year(unvotes$date))
+countrySample <- c("United Kingdom", "United States", "Turkey") # replace with your own interested countries
+countrySample
+countrySample[1] # replace with other numbers to get the rest of the countries in that object
+```
+
+## References
+
+1.  David Robinson (2017). [unvotes](https://CRAN.R-project.org/package=unvotes): United Nations General Assembly Voting Data. R package version 0.2.0.
+2.  Erik Voeten "Data and Analyses of Voting in the UN General Assembly" Routledge Handbook of International Organization, edited by Bob Reinalda (published May 27, 2013).
+3.  Much of the analysis has been modeled on the examples presented in the [unvotes package vignette](https://cran.r-project.org/web/packages/unvotes/vignettes/unvotes.html).
+
+## Appendix {#appendix}
+
+Below is a list of countries in the data set:
+
+```{r list-countries, echo=FALSE}
+unvotes %>% 
+  select(country) %>%
+  arrange(country) %>% 
+  distinct() %>%
+  datatable()
+```
