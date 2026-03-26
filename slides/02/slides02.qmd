@@ -89,25 +89,26 @@ library(ymlthis)
 :::: nonincremental
 ::: task 
 
--   If you haven't already, download GitHub Desktop
+-   If you haven't already, download [GitHub Desktop](https://github.com/apps/desktop) and sign into your GitHub account on GitHub Desktop
+    -   To sign in, in GitHub Desktop, go to File > Options > Sign In > Continue with Browser, then sign in as usual
 -   Follow the "Individual Assignment" directions at <https://stat220kurtz.github.io/computing/git-stat220.html> to access your `hw01` repo and create an R project
--   Edit the .qmd file:
-    -   Change "author" to your name
-    -   Use `#` to add descriptive section headers for each code chunk
-    -   Add a sentence or two describing the summary statistics of the dataset
--   render ➡️ commit ✅ push ⤴️
+-   Edit the .Rmd file:
+    -   Change "name" and "surname" to match your name
+    -   Add your education history under the Education section (note: we use `#` to add descriptive section headers for each section/code chunk)
+-   Render ➡️ your changes, and commit and push them
 -   View on `github.com` and confirm you can see your changes
+-   Congrats! You have gotten started with your homework due Friday! Read more about what is expected for this homework in the README.md file contained in the repo after class
 
 :::
 ::::
 
 ::: callout-warning
-## Help! I don't have a `day02` repo
+## Help! I don't have a `hw01` repo
 
 ::: nonincremental
 - Never received GitHub invite &rarr; Fill out the Welcome survey
 - Never accepted GitHub invite  &rarr; Look for it in your email and accept it
-- Opening repo in Rstudio fails &rarr; Review/redo the steps in Git/Github for Stat220 for setting up PAT
+- Opening repo in Rstudio fails &rarr; Make sure you have cloned the repo in GitHub Desktop
 - Still no luck? &rarr; Come to office hours or make an appointment with me! 
 :::
 :::
@@ -311,26 +312,10 @@ Sometimes, you'll want to set every chunk option at once. You can do so in the Y
 #| eval: FALSE
 ---
 title: "My report"
-author: "Amanda Luby"
+author: "Emily Kurtz"
 execute:
   echo: false
 ---
-```
-
-## Parameters
-
-```{r}
-#| echo: false
-#| warning: false
-yml_empty() %>% 
-  yml_title("Survivor") %>% 
-  yml_output(html_document(toc = TRUE,
-                           toc_float = TRUE,
-                           theme = "flatly")) %>% 
-  yml_params(
-    season = '20'
-  ) %>% 
-  asis_yaml_output()
 ```
 
 ## Your Task {.smaller}
@@ -340,58 +325,37 @@ yml_empty() %>%
 ::: task 
 There's an example HTML report on the schedule
 
-Your task is to reproduce it in `02-example-lego.qmd` 
+Your task is to reproduce it in `02-example-unvotes.qmd` 
 
 To be as reproducible as possible, you'll need to use:
 
 -   YAML metadata
--   YAML parameters
 -   Code chunks with appropriate options
 -   Inline R code
+
+You will also recreate the visualization at the bottom, but pick new countries that interest you.
 :::
 
 ::::
 
 ::: callout-tip
-## Where do I find `02-example-lego.qmd`?
+## Where do I find `02-example-unvotes.qmd`?
 
-If you have a `day02` repo, use that! 
-
-If you don't have a `day02` repo, you can find `02-example-lego.qmd` on the schedule
+You can find `02-example-unvotes.qmd` on the schedule for today
 :::
 
 ## Hints {.scrollable .smaller}
 
 ::: nonincremental
-1.  To begin, use inline R code to replace “hard coding” the quantities that are highlighted below.
+1.  Use inline R code to replace “hard coding” the quantities, years, and country names that are highlighted below.
 
-![](../img/03-repro-inline.png)
+![](../img/02-repro-inline.png)
 
       
-For example, instead of typing 19798 you would include `nrow(sets)`
+For example, instead of typing 857878 you would include `nrow(unvotes)`
 as an inline code chunk. Make sure the report knits and you get the
 right values.
 
+2. The .qmd file creating the report includes chunks of code - some of which may throw warnings - but of course the finished report does not show any of that. Edit the YAML header so that you don't have to set options to suppress these features for each code chunk.
 
-2.  Next, add a parameter to your YAML header that stores the location of the data set. Make sure the report knits.
-
-3.  Change the code chunk where you load the data set to use the `data` parameter you just defined rather than the hard-coded URL. Make sure the report knits.
-
-4.  Now, let’s make a parameter for the source of the data set so you don’t have to search where every mention of it in the report, it will be with the other metadata (where it belongs). To do this, add a parameter that gives the source of your data (call it `data_source`) and set it equal to “the [2022-09-09 repository](https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-09-06) on [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday).” Make sure the report knits.
-
-5. At this point it looks like everything is working—awesome job! To put it to the test, let’s update the parameters of your report and knit it to see if everything changes as we would expect. Here are the new parameter values:
-
-``` yaml
-data: "https://raw.githubusercontent.com/stat220-w26/stat220-w26.github.io/refs/heads/main/data/lego_subset.csv"
-data_source: "Stat220 website"
-```
-
-
-6. (optional) If you have time, or would like to try outside of class, I've created a practice gradescope assignment space. First, add .pdf output to your document and knit to PDF. Commit the PDF and push to github. Then, log into gradescope (you may have to go through the link on moodle the first time) and link your github repo to the submission space.
-
-``` yaml
-format: 
-  html: default
-  pdf: default
-```
 :::

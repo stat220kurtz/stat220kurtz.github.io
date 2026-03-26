@@ -1718,7 +1718,7 @@
     "href": "slides/02/slides02.html#lets-try-it",
     "title": "Github +  Reproducible  Reporting",
     "section": "Let’s try it!",
-    "text": "Let’s try it!\n\n\n\nFollow the “Individual Assignment” directions at https://stat220-s25.github.io/computing/git-stat220.html to access your day02 repo and create an R project\nEdit the .qmd file:\n\nChange “author” to your name\nUse # to add descriptive section headers for each code chunk\nAdd a sentence or two describing the summary statistics of the dataset\n\nrender ➡️ commit ✅ push ⤴️\nView on github.com and confirm you can see your changes\n\n\n\n\n\n\n\n\n\nHelp! I don’t have a day02 repo\n\n\n\n\nNever received github invite → Fill out the Welcome survey\nNever accepted GitHub invite → Look for it in your email and accept it\nOpening repo in Rstudio failes → Review/redo the steps in Git/Github for Stat220 for setting up PAT\nStill no luck? → Come to office hours or make an appointment with me!"
+    "text": "Let’s try it!\n\n\n\nIf you haven’t already, download GitHub Desktop and sign into your GitHub account on GitHub Desktop\n\nTo sign in, in GitHub Desktop, go to File &gt; Options &gt; Sign In &gt; Continue with Browser, then sign in as usual\n\nFollow the “Individual Assignment” directions at https://stat220kurtz.github.io/computing/git-stat220.html to access your hw01 repo and create an R project\nEdit the .Rmd file:\n\nChange “name” and “surname” to match your name\nAdd your education history under the Education section (note: we use # to add descriptive section headers for each section/code chunk)\n\nRender ➡️ your changes, and commit and push them\nView on github.com and confirm you can see your changes\nCongrats! You have gotten started with your homework due Friday! Read more about what is expected for this homework in the README.md file contained in the repo after class\n\n\n\n\n\n\n\n\n\nHelp! I don’t have a hw01 repo\n\n\n\n\nNever received GitHub invite → Fill out the Welcome survey\nNever accepted GitHub invite → Look for it in your email and accept it\nOpening repo in Rstudio fails → Make sure you have cloned the repo in GitHub Desktop\nStill no luck? → Come to office hours or make an appointment with me!"
   },
   {
     "objectID": "slides/02/slides02.html#why-do-we-need-it-1",
@@ -1781,7 +1781,7 @@
     "href": "slides/02/slides02.html#global-options",
     "title": "Github +  Reproducible  Reporting",
     "section": "Global options",
-    "text": "Global options\nSometimes, you’ll want to set every chunk option at once. You can do so in the YAML header using execute:\n\n---\ntitle: \"My report\"\nauthor: \"Amanda Luby\"\nexecute:\n  echo: false\n---"
+    "text": "Global options\nSometimes, you’ll want to set every chunk option at once. You can do so in the YAML header using execute:\n\n---\ntitle: \"My report\"\nauthor: \"Emily Kurtz\"\nexecute:\n  echo: false\n---"
   },
   {
     "objectID": "slides/02/slides02.html#parameters",
@@ -1795,13 +1795,13 @@
     "href": "slides/02/slides02.html#your-task",
     "title": "Github +  Reproducible  Reporting",
     "section": "Your Task",
-    "text": "Your Task\n\n\nThere’s an example HTML report on the schedule\nYour task is to reproduce it in 02-example-lego.qmd\nTo be as reproducible as possible, you’ll need to use:\n\nYAML metadata\nYAML parameters\nCode chunks with appropriate options\nInline R code\n\n\n\n\n\n\n\n\n\nWhere do I find 02-example-lego.qmd?\n\n\nIf you have a day02 repo, use that!\nIf you don’t have a day02 repo, you can find 02-example-lego.qmd on the schedule"
+    "text": "Your Task\n\n\nThere’s an example HTML report on the schedule\nYour task is to reproduce it in 02-example-unvotes.qmd\nTo be as reproducible as possible, you’ll need to use:\n\nYAML metadata\nCode chunks with appropriate options\nInline R code\n\nYou will also recreate the visualization at the bottom, but pick new countries that interest you.\n\n\n\n\n\n\n\n\nWhere do I find 02-example-unvotes.qmd?\n\n\nYou can find 02-example-unvotes.qmd on the schedule for today"
   },
   {
     "objectID": "slides/02/slides02.html#hints",
     "href": "slides/02/slides02.html#hints",
     "title": "Github +  Reproducible  Reporting",
     "section": "Hints",
-    "text": "Hints\n\n\nTo begin, use inline R code to replace “hard coding” the quantities that are highlighted below.\n\n\nFor example, instead of typing 19798 you would include nrow(sets) as an inline code chunk. Make sure the report knits and you get the right values.\n\nNext, add a parameter to your YAML header that stores the location of the data set. Make sure the report knits.\nChange the code chunk where you load the data set to use the data parameter you just defined rather than the hard-coded URL. Make sure the report knits.\nNow, let’s make a parameter for the source of the data set so you don’t have to search where every mention of it in the report, it will be with the other metadata (where it belongs). To do this, add a parameter that gives the source of your data (call it data_source) and set it equal to “the 2022-09-09 repository on Tidy Tuesday.” Make sure the report knits.\nAt this point it looks like everything is working—awesome job! To put it to the test, let’s update the parameters of your report and knit it to see if everything changes as we would expect. Here are the new parameter values:\n\ndata: \"https://raw.githubusercontent.com/stat220-w26/stat220-w26.github.io/refs/heads/main/data/lego_subset.csv\"\ndata_source: \"Stat220 website\"\n\n(optional) If you have time, or would like to try outside of class, I’ve created a practice gradescope assignment space. First, add .pdf output to your document and knit to PDF. Commit the PDF and push to github. Then, log into gradescope (you may have to go through the link on moodle the first time) and link your github repo to the submission space.\n\nformat: \n  html: default\n  pdf: default"
+    "text": "Hints\n\n\nUse inline R code to replace “hard coding” the quantities, years, and country names that are highlighted below.\n\n\nFor example, instead of typing 857878 you would include nrow(unvotes) as an inline code chunk. Make sure the report knits and you get the right values.\n\nThe .qmd file creating the report includes chunks of code - some of which may throw warnings - but of course the finished report does not show any of that. Edit the YAML header so that you don’t have to set options to suppress these features for each code chunk."
   }
 ]
