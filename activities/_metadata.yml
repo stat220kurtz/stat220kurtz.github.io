@@ -1,6 +1,6 @@
-institute: "Carleton College <br> Stat 220 - Winter 2026"
-author: "Prof Amanda Luby"
-footer: "[🔗 stat220-w26.github.io](https://stat220-w26.github.io)"
+institute: "Carleton College <br> Stat 220 - Spring 2026"
+author: "Prof Emily Kurtz"
+footer: "[🔗 stat220kurtz.github.io](https://stat220kurtz.github.io)"
 format:
   html:
     code-tools: true

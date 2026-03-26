@@ -8,13 +8,13 @@ title: "02: UN Votes Report"
 
 You should open this document in **RStudio**. To do so: 
 
-1. Either open your local RStudio program or navigate to <maize.mathcs.carleton.edu> in your browser and log in. 
+1. Open your local RStudio program. 
 2. Go to file --> New file --> Quarto document ... --> "Create empty document". This should open a new .qmd file in your Rstudio session. Delete _everything_ in this file so that you have a totally blank document.
 3. Next, we need to copy this template into your new quarto file. 
     a) come back to this page and click the "code" button at the top of the page. 
     b) Click the "copy" symbol in the upper right corner of the popup file
     c) Navigate back to your empty .qmd file and "paste" the text there
-4. You should now be able to see this document in your own session, and you can run code and edit it as you need to! I suggest making a folder (perhaps name it Stat220) that organizes all of the documents for this class, including this one, and saving this document to that folder. 
+4. You should now be able to see this document in your own session, and you can run code and edit it as you need to! I suggest making a folder (perhaps name it Stat220) that organizes all of the documents for this class, including this one, and saving this document to that folder. Visit the Rstudio in Stat 220 page on the class website for more information on file organization.
 
 ## Introduction
 

@@ -59,7 +59,7 @@ To get to know you all better, you will make a dataset about yourselves to share
 2.  **Collect**: Gather your data in one place
 3.  **Clean**: Edit the dataset so that it's in a presentable, clean format
 4.  **Analyze**: What stories are in your dataset?
-5.  **Distribute**: How will you share it back to me?
+5.  **Distribute**: How will you share it back to us?
 :::
 
 ```{r}
@@ -201,52 +201,9 @@ Hadley Wickham, [Advice to Young (and Old) Programmers: A Conversation with Hadl
 
 - You may have to install packages as we go - use `install.packages` function
 
-- You may be used to [Maize](https://maize.mathcs.carleton.edu)
+- You may have used [Maize](https://maize.mathcs.carleton.edu) in the past
 
-- Okay to use that for now, but work on downloading R and RStudio
-
-- Not strictly mandatory but highly encouraged - come to me with any issues
-
-# A first example: UN Votes
-
-## On your own:
-
-::: {.task .nonincremental}
-1.  Log into the maize server: \<maize.mathcs.carleton.edu\>
-2.  Follow the directions at <https://stat220-w26.github.io/computing/rstudio-stat220> to create an "activities" folder
-3.  Open `01-example-unvotes` from <https://stat220-w26.github.io>, and follow the directions to open the file in Rstudio
-4.  Skim the file *without* running any code:
-    -   Where is the *code*?
-    -   Where is the *narrative*?
-5.  Run each code chunk in order. What does this analysis do?
-:::
-
-```{r echo=FALSE}
-countdown(minutes = 10, seconds = 0)
-```
-
-## What steps went into this analysis?
-
--   Recording the original data
--   Accessing data via an R package
--   Combining multiple datasets into one
--   Data cleaning: filtering, creating new columns, grouping, summarizing
--   Making a graph
--   Fitting a smooth line model
-
-## Your turn:
-
-::: task
-With your neighbor(s):
-
-Choose two countries to compare to the U.S. voting record in the U.N. over the years.
-
-What did you learn?
-:::
-
-```{r echo=FALSE}
-countdown(minutes = 4, seconds = 0)
-```
+- Okay to use that for today, but work on downloading R and RStudio
 
 # Syllabus highlights
 
