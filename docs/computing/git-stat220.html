@@ -86,7 +86,6 @@ ul.task-list li input[type="checkbox"] {
       <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
       <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/stat220kurtz" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
-    <a href="https://maize.mathcs.carleton.edu/" title="RStudio Server" class="quarto-navigation-tool px-1" aria-label="RStudio Server"><i class="bi bi-code-square"></i></a>
     <a href="https://moodle.carleton.edu/course/view.php?id=48307" title="Moodle" class="quarto-navigation-tool px-1" aria-label="Moodle"><i class="bi bi-person-fill"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -215,12 +214,14 @@ ul.task-list li input[type="checkbox"] {
 
 
 </header><section id="individual-assignments" class="level2"><h2 class="anchored" data-anchor-id="individual-assignments">Individual assignments</h2>
-<p>If you followed the suggestions in the <a href="../computing/rstudio-stat220.html">Using Rstudio in Stat 220</a> page, then you should already have an assignments folder on your computer or maize account.</p>
+<p>If you followed the suggestions in the <a href="../computing/rstudio-stat220.html">Rstudio in Stat 220</a> page, then you should already have an assignments folder on your computer or maize account.</p>
 <p>Each new assignment/project will be posted as a repository on GitHub and added directly to your account (within the Stat220 organization). This repository will contain assignment details (README, .Rmd).</p>
+<p>You will be able to see repos you have access to both in GitHub itself and on GitHub Desktop.</p>
 <section id="creating-an-individual-assignment-repo-and-project" class="level3"><h3 class="anchored" data-anchor-id="creating-an-individual-assignment-repo-and-project">Creating an individual assignment repo and project</h3>
 <ol type="1">
-<li>Go to our course GitHub organization page and find your homework repo, such as <code>hw01-username</code> (where your username is attached).</li>
-<li>Enter the online assignment repository on GitHub. Click the green <strong>“Code”</strong> button. Most of you should just use the default setting which is to “clone” (copy) using HTTPS. Click the clipboard to the right of the URL to copy the repo location. (If you are using SSH, make sure it says “Clone with SSH” in bold in the top left of the pop-up box. If not, click the “SSH” button and copy the link in the box to your clipboard.)</li>
+<li>Make sure you are logged into your account on GitHub Desktop. 2 There, go to File &gt; Clone Repository, which will open a small window.</li>
+<li>Make sure the default GitHub.com tab is chosen at the top of the window. Find your homework repo, such as <code>hw01-username</code> (where your username is attached).</li>
+<li>Click on the repo you want to clone, and click the blue Clone button at the bottom. The repo is now accessible on GitHub Desktop!</li>
 <li>Now open up RStudio and create a project as follows:</li>
 </ol>
 <ul>
@@ -265,20 +266,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p><strong>Warning:</strong> If you received an error in the above steps, you may have to clone with HTTPS instead of SSH (or vice versa). You can do this by again clicking on the “Clone or Download” button in the repository page, then clicking “Use HTTPS” in the top right of the pop-up box. Now copy the link and repeat this step.</p>
 </section><section id="working-on-your-assignment" class="level3"><h3 class="anchored" data-anchor-id="working-on-your-assignment">Working on your assignment</h3>
-<p>An RStudio project should now open, which will allow you to start working on your homework assignment. You should see the project assignment name in the top right side of Rstudio. You will probably see a blank console screen when you open a new project. Look in the <strong>Files</strong> tab for your homework .Rmd file. Click on whatever file you want to edit (probably the .Rmd file) and edit away. Make sure that your current assignment’s project is the one open and showing in the upper right project name. To <strong>open</strong> a project, click on the <code>.Rproj</code> file or use the <strong>Open Project…</strong> option available in the upper right project link.</p>
+<p>An RStudio project should now open, which will allow you to start working on your homework assignment. You should see the project assignment name in the top left side of RStudio. You will probably see a blank console screen when you open a new project. Look in the <strong>Files</strong> tab for your homework .Rmd file. Click on whatever file you want to edit (probably the .Rmd file) and edit away. Make sure that your current assignment’s project is the one open and showing in the upper right project name. To <strong>open</strong> a project, click on the <code>.Rproj</code> file or use the <strong>Open Project…</strong> option available in the upper right project link.</p>
 <section id="commits" class="level4"><h4 class="anchored" data-anchor-id="commits">Commits</h4>
 <p>After you make changes to the homework assignment, commit them. What are commits you ask? Commits are essentially taking a snapshot of your projects. Commits save this snapshot to your local version of Git (located on your hard drive or the maize server). For example, if I make changes to a code so that it prints “Hello world”, and then commit them with an informative message, I can look at the history of my commits and view the code that I wrote at that time. If I made some more changes to the function that resulted in an error, I could go back to the commit where the code was originally working. This prevents you from creating several versions of your homework (homework-v1, homework-v2, …) or from trying to remember what your code originally looked like.</p>
-<p>You can make commits in the Git tab in RStudio.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/maize_gittab.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="232"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Click the <strong>Commit</strong> button in the Git tab. Check the boxes of the files that you want to commit, enter your commit message (briefly state what changes have been made), then hit <strong>Commit</strong>. You can read how to do this in RStudio in more detail here: <a href="http://r-pkgs.had.co.nz/git.html#git-commit" class="uri">http://r-pkgs.had.co.nz/git.html#git-commit</a>.</p>
 <p>Two things about committing.</p>
 <ul>

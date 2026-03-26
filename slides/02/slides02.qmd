@@ -29,88 +29,11 @@ library(ymlthis)
 
 ## Plan for today:
 
-1.  Questions from syllabus quiz
-2.  Github
+1.  Questions about syllabus
+2.  GitHub
     -   Accessing your private repos
     -   render ➡️ commit ✅ push ⤴️
 3.  Reproducible Reporting
-
-## Syllabus quiz
-
-Which components of Stat220 are **graded**?
-
-::: nonincremental
-- [X] Homework
-- [X] Lab Quizzes
-- [ ] Participation
-- [ ] Prep Assignments
-- [ ] In-class exercises
-- [X] Portfolio projects
-- [X] Final project
-:::
-
-## Syllabus quiz
-
-What percentage of homework problems do you need to successfully complete to earn an A in this class?
-
-::: nonincremental
-
-- [ ] 90%
-- [X] 85%
-- [ ] 80%
-- [ ] NA- it can average out by doing well on projects and lab quizzes
-:::
-
-## Syllabus Quiz
-
-How many tokens do you have available to use throughout the term?
-
-**5**
-
-## Syllabus Quiz
-
-What room of the CMC are Amanda's drop-in hours in?
-
-::: nonincremental
-
-- [ ] CMC 223 - Amanda's office
-- [ ] CMC 306 - Our classroom
-- [X] CMC 307
-:::
-
-## Syllabus Quiz
-
-What scenarios describe an **inappropriate** use of AI in Stat220?
-
-::: nonincremental
-
-- [ ] Asking for clarification on an R error message meaning
-- [X] Creating "first pass" code for making a graph on a homework problem
-- [X] Copying a homework problem into ChatGPT and asking for similar practice questions
-- [X] Giving ChatGPT the study guide for a quiz and asking for practice questions
-- [X] Giving ChatGPT the code to make a graph that you have written and asking it to add a new feature (like adding a line of best fit or changing the color scheme)
-- [ ] Asking for an explanation of what a certain R function is used for
-
-:::
-
-## Questions from syllabus quiz
-
-::: nonincremental
-
-- Software packages for local installation
-- Will the lab quizzes require memorizing R code?
-- Tokens
-:::
-
-## Homework in Stat220
-
-::: nonincremental
-
-- Typically due on Wednesdays (Week 1: Friday)
-- Due at 10pm (aligns with end of Stat Lab)
-- 12 hour grace period (no penalty if turned in by 10am on Thurs)
-- Beyond that, must use a token. Token form must be submitted by end of grace period (see Useful Links)
-:::
 
 # Github {.maize}
 
@@ -166,7 +89,8 @@ What scenarios describe an **inappropriate** use of AI in Stat220?
 :::: nonincremental
 ::: task 
 
--   Follow the "Individual Assignment" directions at <https://stat220-s25.github.io/computing/git-stat220.html> to access your `day02` repo and create an R project
+-   If you haven't already, download GitHub Desktop
+-   Follow the "Individual Assignment" directions at <https://stat220kurtz.github.io/computing/git-stat220.html> to access your `hw01` repo and create an R project
 -   Edit the .qmd file:
     -   Change "author" to your name
     -   Use `#` to add descriptive section headers for each code chunk
@@ -181,9 +105,9 @@ What scenarios describe an **inappropriate** use of AI in Stat220?
 ## Help! I don't have a `day02` repo
 
 ::: nonincremental
-- Never received github invite &rarr; Fill out the Welcome survey
+- Never received GitHub invite &rarr; Fill out the Welcome survey
 - Never accepted GitHub invite  &rarr; Look for it in your email and accept it
-- Opening repo in Rstudio failes &rarr; Review/redo the steps in Git/Github for Stat220 for setting up PAT
+- Opening repo in Rstudio fails &rarr; Review/redo the steps in Git/Github for Stat220 for setting up PAT
 - Still no luck? &rarr; Come to office hours or make an appointment with me! 
 :::
 :::
