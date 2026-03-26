@@ -252,7 +252,7 @@
     "href": "slides/01/slides01.html#sneak-peek-class-survey-data",
     "title": "Welcome to Stat 220",
     "section": "Sneak peek: class survey data",
-    "text": "Sneak peek: class survey data\n\n\n# A tibble: 10 × 3\n   class_year sleep northfield_food       \n   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;                 \n 1 Senior       8   El Triunfo            \n 2 Sophomore    6   Desi Diner            \n 3 Senior       8.5 Reunion               \n 4 Junior       7   Driving by car.       \n 5 Senior       6   El tri                \n 6 Senior       7   Desi Diner            \n 7 Sophomore    7   New Buffet            \n 8 Junior       7   Desi diner            \n 9 Junior       7   Reunion or Blue Monday\n10 Sophomore    9   DoorDash"
+    "text": "Sneak peek: class survey data\n\n\n# A tibble: 10 × 3\n   class_year sleep northfield_food\n   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;          \n 1 Sophomore    9   DoorDash       \n 2 Senior       6   &lt;NA&gt;           \n 3 Junior       8   Desi Diner     \n 4 Junior       7   Driving by car.\n 5 Senior       7   Desi Diner     \n 6 Junior       7   Coco's         \n 7 Senior       8.5 Reunion        \n 8 First year  NA   Pho            \n 9 Sophomore    7   Desi Diner     \n10 Senior       7   El Tri"
   },
   {
     "objectID": "slides/01/slides01.html#section",
@@ -448,7 +448,7 @@
     "href": "slides/01/slides01.html#your-tasks-before-next-class",
     "title": "Welcome to Stat 220",
     "section": "Your tasks before next class",
-    "text": "Your tasks before next class\n\n\nCreate a GitHub account if you don’t have one\nComplete the welcome survey if you haven’t already\nRead the syllabus\nDownload or update your local R/RStudio versions\nComplete the readings for next class"
+    "text": "Your tasks before next class\n\n\nCreate a GitHub account if you don’t have one\nComplete the welcome survey if you haven’t already\nRead the syllabus\nDownload or update your local R/RStudio versions\nDownload GitHub Desktop\nComplete the readings for next class"
   },
   {
     "objectID": "slides/01/slides01.html",
@@ -1600,5 +1600,208 @@
     "title": "02: UN Votes Report",
     "section": "Appendix",
     "text": "Appendix\nBelow is a list of countries in the data set:"
+  },
+  {
+    "objectID": "slides/02/slides02.html#plan-for-today",
+    "href": "slides/02/slides02.html#plan-for-today",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Plan for today:",
+    "text": "Plan for today:\n\nQuestions from syllabus quiz\nGithub\n\nAccessing your private repos\nrender ➡️ commit ✅ push ⤴️\n\nReproducible Reporting"
+  },
+  {
+    "objectID": "slides/02/slides02.html#syllabus-quiz",
+    "href": "slides/02/slides02.html#syllabus-quiz",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Syllabus quiz",
+    "text": "Syllabus quiz\nWhich components of Stat220 are graded?\n\n\nHomework\nLab Quizzes\nParticipation\nPrep Assignments\nIn-class exercises\nPortfolio projects\nFinal project"
+  },
+  {
+    "objectID": "slides/02/slides02.html#syllabus-quiz-1",
+    "href": "slides/02/slides02.html#syllabus-quiz-1",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Syllabus quiz",
+    "text": "Syllabus quiz\nWhat percentage of homework problems do you need to successfully complete to earn an A in this class?\n\n\n90%\n85%\n80%\nNA- it can average out by doing well on projects and lab quizzes"
+  },
+  {
+    "objectID": "slides/02/slides02.html#syllabus-quiz-2",
+    "href": "slides/02/slides02.html#syllabus-quiz-2",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Syllabus Quiz",
+    "text": "Syllabus Quiz\nHow many tokens do you have available to use throughout the term?\n5"
+  },
+  {
+    "objectID": "slides/02/slides02.html#syllabus-quiz-3",
+    "href": "slides/02/slides02.html#syllabus-quiz-3",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Syllabus Quiz",
+    "text": "Syllabus Quiz\nWhat room of the CMC are Amanda’s drop-in hours in?\n\n\nCMC 223 - Amanda’s office\nCMC 306 - Our classroom\nCMC 307"
+  },
+  {
+    "objectID": "slides/02/slides02.html#syllabus-quiz-4",
+    "href": "slides/02/slides02.html#syllabus-quiz-4",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Syllabus Quiz",
+    "text": "Syllabus Quiz\nWhat scenarios describe an inappropriate use of AI in Stat220?\n\n\nAsking for clarification on an R error message meaning\nCreating “first pass” code for making a graph on a homework problem\nCopying a homework problem into ChatGPT and asking for similar practice questions\nGiving ChatGPT the study guide for a quiz and asking for practice questions\nGiving ChatGPT the code to make a graph that you have written and asking it to add a new feature (like adding a line of best fit or changing the color scheme)\nAsking for an explanation of what a certain R function is used for"
+  },
+  {
+    "objectID": "slides/02/slides02.html#questions-from-syllabus-quiz",
+    "href": "slides/02/slides02.html#questions-from-syllabus-quiz",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Questions from syllabus quiz",
+    "text": "Questions from syllabus quiz\n\n\nSoftware packages for local installation\nWill the lab quizzes require memorizing R code?\nTokens"
+  },
+  {
+    "objectID": "slides/02/slides02.html#homework-in-stat220",
+    "href": "slides/02/slides02.html#homework-in-stat220",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Homework in Stat220",
+    "text": "Homework in Stat220\n\n\nTypically due on Wednesdays (Week 1: Friday)\nDue at 10pm (aligns with end of Stat Lab)\n12 hour grace period (no penalty if turned in by 10am on Thurs)\nBeyond that, must use a token. Token form must be submitted by end of grace period (see Useful Links)"
+  },
+  {
+    "objectID": "slides/02/slides02.html#git-github",
+    "href": "slides/02/slides02.html#git-github",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Git + GitHub",
+    "text": "Git + GitHub\n\n\n\nGit is a version control system - like “Track Changes”, on steroids\nIt’s not the only version control system, but it’s a very popular one\n\n\n\nGitHub is the home for your Git-based projects on the internet—like DropBox but much, much better\nWe will use GitHub as a platform for web hosting and collaboration"
+  },
+  {
+    "objectID": "slides/02/slides02.html#why-do-we-need-it",
+    "href": "slides/02/slides02.html#why-do-we-need-it",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Why do we need it?",
+    "text": "Why do we need it?"
+  },
+  {
+    "objectID": "slides/02/slides02.html#versioning",
+    "href": "slides/02/slides02.html#versioning",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Versioning",
+    "text": "Versioning"
+  },
+  {
+    "objectID": "slides/02/slides02.html#versioning-with-human-readable-messages",
+    "href": "slides/02/slides02.html#versioning-with-human-readable-messages",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Versioning (with human-readable messages)",
+    "text": "Versioning (with human-readable messages)"
+  },
+  {
+    "objectID": "slides/02/slides02.html#how-does-it-work-for-stat220",
+    "href": "slides/02/slides02.html#how-does-it-work-for-stat220",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "How does it work for Stat220?",
+    "text": "How does it work for Stat220?"
+  },
+  {
+    "objectID": "slides/02/slides02.html#how-does-it-work-for-stat220-1",
+    "href": "slides/02/slides02.html#how-does-it-work-for-stat220-1",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "How does it work for Stat220?",
+    "text": "How does it work for Stat220?"
+  },
+  {
+    "objectID": "slides/02/slides02.html#how-does-it-work-for-stat220-2",
+    "href": "slides/02/slides02.html#how-does-it-work-for-stat220-2",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "How does it work for Stat220?",
+    "text": "How does it work for Stat220?"
+  },
+  {
+    "objectID": "slides/02/slides02.html#how-does-it-work-for-stat220-3",
+    "href": "slides/02/slides02.html#how-does-it-work-for-stat220-3",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "How does it work for Stat220?",
+    "text": "How does it work for Stat220?"
+  },
+  {
+    "objectID": "slides/02/slides02.html#lets-try-it",
+    "href": "slides/02/slides02.html#lets-try-it",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Let’s try it!",
+    "text": "Let’s try it!\n\n\n\nFollow the “Individual Assignment” directions at https://stat220-s25.github.io/computing/git-stat220.html to access your day02 repo and create an R project\nEdit the .qmd file:\n\nChange “author” to your name\nUse # to add descriptive section headers for each code chunk\nAdd a sentence or two describing the summary statistics of the dataset\n\nrender ➡️ commit ✅ push ⤴️\nView on github.com and confirm you can see your changes\n\n\n\n\n\n\n\n\n\nHelp! I don’t have a day02 repo\n\n\n\n\nNever received github invite → Fill out the Welcome survey\nNever accepted GitHub invite → Look for it in your email and accept it\nOpening repo in Rstudio failes → Review/redo the steps in Git/Github for Stat220 for setting up PAT\nStill no luck? → Come to office hours or make an appointment with me!"
+  },
+  {
+    "objectID": "slides/02/slides02.html#why-do-we-need-it-1",
+    "href": "slides/02/slides02.html#why-do-we-need-it-1",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Why do we need it?",
+    "text": "Why do we need it?\nOops! I gave you the wrong set of data."
+  },
+  {
+    "objectID": "slides/02/slides02.html#why-do-we-need-it-2",
+    "href": "slides/02/slides02.html#why-do-we-need-it-2",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Why do we need it?",
+    "text": "Why do we need it?\n\nKarl – this is very interesting , however you used an old version of the data (n=143 rather than n=226). I’m really sorry you did all that work on the incomplete dataset.\nBruce\n\n\n\nAdapted from Karl Broman"
+  },
+  {
+    "objectID": "slides/02/slides02.html#other-examples",
+    "href": "slides/02/slides02.html#other-examples",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Other examples:",
+    "text": "Other examples:\n\nThe results in Table 1 don’t seem to correspond to those in Figure 2.\nIn what order do I run these scripts?\nWhere did we get this data file?\nWhy did I omit those samples?\nHow did I make that figure?\n“Your script is now giving an error.”\n“The attached is similar to the code we used.”\n\n\n\nAdapted from Karl Broman"
+  },
+  {
+    "objectID": "slides/02/slides02.html#reproducible-data-science",
+    "href": "slides/02/slides02.html#reproducible-data-science",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Reproducible data science",
+    "text": "Reproducible data science\n\n\nShort Term Impact\n\nAre the tables and figures reproducible from the code and data?\nDoes the code actually do what you think it does?\nIn addition to what was done, is it clear why it was done? (e.g., how were parameter settings chosen?)\n\n\nLong Term Impact\n\nCan the code be used for other data?\nCan you extend the code to other things?"
+  },
+  {
+    "objectID": "slides/02/slides02.html#the-toolkit",
+    "href": "slides/02/slides02.html#the-toolkit",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "The toolkit",
+    "text": "The toolkit\n\n\n\n\n\n\n\n\n\n\nScriptability \\(\\rightarrow\\) R\nCode environment \\(\\rightarrow\\) RStudio\nLiterate programming (code, narrative, output in one place) \\(\\rightarrow\\) Quarto\nVersion control \\(\\rightarrow\\) Git / GitHub"
+  },
+  {
+    "objectID": "slides/02/slides02.html#what-is-quarto",
+    "href": "slides/02/slides02.html#what-is-quarto",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "What is Quarto?",
+    "text": "What is Quarto?\n\nAn authoring framework for data science.\nA document format (.qmd).\nA software package\nA file format for making dynamic documents with R.\nA tool for integrating prose, code, and results.\nA computational document."
+  },
+  {
+    "objectID": "slides/02/slides02.html#anatomy-of-a-quarto-doc",
+    "href": "slides/02/slides02.html#anatomy-of-a-quarto-doc",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Anatomy of a quarto doc",
+    "text": "Anatomy of a quarto doc"
+  },
+  {
+    "objectID": "slides/02/slides02.html#chunk-options",
+    "href": "slides/02/slides02.html#chunk-options",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Chunk Options",
+    "text": "Chunk Options\n\nDefaultmessagewarningechoeval\n\n\nWhat’s in .qmd:\n```\ntest_function(20)\n```\nHow it looks in rendered file:\n\ntest_function(20)\n\n[1] 20\n\n\nThis is a message.\n\n\nWarning in test_function(20): This is a warning!\n\n\n\n\nWhat’s in .qmd:\n```\n#| message: false\ntest_function(20)\n```\nHow it looks in rendered file:\n\ntest_function(20)\n\n[1] 20\n\n\nWarning in test_function(20): This is a warning!\n\n\n\n\nWhat’s in .qmd:\n```\n#| warning: false\ntest_function(20)\n```\nHow it looks in rendered file:\n\ntest_function(20)\n\n[1] 20\n\n\n\n\nWhat’s in .qmd:\n```\n#| echo: false\ntest_function(20)\n```\nHow it looks in rendered file:\n\n\n[1] 20\n\n\nThis is a message.\n\n\nWarning in test_function(20): This is a warning!\n\n\n\n\nWhat’s in .qmd:\n```\n#| eval: false\ntest_function(20)\n```\nHow it looks in rendered file:\n\ntest_function(20)"
+  },
+  {
+    "objectID": "slides/02/slides02.html#global-options",
+    "href": "slides/02/slides02.html#global-options",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Global options",
+    "text": "Global options\nSometimes, you’ll want to set every chunk option at once. You can do so in the YAML header using execute:\n\n---\ntitle: \"My report\"\nauthor: \"Amanda Luby\"\nexecute:\n  echo: false\n---"
+  },
+  {
+    "objectID": "slides/02/slides02.html#parameters",
+    "href": "slides/02/slides02.html#parameters",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Parameters",
+    "text": "Parameters\n\n\n---\ntitle: Survivor\noutput:\n  html_document:\n    toc: true\n    toc_float: true\n    theme: flatly\nparams:\n  season: '20'\n---"
+  },
+  {
+    "objectID": "slides/02/slides02.html#your-task",
+    "href": "slides/02/slides02.html#your-task",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Your Task",
+    "text": "Your Task\n\n\nThere’s an example HTML report on the schedule\nYour task is to reproduce it in 02-example-lego.qmd\nTo be as reproducible as possible, you’ll need to use:\n\nYAML metadata\nYAML parameters\nCode chunks with appropriate options\nInline R code\n\n\n\n\n\n\n\n\n\nWhere do I find 02-example-lego.qmd?\n\n\nIf you have a day02 repo, use that!\nIf you don’t have a day02 repo, you can find 02-example-lego.qmd on the schedule"
+  },
+  {
+    "objectID": "slides/02/slides02.html#hints",
+    "href": "slides/02/slides02.html#hints",
+    "title": "Github +  Reproducible  Reporting",
+    "section": "Hints",
+    "text": "Hints\n\n\nTo begin, use inline R code to replace “hard coding” the quantities that are highlighted below.\n\n\nFor example, instead of typing 19798 you would include nrow(sets) as an inline code chunk. Make sure the report knits and you get the right values.\n\nNext, add a parameter to your YAML header that stores the location of the data set. Make sure the report knits.\nChange the code chunk where you load the data set to use the data parameter you just defined rather than the hard-coded URL. Make sure the report knits.\nNow, let’s make a parameter for the source of the data set so you don’t have to search where every mention of it in the report, it will be with the other metadata (where it belongs). To do this, add a parameter that gives the source of your data (call it data_source) and set it equal to “the 2022-09-09 repository on Tidy Tuesday.” Make sure the report knits.\nAt this point it looks like everything is working—awesome job! To put it to the test, let’s update the parameters of your report and knit it to see if everything changes as we would expect. Here are the new parameter values:\n\ndata: \"https://raw.githubusercontent.com/stat220-w26/stat220-w26.github.io/refs/heads/main/data/lego_subset.csv\"\ndata_source: \"Stat220 website\"\n\n(optional) If you have time, or would like to try outside of class, I’ve created a practice gradescope assignment space. First, add .pdf output to your document and knit to PDF. Commit the PDF and push to github. Then, log into gradescope (you may have to go through the link on moodle the first time) and link your github repo to the submission space.\n\nformat: \n  html: default\n  pdf: default"
   }
 ]
