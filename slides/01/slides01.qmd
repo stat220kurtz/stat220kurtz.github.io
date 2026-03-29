@@ -26,6 +26,7 @@ library(tidyverse)
 library(lubridate)
 library(scales)
 library(here)
+library(dplyr)
 
 theme_set(theme_minimal(base_size = 16))
 ```
@@ -81,7 +82,7 @@ Image by Adam Loy <br> adapted from work of Joe Blitzstein, Hanspeter Pfister,<b
 ```{r}
 #| echo: false
 #| message: false
-survey <- read_csv(here(here(), "data/class_survey_sm.csv"))
+survey <- read_csv(here(here(), "data/classSurveySmall.csv"))
 survey |> sample_n(10)
 ```
 
@@ -132,17 +133,9 @@ survey |>
     title = "Class year among Stat220 Students",
     y = "",
     x = "Proportion",
-    caption = "Self-reported data collected from Stat220 students by 10am on Jan 5"
+    caption = "Self-reported data collected from Stat220 students by 8pm on March 29"
   ) + 
   scale_fill_viridis_d(end = .75, option = "plasma")
-```
-
-## Question where you could enter a number
-
-How many hours of sleep per night do you typically get during the term?
-
-```{r}
-summary(survey$sleep)
 ```
 
 ## Open-ended question
@@ -171,6 +164,29 @@ survey |>
     caption = "Self-reported data collected from Stat220 students by 10am on Jan 5"
   ) + 
   scale_fill_viridis_d(end = .75, option = "plasma")
+```
+
+## What do you do for fun?
+
+```{r, warning=FALSE, message=FALSE}
+#| code-fold: true
+
+library(wordcloud)
+library(tm)
+library(NatParksPalettes)
+
+word.corpus<-VCorpus(VectorSource(survey$fun)) #Corpus
+word.corpus<-word.corpus%>%
+  tm_map(removePunctuation)%>% ##eliminate punctuation
+  tm_map(removeNumbers)%>% #no numbers
+  tm_map(stripWhitespace)#white spaces
+word.corpus <- tm_map(word.corpus, removeWords, c("the", "and","for","this","that","with","will","also","i'm")) 
+word.corpus<-tm_map(word.corpus, stemDocument)
+word.counts<-as.matrix(TermDocumentMatrix(word.corpus))
+word.freq<-sort(rowSums(word.counts), decreasing=TRUE)
+#head(word.freq)##what are the top words?
+wordcloud(words=names(word.freq), freq=word.freq, scale=c(3,.5),max.words = 100, random.order = TRUE,
+          min.freq = 1, color=natparks.pals("Torres"))
 ```
 
 ##  {background-image="../img/wordcloud-nervous.png" background-size="contain"}
@@ -248,9 +264,9 @@ To earn a course grade, you must meet **all** of the requirements in a given row
 
 |   | Homework Problems | Portfolio Projects (4 total) | Final Project |
 |------------|------------|------------|------------|
-| A | 90% | 2 Excellent + 2 Successful | Excellent |
-| B | 80% | 4 Successful | Successful |
-| C | 70% | 3 Successful | Successful |
+| A | 85% | 2 Excellent + 2 Successful | Excellent |
+| B | 75% | 4 Successful | Successful |
+| C | 65% | 3 Successful | Successful |
 | D | 50% | 2 Successful | Successful |
 
 "+" and "-" grades are determined by partially meeting the requirements in a given row.
@@ -302,5 +318,7 @@ Fill out the *Welcome Survey* for collection of your account names, later this w
 4.  Download or update your local R/RStudio versions
 
 5.  Complete the readings for next class
+
+6.  Download GitHub Desktop
 :::
 

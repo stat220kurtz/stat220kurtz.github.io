@@ -89,11 +89,11 @@ Your course grade is assigned using the table below. Each row indicates the mini
 +------------+-------------------+------------------------------+---------------+
 |            | Homework Problems | Portfolio Projects (4 total) | Final Project |
 +============+===================+==============================+===============+
-| A          | 90%               | 2 Excellent, 2 Successful    | Excellent     |
+| A          | 85%               | 2 Excellent, 2 Successful    | Excellent     |
 +------------+-------------------+------------------------------+---------------+
-| B          | 80%               | 4 Successful                 | Successful    |
+| B          | 75%               | 4 Successful                 | Successful    |
 +------------+-------------------+------------------------------+---------------+
-| C          | 70%               | 3 Successful                 | Successful    |
+| C          | 65%               | 3 Successful                 | Successful    |
 +------------+-------------------+------------------------------+---------------+
 | D          | 50%               | 2 Successful                 | Successful    |
 +------------+-------------------+------------------------------+---------------+
