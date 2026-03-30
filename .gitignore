@@ -10,7 +10,7 @@
 
 _freeze/
 
-*_files/
+#*_files/
 
 *-sols.R
 *-sols.qmd
