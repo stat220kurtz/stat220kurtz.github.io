@@ -29,7 +29,9 @@ The data we're using today contains information about all seasons of *Survivor* 
 ```{r}
 #| eval: TRUE
 
-season_summary = readr::read_csv("https://raw.githubusercontent.com/stat220-w26/stat220-w26.github.io/refs/heads/main/data/survivor_season_summary.csv")
+library(here)
+file_path <- here("data/survivor_season_summary.csv")
+season_summary <- read.csv(file_path)
 ```
 
 - `season`: the number of each season
@@ -219,14 +221,5 @@ ggplot(data = mpg) +
   )
 ```
 
-
-::: callout-important
-## When you're done
-
-Make a post on the "Week 1 - Friday" discussion thread on Ed. 
-
-- Option 1: If you have any lingering questions about ggplot, feel free to post them
-- Option 2: You can also post your final graph for the last question! 
-:::
 
 

@@ -31,24 +31,22 @@ slides_theme = theme_minimal(
 theme_set(slides_theme)
 ```
 
-## Communication in Stat220
+## A Note on Assignments
 
-Until HW2 is due on Wednesday, trying out both Slack and Ed
+Most things listed under the Due column on the schedule (HWs, portfolios, forms, project check-ins) are due at 11:59pm
 
-::: nonincremental
-- For help with R or homework &rarr; slack/Ed
-- For quick communication  &rarr; slack/Ed
-- For personal situations &rarr; email
-:::
+Final project due at noon
 
-I check Slack/Ed 2x daily and respond to everything, so you can expect a response within 24 hours during the work week. I try to respond to emails daily but Stat220 gets "lumped" with everything else. I'll try to respond within 48 hours during the week.
+You will submit HWs on BOTH GitHub (commit and push) AND Gradescope (upload pdf)
+
+- You can also see the README file (which provides the "rubric" for HWs) on both GitHub and Gradescope
 
 ## Plan for today:
 
 1.  Quick grammar of graphics recap
 2.  Speed Groupwork
 
-## What are the *essential* elements of this scatterplot?
+## What are the *essential* components of this plot?
 
 ```{r}
 #| echo: false
@@ -107,6 +105,7 @@ ggplot(data = <dataset_name>) +
 - data: `data = `
 - aesthetic: `mapping = aes(...)`
 - geometry: `geom_function`
+- Note: aesthetic mappings can also appear in the ggplot function - "global" - passed down to all subsequent geom layers of the plot
 
 ## Examples
 
@@ -116,6 +115,10 @@ ggplot(data = <dataset_name>) +
 
 ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, col = species)) + 
   geom_point()
+
+# Compare above plot to plot that would result from code below:
+#ggplot(penguins) + 
+#  geom_point(aes(x = body_mass_g, y = flipper_length_mm, col = species))
 
 ggplot(penguins, aes(x = body_mass_g)) + 
   geom_histogram()
@@ -208,7 +211,7 @@ ggplot(penguins, aes(x = body_mass_g)) +
 1.  Draw a card
 2.  Find your number's location
 3.  Introduce yourselves
-4.  Get to work!
+4.  Work on problems in 03-ggplot-intro.html!
 :::
 
 ::: callout-important
