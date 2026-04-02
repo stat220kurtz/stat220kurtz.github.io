@@ -106,6 +106,7 @@ ggplot(data = <dataset_name>) +
 - aesthetic: `mapping = aes(...)`
 - geometry: `geom_function`
 - Note: aesthetic mappings can also appear in the ggplot function - "global" - passed down to all subsequent geom layers of the plot
+  - Usually how it's done if there is only one geometry involved
 
 ## Examples
 
@@ -211,13 +212,13 @@ ggplot(penguins, aes(x = body_mass_g)) +
 1.  Draw a card
 2.  Find your number's location
 3.  Introduce yourselves
-4.  Work on problems in 03-ggplot-intro.html!
+4.  Work **together** on problems in 03-ggplot-intro.html!
 :::
 
 ::: callout-important
 ## Wait!
 
-If you finish the problems in one section, please wait to move on until the next round of groups
+If your group has all finished the problems in one section, please wait to move on until the timer has run out and the next round has started. If you have a ton of time to kill, comment your code.
 :::
 
 ## Round 1: View the data + pipes

@@ -10,7 +10,9 @@ q <- 0
 ```
 
 ::: callout-tip
-## Note: 
+## Note:
+
+Create a new Quarto document in RStudio by going to File > New File > Quarto Document. Copy the code used to create this html by clicking the `</> Code button near the upper right corner of the page. Paste it into your Quarto document - you now have a template for this activity.
 
 The YAML header includes the line `eval: false`. Make sure to delete this when you are ready to render your file.
 :::
@@ -24,15 +26,17 @@ The YAML header includes the line `eval: false`. Make sure to delete this when y
 knitr::include_graphics("https://cdn.freebiesupply.com/logos/large/2x/survivor-logo-png-transparent.png")
 ```
 
-The data we're using today contains information about all seasons of *Survivor* and comes from the [survivoR](https://github.com/doehm/survivoR) R package. In the show, a group of people (called castaways) are placed in an isolated location, where they must provide food, fire, and shelter for themselves. The castaways compete in challenges testing the contestants' physical abilities like running and swimming or their mental abilities like puzzles and endurance challenges for rewards and immunity from elimination. The castaways are progressively eliminated from the game as they are voted out by their fellow contestants until only two or three remain. At that point, the players who were eliminated (the "jury") vote for the winner. The winner is given the title of "Sole Survivor" and is awarded the grand prize of \$1,000,000
+This activity was written by Amanda Luby and lightly edited by me. The data we're using today contains information about all seasons of *Survivor* and comes from the [survivoR](https://github.com/doehm/survivoR) R package. In the show, a group of people (called castaways) are placed in an isolated location, where they must provide food, fire, and shelter for themselves. The castaways are progressively eliminated from the game as they are voted out by their fellow contestants until only two or three remain. At that point, the players who were eliminated (the "jury") vote for the winner. The winner is given the title of "Sole Survivor" and is awarded the grand prize of \$1,000,000.
+
+The code below reads in the season_summary dataset from the `survivoR` R package.
 
 ```{r}
 #| eval: TRUE
 
-library(here)
-file_path <- here("data/survivor_season_summary.csv")
-season_summary <- read.csv(file_path)
+season_summary <- readr::read_csv("https://raw.githubusercontent.com/stat220kurtz/stat220kurtz.github.io/refs/heads/main/data/survivor_season_summary.csv")
 ```
+
+We will work with the variables below during this activity:
 
 - `season`: the number of each season
 - `country`: the country each season was filmed in
@@ -62,7 +66,7 @@ Run `summary(season_summary$viewers_reunion)` and describe what you find.
 ::: callout-important
 ## Wait!
 
-Stop here and wait for the next round of groups before moving on
+Stop here and wait for the timer to run out for this round to move onto the next round
 :::
 
 ## Round 2: Scatterplots
@@ -103,7 +107,7 @@ ggplot(data = ___)
 ::: callout-important
 ## Wait!
 
-Stop here and wait for the next round of groups before moving on
+Stop here and wait for the timer to run out for this round to move onto the next round
 :::
 
 ## Round 3: Additional Aesthetics
@@ -132,7 +136,7 @@ ggplot(data = ___) +
 ::: callout-important
 ## Wait!
 
-Stop here and wait for the next round of groups before moving on
+Stop here and wait for the timer to run out for this round to move onto the next round
 :::
 
 ## Round 4: Visualizing Distributions
@@ -174,7 +178,7 @@ ggplot(___) +
 ::: callout-important
 ## Wait!
 
-Stop here and wait for the next round of groups before moving on
+Stop here and wait for the timer to run out for this round to move onto the next round
 :::
 
 ## Round 5: Bar and column charts + Labeling
