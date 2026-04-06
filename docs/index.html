@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.8.25">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>Stat 220: Intro to Data Science – Stat 220</title>
 <style>
 code{white-space: pre-wrap;}
@@ -19,6 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -27,17 +31,22 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <link href="./course-links.html" rel="next">
 <link href="./course-syllabus.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-de84f8d6bb715db06a919283c2d1e787.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-9a023c9ade86a60361e96e3e3f11bc54.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-969ddfa49e00a70eb3423444dbc81f6c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3021f7aae5c5f93844abbcf46df64d48.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-07dda2090bcc851cffc0d6f22959cfd1.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-4aafe95edbcaa3c5bd496e39c4419ff3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-9dabff63b357dc90acd56e0e5ce513aa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-4aafe95edbcaa3c5bd496e39c4419ff3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -64,11 +73,178 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+
+
 </head>
-<body class="nav-sidebar docked">
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -79,11 +255,17 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <img src="./images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
       <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/stat220kurtz" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
     <a href="https://moodle.carleton.edu/course/view.php?id=48307" title="Moodle" class="quarto-navigation-tool px-1" aria-label="Moodle"><i class="bi bi-person-fill"></i></a>
@@ -97,7 +279,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item sidebar-item-section">
+        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Course information</span></a>
@@ -105,8 +287,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./course-syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
@@ -131,7 +313,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
@@ -140,8 +322,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./computing/computing-access.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Access</span></a>
@@ -172,16 +354,21 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./course-syllabus.html">Course information</a></li><li class="breadcrumb-item"><a href="./index.html">Schedule</a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./course-syllabus.html">Course information</a></li><li class="breadcrumb-item"><a href="./index.html">Schedule</a></li></ol></nav>
+<div class="quarto-title">
 <h1 class="title">Stat 220: Intro to Data Science</h1>
 </div>
 
@@ -196,26 +383,29 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header><p>This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in <strong>bold</strong> here.</p>
+</header>
+
+
+<p>This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in <strong>bold</strong> here.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="eofbuurgtk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#eofbuurgtk table {
+<div id="ndtqxktazl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ndtqxktazl table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#eofbuurgtk thead, #eofbuurgtk tbody, #eofbuurgtk tfoot, #eofbuurgtk tr, #eofbuurgtk td, #eofbuurgtk th {
+#ndtqxktazl thead, #ndtqxktazl tbody, #ndtqxktazl tfoot, #ndtqxktazl tr, #ndtqxktazl td, #ndtqxktazl th {
   border-style: none;
 }
 
-#eofbuurgtk p {
+#ndtqxktazl p {
   margin: 0;
   padding: 0;
 }
 
-#eofbuurgtk .gt_table {
+#ndtqxktazl .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -241,12 +431,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#eofbuurgtk .gt_caption {
+#ndtqxktazl .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#eofbuurgtk .gt_title {
+#ndtqxktazl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -258,7 +448,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#eofbuurgtk .gt_subtitle {
+#ndtqxktazl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -270,7 +460,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#eofbuurgtk .gt_heading {
+#ndtqxktazl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -282,13 +472,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#eofbuurgtk .gt_bottom_border {
+#ndtqxktazl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#eofbuurgtk .gt_col_headings {
+#ndtqxktazl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -303,7 +493,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#eofbuurgtk .gt_col_heading {
+#ndtqxktazl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -323,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#eofbuurgtk .gt_column_spanner_outer {
+#ndtqxktazl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -335,15 +525,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#eofbuurgtk .gt_column_spanner_outer:first-child {
+#ndtqxktazl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#eofbuurgtk .gt_column_spanner_outer:last-child {
+#ndtqxktazl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#eofbuurgtk .gt_column_spanner {
+#ndtqxktazl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -355,11 +545,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#eofbuurgtk .gt_spanner_row {
+#ndtqxktazl .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#eofbuurgtk .gt_group_heading {
+#ndtqxktazl .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -385,7 +575,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#eofbuurgtk .gt_empty_group_heading {
+#ndtqxktazl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -400,15 +590,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#eofbuurgtk .gt_from_md > :first-child {
+#ndtqxktazl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#eofbuurgtk .gt_from_md > :last-child {
+#ndtqxktazl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#eofbuurgtk .gt_row {
+#ndtqxktazl .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -427,7 +617,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#eofbuurgtk .gt_stub {
+#ndtqxktazl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -440,7 +630,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#eofbuurgtk .gt_stub_row_group {
+#ndtqxktazl .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -454,15 +644,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#eofbuurgtk .gt_row_group_first td {
+#ndtqxktazl .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#eofbuurgtk .gt_row_group_first th {
+#ndtqxktazl .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#eofbuurgtk .gt_summary_row {
+#ndtqxktazl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -472,16 +662,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#eofbuurgtk .gt_first_summary_row {
+#ndtqxktazl .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#eofbuurgtk .gt_first_summary_row.thick {
+#ndtqxktazl .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#eofbuurgtk .gt_last_summary_row {
+#ndtqxktazl .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -491,7 +681,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#eofbuurgtk .gt_grand_summary_row {
+#ndtqxktazl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -501,7 +691,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#eofbuurgtk .gt_first_grand_summary_row {
+#ndtqxktazl .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -511,7 +701,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#eofbuurgtk .gt_last_grand_summary_row_top {
+#ndtqxktazl .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -521,11 +711,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#eofbuurgtk .gt_striped {
+#ndtqxktazl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#eofbuurgtk .gt_table_body {
+#ndtqxktazl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -534,7 +724,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#eofbuurgtk .gt_footnotes {
+#ndtqxktazl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -548,7 +738,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#eofbuurgtk .gt_footnote {
+#ndtqxktazl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -557,7 +747,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#eofbuurgtk .gt_sourcenotes {
+#ndtqxktazl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -571,7 +761,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#eofbuurgtk .gt_sourcenote {
+#ndtqxktazl .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -579,77 +769,79 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#eofbuurgtk .gt_left {
+#ndtqxktazl .gt_left {
   text-align: left;
 }
 
-#eofbuurgtk .gt_center {
+#ndtqxktazl .gt_center {
   text-align: center;
 }
 
-#eofbuurgtk .gt_right {
+#ndtqxktazl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#eofbuurgtk .gt_font_normal {
+#ndtqxktazl .gt_font_normal {
   font-weight: normal;
 }
 
-#eofbuurgtk .gt_font_bold {
+#ndtqxktazl .gt_font_bold {
   font-weight: bold;
 }
 
-#eofbuurgtk .gt_font_italic {
+#ndtqxktazl .gt_font_italic {
   font-style: italic;
 }
 
-#eofbuurgtk .gt_super {
+#ndtqxktazl .gt_super {
   font-size: 65%;
 }
 
-#eofbuurgtk .gt_footnote_marks {
+#ndtqxktazl .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#eofbuurgtk .gt_asterisk {
+#ndtqxktazl .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#eofbuurgtk .gt_indent_1 {
+#ndtqxktazl .gt_indent_1 {
   text-indent: 5px;
 }
 
-#eofbuurgtk .gt_indent_2 {
+#ndtqxktazl .gt_indent_2 {
   text-indent: 10px;
 }
 
-#eofbuurgtk .gt_indent_3 {
+#ndtqxktazl .gt_indent_3 {
   text-indent: 15px;
 }
 
-#eofbuurgtk .gt_indent_4 {
+#ndtqxktazl .gt_indent_4 {
   text-indent: 20px;
 }
 
-#eofbuurgtk .gt_indent_5 {
+#ndtqxktazl .gt_indent_5 {
   text-indent: 25px;
 }
 
-#eofbuurgtk .katex-display {
+#ndtqxktazl .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#eofbuurgtk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ndtqxktazl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead><tr class="gt_col_headings header">
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
 <th id="week" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>WEEK</strong></th>
 <th id="dow" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>DOW</strong></th>
 <th id="date" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col"><strong>DATE</strong></th>
@@ -657,17 +849,18 @@ ul.task-list li input[type="checkbox"] {
 <th id="topic" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>TOPIC</strong></th>
 <th id="materials" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>MATERIALS</strong></th>
 <th id="due" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>DUE</strong></th>
-</tr></thead>
+</tr>
+</thead>
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_center" headers="week">1</td>
 <td class="gt_row gt_left" headers="dow">M</td>
 <td class="gt_row gt_right" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Mon, Mar 30</td>
-<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📝complete <a href="https://docs.google.com/forms/d/e/1FAIpQLSfuok6Eoz4-KFMKmDoYkGS9Dqu5bx3sOjFfHtkfNsHNym5-Pg/viewform">welcome survey</a>
-</td>
+<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📝complete <a href="https://docs.google.com/forms/d/e/1FAIpQLSfuok6Eoz4-KFMKmDoYkGS9Dqu5bx3sOjFfHtkfNsHNym5-Pg/viewform">welcome survey</a></td>
 <td class="gt_row gt_left" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Welcome + data, R review</td>
 <td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><a href=".\slides/01/slides01.html">slides01</a></td>
-<td class="gt_row gt_left" headers="due"><br></td>
+<td class="gt_row gt_left" headers="due"><br>
+</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center gt_striped" headers="week">1</td>
@@ -675,39 +868,34 @@ ul.task-list li input[type="checkbox"] {
 <td class="gt_row gt_right gt_striped" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Wed, Apr 1</td>
 <td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href=".\notes/01-r-basics.html">R basics</a> <br> 📚 <a href="https://r4ds.hadley.nz/quarto.html">R4DS 28.1-28.5</a> <br> 📺 <a href="https://www.youtube.com/watch?v=BCQHnlnPusY">git and GitHub for poets</a> <br> 📝 Read syllabus</td>
 <td class="gt_row gt_left gt_striped" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Github + reproducible reports</td>
-<td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">
-<a href=".\slides/02/slides02.html">slides02</a> <br><a href=".\activities/02-un-report.html">02-example-unvotes</a> <br><a href=".\notes/02-full-un-report.html">UN report to replicate</a>
+<td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><a href=".\slides/02/slides02.html">slides02</a> <br> <a href=".\activities/02-un-report.html">02-example-unvotes</a> <br> <a href=".\notes/02-full-un-report.html">UN report to replicate</a></td>
+<td class="gt_row gt_left gt_striped" headers="due"><br>
 </td>
-<td class="gt_row gt_left gt_striped" headers="due"><br></td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="week">1</td>
 <td class="gt_row gt_left" headers="dow">F</td>
 <td class="gt_row gt_right" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Fri, Apr 3</td>
-<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📝 <a href="https://commonmark.org/help/tutorial/">10 minute activity on markdown</a> <br> 📚 <a href="https://r4ds.hadley.nz/data-visualize.html">R4DS Ch1</a> <br> 📺 <a href="https://www.youtube.com/watch?v=cqcQT44mJTM">intro to ggplot</a>
-</td>
+<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📝 <a href="https://commonmark.org/help/tutorial/">10 minute activity on markdown</a> <br> 📚 <a href="https://r4ds.hadley.nz/data-visualize.html">R4DS Ch1</a> <br> 📺 <a href="https://www.youtube.com/watch?v=cqcQT44mJTM">intro to ggplot</a></td>
 <td class="gt_row gt_left" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">ggplot</td>
-<td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">
-<a href=".\slides/03/slides03.html">slides03</a> <br><a href=".\activities/03-ggplot-intro.html">03-ggplot-intro</a> <br><a href=".\data/survivor_season_summary.csv">Survivor data</a>
-</td>
+<td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><a href=".\slides/03/slides03.html">slides03</a> <br> <a href=".\activities/03-ggplot-intro.html">03-ggplot-intro</a> <br> <a href=".\data/survivor_season_summary.csv">Survivor data</a></td>
 <td class="gt_row gt_left" headers="due"><a href="https://github.com/orgs/stat220kurtz/repositories">HW 1</a></td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center gt_striped" headers="week">2</td>
 <td class="gt_row gt_left gt_striped" headers="dow">M</td>
 <td class="gt_row gt_right gt_striped" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Mon, Apr 6</td>
-<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://clauswilke.com/dataviz/proportional-ink.html">DataViz 17-21</a> <br>
-</td>
+<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://clauswilke.com/dataviz/proportional-ink.html">DataViz 17-21</a> <br></td>
 <td class="gt_row gt_left gt_striped" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Theming + Design</td>
-<td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
-<td class="gt_row gt_left gt_striped" headers="due"><br></td>
+<td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><a href="">slides04</a> <br> <a href=".\data/tb.csv">TB Data</a></td>
+<td class="gt_row gt_left gt_striped" headers="due"><br>
+</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="week">2</td>
 <td class="gt_row gt_left" headers="dow">W</td>
 <td class="gt_row gt_right" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Wed, Apr 8</td>
-<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://clauswilke.com/dataviz/geospatial-data.html">DataViz 15</a> <br>
-</td>
+<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://clauswilke.com/dataviz/geospatial-data.html">DataViz 15</a> <br></td>
 <td class="gt_row gt_left" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Maps/spatial data</td>
 <td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
 <td class="gt_row gt_left" headers="due"><a href="https://github.com/orgs/stat220kurtz/repositories">HW 2</a></td>
@@ -716,28 +904,27 @@ ul.task-list li input[type="checkbox"] {
 <td class="gt_row gt_center gt_striped" headers="week">2</td>
 <td class="gt_row gt_left gt_striped" headers="dow">F</td>
 <td class="gt_row gt_right gt_striped" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Fri, Apr 10</td>
-<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📺 first 15 minutes of <a href="https://www.youtube.com/watch?v=0HvyNtltu-A">Accessible Data Science Beyond Visual Models</a> <br> 📚 Skim <a href="https://www.urban.org/sites/default/files/2022-12/Do%20No%20Harm%20Guide%20Centering%20Accessibility%20in%20Data%20Visualization.pdf#page=31&amp;zoom=100,0,0">Writing Alt Text to Communicate the Meaning in Data Visualizations</a>
-</td>
+<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📺 first 15 minutes of <a href="https://www.youtube.com/watch?v=0HvyNtltu-A">Accessible Data Science Beyond Visual Models</a> <br> 📚 Skim <a href="https://www.urban.org/sites/default/files/2022-12/Do%20No%20Harm%20Guide%20Centering%20Accessibility%20in%20Data%20Visualization.pdf#page=31&amp;zoom=100,0,0">Writing Alt Text to Communicate the Meaning in Data Visualizations</a></td>
 <td class="gt_row gt_left gt_striped" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Accesibility for data viz</td>
 <td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
-<td class="gt_row gt_left gt_striped" headers="due"><br></td>
+<td class="gt_row gt_left gt_striped" headers="due"><br>
+</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="week">3</td>
 <td class="gt_row gt_left" headers="dow">M</td>
 <td class="gt_row gt_right" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Mon, Apr 13</td>
-<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/data-transform.html">R4DS 3.1-3.4</a> <br>
-</td>
+<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/data-transform.html">R4DS 3.1-3.4</a> <br></td>
 <td class="gt_row gt_left" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Verbs</td>
 <td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
-<td class="gt_row gt_left" headers="due"><br></td>
+<td class="gt_row gt_left" headers="due"><br>
+</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center gt_striped" headers="week">3</td>
 <td class="gt_row gt_left gt_striped" headers="dow">W</td>
 <td class="gt_row gt_right gt_striped" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Wed, Apr 15</td>
-<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/data-transform.html#groups">R4DS 3.5</a> <br> 📚 <a href="https://r4ds.hadley.nz/data-tidy">R4DS 5.1-5.4</a> <br>
-</td>
+<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/data-transform.html#groups">R4DS 3.5</a> <br> 📚 <a href="https://r4ds.hadley.nz/data-tidy">R4DS 5.1-5.4</a> <br></td>
 <td class="gt_row gt_left gt_striped" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Groups and summarizing Tidy data</td>
 <td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
 <td class="gt_row gt_left gt_striped" headers="due"><a href="https://github.com/orgs/stat220kurtz/repositories">HW 3</a></td>
@@ -746,28 +933,27 @@ ul.task-list li input[type="checkbox"] {
 <td class="gt_row gt_center" headers="week">3</td>
 <td class="gt_row gt_left" headers="dow">F</td>
 <td class="gt_row gt_right" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Fri, Apr 17</td>
-<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/workflow-style">R4DS 4</a> <br>
-</td>
+<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/workflow-style">R4DS 4</a> <br></td>
 <td class="gt_row gt_left" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Code style</td>
 <td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
-<td class="gt_row gt_left" headers="due"><br></td>
+<td class="gt_row gt_left" headers="due"><br>
+</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center gt_striped" headers="week">4</td>
 <td class="gt_row gt_left gt_striped" headers="dow">M</td>
 <td class="gt_row gt_right gt_striped" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Mon, Apr 20</td>
-<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/joins.html">R4DS 19.1-19.3</a>
-</td>
+<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/joins.html">R4DS 19.1-19.3</a></td>
 <td class="gt_row gt_left gt_striped" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Combining datasets</td>
 <td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
-<td class="gt_row gt_left gt_striped" headers="due"><br></td>
+<td class="gt_row gt_left gt_striped" headers="due"><br>
+</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="week">4</td>
 <td class="gt_row gt_left" headers="dow">W</td>
 <td class="gt_row gt_right" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Wed, Apr 22</td>
-<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/data-import">R4DS 7.1-7.4</a> <br> 📚 <a href="https://r4ds.hadley.nz/datetimes.html">R4DS 17.1-17.3</a> <br>
-</td>
+<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/data-import">R4DS 7.1-7.4</a> <br> 📚 <a href="https://r4ds.hadley.nz/datetimes.html">R4DS 17.1-17.3</a> <br></td>
 <td class="gt_row gt_left" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Import data and dates/times</td>
 <td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
 <td class="gt_row gt_left" headers="due"><a href="https://github.com/orgs/stat220kurtz/repositories">HW 4</a></td>
@@ -779,14 +965,14 @@ ul.task-list li input[type="checkbox"] {
 <td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">NO CLASS - FEEL FREE TO TAKE A BREAK, CATCH UP, OR LEARN TO BUILD A WEBSITE</td>
 <td class="gt_row gt_left gt_striped" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">OPTIONAL: building a website using GitHub Pages</td>
 <td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
-<td class="gt_row gt_left gt_striped" headers="due"><br></td>
+<td class="gt_row gt_left gt_striped" headers="due"><br>
+</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="week">5</td>
 <td class="gt_row gt_left" headers="dow">M</td>
 <td class="gt_row gt_right" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Mon, Apr 27</td>
-<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/factors">R4DS 16</a> <br>
-</td>
+<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/factors">R4DS 16</a> <br></td>
 <td class="gt_row gt_left" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Working with factors</td>
 <td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
 <td class="gt_row gt_left" headers="due"><a href="">Portfolio 1</a></td>
@@ -795,18 +981,17 @@ ul.task-list li input[type="checkbox"] {
 <td class="gt_row gt_center gt_striped" headers="week">5</td>
 <td class="gt_row gt_left gt_striped" headers="dow">W</td>
 <td class="gt_row gt_right gt_striped" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Wed, Apr 29</td>
-<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/strings">R4DS 14</a> <br> 📚 <a href="https://r4ds.hadley.nz/regexps">R4DS 15.1-15.5</a>
-</td>
+<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/strings">R4DS 14</a> <br> 📚 <a href="https://r4ds.hadley.nz/regexps">R4DS 15.1-15.5</a></td>
 <td class="gt_row gt_left gt_striped" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Working with strings and Regex</td>
 <td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
-<td class="gt_row gt_left gt_striped" headers="due"><br></td>
+<td class="gt_row gt_left gt_striped" headers="due"><br>
+</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="week">5</td>
 <td class="gt_row gt_left" headers="dow">F</td>
 <td class="gt_row gt_right" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Fri, May 1</td>
-<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://mdsr-book.github.io/mdsr3e/19-text.html#extended-example-analyzing-textual-data-from-arxiv.org">MDSR 19.2</a> <br> 🌎 <a href="https://books.google.com/ngrams/">Google ngram viewer</a>
-</td>
+<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://mdsr-book.github.io/mdsr3e/19-text.html#extended-example-analyzing-textual-data-from-arxiv.org">MDSR 19.2</a> <br> 🌎 <a href="https://books.google.com/ngrams/">Google ngram viewer</a></td>
 <td class="gt_row gt_left" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Intro to Text Analysis</td>
 <td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
 <td class="gt_row gt_left" headers="due"><a href="https://github.com/orgs/stat220kurtz/repositories">HW 5</a></td>
@@ -815,39 +1000,37 @@ ul.task-list li input[type="checkbox"] {
 <td class="gt_row gt_center gt_striped" headers="week">6</td>
 <td class="gt_row gt_left gt_striped" headers="dow">M</td>
 <td class="gt_row gt_right gt_striped" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Mon, May 4</td>
-<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br></td>
+<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br>
+</td>
 <td class="gt_row gt_left gt_striped" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">🏝️ Midterm Break; no class</td>
 <td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
-<td class="gt_row gt_left gt_striped" headers="due"><br></td>
+<td class="gt_row gt_left gt_striped" headers="due"><br>
+</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="week">6</td>
 <td class="gt_row gt_left" headers="dow">W</td>
 <td class="gt_row gt_right" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Wed, May 6</td>
-<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://makingnoiseandhearingthings.com/2022/04/19/the-trouble-with-sentiment-analysis/">The Trouble with Sentiment Analysis</a>
-</td>
+<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://makingnoiseandhearingthings.com/2022/04/19/the-trouble-with-sentiment-analysis/">The Trouble with Sentiment Analysis</a></td>
 <td class="gt_row gt_left" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Text Analysis</td>
 <td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
-<td class="gt_row gt_left" headers="due"><br></td>
+<td class="gt_row gt_left" headers="due"><br>
+</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center gt_striped" headers="week">6</td>
 <td class="gt_row gt_left gt_striped" headers="dow">F</td>
 <td class="gt_row gt_right gt_striped" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Fri, May 8</td>
-<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/functions">R4DS 25</a>
-</td>
+<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/functions">R4DS 25</a></td>
 <td class="gt_row gt_left gt_striped" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Functions</td>
 <td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
-<td class="gt_row gt_left gt_striped" headers="due">
-<a href="">Portfolio 2</a><br>
-</td>
+<td class="gt_row gt_left gt_striped" headers="due"><a href="">Portfolio 2</a><br></td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="week">7</td>
 <td class="gt_row gt_left" headers="dow">M</td>
 <td class="gt_row gt_right" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Mon, May 11</td>
-<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://mdsr-book.github.io/mdsr3e/07-iteration.html">MDSR 7.1-7.3</a>
-</td>
+<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://mdsr-book.github.io/mdsr3e/07-iteration.html">MDSR 7.1-7.3</a></td>
 <td class="gt_row gt_left" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Iteration</td>
 <td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
 <td class="gt_row gt_left" headers="due"><a href="https://github.com/orgs/stat220kurtz/repositories">HW6</a></td>
@@ -856,16 +1039,19 @@ ul.task-list li input[type="checkbox"] {
 <td class="gt_row gt_center gt_striped" headers="week">7</td>
 <td class="gt_row gt_left gt_striped" headers="dow">W</td>
 <td class="gt_row gt_right gt_striped" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Wed, May 13</td>
-<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br></td>
+<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br>
+</td>
 <td class="gt_row gt_left gt_striped" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Iteration II</td>
 <td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
-<td class="gt_row gt_left gt_striped" headers="due"><br></td>
+<td class="gt_row gt_left gt_striped" headers="due"><br>
+</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="week">7</td>
 <td class="gt_row gt_left" headers="dow">F</td>
 <td class="gt_row gt_right" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Fri, May 15</td>
-<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br></td>
+<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br>
+</td>
 <td class="gt_row gt_left" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">APIs</td>
 <td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
 <td class="gt_row gt_left" headers="due"><a href="https://github.com/orgs/stat220kurtz/repositories">HW7</a></td>
@@ -874,7 +1060,8 @@ ul.task-list li input[type="checkbox"] {
 <td class="gt_row gt_center gt_striped" headers="week">8</td>
 <td class="gt_row gt_left gt_striped" headers="dow">M</td>
 <td class="gt_row gt_right gt_striped" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Mon, May 18</td>
-<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br></td>
+<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br>
+</td>
 <td class="gt_row gt_left gt_striped" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Scraping I</td>
 <td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
 <td class="gt_row gt_left gt_striped" headers="due"><a href="">Final Project Idea Form</a></td>
@@ -883,8 +1070,7 @@ ul.task-list li input[type="checkbox"] {
 <td class="gt_row gt_center" headers="week">8</td>
 <td class="gt_row gt_left" headers="dow">W</td>
 <td class="gt_row gt_right" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Wed, May 20</td>
-<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/webscraping.html#scraping-ethics-and-legalities">R4DS 24.2;24.5</a> <br> 📝 <a href="https://rvest.tidyverse.org/articles/selectorgadget.html">install and test selectorGadget</a>
-</td>
+<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">📚 <a href="https://r4ds.hadley.nz/webscraping.html#scraping-ethics-and-legalities">R4DS 24.2;24.5</a> <br> 📝 <a href="https://rvest.tidyverse.org/articles/selectorgadget.html">install and test selectorGadget</a></td>
 <td class="gt_row gt_left" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Scraping II</td>
 <td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
 <td class="gt_row gt_left" headers="due"><a href="">Final Project Ranking Form</a></td>
@@ -893,30 +1079,26 @@ ul.task-list li input[type="checkbox"] {
 <td class="gt_row gt_center gt_striped" headers="week">8</td>
 <td class="gt_row gt_left gt_striped" headers="dow">F</td>
 <td class="gt_row gt_right gt_striped" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Fri, May 22</td>
-<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">🌎 Explore <a href="https://testing-apps.shinyapps.io/flexdashboard-storyboard/">htmlWidgets gallery + source code</a> <br> 🌎 Explore <a href="https://pub.demo.posit.team/public/nz-quakes/quakes.html">NZ Earthquakes</a> and <a href="https://github.com/cwickham/quakes/blob/main/quakes.qmd">source code</a>
-</td>
+<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">🌎 Explore <a href="https://testing-apps.shinyapps.io/flexdashboard-storyboard/">htmlWidgets gallery + source code</a> <br> 🌎 Explore <a href="https://pub.demo.posit.team/public/nz-quakes/quakes.html">NZ Earthquakes</a> and <a href="https://github.com/cwickham/quakes/blob/main/quakes.qmd">source code</a></td>
 <td class="gt_row gt_left gt_striped" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Intro to Interactivity</td>
 <td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
-<td class="gt_row gt_left gt_striped" headers="due">
-<a href="">HW8</a> <br><a href="https://github.com/orgs/stat220kurtz/repositories">Portfolio 3</a>
-</td>
+<td class="gt_row gt_left gt_striped" headers="due"><a href="">HW8</a> <br> <a href="https://github.com/orgs/stat220kurtz/repositories">Portfolio 3</a></td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="week">9</td>
 <td class="gt_row gt_left" headers="dow">M</td>
 <td class="gt_row gt_right" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Mon, May 25</td>
-<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Pick one: <br> 📺 <a href="https://carleton.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=637ed93b-d906-4ed7-86d0-afac0023b3d7">Shiny basics playlist</a> <br> 📚<a href="https://mastering-shiny.org/basic-app.html">Ch 1-2 of Mastering Shiny</a>
-</td>
+<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Pick one: <br> 📺 <a href="https://carleton.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=637ed93b-d906-4ed7-86d0-afac0023b3d7">Shiny basics playlist</a> <br> 📚<a href="https://mastering-shiny.org/basic-app.html">Ch 1-2 of Mastering Shiny</a></td>
 <td class="gt_row gt_left" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Shiny 1</td>
 <td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
-<td class="gt_row gt_left" headers="due"><br></td>
+<td class="gt_row gt_left" headers="due"><br>
+</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center gt_striped" headers="week">9</td>
 <td class="gt_row gt_left gt_striped" headers="dow">W</td>
 <td class="gt_row gt_right gt_striped" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Wed, May 27</td>
-<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Pick one: <br> 📺 <a href="https://carleton.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=0361538c-7dee-42e1-aeb8-add3002157a8">Reactivity in shiny playlist</a> <br> 📚<a href="https://mastering-shiny.org/">Ch 3 of Mastering Shiny</a>
-</td>
+<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Pick one: <br> 📺 <a href="https://carleton.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=0361538c-7dee-42e1-aeb8-add3002157a8">Reactivity in shiny playlist</a> <br> 📚<a href="https://mastering-shiny.org/">Ch 3 of Mastering Shiny</a></td>
 <td class="gt_row gt_left gt_striped" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Shiny 2</td>
 <td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
 <td class="gt_row gt_left gt_striped" headers="due">Final Project sketch</td>
@@ -925,16 +1107,19 @@ ul.task-list li input[type="checkbox"] {
 <td class="gt_row gt_center" headers="week">9</td>
 <td class="gt_row gt_left" headers="dow">F</td>
 <td class="gt_row gt_right" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Fri, May 29</td>
-<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br></td>
+<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br>
+</td>
 <td class="gt_row gt_left" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Shiny 3</td>
 <td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
-<td class="gt_row gt_left" headers="due"><br></td>
+<td class="gt_row gt_left" headers="due"><br>
+</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center gt_striped" headers="week">10</td>
 <td class="gt_row gt_left gt_striped" headers="dow">M</td>
 <td class="gt_row gt_right gt_striped" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Mon, Jun 1</td>
-<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br></td>
+<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br>
+</td>
 <td class="gt_row gt_left gt_striped" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Project Demos</td>
 <td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
 <td class="gt_row gt_left gt_striped" headers="due"><a href="">Portfolio 4</a></td>
@@ -943,403 +1128,284 @@ ul.task-list li input[type="checkbox"] {
 <td class="gt_row gt_center" headers="week">10</td>
 <td class="gt_row gt_left" headers="dow">W</td>
 <td class="gt_row gt_right" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Wed, Jun 3</td>
-<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br></td>
+<td class="gt_row gt_left" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br>
+</td>
 <td class="gt_row gt_left" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Project Demos</td>
 <td class="gt_row gt_left" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
 <td class="gt_row gt_left" headers="due"><a href="https://github.com/orgs/stat220kurtz/repositories">HW9</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center gt_striped" headers="week"><br></td>
+<td class="gt_row gt_center gt_striped" headers="week"><br>
+</td>
 <td class="gt_row gt_left gt_striped" headers="dow">NA</td>
 <td class="gt_row gt_right gt_striped" headers="date" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Mon, Jun 8</td>
-<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br></td>
+<td class="gt_row gt_left gt_striped" headers="prepare" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3"><br>
+</td>
 <td class="gt_row gt_left gt_striped" headers="topic" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">Final Project Due @ noon</td>
 <td class="gt_row gt_left gt_striped" headers="materials" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3">tbd</td>
 <td class="gt_row gt_left gt_striped" headers="due"><a href="">Final Project</a></td>
 </tr>
 </tbody>
 </table>
+
 </div>
 </div>
 </div>
 
 
 
-</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
       return false;
     }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        return container.innerHTML
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1347,185 +1413,163 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="./course-syllabus.html" class="pagination-link" aria-label="Syllabus">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Syllabus</span>
       </a>          
@@ -1537,7 +1581,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Many thanks to Amanda Luby <br> Design by Mine Çetinkaya-Rundel</p>
 </div>   
@@ -1549,6 +1594,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+
+
 
 
 </body></html>
