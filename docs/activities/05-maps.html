@@ -495,7 +495,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="load-data" class="level2">
 <h2 class="anchored" data-anchor-id="load-data">Load Data</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>acs_state_data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"acs_state_data_2022_5y.csv"</span>) </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>acs_state_data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/stat220kurtz/stat220kurtz.github.io/refs/heads/main/data/acs_state_data_2022_5y.csv"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>acs_state_data<span class="sc">$</span>state <span class="ot">=</span> <span class="fu">tolower</span>(acs_state_data<span class="sc">$</span>NAME)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Variable information:</p>
@@ -1058,7 +1058,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## Load Data</span></span>
 <span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>acs_state_data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"acs_state_data_2022_5y.csv"</span>) </span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>acs_state_data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/stat220kurtz/stat220kurtz.github.io/refs/heads/main/data/acs_state_data_2022_5y.csv"</span>)</span>
 <span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>acs_state_data<span class="sc">$</span>state <span class="ot">=</span> <span class="fu">tolower</span>(acs_state_data<span class="sc">$</span>NAME)</span>
 <span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
