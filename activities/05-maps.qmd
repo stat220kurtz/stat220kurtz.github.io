@@ -17,9 +17,11 @@ ggplot(states, aes(x=long, y=lat, group=group)) +
     geom_polygon(color="gold2", fill="navyblue")
 ```
 
-## Your turn
+## Warm Up
 
-Edit the code so that each state is a different color
+Edit the code so that each state is a different color.
+
+Hint: what layer should we edit? How will we edit it? You could do this in either the `ggplot()` function or the `geom_polygon()` function.
 
 ```{r}
 states <- map_data("state")
@@ -27,7 +29,7 @@ ggplot(states, aes(x=long, y=lat, group=group)) +
     geom_polygon(color="gold2", fill="navyblue")
 ```
 
-# Your turn: ACS data
+# Activity: ACS data
 
 ## Load Data
 
@@ -39,7 +41,7 @@ acs_state_data$state = tolower(acs_state_data$NAME)
 Variable information:
 
 -   `med_age`: median age
--   `med_income`: median age
+-   `med_income`: median income
 -   `race_X`: estimated population of (self-reported) race
 -   `born_in_state`: estimated population who were born in state
 -   `X_age_married`: average age at first marriage for self-reported male and female respondents
@@ -61,14 +63,22 @@ ggplot(acs_state_data) +
   theme_map()
 ```
 
-### Your turn 1
+### Exercise 1
 
 Comment out the `expand_limits` line using `#`. What happened? 
 
-### Your turn 2
+### Exercise 2
+
+Open up the Data visualization with ggplot2 cheat sheet linked at the Cheatsheets section of the course website (expand the Computing section). 
 
 Edit your chloropleth map by: 
 
 - Choosing a different variable in `acs_state_data` to map to `fill`
-- Choosing a different color scale
-- Updating the title, axis labels, and legend title
+- Choosing a different color scale - think about whether a sequential or diverging scale makes more sense for your visual
+- Updating the title, and legend title, and any other relevant paramters in `labs()`
+
+### Exercise 3
+
+If you didn't already choose a variable that records raw counts in the previous exercise (e.g. `race_x`), make another map that plots data with raw counts, and proceed to the step below. If you did choose such a variable, further update your map from the previous exercise by:
+
+- Plotting the variable you chose *per capita.* You can do this by dividing the variable chosen in the previous problem by `total_pop` directly in the `aes()` function.

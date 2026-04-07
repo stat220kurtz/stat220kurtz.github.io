@@ -52,9 +52,8 @@ theme_set(theme_gray(
 -   If you screw things up, copy your important files (eg. `hw02.qmd`) to a safe place.
     -   Usually your files are JUST FINE. But it is easy to goof up the Git infrastructure when you’re new at this. And it can be hard to get that straightened out on your own.
 -   Rename the existing local repo as a temporary measure, i.e. before you do something radical, like delete it.
--   Clone the original repo from GitHub to RStudio (follow the directions to create a new project). You are back to a happy state.
--   Copy all relevant files back over from your safe space. The ones whose updated state you need to commit.
--   Knit, commit, push
+-   Clone the original repo from GitHub to RStudio, and copy all relevant files back over from your safe space. The ones whose updated state you need to commit.
+-   Render, commit, push
 -   Carry on with your life.
 :::
 
@@ -66,15 +65,11 @@ theme_set(theme_gray(
 [Burn It All Down](https://happygitwithr.com/burn) from *Happy Git with R*
 :::
 
-## 
-
-![](../img/whole-game-04.png)
-
 # Spatial Data {.maize}
 
 ## Cholera {.smaller}
 
-In 1854, a *Cholera* outbreak killed 127 people in 3 days in a London neighborhood, resulting in a mass exodus of local residents. At the time, people thought that Cholera w as an airborne disease. John Snow was a physician who was critical of the airborne theory, and set out to investigate.
+In 1854, a *Cholera* outbreak killed 127 people in 3 days in a London neighborhood, resulting in a mass exodus of local residents. At the time, people thought that Cholera was an airborne disease. John Snow was a physician who was critical of the airborne theory, and set out to investigate.
 
 . . .
 
@@ -111,7 +106,7 @@ Source: [MDSR Ch17.1](https://mdsr-book.github.io/mdsr3e/17-geospatialI.html)
 
 ## 
 
-While we can see patterns in the last plot, the underlying map of the London streets provides helpful context that makes it more intelligble:
+While we can see patterns in the last plot, the underlying map of the London streets provides helpful context that makes it more intelligible:
 
 ![](../img/snow-cholera-map.jpeg){.lightbox width="50%" fig-align="center"}
 
@@ -123,7 +118,7 @@ Source: [MDSR Ch17.1](https://mdsr-book.github.io/mdsr3e/17-geospatialI.html)
 
 ::::: columns
 ::: {.column .nonincremental width="60%"}
-Snow’s insight was driven by another set of data—the locations of the street-side water pumps (it's kind of hard to see, but they are labelled on the map). Nearly all of the cases were clustered around a single pump on the center of Broad Street.
+Snow’s insight was driven by another set of data — the locations of the street-side water pumps (it's very hard to see, but they are labeled with circular dots on the map). Nearly all of the cases were clustered around a single pump on the center of Broad Street.
 
 John Snow's map (and water pump) are now "famous" among epidemiologists and statisticians.
 :::
@@ -149,11 +144,11 @@ Source: [MDSR Ch17.1](https://mdsr-book.github.io/mdsr3e/17-geospatialI.html)
 
 ## Common Types of Maps
 
-1.  Chloropleth
-2.  Proportional Symbol
-3.  Cartograms/Geofacets
+1.  Choropleth
+2.  Cartograms
+3.  Dot density and Proportional Symbol
 
-## Chloropleth
+## Choropleth
 
 Fill in regions with variable values
 
@@ -170,6 +165,18 @@ Need two data sources:
 ![](../img/wilke-chloropleth.png)
 :::
 :::::
+
+::: aside
+[*Fundamentals of Data Visualization*](https://clauswilke.com/dataviz/geospatial-data.html)
+:::
+
+## Cartogram
+
+Use approximate geographical position to encode information, but not lat/long directly
+
+![](../img/wilke-cartogram.png){.r-stretch}
+
+
 
 ::: aside
 [*Fundamentals of Data Visualization*](https://clauswilke.com/dataviz/geospatial-data.html)
@@ -227,19 +234,7 @@ ggsave("slides/img/airport-ggmap.png", width = 8, height = 4, units = "in")
 Made with {ggmap} and {nycflights23}
 :::
 
-## Cartogram
-
-Use approximate geographical position to encode information, but not lat/long directly
-
-![](../img/wilke-cartogram.png){.r-stretch}
-
-
-
-::: aside
-[*Fundamentals of Data Visualization*](https://clauswilke.com/dataviz/geospatial-data.html)
-:::
-
-# Chloropleth Maps in detail {.maize}
+# Choropleth Maps in detail {.maize}
 
 ## What is a map?
 
@@ -293,18 +288,7 @@ ggplot(states, aes(x=long, y=lat, group=group)) +
     geom_polygon(color="gold2", fill="navyblue")
 ```
 
-## Using `coord_fixed()`
-
-Using `coord_fixed()` forces x and y units to be equal
-
-```{r}
-#| echo: true
-ggplot(states, aes(x=long, y=lat, group=group)) + 
-    geom_polygon(color="gold2", fill="navyblue") +
-  coord_fixed()
-```
-
-## Your turn
+## Warm Up
 
 ```{r}
 #| eval: FALSE
@@ -318,7 +302,7 @@ ggplot(states, aes(x=long, y=lat, group=group)) +
 ::: {.task .nonincremental}
 -   Edit this code so that each shape is colored in with a different color.
 -   You only need the 3 variables used: `long`, `lat`, and `group`
--   `05-maps.qmd` is available on the website
+-   `05-maps.qmd` is available on the website (push the Code button at the top right of the 05-maps link and paste into your own .qmd file)
 :::
 
 ```{r}
@@ -329,7 +313,7 @@ countdown(3)
 
 ```{r}
 #| echo: true
-acs_state_data = read_csv("https://raw.githubusercontent.com/aluby/teaching-datasets/refs/heads/main/acs_state_data_2022_5y.csv") 
+acs_state_data = read_csv("../../data/acs_state_data_2022_5y.csv")
 acs_state_data$state = tolower(acs_state_data$NAME)
 ```
 
@@ -366,7 +350,7 @@ ggplot(acs_state_data) +
 :::
 :::::
 
-## Your turn 1
+## Activity 1
 
 ::: {.task .nonincremental}
 Comment out the `expand_limits` line. What happened? 
@@ -409,7 +393,7 @@ The next two panels show the same data and the same graph with two different col
 Unemployment rate by county in 2020. Source: [Datawrapper blog](https://www.datawrapper.de/blog/classed-vs-unclassed-color-scales)
 :::
 
-## Your turn 2
+## Activity 2
 
 ::: {.task .nonincremental}
 Edit your chloropleth map by: 
@@ -433,18 +417,6 @@ countdown(6)
 Geospatial data exists on the globe and is generally described with a *latitude* and *longitude*. Any *projection* from the globe to euclidean space (X-Y plane) is going to cause some distortion.
 :::
 ::::
-
-## 
-
-{{< video https://www.youtube.com/watch?v=vVX-PrBRtTY
-    title="West Wing: Gall-Peters Projection"
-    start="45"
-    width="100%" 
-    height="100%">}}
-
-::: aside
-From *The West Wing* Season 2 Episode 16
-:::
 
 ## 
 
@@ -510,3 +482,8 @@ ggplot(world, aes(x=long, y=lat, group=group)) +
 ```
 
 
+## Activity 3
+
+::: {.task .nonincremental}
+Make a map showing per capita information by dividing the variable chosen in the previous problem by `total_pop` directly in the `aes()` function.
+:::

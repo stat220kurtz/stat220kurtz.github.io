@@ -26,7 +26,7 @@
     "href": "index.html",
     "title": "Stat 220: Intro to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n\n1\nM\nMon, Mar 30\n📝complete welcome survey\nWelcome + data, R review\nslides01\n\n\n\n\n1\nW\nWed, Apr 1\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus\nGithub + reproducible reports\nslides02  02-example-unvotes  UN report to replicate\n\n\n\n\n1\nF\nFri, Apr 3\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\nggplot\nslides03  03-ggplot-intro  Survivor data\nHW 1\n\n\n2\nM\nMon, Apr 6\n📚 DataViz 17-21 \nTheming + Design\nslides04  TB Data\n\n\n\n\n2\nW\nWed, Apr 8\n📚 DataViz 15 \nMaps/spatial data\ntbd\nHW 2\n\n\n2\nF\nFri, Apr 10\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\nAccesibility for data viz\ntbd\n\n\n\n\n3\nM\nMon, Apr 13\n📚 R4DS 3.1-3.4 \nVerbs\ntbd\n\n\n\n\n3\nW\nWed, Apr 15\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \nGroups and summarizing Tidy data\ntbd\nHW 3\n\n\n3\nF\nFri, Apr 17\n📚 R4DS 4 \nCode style\ntbd\n\n\n\n\n4\nM\nMon, Apr 20\n📚 R4DS 19.1-19.3\nCombining datasets\ntbd\n\n\n\n\n4\nW\nWed, Apr 22\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \nImport data and dates/times\ntbd\nHW 4\n\n\n4\nF\nFri, Apr 24\nNO CLASS - FEEL FREE TO TAKE A BREAK, CATCH UP, OR LEARN TO BUILD A WEBSITE\nOPTIONAL: building a website using GitHub Pages\ntbd\n\n\n\n\n5\nM\nMon, Apr 27\n📚 R4DS 16 \nWorking with factors\ntbd\nPortfolio 1\n\n\n5\nW\nWed, Apr 29\n📚 R4DS 14  📚 R4DS 15.1-15.5\nWorking with strings and Regex\ntbd\n\n\n\n\n5\nF\nFri, May 1\n📚 MDSR 19.2  🌎 Google ngram viewer\nIntro to Text Analysis\ntbd\nHW 5\n\n\n6\nM\nMon, May 4\n\n\n🏝️ Midterm Break; no class\ntbd\n\n\n\n\n6\nW\nWed, May 6\n📚 The Trouble with Sentiment Analysis\nText Analysis\ntbd\n\n\n\n\n6\nF\nFri, May 8\n📚 R4DS 25\nFunctions\ntbd\nPortfolio 2\n\n\n7\nM\nMon, May 11\n📚 MDSR 7.1-7.3\nIteration\ntbd\nHW6\n\n\n7\nW\nWed, May 13\n\n\nIteration II\ntbd\n\n\n\n\n7\nF\nFri, May 15\n\n\nAPIs\ntbd\nHW7\n\n\n8\nM\nMon, May 18\n\n\nScraping I\ntbd\nFinal Project Idea Form\n\n\n8\nW\nWed, May 20\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nF\nFri, May 22\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\nIntro to Interactivity\ntbd\nHW8  Portfolio 3\n\n\n9\nM\nMon, May 25\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\nShiny 1\ntbd\n\n\n\n\n9\nW\nWed, May 27\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\nShiny 2\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, May 29\n\n\nShiny 3\ntbd\n\n\n\n\n10\nM\nMon, Jun 1\n\n\nProject Demos\ntbd\nPortfolio 4\n\n\n10\nW\nWed, Jun 3\n\n\nProject Demos\ntbd\nHW9\n\n\n\n\nNA\nMon, Jun 8\n\n\nFinal Project Due @ noon\ntbd\nFinal Project",
+    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n\n1\nM\nMon, Mar 30\n📝complete welcome survey\nWelcome + data, R review\nslides01\n\n\n\n\n1\nW\nWed, Apr 1\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus\nGithub + reproducible reports\nslides02  02-example-unvotes  UN report to replicate\n\n\n\n\n1\nF\nFri, Apr 3\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\nggplot\nslides03  03-ggplot-intro  Survivor data\nHW 1\n\n\n2\nM\nMon, Apr 6\n📚 DataViz 17-21 \nTheming + Design\nslides04  TB Data\n\n\n\n\n2\nW\nWed, Apr 8\n📚 DataViz 15 \nMaps/spatial data\nslides05  05-maps\nHW 2\n\n\n2\nF\nFri, Apr 10\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\nAccesibility for data viz\ntbd\n\n\n\n\n3\nM\nMon, Apr 13\n📚 R4DS 3.1-3.4 \nVerbs\ntbd\n\n\n\n\n3\nW\nWed, Apr 15\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \nGroups and summarizing Tidy data\ntbd\nHW 3\n\n\n3\nF\nFri, Apr 17\n📚 R4DS 4 \nCode style\ntbd\n\n\n\n\n4\nM\nMon, Apr 20\n📚 R4DS 19.1-19.3\nCombining datasets\ntbd\n\n\n\n\n4\nW\nWed, Apr 22\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \nImport data and dates/times\ntbd\nHW 4\n\n\n4\nF\nFri, Apr 24\nNO CLASS - FEEL FREE TO TAKE A BREAK, CATCH UP, OR LEARN TO BUILD A WEBSITE\nOPTIONAL: building a website using GitHub Pages\ntbd\n\n\n\n\n5\nM\nMon, Apr 27\n📚 R4DS 16 \nWorking with factors\ntbd\nPortfolio 1\n\n\n5\nW\nWed, Apr 29\n📚 R4DS 14  📚 R4DS 15.1-15.5\nWorking with strings and Regex\ntbd\n\n\n\n\n5\nF\nFri, May 1\n📚 MDSR 19.2  🌎 Google ngram viewer\nIntro to Text Analysis\ntbd\nHW 5\n\n\n6\nM\nMon, May 4\n\n\n🏝️ Midterm Break; no class\ntbd\n\n\n\n\n6\nW\nWed, May 6\n📚 The Trouble with Sentiment Analysis\nText Analysis\ntbd\n\n\n\n\n6\nF\nFri, May 8\n📚 R4DS 25\nFunctions\ntbd\nPortfolio 2\n\n\n7\nM\nMon, May 11\n📚 MDSR 7.1-7.3\nIteration\ntbd\nHW6\n\n\n7\nW\nWed, May 13\n\n\nIteration II\ntbd\n\n\n\n\n7\nF\nFri, May 15\n\n\nAPIs\ntbd\nHW7\n\n\n8\nM\nMon, May 18\n\n\nScraping I\ntbd\nFinal Project Idea Form\n\n\n8\nW\nWed, May 20\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nF\nFri, May 22\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\nIntro to Interactivity\ntbd\nHW8  Portfolio 3\n\n\n9\nM\nMon, May 25\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\nShiny 1\ntbd\n\n\n\n\n9\nW\nWed, May 27\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\nShiny 2\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, May 29\n\n\nShiny 3\ntbd\n\n\n\n\n10\nM\nMon, Jun 1\n\n\nProject Demos\ntbd\nPortfolio 4\n\n\n10\nW\nWed, Jun 3\n\n\nProject Demos\ntbd\nHW9\n\n\n\n\nNA\nMon, Jun 8\n\n\nFinal Project Due @ noon\ntbd\nFinal Project",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -1971,5 +1971,306 @@
     "title": "Intro to ggplot2\n",
     "section": "Round 5: Bar and column charts + Labeling",
     "text": "Round 5: Bar and column charts + Labeling\nHow many seasons were filmed in each country? Let’s find out!\n20. Make a bar chart of the number of seasons filmed in each country2 using geom_bar()\n\n# Fill in the blanks\nggplot(___) +\n  geom_bar(aes(x = ___))\n\n21. country2 has a category called “other”. Make a bar chart of country (which includes all individual countries) instead.\n\n# Fill in the blanks\nggplot(___) +\n  geom_bar(aes(x = ___))\n\n22. When you have lots of categories, it’s sometimes hard to read the labels on the x-axis. One trick is to flip the axes. Change geom_bar() to use the y aesthetic from your code in question 21 instead.\n23 . Sometimes, the variable we want to show up in the bar chart shows up explicitly in our data. Put n_tribes on the x-axis, and season_name on the y-axis. Use geom_col (column) as the geom. How is this different than a bar plot?\n\n# Fill in the blanks\nggplot(___) +\n  geom_col(aes(x = ___, y = ___))\n\n24. In ggplot2 you can add/change the title, subtitle, caption, and x- and y-axis labels by adding a labs() layer. Below is an example illustrating it’s use. Choose one graph from today and add all labels.\n\nggplot(data = mpg) +\n  geom_point(mapping = aes(x = displ, y = hwy)) + \n  labs(\n    title = \"Put your informative title here\",\n    subtitle = \"and your subtitle here\",\n    x = \"New x label\",\n    y = \"New y label\",\n    caption = \"Put a caption here\"\n  )"
+  },
+  {
+    "objectID": "activities/05-maps.html",
+    "href": "activities/05-maps.html",
+    "title": "Maps",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(maps)\nlibrary(mapproj)\nlibrary(ggthemes)"
+  },
+  {
+    "objectID": "activities/05-maps.html#warm-up",
+    "href": "activities/05-maps.html#warm-up",
+    "title": "Maps",
+    "section": "Warm Up",
+    "text": "Warm Up\nEdit the code so that each state is a different color.\nHint: what layer should we edit? How will we edit it? You could do this in either the ggplot() function or the geom_polygon() function.\n\nstates &lt;- map_data(\"state\")\nggplot(states, aes(x=long, y=lat, group=group)) + \n    geom_polygon(color=\"gold2\", fill=\"navyblue\")"
+  },
+  {
+    "objectID": "activities/05-maps.html#load-data",
+    "href": "activities/05-maps.html#load-data",
+    "title": "Maps",
+    "section": "Load Data",
+    "text": "Load Data\n\nacs_state_data = read_csv(\"acs_state_data_2022_5y.csv\") \nacs_state_data$state = tolower(acs_state_data$NAME)\n\nVariable information:\n\nmed_age: median age\nmed_income: median income\nrace_X: estimated population of (self-reported) race\nborn_in_state: estimated population who were born in state\nX_age_married: average age at first marriage for self-reported male and female respondents\nhs_diploma, associate_degree, prof_degree, etc.: estimated number with a high school diploma, associate’s degree, professional degree, etc.\ninternet_X: estimated number of people who have internet services"
+  },
+  {
+    "objectID": "activities/05-maps.html#acs-data-starter-map",
+    "href": "activities/05-maps.html#acs-data-starter-map",
+    "title": "Maps",
+    "section": "ACS Data Starter Map",
+    "text": "ACS Data Starter Map\nImportant note: we’re using geom_map as a shortcut here to make a chloropleth map. This saves us the step of encoding the lat/long borders of states, and lets us directly fill the state colors using acs_state_data only. If you’re asked to make a chloropleth map with data that only includes, e.g., state name, use this starter code.\n\nggplot(acs_state_data) + \n  geom_map(\n    aes(map_id = state, fill = NAME),\n    map = states\n  ) +\n  expand_limits(x = states$long, y = states$lat) +\n  coord_map() +\n  theme_map()\n\n\n\n\n\n\n\n\n\nExercise 1\nComment out the expand_limits line using #. What happened?\n\n\nExercise 2\nOpen up the Data visualization with ggplot2 cheat sheet linked at the Cheatsheets section of the course website (expand the Computing section).\nEdit your chloropleth map by:\n\nChoosing a different variable in acs_state_data to map to fill\nChoosing a different color scale - think about whether a sequential or diverging scale makes more sense for your visual\nUpdating the title, and legend title, and any other relevant paramters in labs()\n\n\n\nExercise 3\nIf you didn’t already choose a variable that records raw counts in the previous exercise (e.g. race_x), make another map that plots data with raw counts, and proceed to the step below. If you did choose such a variable, further update your map from the previous exercise by:\n\nPlotting the variable you chose per capita. You can do this by dividing the variable chosen in the previous problem by total_pop directly in the aes() function."
+  },
+  {
+    "objectID": "slides/05/slides05.html#today",
+    "href": "slides/05/slides05.html#today",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Today",
+    "text": "Today\n\ngit/GitHub\nIntro to Spatial Data\nMaking Maps in ggplot2"
+  },
+  {
+    "objectID": "slides/05/slides05.html#section",
+    "href": "slides/05/slides05.html#section",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "",
+    "text": "Think of the state on GitHub as “worst case scenario”\nIf you screw things up, copy your important files (eg. hw02.qmd) to a safe place.\n\nUsually your files are JUST FINE. But it is easy to goof up the Git infrastructure when you’re new at this. And it can be hard to get that straightened out on your own.\n\nRename the existing local repo as a temporary measure, i.e. before you do something radical, like delete it.\nClone the original repo from GitHub to RStudio, and copy all relevant files back over from your safe space. The ones whose updated state you need to commit.\nRender, commit, push\nCarry on with your life.\n\n\n\n\n\n\nBurn It All Down from Happy Git with R"
+  },
+  {
+    "objectID": "slides/05/slides05.html#cholera",
+    "href": "slides/05/slides05.html#cholera",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Cholera",
+    "text": "Cholera\nIn 1854, a Cholera outbreak killed 127 people in 3 days in a London neighborhood, resulting in a mass exodus of local residents. At the time, people thought that Cholera was an airborne disease. John Snow was a physician who was critical of the airborne theory, and set out to investigate.\n\nWhat might this data look like?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndate\nlast_name\nfirst_name\naddress\nage\ncause_of_death\n\n\n\n\nAug 31, 1854\nJones\nThomas\n26 Broad St.\n37\ncholera\n\n\nAug 31, 1854\nJones\nMary\n26 Broad St.\n11\ncholera\n\n\nSept 1, 1854\nWarwick\nMartin\n14 Broad St.\n23\ncholera\n\n\n\n\n\n\n\n\nSource: MDSR Ch17.1"
+  },
+  {
+    "objectID": "slides/05/slides05.html#section-2",
+    "href": "slides/05/slides05.html#section-2",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "",
+    "text": "While we can see patterns in the last plot, the underlying map of the London streets provides helpful context that makes it more intelligible:\n\n\n\n\n\n\n\nSource: MDSR Ch17.1"
+  },
+  {
+    "objectID": "slides/05/slides05.html#section-3",
+    "href": "slides/05/slides05.html#section-3",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "",
+    "text": "Snow’s insight was driven by another set of data — the locations of the street-side water pumps (it’s very hard to see, but they are labeled with circular dots on the map). Nearly all of the cases were clustered around a single pump on the center of Broad Street.\nJohn Snow’s map (and water pump) are now “famous” among epidemiologists and statisticians.\n\n\n\n\nJohn Snow’s water pump (and pub) from a 2019 visit\n\n\n\n\n\nSource: MDSR Ch17.1"
+  },
+  {
+    "objectID": "slides/05/slides05.html#section-4",
+    "href": "slides/05/slides05.html#section-4",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "",
+    "text": "Geospatial data exists on the globe and is generally described with a latitude and longitude. Any projection from the globe to euclidean space (X-Y plane) is going to cause some distortion."
+  },
+  {
+    "objectID": "slides/05/slides05.html#a-successful-data-science-episode",
+    "href": "slides/05/slides05.html#a-successful-data-science-episode",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "A successful data science episode:",
+    "text": "A successful data science episode:\n\nCombine three sources of data (Cholera deaths, water pump locations, and street map)\nWhile a model might have come to the same conclusion, simply plotting the data is much simpler (and more convincing to lots of people)\nThe problem was resolved when the data-based evidence was combined with a plausible model that explained the physical phenomenon.\n\n\n\nSource: MDSR Ch17.1"
+  },
+  {
+    "objectID": "slides/05/slides05.html#common-types-of-maps",
+    "href": "slides/05/slides05.html#common-types-of-maps",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Common Types of Maps",
+    "text": "Common Types of Maps\n\nChoropleth\nCartograms\nDot density and Proportional Symbol"
+  },
+  {
+    "objectID": "slides/05/slides05.html#chloropleth",
+    "href": "slides/05/slides05.html#chloropleth",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Chloropleth",
+    "text": "Chloropleth\nFill in regions with variable values\n\n\nNeed two data sources:\n\nmap data with lat, long, region\ndata with measurements for each region\n\n\n\n\n\n\nFundamentals of Data Visualization"
+  },
+  {
+    "objectID": "slides/05/slides05.html#dot-density",
+    "href": "slides/05/slides05.html#dot-density",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Dot density",
+    "text": "Dot density\nUses points to show distribution and concentration, where each dot represents a specific quantity. Here 1 dot = 1 person:\n\n\n\nSource: Cooper Center’s racial dot map; no longer active"
+  },
+  {
+    "objectID": "slides/05/slides05.html#proportional-symbol",
+    "href": "slides/05/slides05.html#proportional-symbol",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Proportional Symbol",
+    "text": "Proportional Symbol\nOverlay symbols on an existing map, where the size of the shape is proportional to the variable\n\n\n\nMade with {ggmap} and {nycflights23}"
+  },
+  {
+    "objectID": "slides/05/slides05.html#cartogram",
+    "href": "slides/05/slides05.html#cartogram",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Cartogram",
+    "text": "Cartogram\nUse approximate geographical position to encode information, but not lat/long directly\n\n\n\nFundamentals of Data Visualization"
+  },
+  {
+    "objectID": "slides/05/slides05.html#what-is-a-map",
+    "href": "slides/05/slides05.html#what-is-a-map",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "What is a map?",
+    "text": "What is a map?\nA bunch of latitude longitude points…"
+  },
+  {
+    "objectID": "slides/05/slides05.html#what-is-a-map-1",
+    "href": "slides/05/slides05.html#what-is-a-map-1",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "What is a map?",
+    "text": "What is a map?\n… that are connected with lines in a very specific order."
+  },
+  {
+    "objectID": "slides/05/slides05.html#necessary-map-data",
+    "href": "slides/05/slides05.html#necessary-map-data",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Necessary map data",
+    "text": "Necessary map data\n\nlatitude/longitude points for all map boundaries\nwhich boundary group all lat/long points belong\nthe order to connect points within each group"
+  },
+  {
+    "objectID": "slides/05/slides05.html#state-map-data",
+    "href": "slides/05/slides05.html#state-map-data",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "State map data",
+    "text": "State map data\nggplot2::map_data() provides the necessary information\n\nstates &lt;- map_data(\"state\")\nhead(states)\n\n       long      lat group order  region subregion\n1 -87.46201 30.38968     1     1 alabama      &lt;NA&gt;\n2 -87.48493 30.37249     1     2 alabama      &lt;NA&gt;\n3 -87.52503 30.37249     1     3 alabama      &lt;NA&gt;\n4 -87.53076 30.33239     1     4 alabama      &lt;NA&gt;\n5 -87.57087 30.32665     1     5 alabama      &lt;NA&gt;\n6 -87.58806 30.32665     1     6 alabama      &lt;NA&gt;"
+  },
+  {
+    "objectID": "slides/05/slides05.html#using-geom_polygon",
+    "href": "slides/05/slides05.html#using-geom_polygon",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Using geom_polygon()",
+    "text": "Using geom_polygon()\nUsing geom_polygon() will treat states as solid shapes, making it easier to add color\n\nggplot(states, aes(x=long, y=lat, group=group)) + \n    geom_polygon(color=\"gold2\", fill=\"navyblue\")"
+  },
+  {
+    "objectID": "slides/05/slides05.html#using-coord_fixed",
+    "href": "slides/05/slides05.html#using-coord_fixed",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Using coord_fixed()",
+    "text": "Using coord_fixed()\nUsing coord_fixed() forces x and y units to be equal\n\nggplot(states, aes(x=long, y=lat, group=group)) + \n    geom_polygon(color=\"gold2\", fill=\"navyblue\") +\n  coord_fixed()"
+  },
+  {
+    "objectID": "slides/05/slides05.html#your-turn",
+    "href": "slides/05/slides05.html#your-turn",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Your turn",
+    "text": "Your turn\n\nggplot(states, aes(x=long, y=lat, group=group)) + \n    geom_polygon(color=\"gold2\", fill=\"navyblue\") +\n    coord_fixed()\n\n\n\nEdit this code so that each shape is colored in with a different color.\nYou only need the 3 variables used: long, lat, and group\n05-maps.qmd is available on the website"
+  },
+  {
+    "objectID": "slides/05/slides05.html#but-how-do-we-include-data",
+    "href": "slides/05/slides05.html#but-how-do-we-include-data",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "But… how do we include data?",
+    "text": "But… how do we include data?\n\nacs_state_data = read_csv(\"../../data/acs_state_data_2022_5y.csv\")\nacs_state_data$state = tolower(acs_state_data$NAME)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNAME\nmed_age\ntotal_pop\nrace_white\nrace_black_afam\nrace_am_indian\nrace_asian\nrace_hawaiian_pi\nrace_other\nrace_two_plus\nborn_in_state\nmale_age_married\nfem_age_married\nhs_diploma\nassociate_degree\nbachelors_degree\nmasters_degree\nprof_degree\ndoctorate_degree\nmed_income\ninternet_any\ninternet_dialup\ninternet_broadband\nstate\n\n\n\n\nAlabama\n39.3\n5028092\n3329012\n1326341\n21122\n69808\n93924\n185632\n63576\n3454217\n28.8\n27.0\n864977\n306021\n572252\n261039\n56574\n42980\n59609\n1625807\n6090\n1619717\nalabama\n\n\nAlaska\n35.3\n734821\n450472\n23395\n104957\n47464\n14597\n82727\n15138\n314011\n29.5\n26.6\n114087\n43357\n93744\n39645\n9589\n6419\n86370\n236875\n610\n236265\nalaska\n\n\nArizona\n38.4\n7172282\n4781702\n327077\n297590\n240642\n549361\n961794\n668727\n2849262\n30.3\n28.2\n953769\n445866\n958447\n429317\n93897\n69793\n72581\n2448838\n5550\n2443288\narizona\n\n\nArkansas\n38.4\n3018669\n2193348\n456693\n16840\n47413\n89782\n203476\n106205\n1843313\n27.3\n26.0\n573876\n159514\n317437\n134754\n29822\n19966\n56335\n968272\n2584\n965688\narkansas\n\n\nCalifornia\n37.3\n39356104\n18943660\n2202587\n394188\n5949136\n6388999\n5327003\n3506890\n22254935\n31.3\n29.6\n4837641\n2136258\n5935292\n2515475\n687281\n488925\n91905\n12195945\n18361\n12177584\ncalifornia\n\n\nColorado\n37.3\n5770790\n4393409\n233712\n57022\n185431\n283146\n609976\n375060\n2411879\n30.2\n28.2\n660933\n334723\n1083618\n481793\n100044\n76234\n87598\n2095757\n4374\n2091383\ncolorado\n\n\nConnecticut\n40.9\n3611317\n2522166\n385407\n9043\n170945\n233926\n288485\n162640\n1945920\n31.2\n29.9\n570708\n192167\n573917\n341203\n81685\n46421\n90213\n1272555\n2700\n1269855\nconnecticut\n\n\nDelaware\n41.4\n993635\n634244\n218266\n3309\n40570\n32751\n64130\n28821\n435760\n30.7\n29.3\n184812\n58540\n139213\n75033\n13180\n13931\n79325\n352105\n673\n351432\ndelaware\n\n\nDistrict of Columbia\n34.8\n670587\n265633\n297101\n2209\n27067\n30879\n47278\n20539\n241127\n31.9\n30.9\n61269\n14834\n124860\n109410\n48095\n21167\n101722\n281424\n292\n281132\ndistrict of columbia\n\n\nFlorida\n42.4\n21634529\n13807410\n3355708\n59197\n609990\n1045557\n2743467\n2089692\n7745873\n31.0\n29.1\n3671306\n1567030\n3154240\n1308569\n372331\n202326\n67917\n7429632\n12312\n7417320\nflorida\n\n\nGeorgia\n37.2\n10722325\n5820019\n3373948\n37920\n465487\n378659\n638881\n315042\n5796529\n30.1\n28.0\n1611827\n594639\n1464589\n669304\n165134\n108680\n71355\n3468542\n4515\n3464027\ngeorgia\n\n\nHawaii\n39.9\n1450589\n333296\n28665\n4210\n538970\n24503\n370148\n23091\n769824\n30.1\n28.8\n244486\n113060\n227243\n85984\n25539\n16217\n94814\n435393\n862\n434531\nhawaii\n\n\nIdaho\n36.9\n1854109\n1574859\n12781\n22297\n24987\n83887\n132577\n73263\n830194\n27.1\n25.7\n259629\n119611\n244372\n85760\n20684\n15407\n70214\n608097\n1915\n606182\nidaho\n\n\nIllinois\n38.7\n12757634\n8388659\n1774605\n55819\n738071\n842553\n952451\n606350\n8549361\n30.8\n29.2\n1899480\n727981\n1924339\n938097\n214115\n130899\n78433\n4388839\n9493\n4379346\nillinois\n\n\nIndiana\n38.0\n6784403\n5426227\n640752\n12465\n168899\n187740\n345830\n153259\n4585916\n29.2\n26.8\n1258288\n408878\n815853\n342003\n69602\n52190\n67173\n2307571\n6131\n2301440\nindiana\n\n\nIowa\n38.4\n3188836\n2769619\n120619\n10111\n78940\n54569\n150396\n65729\n2232446\n29.1\n26.9\n568254\n255181\n433380\n148289\n36031\n27629\n70571\n1117760\n4880\n1112880\niowa\n\n\nKansas\n37.1\n2935922\n2341473\n163581\n22015\n88513\n102461\n215150\n96078\n1740100\n28.6\n26.5\n415315\n171665\n417263\n185313\n38167\n27522\n69747\n1012599\n2444\n1010155\nkansas\n\n\nKentucky\n39.1\n4502935\n3816997\n360184\n6821\n69187\n56352\n189589\n68088\n3069011\n28.4\n26.5\n806274\n269411\n478134\n241185\n56939\n35681\n60183\n1518043\n4050\n1513993\nkentucky\n\n\nLouisiana\n37.6\n4640546\n2758714\n1464582\n24952\n80363\n84387\n225187\n98242\n3604534\n30.0\n28.2\n854193\n215867\n519481\n206717\n56332\n33039\n57852\n1467429\n2486\n1464943\nlouisiana\n\n\nMaine\n44.8\n1366949\n1261284\n21775\n6722\n15071\n8128\n53704\n21246\n835553\n29.9\n28.6\n261945\n103134\n214733\n90861\n22065\n15603\n68251\n509099\n2409\n506690\nmaine\n\n\nMaryland\n39.1\n6161707\n3154247\n1841926\n18343\n399736\n355402\n388933\n153723\n2910096\n31.1\n29.5\n885579\n292090\n952916\n590587\n135879\n119364\n98461\n2103025\n3649\n2099376\nmaryland\n\n\nMassachusetts\n39.8\n6984205\n5075525\n498785\n14740\n487600\n347501\n557288\n322753\n4151655\n31.3\n30.3\n990524\n374880\n1234320\n717317\n153045\n154129\n96505\n2489302\n4031\n2485271\nmassachusetts\n\n\nMichigan\n39.9\n10057921\n7617085\n1363539\n45662\n327551\n157999\n543305\n209757\n7676334\n30.4\n28.5\n1694166\n673750\n1311608\n627217\n132170\n89356\n68505\n3529341\n8375\n3520966\nmichigan\n\n\nMinnesota\n38.5\n5695292\n4537219\n382082\n51434\n286146\n133098\n302989\n102874\n3838865\n30.1\n28.3\n800667\n452032\n965593\n364292\n89655\n60300\n84313\n2030598\n6584\n2024014\nminnesota\n\n\nMississippi\n38.1\n2958846\n1685024\n1101836\n12777\n29041\n41764\n87204\n29813\n2112621\n28.7\n27.0\n468731\n209117\n286132\n131671\n30003\n22265\n52985\n899120\n1842\n897278\nmississippi\n\n\nMissouri\n38.8\n6154422\n4884165\n693892\n17559\n127044\n91703\n331228\n134401\n4069809\n28.8\n27.0\n1087681\n345329\n804597\n370034\n80507\n54700\n65920\n2133965\n5791\n2128174\nmissouri\n\n\nMontana\n40.1\n1091840\n943827\n6026\n63493\n9211\n11592\n57010\n19231\n578621\n29.7\n26.9\n175154\n72238\n170549\n59333\n15762\n11983\n66341\n386840\n2330\n384510\nmontana\n\n\nNebraska\n36.9\n1958939\n1603239\n93555\n18550\n48874\n69315\n124088\n63635\n1266893\n28.7\n26.7\n280742\n139287\n280101\n106137\n25032\n18160\n71722\n688362\n2326\n686036\nnebraska\n\n\nNevada\n38.5\n3104817\n1732783\n290223\n40745\n263063\n360620\n395499\n234103\n846922\n30.6\n28.7\n503894\n186225\n371761\n139842\n37727\n22673\n71646\n1034261\n1614\n1032647\nnevada\n\n\nNew Hampshire\n43.1\n1379610\n1241594\n20920\n2070\n36352\n15009\n63317\n29967\n565581\n30.9\n29.0\n229881\n100541\n236189\n116378\n19939\n16942\n90845\n497411\n1295\n496116\nnew hampshire\n\n\nNew Jersey\n40.0\n9249063\n5528604\n1213265\n29780\n913364\n768606\n792890\n536450\n4749727\n31.1\n29.6\n1511209\n430063\n1636308\n785250\n182433\n111577\n97126\n3119172\n4904\n3114268\nnew jersey\n\n\nNew Mexico\n38.6\n2112463\n1250614\n44894\n198140\n34400\n233978\n348588\n278356\n1139587\n30.4\n27.4\n305319\n128685\n230705\n131594\n26832\n27773\n58722\n666625\n2368\n664257\nnew mexico\n\n\nNew York\n39.3\n19994379\n11749652\n3011116\n93384\n1767598\n1878496\n1485013\n883505\n12567731\n31.6\n30.2\n2933147\n1238616\n3033763\n1731771\n435559\n238322\n81386\n6719878\n13718\n6706160\nnew york\n\n\nNorth Carolina\n39.1\n10470214\n6800458\n2192455\n109600\n325670\n421954\n613129\n278960\n5747122\n29.8\n28.0\n1505077\n720557\n1533552\n648712\n139534\n107092\n66186\n3576483\n6096\n3570387\nnorth carolina\n\n\nNorth Dakota\n35.4\n776874\n656425\n25233\n36284\n12474\n10705\n34294\n10445\n483341\n29.3\n27.1\n111395\n72298\n113131\n33064\n7189\n5710\n73959\n275251\n526\n274725\nnorth dakota\n\n\nOhio\n39.6\n11774683\n9281702\n1449450\n17094\n283278\n157485\n581637\n190279\n8810980\n30.0\n28.2\n2315749\n715379\n1515763\n696826\n148249\n98487\n66990\n4205747\n10363\n4195384\nohio\n\n\nOklahoma\n36.9\n3970497\n2716667\n284453\n298628\n91720\n124427\n447289\n118519\n2392787\n28.1\n26.2\n674369\n217129\n465739\n177413\n42157\n29429\n61364\n1306391\n2678\n1303713\noklahoma\n\n\nOregon\n39.9\n4229374\n3328095\n79593\n46880\n187852\n180534\n389281\n168170\n1932284\n30.4\n28.5\n542883\n272990\n654185\n283031\n72199\n54744\n76632\n1526087\n4533\n1521554\noregon\n\n\nPennsylvania\n40.8\n12989208\n10010379\n1407814\n20570\n473192\n405422\n667575\n303356\n9262753\n30.7\n29.1\n2710001\n805392\n1844355\n884422\n199768\n152773\n73170\n4540914\n15090\n4525824\npennsylvania\n\n\nRhode Island\n40.1\n1094250\n816308\n67615\n4072\n37881\n75669\n91944\n56475\n607146\n31.6\n30.2\n173104\n63413\n165487\n80811\n19272\n14255\n81370\n386033\n648\n385385\nrhode island\n\n\nSouth Carolina\n40.0\n5142750\n3342861\n1326209\n15617\n85834\n123269\n246238\n103873\n2787554\n29.6\n28.3\n853211\n357618\n674340\n305597\n62767\n46066\n63623\n1723516\n3209\n1720307\nsouth carolina\n\n\nSouth Dakota\n37.5\n890342\n731624\n19525\n70948\n12754\n10567\n44430\n13890\n560609\n29.1\n26.5\n148100\n72002\n123313\n38604\n10123\n6821\n69457\n305608\n934\n304674\nsouth dakota\n\n\nTennessee\n38.9\n6923772\n5182736\n1126815\n14118\n128630\n139938\n326851\n140517\n4041432\n28.8\n27.3\n1232458\n367186\n889401\n368384\n89488\n66397\n64035\n2331002\n4167\n2326835\ntennessee\n\n\nTexas\n35.2\n29243342\n17293460\n3552579\n169576\n1511069\n2281525\n4407783\n3547610\n17298277\n29.4\n27.3\n3792935\n1435330\n3919003\n1598654\n341512\n242618\n73035\n9286171\n12094\n9274077\ntexas\n\n\nUtah\n31.4\n3283809\n2705194\n37712\n32948\n77761\n174721\n224725\n114101\n2017569\n26.8\n24.9\n383506\n194933\n468541\n173551\n36570\n29475\n86833\n979140\n2201\n976939\nutah\n\n\nVermont\n42.9\n643816\n594131\n8000\n1336\n10824\n3568\n25809\n9039\n311028\n30.8\n29.2\n112763\n39344\n111614\n57539\n12438\n9939\n74014\n230509\n1620\n228889\nvermont\n\n\nVirginia\n38.7\n8624511\n5473610\n1630355\n23728\n591088\n303247\n596298\n252261\n4245322\n30.2\n28.3\n1184055\n461866\n1366160\n780607\n158770\n119285\n87249\n2923674\n6070\n2917604\nvirginia\n\n\nWashington\n38.0\n7688549\n5374874\n301477\n91698\n708647\n399571\n759279\n292781\n3584329\n30.1\n27.8\n957379\n541092\n1244437\n569699\n123220\n92087\n90325\n2749145\n5275\n2743870\nwashington\n\n\nWest Virginia\n42.6\n1792967\n1639342\n61227\n1730\n13602\n9504\n66905\n22651\n1225247\n29.7\n27.3\n421521\n101487\n171758\n84486\n18450\n14085\n55217\n594366\n2333\n592033\nwest virginia\n\n\nWisconsin\n39.9\n5882128\n4854979\n363331\n43759\n169052\n128690\n320056\n155464\n4165197\n30.3\n28.3\n1071376\n451044\n852632\n319419\n70555\n53667\n72458\n2137129\n8839\n2128290\nwisconsin\n\n\nWyoming\n38.5\n577929\n504798\n4891\n12359\n4717\n16504\n34024\n17046\n245999\n27.7\n25.8\n88797\n46082\n71313\n31053\n6077\n5138\n72495\n207049\n549\n206500\nwyoming\n\n\nPuerto Rico\n43.7\n3272382\n1425431\n286388\n5066\n6295\n786315\n762608\n600716\nNA\n33.8\n32.4\n617845\n271432\n482139\n134673\n30748\n30891\n24002\n892631\n14210\n878421\npuerto rico"
+  },
+  {
+    "objectID": "slides/05/slides05.html#geom_map-is-a-shortcut",
+    "href": "slides/05/slides05.html#geom_map-is-a-shortcut",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "geom_map is a “shortcut”",
+    "text": "geom_map is a “shortcut”\n\n\n\nggplot(acs_state_data) + \n  geom_map(\n    aes(map_id = state, fill = NAME),\n    map = states\n  ) +\n  expand_limits(x = states$long, y = states$lat) +\n  coord_map() +\n  theme_map()\n\n\n\n\nacs_state_data is the name of the dataset\nmap_id = state tells geom_map to look in the “state” column in acs_state_data to find the state name\nfill = NAME tells ggplot to fill the states by the variable in NAME"
+  },
+  {
+    "objectID": "slides/05/slides05.html#geom_map-is-a-shortcut-output",
+    "href": "slides/05/slides05.html#geom_map-is-a-shortcut-output",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "geom_map is a “shortcut”",
+    "text": "geom_map is a “shortcut”"
+  },
+  {
+    "objectID": "slides/05/slides05.html#your-turn-1",
+    "href": "slides/05/slides05.html#your-turn-1",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Your turn 1",
+    "text": "Your turn 1\n\nComment out the expand_limits line. What happened?"
+  },
+  {
+    "objectID": "slides/05/slides05.html#sequential-vs-diverging-color-scale",
+    "href": "slides/05/slides05.html#sequential-vs-diverging-color-scale",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Sequential vs Diverging color scale",
+    "text": "Sequential vs Diverging color scale\n\nOverviewSequentialDiverging\n\n\nThe next two panels show the same data and the same graph with two different color scales.\nSequential color scales are intuitive and can be read as “more is more”\nDiverging scales emphasize how far away a data point is from a midpoint"
+  },
+  {
+    "objectID": "slides/05/slides05.html#binned-vs-continuous-color-scale",
+    "href": "slides/05/slides05.html#binned-vs-continuous-color-scale",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Binned vs continuous color scale",
+    "text": "Binned vs continuous color scale\n\n\n\nUnemployment rate by county in 2020. Source: Datawrapper blog"
+  },
+  {
+    "objectID": "slides/05/slides05.html#your-turn-2",
+    "href": "slides/05/slides05.html#your-turn-2",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Your turn 2",
+    "text": "Your turn 2\n\nEdit your chloropleth map by:\n\nChoosing a different variable in acs_state_data to map to fill\nChoosing a different color scale\nUpdating the title, axis labels, and legend title"
+  },
+  {
+    "objectID": "slides/05/slides05.html#coordinate-systems-and-projections",
+    "href": "slides/05/slides05.html#coordinate-systems-and-projections",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Coordinate Systems and Projections",
+    "text": "Coordinate Systems and Projections"
+  },
+  {
+    "objectID": "slides/05/slides05.html#section-5",
+    "href": "slides/05/slides05.html#section-5",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "",
+    "text": "From The West Wing Season 2 Episode 16"
+  },
+  {
+    "objectID": "slides/05/slides05.html#section-6",
+    "href": "slides/05/slides05.html#section-6",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "",
+    "text": "From The West Wing Season 2 Episode 16"
+  },
+  {
+    "objectID": "slides/05/slides05.html#changing-the-coordinate-system",
+    "href": "slides/05/slides05.html#changing-the-coordinate-system",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Changing the coordinate system",
+    "text": "Changing the coordinate system\ncoord_map function provides a Mercator projection (mapproj package has more options)\n\n\nggplot(states, aes(x=long, y=lat, group=group)) + \n  geom_polygon(color=\"gold2\", fill=\"navyblue\") + \n  coord_map() + \n  theme_map()"
+  },
+  {
+    "objectID": "slides/05/slides05.html#changing-the-coordinate-system-1",
+    "href": "slides/05/slides05.html#changing-the-coordinate-system-1",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Changing the coordinate system",
+    "text": "Changing the coordinate system\nHere is a Gall projection\n\n\nggplot(states, aes(x=long, y=lat, group=group)) + \n  geom_polygon(color=\"gold2\", fill=\"navyblue\") + \n  coord_map(projection = \"gall\", lat = 0) + \n  theme_map()"
+  },
+  {
+    "objectID": "slides/05/slides05.html#mercator-vs-gall-projection-world-map",
+    "href": "slides/05/slides05.html#mercator-vs-gall-projection-world-map",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Mercator vs Gall projection (world map)",
+    "text": "Mercator vs Gall projection (world map)\n\nworld &lt;- map_data(\"world\")\n\nggplot(world, aes(x=long, y=lat, group=group)) + \n  geom_polygon(color=\"gold2\", fill=\"navyblue\") + \n  coord_map(projection = \"mercator\", xlim = c(-180, 180)) + \n  theme_map()"
+  },
+  {
+    "objectID": "slides/05/slides05.html#section-1",
+    "href": "slides/05/slides05.html#section-1",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "",
+    "text": "What makes “address” a useful variable is that it is linked to a specific location in the physical world. If we plot these addresses, we get something like the following:\n\n\n\n\n\n\n\n\n\n\n\nSource: MDSR Ch17.1"
+  },
+  {
+    "objectID": "slides/05/slides05.html#choropleth",
+    "href": "slides/05/slides05.html#choropleth",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Choropleth",
+    "text": "Choropleth\nFill in regions with variable values\n\n\nNeed two data sources:\n\nmap data with lat, long, region\ndata with measurements for each region\n\n\n\n\n\n\nFundamentals of Data Visualization"
+  },
+  {
+    "objectID": "slides/05/slides05.html#warm-up---working-with-geom_polygon",
+    "href": "slides/05/slides05.html#warm-up---working-with-geom_polygon",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Warm Up - Working with geom_polygon()",
+    "text": "Warm Up - Working with geom_polygon()\n\nggplot(states, aes(x=long, y=lat, group=group)) + \n    geom_polygon(color=\"gold2\", fill=\"navyblue\") +\n    coord_fixed()\n\n\n\nEdit this code so that each shape is colored in with a different color.\nYou only need the 3 variables used: long, lat, and group\n05-maps.qmd is available on the website"
+  },
+  {
+    "objectID": "slides/05/slides05.html#warm-up",
+    "href": "slides/05/slides05.html#warm-up",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Warm Up",
+    "text": "Warm Up\n\nggplot(states, aes(x=long, y=lat, group=group)) + \n    geom_polygon(color=\"gold2\", fill=\"navyblue\") +\n    coord_fixed()\n\n\n\nEdit this code so that each shape is colored in with a different color.\nYou only need the 3 variables used: long, lat, and group\n05-maps.qmd is available on the website (push the Code button at the top right of the 05-maps link and paste into your own .qmd file)"
+  },
+  {
+    "objectID": "slides/05/slides05.html#activity-1",
+    "href": "slides/05/slides05.html#activity-1",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Activity 1",
+    "text": "Activity 1\n\nComment out the expand_limits line. What happened?"
+  },
+  {
+    "objectID": "slides/05/slides05.html#activity-2",
+    "href": "slides/05/slides05.html#activity-2",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Activity 2",
+    "text": "Activity 2\n\nEdit your chloropleth map by:\n\nChoosing a different variable in acs_state_data to map to fill\nChoosing a different color scale\nUpdating the title, axis labels, and legend title"
+  },
+  {
+    "objectID": "slides/05/slides05.html#activity-3",
+    "href": "slides/05/slides05.html#activity-3",
+    "title": "Intro to Maps  and Spatial Data",
+    "section": "Activity 3",
+    "text": "Activity 3\n\nMake a map showing per capita information by dividing the variable chosen in the previous problem by total_pop directly in the aes() function."
   }
 ]
