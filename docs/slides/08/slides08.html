@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prof Emily Kurtz">
+
+<title>Data Wrangling:  Groups &amp;  Tidy Data – Stat 220</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-969ddfa49e00a70eb3423444dbc81f6c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-4aafe95edbcaa3c5bd496e39c4419ff3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-9dabff63b357dc90acd56e0e5ce513aa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-4aafe95edbcaa3c5bd496e39c4419ff3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../../site_libs/countdown-0.6.0/countdown.css" rel="stylesheet">
+
+<script src="../../site_libs/countdown-0.6.0/countdown.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Data Wrangling: <br>Groups &amp;<br> Tidy Data</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/stat220kurtz" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://moodle.carleton.edu/course/view.php?id=48307" title="Moodle" class="quarto-navigation-tool px-1" aria-label="Moodle"><i class="bi bi-person-fill"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Course information</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-links.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Useful links</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-faq.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Computing</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/computing-access.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Access</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/rstudio-stat220.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rstudio in Stat 220</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/git-stat220.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git/GitHub in Stat 220</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/commandline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Command Line Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/computing-cheatsheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cheatsheets</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-college-scorecard" id="toc-the-college-scorecard" class="nav-link active" data-scroll-target="#the-college-scorecard">The College Scorecard</a></li>
+  <li><a href="#using-or" id="toc-using-or" class="nav-link" data-scroll-target="#using-or">Using <code>%&gt;%</code> or <code>|&gt;</code></a></li>
+  <li><a href="#the-base-pipe" id="toc-the-base-pipe" class="nav-link" data-scroll-target="#the-base-pipe">The <code>|&gt;</code> (base) pipe</a></li>
+  <li><a href="#calculating-summaries" id="toc-calculating-summaries" class="nav-link" data-scroll-target="#calculating-summaries">Calculating Summaries</a>
+  <ul class="collapse">
+  <li><a href="#computing-statistics-summarize" id="toc-computing-statistics-summarize" class="nav-link" data-scroll-target="#computing-statistics-summarize">Computing statistics: <code>summarize</code></a></li>
+  <li><a href="#computing-statistics-summarize-1" id="toc-computing-statistics-summarize-1" class="nav-link" data-scroll-target="#computing-statistics-summarize-1">Computing statistics: <code>summarize</code></a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your turn</a></li>
+  <li><a href="#your-turn-1" id="toc-your-turn-1" class="nav-link" data-scroll-target="#your-turn-1">Your turn</a></li>
+  <li><a href="#group_by" id="toc-group_by" class="nav-link" data-scroll-target="#group_by"><code>group_by()</code></a></li>
+  <li><a href="#spit-apply-combine" id="toc-spit-apply-combine" class="nav-link" data-scroll-target="#spit-apply-combine">Spit-apply-combine</a></li>
+  <li><a href="#statistics-by-group-group_by-summarize" id="toc-statistics-by-group-group_by-summarize" class="nav-link" data-scroll-target="#statistics-by-group-group_by-summarize">Statistics by group: <code>group_by</code> + <code>summarize</code></a></li>
+  <li><a href="#your-turn-2" id="toc-your-turn-2" class="nav-link" data-scroll-target="#your-turn-2">Your turn</a></li>
+  <li><a href="#calculating-counts" id="toc-calculating-counts" class="nav-link" data-scroll-target="#calculating-counts">Calculating counts</a></li>
+  <li><a href="#calculations-by-group-group_by-mutate" id="toc-calculations-by-group-group_by-mutate" class="nav-link" data-scroll-target="#calculations-by-group-group_by-mutate">Calculations by group: <code>group_by</code> + <code>mutate</code></a></li>
+  <li><a href="#ungroup" id="toc-ungroup" class="nav-link" data-scroll-target="#ungroup"><code>ungroup()</code></a></li>
+  <li><a href="#aside-code-commenting" id="toc-aside-code-commenting" class="nav-link" data-scroll-target="#aside-code-commenting">Aside: code commenting</a></li>
+  <li><a href="#aside-code-commenting-1" id="toc-aside-code-commenting-1" class="nav-link" data-scroll-target="#aside-code-commenting-1">Aside: code commenting</a></li>
+  </ul></li>
+  <li><a href="#intro-to-tidy-data" id="toc-intro-to-tidy-data" class="nav-link" data-scroll-target="#intro-to-tidy-data">Intro to tidy data</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#bakeoff-ratings" id="toc-bakeoff-ratings" class="nav-link" data-scroll-target="#bakeoff-ratings">Bakeoff ratings</a></li>
+  <li><a href="#discuss" id="toc-discuss" class="nav-link" data-scroll-target="#discuss">Discuss</a></li>
+  <li><a href="#tidyr" id="toc-tidyr" class="nav-link" data-scroll-target="#tidyr"><code>{tidyr}</code></a></li>
+  <li><a href="#what-variables-are-needed-to-make-this-graph" id="toc-what-variables-are-needed-to-make-this-graph" class="nav-link" data-scroll-target="#what-variables-are-needed-to-make-this-graph">What variables are needed to make this graph?</a></li>
+  <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal">Goal</a></li>
+  <li><a href="#pivot_longer" id="toc-pivot_longer" class="nav-link" data-scroll-target="#pivot_longer"><code>pivot_longer()</code></a></li>
+  <li><a href="#pivot_longer-1" id="toc-pivot_longer-1" class="nav-link" data-scroll-target="#pivot_longer-1"><code>pivot_longer()</code></a></li>
+  <li><a href="#pivot_longer-2" id="toc-pivot_longer-2" class="nav-link" data-scroll-target="#pivot_longer-2"><code>pivot_longer()</code></a></li>
+  <li><a href="#pivot_longer-3" id="toc-pivot_longer-3" class="nav-link" data-scroll-target="#pivot_longer-3"><code>pivot_longer()</code></a></li>
+  <li><a href="#wider-rightarrow-longer-ratings" id="toc-wider-rightarrow-longer-ratings" class="nav-link" data-scroll-target="#wider-rightarrow-longer-ratings">wider <span class="math inline">\(\rightarrow\)</span> longer ratings</a></li>
+  <li><a href="#parse_number" id="toc-parse_number" class="nav-link" data-scroll-target="#parse_number"><code>parse_number()</code></a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
+  <li><a href="#other-parsing-functions" id="toc-other-parsing-functions" class="nav-link" data-scroll-target="#other-parsing-functions">Other parsing functions</a></li>
+  <li><a href="#try-it-messy_ratings" id="toc-try-it-messy_ratings" class="nav-link" data-scroll-target="#try-it-messy_ratings">Try it: <code>messy_ratings</code></a></li>
+  <li><a href="#cleaning-episode" id="toc-cleaning-episode" class="nav-link" data-scroll-target="#cleaning-episode">Cleaning <code>episode</code></a></li>
+  <li><a href="#separate" id="toc-separate" class="nav-link" data-scroll-target="#separate"><code>separate()</code></a></li>
+  <li><a href="#separate-1" id="toc-separate-1" class="nav-link" data-scroll-target="#separate-1"><code>separate()</code></a></li>
+  <li><a href="#separate-2" id="toc-separate-2" class="nav-link" data-scroll-target="#separate-2"><code>separate()</code></a></li>
+  <li><a href="#separate-3" id="toc-separate-3" class="nav-link" data-scroll-target="#separate-3"><code>separate()</code></a></li>
+  <li><a href="#cleaning-episode-1" id="toc-cleaning-episode-1" class="nav-link" data-scroll-target="#cleaning-episode-1">Cleaning <code>episode</code></a></li>
+  <li><a href="#wrap-it-up" id="toc-wrap-it-up" class="nav-link" data-scroll-target="#wrap-it-up">Wrap it up</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides08.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Wrangling: <br>Groups &amp;<br> Tidy Data</h1>
+<p class="subtitle lead">Day 08</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Prof Emily Kurtz </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Carleton College <br> Stat 220 - Spring 2026
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="the-college-scorecard" class="level2">
+<h2 class="anchored" data-anchor-id="the-college-scorecard">The College Scorecard</h2>
+<blockquote class="blockquote">
+<p>The College Scorecard is designed to increase transparency, putting the power in the hands of the public — from those choosing colleges to those improving college quality — to see how well different schools are serving their students.</p>
+</blockquote>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 187
+Columns: 13
+$ unitid         &lt;dbl&gt; 228343, 177719, 367884, 149781, 135364, 212601, 133979,…
+$ school         &lt;chr&gt; "Southwestern University", "Barnes-Jewish College Goldf…
+$ type           &lt;chr&gt; "private", "private", "private", "private", "private", …
+$ city           &lt;chr&gt; "Georgetown", "Saint Louis", "Fort Myers", "Wheaton", "…
+$ state          &lt;chr&gt; "TX", "MO", "FL", "IL", "GA", "PA", "FL", "CA", "IN", "…
+$ region         &lt;chr&gt; "Southwest", "Plains", "Southeast", "Great Lakes", "Sou…
+$ admission_rate &lt;dbl&gt; 0.4903, NA, 0.6121, 0.8481, 0.5000, 0.7552, 0.3999, 0.5…
+$ act            &lt;dbl&gt; 26, NA, NA, 29, NA, 23, NA, 22, 25, 31, NA, NA, 20, 20,…
+$ undergrads     &lt;dbl&gt; 1507, 569, 832, 2358, 235, 2866, 1049, 4516, 2120, 1545…
+$ cost           &lt;dbl&gt; 55886, NA, 27425, 49214, NA, 44896, 27460, 58014, 46440…
+$ grad_rate      &lt;dbl&gt; 0.6945, NA, 0.2621, 0.8878, 0.5000, 0.6770, 0.3644, 0.7…
+$ fy_retention   &lt;dbl&gt; 0.8571, NA, 0.4783, 0.9262, NA, 0.8217, 0.6355, 0.8179,…
+$ fedloan        &lt;dbl&gt; 0.5105, 0.8185, 0.6213, 0.4902, 0.5529, 0.5524, 0.6755,…</code></pre>
+</div>
+</div>
+</section>
+<section id="using-or" class="level2">
+<h2 class="anchored" data-anchor-id="using-or">Using <code>%&gt;%</code> or <code>|&gt;</code></h2>
+<p>We begin by building up a series of pipes:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>mn_colleges <span class="ot">&lt;-</span> colleges <span class="sc">|&gt;</span>                     <span class="co"># dataframe first and then... </span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"MN"</span>) <span class="sc">|&gt;</span>                     <span class="co"># filter out MN colleges and then...</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="fu">select</span>(school, city, admission_rate<span class="sc">:</span>fedloan) <span class="co"># select the columns of interest  </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="the-base-pipe" class="level2">
+<h2 class="anchored" data-anchor-id="the-base-pipe">The <code>|&gt;</code> (base) pipe</h2>
+<ul>
+<li><p><code>|&gt;</code> pipe operator was introduced in R v4.1</p></li>
+<li><p>For simple uses, acts the same as <code>%&gt;%</code> but is more rigid</p></li>
+<li><p>I’ll use both in class examples, but you can use <code>|&gt;</code> or <code>%&gt;%</code></p></li>
+</ul>
+</section>
+<section id="calculating-summaries" class="level1 maize">
+<h1 class="maize">Calculating Summaries</h1>
+<section id="computing-statistics-summarize" class="level2">
+<h2 class="anchored" data-anchor-id="computing-statistics-summarize">Computing statistics: <code>summarize</code></h2>
+<ul>
+<li><p>collapse many values down into a statistic</p></li>
+<li><p><code>summarize(data, newstat = fun(var))</code><br> applies the <code>fun</code> function to <code>var</code> variable(s) and returns one value in <code>newstat</code> column</p></li>
+</ul>
+</section>
+<section id="computing-statistics-summarize-1" class="level2">
+<h2 class="anchored" data-anchor-id="computing-statistics-summarize-1">Computing statistics: <code>summarize</code></h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page"><code>dplyr</code></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href=""><code>base</code> R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Average and SD of cost in a data frame format:</p>
+<div class="cell" data-output-location="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>colleges <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_cost =</span> <span class="fu">mean</span>(cost, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_cost =</span> <span class="fu">sd</span>(cost , <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  avg_cost sd_cost
+     &lt;dbl&gt;   &lt;dbl&gt;
+1   36620.  16244.</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(colleges<span class="sc">$</span>cost, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 36619.72</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(colleges<span class="sc">$</span>cost, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16243.9</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="your-turn" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn">Your turn</h2>
+<div class="task nonincremental">
+<p>Using the <code>flights</code> data from the {nycflights23} package, use <code>summarize()</code> to compute statistics about the data:</p>
+<ol type="1">
+<li><p>The lowest and highest <code>distance</code> traveled</p></li>
+<li><p>The lowest and highest <code>air_time</code></p></li>
+<li><p>The median <code>dep_delay</code></p></li>
+</ol>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<countdown-timer class="countdown" id="timer_6101d592" minutes="5" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+</div>
+</div>
+</section>
+<section id="your-turn-1" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn-1">Your turn</h2>
+<div class="task nonincremental">
+<p>Using the <code>flights</code> data from the {nycflights23} package, extract the rows for <strong>Delta</strong> flights. (<em>Hint:</em> the carrier shortcode code is “DL”)</p>
+<p>Then use <code>summarize()</code> and a summary function to find:</p>
+<ol type="1">
+<li><p>The number of flights in this subset</p></li>
+<li><p>The median <code>dep_delay</code>. How does it compare to the overall median?</p></li>
+</ol>
+<p>You should do both (1) and (2) in a single pipeline</p>
+<div class="cell">
+<div class="cell-output-display">
+<countdown-timer class="countdown" id="timer_b4d66808" minutes="3" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+</div>
+</div>
+</div>
+</section>
+<section id="group_by" class="level2">
+<h2 class="anchored" data-anchor-id="group_by"><code>group_by()</code></h2>
+<p>Groups cases by common values of one or more columns</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>colleges <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 187 × 13
+# Groups:   state [44]
+  unitid school   type  city  state region admission_rate   act undergrads  cost
+   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
+1 228343 Southwe… priv… Geor… TX    South…          0.490    26       1507 55886
+2 177719 Barnes-… priv… Sain… MO    Plains         NA        NA        569    NA
+3 367884 Hodges … priv… Fort… FL    South…          0.612    NA        832 27425
+# ℹ 184 more rows
+# ℹ 3 more variables: grad_rate &lt;dbl&gt;, fy_retention &lt;dbl&gt;, fedloan &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>How does this help us?</p>
+</section>
+<section id="spit-apply-combine" class="level2">
+<h2 class="anchored" data-anchor-id="spit-apply-combine">Spit-apply-combine</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="../img/08-split-apply-combine.png" class="img-fluid figure-img" width="1109"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="statistics-by-group-group_by-summarize" class="level2">
+<h2 class="anchored" data-anchor-id="statistics-by-group-group_by-summarize">Statistics by group: <code>group_by</code> + <code>summarize</code></h2>
+<p>Summary statistics <strong>by state</strong></p>
+<div class="cell" data-output-location="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>colleges <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_schools =</span> <span class="fu">n</span>(),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_cost =</span> <span class="fu">mean</span>(cost, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">min_size =</span> <span class="fu">min</span>(undergrads, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_size =</span> <span class="fu">max</span>(undergrads, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 44 × 5
+   state n_schools avg_cost min_size max_size
+   &lt;chr&gt;     &lt;int&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+ 1 AL            4   22242.      245     7785
+ 2 AR            3   43816.      512     1447
+ 3 AZ            2   33388.      803    33715
+ 4 CA            9   42807.       43    23337
+ 5 CO            2   45574      5755     8448
+ 6 CT            3   29895.      174     4425
+ 7 FL            5   34747.       39     2401
+ 8 GA            6   27961       235     9742
+ 9 HI            1   36765      1558     1558
+10 IA            1     NaN       339      339
+# ℹ 34 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="your-turn-2" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn-2">Your turn</h2>
+<div class="task">
+<p>Use <code>group_by()</code>, <code>summarize()</code>, and <code>slice_max()</code> to display the five <code>dest</code> airports with the most flights from NYC airports in 2023. Your display should include the median flight delay for these airports along with the number of flights to each airport.</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<countdown-timer class="countdown" id="timer_a6cc147a" minutes="3" seconds="30" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+</div>
+</div>
+</section>
+<section id="calculating-counts" class="level2">
+<h2 class="anchored" data-anchor-id="calculating-counts">Calculating counts</h2>
+<p><code>count()</code> can be used as a short cut to <code>group_by() + summarize()</code> if you are only calculating counts</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href=""><code>group_by()</code></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href=""><code>count()</code></a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell" data-output-location="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>colleges <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 44 × 2
+   state     n
+   &lt;chr&gt; &lt;int&gt;
+ 1 AL        4
+ 2 AR        3
+ 3 AZ        2
+ 4 CA        9
+ 5 CO        2
+ 6 CT        3
+ 7 FL        5
+ 8 GA        6
+ 9 HI        1
+10 IA        1
+# ℹ 34 more rows</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell" data-output-location="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>colleges <span class="sc">%&gt;%</span> <span class="fu">count</span>(state)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 44 × 2
+   state     n
+   &lt;chr&gt; &lt;int&gt;
+ 1 AL        4
+ 2 AR        3
+ 3 AZ        2
+ 4 CA        9
+ 5 CO        2
+ 6 CT        3
+ 7 FL        5
+ 8 GA        6
+ 9 HI        1
+10 IA        1
+# ℹ 34 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculations-by-group-group_by-mutate" class="level2">
+<h2 class="anchored" data-anchor-id="calculations-by-group-group_by-mutate">Calculations by group: <code>group_by</code> + <code>mutate</code></h2>
+<p>Calculate z-scores <strong>within regions</strong></p>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>colleges <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">z_cost =</span> (cost <span class="sc">-</span> <span class="fu">mean</span>(cost, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(cost, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(unitid<span class="sc">:</span>region, z_cost, <span class="fu">everything</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 187 × 14
+# Groups:   region [10]
+   unitid school type  city  state region z_cost admission_rate   act undergrads
+    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;          &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;
+ 1 228343 South… priv… Geor… TX    South…  1.51           0.490    26       1507
+ 2 177719 Barne… priv… Sain… MO    Plains NA             NA        NA        569
+ 3 367884 Hodge… priv… Fort… FL    South… -0.467          0.612    NA        832
+ 4 149781 Wheat… priv… Whea… IL    Great…  1.06           0.848    29       2358
+ 5 135364 Luthe… priv… Lith… GA    South… NA              0.5      NA        235
+ 6 212601 Ganno… priv… Erie  PA    Mid E…  0.261          0.755    23       2866
+ 7 133979 Flori… priv… Miam… FL    South… -0.465          0.400    NA       1049
+ 8 117140 Unive… priv… La V… CA    Far W…  1.14           0.548    22       4516
+ 9 152567 Trine… priv… Ango… IN    Great…  0.849          0.816    25       2120
+10 237057 Whitm… priv… Wall… WA    Far W…  1.79           0.559    31       1545
+# ℹ 177 more rows
+# ℹ 4 more variables: cost &lt;dbl&gt;, grad_rate &lt;dbl&gt;, fy_retention &lt;dbl&gt;,
+#   fedloan &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="ungroup" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="ungroup"><code>ungroup()</code></h2>
+<ul>
+<li><p>Once data are grouped, they remain grouped until you manually ungroup them</p></li>
+<li><p>Some summary functions ungroup them for you, e.g., <code>count()</code> and <code>summarize()</code></p></li>
+</ul>
+<p>. . .</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>colleges <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">z_cost =</span> (cost <span class="sc">-</span> <span class="fu">mean</span>(cost, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(cost, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_z =</span> <span class="fu">mean</span>(z_cost, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">With <code>ungroup()</code></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Without <code>ungroup()</code></a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+    mean_z
+     &lt;dbl&gt;
+1 1.49e-17</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   region                 mean_z
+   &lt;chr&gt;                   &lt;dbl&gt;
+ 1 Far West            -9.08e-17
+ 2 Great Lakes          1.40e-16
+ 3 Mid East             1.10e-16
+ 4 New England         -1.56e-16
+ 5 Outlying Areas      -2.22e-16
+ 6 Plains              -2.62e-17
+ 7 Rocky Mountains      0       
+ 8 Southeast            1.23e-18
+ 9 Southwest            6.94e-18
+10 US Service Schools NaN       </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="aside-code-commenting" class="level2">
+<h2 class="anchored" data-anchor-id="aside-code-commenting">Aside: code commenting</h2>
+<p>In R, you can use <code>#</code> for adding comments to your code. Any text that follows the <code>#</code> will be printed as-is and won’t be run as code. This is useful for leaving comments in your code and for temporarily disabling certain lines of code for debugging.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>colleges <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_schools =</span> <span class="fu">n</span>(),                               <span class="co"># This is a reminder to me</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># avg_cost = mean(cost, na.rm = TRUE),         # This line isn't run</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">min_size =</span> <span class="fu">min</span>(undergrads, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_size =</span> <span class="fu">max</span>(undergrads, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 44 × 4
+   state n_schools min_size max_size
+   &lt;chr&gt;     &lt;int&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+ 1 AL            4      245     7785
+ 2 AR            3      512     1447
+ 3 AZ            2      803    33715
+ 4 CA            9       43    23337
+ 5 CO            2     5755     8448
+ 6 CT            3      174     4425
+ 7 FL            5       39     2401
+ 8 GA            6      235     9742
+ 9 HI            1     1558     1558
+10 IA            1      339      339
+# ℹ 34 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="aside-code-commenting-1" class="level2">
+<h2 class="anchored" data-anchor-id="aside-code-commenting-1">Aside: code commenting</h2>
+<p>And it works especially well when you’ve used <em>chaining</em> in your code</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>colleges <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#group_by(state) %&gt;%</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_schools =</span> <span class="fu">n</span>(),                               </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_cost =</span> <span class="fu">mean</span>(cost, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),         </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">min_size =</span> <span class="fu">min</span>(undergrads, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_size =</span> <span class="fu">max</span>(undergrads, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  n_schools avg_cost min_size max_size
+      &lt;int&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1       187   36620.        0    33715</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="intro-to-tidy-data" class="level1 maize page-columns page-full">
+<h1 class="maize">Intro to tidy data</h1>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p><img src="../img/horst_tidy_1.jpg" class="img-fluid"></p>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"></h2>
+<p><img src="../img/horst_tidy_2.jpg" class="img-fluid"></p>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2"></h2>
+<p><img src="../img/horst_tidy_3.jpg" class="img-fluid"></p>
+</section>
+<section id="bakeoff-ratings" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="bakeoff-ratings">Bakeoff ratings</h2>
+<ul>
+<li>Ratings data for each episode in series 1-8 (in millions of viewers)</li>
+</ul>
+<p>. . .</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 11
+  series    e1    e2    e3    e4    e5    e6    e7    e8    e9   e10
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1      1  2.24  3     3     2.6   3.03  2.75 NA    NA    NA    NA   
+2      2  3.1   3.53  3.82  3.6   3.83  4.25  4.42  5.06 NA    NA   
+3      3  3.85  4.6   4.53  4.71  4.61  4.82  5.1   5.35  5.7   6.74
+4      4  6.6   6.65  7.17  6.82  6.95  7.32  7.76  7.41  7.41  9.45
+5      5  8.51  8.79  9.28 10.2   9.95 10.1  10.3   9.02 10.7  13.5 
+6      6 11.6  11.6  12.0  12.4  12.4  12    12.4  11.1  12.6  15.0 
+7      7 13.6  13.4  13.0  13.3  13.1  13.1  13.4  13.3  13.4  15.9 
+8      8  9.46  9.23  8.68  8.55  8.61  8.61  9.01  8.95  9.03 10.0 </code></pre>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Source: <a href="https://bakeoff.netlify.app/">bakeoff</a> R package</p>
+</div></div></section>
+<section id="discuss" class="level2">
+<h2 class="anchored" data-anchor-id="discuss">Discuss</h2>
+<div class="task nonincremental">
+<p>Is this dataset in tidy format? Why or why not?</p>
+<p>If not, what would a tidy data set look like? Sketch out the first few rows of this data set in tidy format</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<countdown-timer class="countdown" id="timer_940664a4" minutes="2" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+</div>
+</div>
+</section>
+<section id="tidyr" class="level2 center">
+<h2 class="center anchored" data-anchor-id="tidyr"><code>{tidyr}</code></h2>
+<div class="columns">
+<div class="column nonincremental" style="width:55%;">
+<ul>
+<li><p>Reshape the layout of tabular data</p></li>
+<li><p>Part of the <code>tidyverse</code></p></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-right">
+<figure class="figure">
+<p><img src="https://tidyr.tidyverse.org/logo.png" class="img-fluid quarto-figure quarto-figure-right figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="what-variables-are-needed-to-make-this-graph" class="level2">
+<h2 class="anchored" data-anchor-id="what-variables-are-needed-to-make-this-graph">What variables are needed to make this graph?</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="slides08_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="goal" class="level2">
+<h2 class="anchored" data-anchor-id="goal">Goal</h2>
+<p>Want to <em>reshape</em> the data to be in tidy format:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Current</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Target</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 11
+  series    e1    e2    e3    e4    e5    e6    e7    e8    e9   e10
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1      1  2.24  3     3     2.6   3.03  2.75 NA    NA    NA    NA   
+2      2  3.1   3.53  3.82  3.6   3.83  4.25  4.42  5.06 NA    NA   
+3      3  3.85  4.6   4.53  4.71  4.61  4.82  5.1   5.35  5.7   6.74
+4      4  6.6   6.65  7.17  6.82  6.95  7.32  7.76  7.41  7.41  9.45
+5      5  8.51  8.79  9.28 10.2   9.95 10.1  10.3   9.02 10.7  13.5 
+6      6 11.6  11.6  12.0  12.4  12.4  12    12.4  11.1  12.6  15.0 
+7      7 13.6  13.4  13.0  13.3  13.1  13.1  13.4  13.3  13.4  15.9 
+8      8  9.46  9.23  8.68  8.55  8.61  8.61  9.01  8.95  9.03 10.0 </code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 80 × 3
+   series epsiode rating
+    &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
+ 1      1 e1        2.24
+ 2      1 e2        3   
+ 3      1 e3        3   
+ 4      1 e4        2.6 
+ 5      1 e5        3.03
+ 6      1 e6        2.75
+ 7      1 e7       NA   
+ 8      1 e8       NA   
+ 9      1 e9       NA   
+10      1 e10      NA   
+# ℹ 70 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="pivot_longer" class="level2">
+<h2 class="anchored" data-anchor-id="pivot_longer"><code>pivot_longer()</code></h2>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<ul>
+<li><code>data</code> (as usual)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">pivot_longer</span>(</span>
+<span id="cb29-2"><a href="#cb29-2"></a>  data, </span>
+<span id="cb29-3"><a href="#cb29-3"></a>  cols, </span>
+<span id="cb29-4"><a href="#cb29-4"></a>  <span class="at">names_to =</span> <span class="st">"name"</span>, </span>
+<span id="cb29-5"><a href="#cb29-5"></a>  <span class="at">values_to =</span> <span class="st">"value"</span></span>
+<span id="cb29-6"><a href="#cb29-6"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pivot_longer-1" class="level2">
+<h2 class="anchored" data-anchor-id="pivot_longer-1"><code>pivot_longer()</code></h2>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<ul>
+<li><code>data</code> (as usual)</li>
+<li><code>cols</code>: columns to pivot into longer format</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">pivot_longer</span>(</span>
+<span id="cb30-2"><a href="#cb30-2"></a>  data, </span>
+<span id="cb30-3"><a href="#cb30-3"></a>  cols, </span>
+<span id="cb30-4"><a href="#cb30-4"></a>  <span class="at">names_to =</span> <span class="st">"name"</span>, </span>
+<span id="cb30-5"><a href="#cb30-5"></a>  <span class="at">values_to =</span> <span class="st">"value"</span></span>
+<span id="cb30-6"><a href="#cb30-6"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pivot_longer-2" class="level2">
+<h2 class="anchored" data-anchor-id="pivot_longer-2"><code>pivot_longer()</code></h2>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<ul>
+<li><code>data</code> (as usual)</li>
+<li><code>cols</code>: columns to pivot into longer format</li>
+<li><code>names_to</code>: name of the column where column names of pivoted variables go (character string)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">pivot_longer</span>(</span>
+<span id="cb31-2"><a href="#cb31-2"></a>  data, </span>
+<span id="cb31-3"><a href="#cb31-3"></a>  cols, </span>
+<span id="cb31-4"><a href="#cb31-4"></a>  <span class="at">names_to =</span> <span class="st">"name"</span>, </span>
+<span id="cb31-5"><a href="#cb31-5"></a>  <span class="at">values_to =</span> <span class="st">"value"</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pivot_longer-3" class="level2">
+<h2 class="anchored" data-anchor-id="pivot_longer-3"><code>pivot_longer()</code></h2>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<ul>
+<li><code>data</code> (as usual)</li>
+<li><code>cols</code>: columns to pivot into longer format</li>
+<li><code>names_to</code>: name of the column where column names of pivoted variables go (character string)</li>
+<li><code>values_to</code>: name of the column where data in pivoted variables go (character string)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">pivot_longer</span>(</span>
+<span id="cb32-2"><a href="#cb32-2"></a>  data, </span>
+<span id="cb32-3"><a href="#cb32-3"></a>  cols, </span>
+<span id="cb32-4"><a href="#cb32-4"></a>  <span class="at">names_to =</span> <span class="st">"name"</span>, </span>
+<span id="cb32-5"><a href="#cb32-5"></a>  <span class="at">values_to =</span> <span class="st">"value"</span></span>
+<span id="cb32-6"><a href="#cb32-6"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="wider-rightarrow-longer-ratings" class="level2">
+<h2 class="anchored" data-anchor-id="wider-rightarrow-longer-ratings">wider <span class="math inline">\(\rightarrow\)</span> longer ratings</h2>
+<div class="cell" data-output-location="column-fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>longer_ratings <span class="ot">&lt;-</span> bakeoff_ratings <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">pivot_longer</span>( </span>
+<span id="cb33-3"><a href="#cb33-3"></a>    <span class="at">cols =</span> e1<span class="sc">:</span>e10, </span>
+<span id="cb33-4"><a href="#cb33-4"></a>    <span class="at">names_to =</span> <span class="st">"episode"</span>, </span>
+<span id="cb33-5"><a href="#cb33-5"></a>    <span class="at">values_to =</span> <span class="st">"rating"</span> </span>
+<span id="cb33-6"><a href="#cb33-6"></a>  )</span>
+<span id="cb33-7"><a href="#cb33-7"></a>longer_ratings</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 80 × 3
+   series episode rating
+    &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
+ 1      1 e1        2.24
+ 2      1 e2        3   
+ 3      1 e3        3   
+ 4      1 e4        2.6 
+ 5      1 e5        3.03
+ 6      1 e6        2.75
+ 7      1 e7       NA   
+ 8      1 e8       NA   
+ 9      1 e9       NA   
+10      1 e10      NA   
+# ℹ 70 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="parse_number" class="level2">
+<h2 class="anchored" data-anchor-id="parse_number"><code>parse_number()</code></h2>
+<div class="cell" data-output-location="column-fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>ratings <span class="ot">&lt;-</span> longer_ratings <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb35-3"><a href="#cb35-3"></a>    <span class="at">episode =</span> <span class="fu">parse_number</span>(episode) </span>
+<span id="cb35-4"><a href="#cb35-4"></a>  )</span>
+<span id="cb35-5"><a href="#cb35-5"></a>ratings</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 80 × 3
+   series episode rating
+    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+ 1      1       1   2.24
+ 2      1       2   3   
+ 3      1       3   3   
+ 4      1       4   2.6 
+ 5      1       5   3.03
+ 6      1       6   2.75
+ 7      1       7  NA   
+ 8      1       8  NA   
+ 9      1       9  NA   
+10      1      10  NA   
+# ℹ 70 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3"></h2>
+<p><img src="../img/horst-parse-number.png" class="img-fluid"></p>
+</section>
+<section id="other-parsing-functions" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="other-parsing-functions">Other parsing functions</h2>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<p><code>parse_character</code></p>
+<p><code>parse_date</code></p>
+<p><code>parse_double</code></p>
+<p><code>parse_double</code></p>
+<p><code>parse_factor</code></p>
+</div><div class="column" style="width:50%;">
+<p><code>parse_integer</code></p>
+<p><code>parse_logical</code></p>
+<p><code>parse_number</code></p>
+<p><code>parse_time</code></p>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>The <code>parse_*</code> functions are from <code>readr</code></p>
+</div></div></section>
+<section id="try-it-messy_ratings" class="level2">
+<h2 class="anchored" data-anchor-id="try-it-messy_ratings">Try it: <code>messy_ratings</code></h2>
+<div class="task nonincremental">
+<p>Tidy this data set by</p>
+<ol type="1">
+<li>Selecting the <code>series</code> and <code>e*_7day</code> columns</li>
+<li>Pivoting the data to add a column for <code>episode</code> and a column for <code>rating</code> (we’ll clean up the episode column later)</li>
+</ol>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>messy_ratings2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://stat220-w26.github.io/data/messy_ratings2.csv"</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>messy_ratings2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 21
+  series e1_7day e1_28day e2_7day e2_28day e3_7day e3_28day e4_7day e4_28day
+   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+1      1    2.24    NA       3       NA       3       NA       2.6     NA   
+2      2    3.1     NA       3.53    NA       3.82    NA       3.6     NA   
+3      3    3.85    NA       4.6     NA       4.53    NA       4.71    NA   
+4      4    6.6     NA       6.65    NA       7.17    NA       6.82    NA   
+5      5    8.51    NA       8.79    NA       9.28    NA      10.2     NA   
+6      6   11.6     11.7    11.6     11.8    12.0     NA      12.4     12.7 
+7      7   13.6     13.9    13.4     13.7    13.0     13.4    13.3     13.9 
+8      8    9.46     9.72    9.23     9.53    8.68     9.06    8.55     8.87
+# ℹ 12 more variables: e5_7day &lt;dbl&gt;, e5_28day &lt;dbl&gt;, e6_7day &lt;dbl&gt;,
+#   e6_28day &lt;dbl&gt;, e7_7day &lt;dbl&gt;, e7_28day &lt;dbl&gt;, e8_7day &lt;dbl&gt;,
+#   e8_28day &lt;dbl&gt;, e9_7day &lt;dbl&gt;, e9_28day &lt;dbl&gt;, e10_7day &lt;dbl&gt;,
+#   e10_28day &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<countdown-timer class="countdown" id="timer_cb955923" minutes="4" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+</div>
+</div>
+</section>
+<section id="cleaning-episode" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-episode">Cleaning <code>episode</code></h2>
+<div class="cell" data-output-location="column-fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>ratings2 <span class="ot">&lt;-</span> messy_ratings2 <span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">select</span>(series, <span class="fu">contains</span>(<span class="st">"7day"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb39-3"><a href="#cb39-3"></a>  <span class="fu">pivot_longer</span>(<span class="fu">contains</span>(<span class="st">"7day"</span>), </span>
+<span id="cb39-4"><a href="#cb39-4"></a>               <span class="at">names_to =</span> <span class="st">"episode"</span>, </span>
+<span id="cb39-5"><a href="#cb39-5"></a>               <span class="at">values_to =</span> <span class="st">"rating"</span>)</span>
+<span id="cb39-6"><a href="#cb39-6"></a>ratings2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 80 × 3
+   series episode  rating
+    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+ 1      1 e1_7day    2.24
+ 2      1 e2_7day    3   
+ 3      1 e3_7day    3   
+ 4      1 e4_7day    2.6 
+ 5      1 e5_7day    3.03
+ 6      1 e6_7day    2.75
+ 7      1 e7_7day   NA   
+ 8      1 e8_7day   NA   
+ 9      1 e9_7day   NA   
+10      1 e10_7day  NA   
+# ℹ 70 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="separate" class="level2">
+<h2 class="anchored" data-anchor-id="separate"><code>separate()</code></h2>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<ul>
+<li><code>data</code> (as usual)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">separate</span>(</span>
+<span id="cb41-2"><a href="#cb41-2"></a>  data, </span>
+<span id="cb41-3"><a href="#cb41-3"></a>  col, </span>
+<span id="cb41-4"><a href="#cb41-4"></a>  <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"col1"</span>, <span class="st">"col2"</span>),</span>
+<span id="cb41-5"><a href="#cb41-5"></a>  sep </span>
+<span id="cb41-6"><a href="#cb41-6"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="separate-1" class="level2">
+<h2 class="anchored" data-anchor-id="separate-1"><code>separate()</code></h2>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<ul>
+<li><code>data</code> (as usual)</li>
+<li><code>col</code>: column to separate</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">separate</span>(</span>
+<span id="cb42-2"><a href="#cb42-2"></a>  data, </span>
+<span id="cb42-3"><a href="#cb42-3"></a>  col, </span>
+<span id="cb42-4"><a href="#cb42-4"></a>  <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"col1"</span>, <span class="st">"col2"</span>),</span>
+<span id="cb42-5"><a href="#cb42-5"></a>  sep </span>
+<span id="cb42-6"><a href="#cb42-6"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="separate-2" class="level2">
+<h2 class="anchored" data-anchor-id="separate-2"><code>separate()</code></h2>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<ul>
+<li><code>data</code> (as usual)</li>
+<li><code>col</code>: column to separate</li>
+<li><code>into</code>: names of new columns to create</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">separate</span>(</span>
+<span id="cb43-2"><a href="#cb43-2"></a>  data, </span>
+<span id="cb43-3"><a href="#cb43-3"></a>  col, </span>
+<span id="cb43-4"><a href="#cb43-4"></a>  <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"col1"</span>, <span class="st">"col2"</span>),</span>
+<span id="cb43-5"><a href="#cb43-5"></a>  sep </span>
+<span id="cb43-6"><a href="#cb43-6"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="separate-3" class="level2">
+<h2 class="anchored" data-anchor-id="separate-3"><code>separate()</code></h2>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<ul>
+<li><code>data</code> (as usual)</li>
+<li><code>col</code>: column to separate</li>
+<li><code>into</code>: names of new columns to create</li>
+<li><code>sep</code>: separator between columns</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">separate</span>(</span>
+<span id="cb44-2"><a href="#cb44-2"></a>  data, </span>
+<span id="cb44-3"><a href="#cb44-3"></a>  col, </span>
+<span id="cb44-4"><a href="#cb44-4"></a>  <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"col1"</span>, <span class="st">"col2"</span>),</span>
+<span id="cb44-5"><a href="#cb44-5"></a>  sep </span>
+<span id="cb44-6"><a href="#cb44-6"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cleaning-episode-1" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-episode-1">Cleaning <code>episode</code></h2>
+<div class="cell" data-output-location="column-fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>ratings2 <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">separate</span>( </span>
+<span id="cb45-3"><a href="#cb45-3"></a>    <span class="at">col =</span> episode, </span>
+<span id="cb45-4"><a href="#cb45-4"></a>    <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"episode"</span>, <span class="st">"period"</span>) </span>
+<span id="cb45-5"><a href="#cb45-5"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 80 × 4
+   series episode period rating
+    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;
+ 1      1 e1      7day     2.24
+ 2      1 e2      7day     3   
+ 3      1 e3      7day     3   
+ 4      1 e4      7day     2.6 
+ 5      1 e5      7day     3.03
+ 6      1 e6      7day     2.75
+ 7      1 e7      7day    NA   
+ 8      1 e8      7day    NA   
+ 9      1 e9      7day    NA   
+10      1 e10     7day    NA   
+# ℹ 70 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="wrap-it-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrap-it-up">Wrap it up</h2>
+<div class="task nonincremental">
+<ul>
+<li>Clean the <code>episode</code> and <code>period</code> column</li>
+<li>Make a <em>line plot</em> with episode on the x-axis, rating on the y-axis, colored by series. (You will also need to map the <code>group</code> aesthetic to series)</li>
+</ul>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Many thanks to Amanda Luby <br> Design by Mine Çetinkaya-Rundel</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This page is built with ☕️ and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
