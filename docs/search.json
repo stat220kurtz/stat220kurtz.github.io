@@ -26,7 +26,7 @@
     "href": "index.html",
     "title": "Stat 220: Intro to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n\n1\nM\nMon, Mar 30\n📝complete welcome survey\nWelcome + data, R review\nslides01\n\n\n\n\n1\nW\nWed, Apr 1\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus\nGithub + reproducible reports\nslides02  02-example-unvotes  UN report to replicate\n\n\n\n\n1\nF\nFri, Apr 3\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\nggplot\nslides03  03-ggplot-intro  Survivor data\nHW 1\n\n\n2\nM\nMon, Apr 6\n📚 DataViz 17-21 \nTheming + Design\nslides04  TB Data\n\n\n\n\n2\nW\nWed, Apr 8\n📚 DataViz 15 \nMaps/spatial data\nslides05  05-maps  ACS Data\nHW 2\n\n\n2\nF\nFri, Apr 10\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\nAccesibility for data viz\nslides06\n\n\n\n\n3\nM\nMon, Apr 13\n📚 R4DS 3.1-3.4 \nVerbs\ntbd\n\n\n\n\n3\nW\nWed, Apr 15\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \nGroups and summarizing Tidy data\ntbd\nHW 3\n\n\n3\nF\nFri, Apr 17\n📚 R4DS 4 \nCode style\ntbd\n\n\n\n\n4\nM\nMon, Apr 20\n📚 R4DS 19.1-19.3\nCombining datasets\ntbd\n\n\n\n\n4\nW\nWed, Apr 22\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \nImport data and dates/times\ntbd\nHW 4\n\n\n4\nF\nFri, Apr 24\nNO CLASS - FEEL FREE TO TAKE A BREAK, CATCH UP, OR LEARN TO BUILD A WEBSITE\nOPTIONAL: building a website using GitHub Pages\ntbd\n\n\n\n\n5\nM\nMon, Apr 27\n📚 R4DS 16 \nWorking with factors\ntbd\nPortfolio 1\n\n\n5\nW\nWed, Apr 29\n📚 R4DS 14  📚 R4DS 15.1-15.5\nWorking with strings and Regex\ntbd\n\n\n\n\n5\nF\nFri, May 1\n📚 MDSR 19.2  🌎 Google ngram viewer\nIntro to Text Analysis\ntbd\nHW 5\n\n\n6\nM\nMon, May 4\n\n\n🏝️ Midterm Break; no class\ntbd\n\n\n\n\n6\nW\nWed, May 6\n📚 The Trouble with Sentiment Analysis\nText Analysis\ntbd\n\n\n\n\n6\nF\nFri, May 8\n📚 R4DS 25\nFunctions\ntbd\nPortfolio 2\n\n\n7\nM\nMon, May 11\n📚 MDSR 7.1-7.3\nIteration\ntbd\nHW6\n\n\n7\nW\nWed, May 13\n\n\nIteration II\ntbd\n\n\n\n\n7\nF\nFri, May 15\n\n\nAPIs\ntbd\nHW7\n\n\n8\nM\nMon, May 18\n\n\nScraping I\ntbd\nFinal Project Idea Form\n\n\n8\nW\nWed, May 20\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nF\nFri, May 22\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\nIntro to Interactivity\ntbd\nHW8  Portfolio 3\n\n\n9\nM\nMon, May 25\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\nShiny 1\ntbd\n\n\n\n\n9\nW\nWed, May 27\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\nShiny 2\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, May 29\n\n\nShiny 3\ntbd\n\n\n\n\n10\nM\nMon, Jun 1\n\n\nProject Demos\ntbd\nPortfolio 4\n\n\n10\nW\nWed, Jun 3\n\n\nProject Demos\ntbd\nHW9\n\n\n\n\nNA\nMon, Jun 8\n\n\nFinal Project Due @ noon\ntbd\nFinal Project",
+    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n\n1\nM\nMon, Mar 30\n📝complete welcome survey\nWelcome + data, R review\nslides01\n\n\n\n\n1\nW\nWed, Apr 1\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus\nGithub + reproducible reports\nslides02  02-example-unvotes  UN report to replicate\n\n\n\n\n1\nF\nFri, Apr 3\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\nggplot\nslides03  03-ggplot-intro  Survivor data\nHW 1\n\n\n2\nM\nMon, Apr 6\n📚 DataViz 17-21 \nTheming + Design\nslides04  TB Data\n\n\n\n\n2\nW\nWed, Apr 8\n📚 DataViz 15 \nMaps/spatial data\nslides05  05-maps  ACS Data\nHW 2\n\n\n2\nF\nFri, Apr 10\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\nAccesibility for data viz\nslides06\n\n\n\n\n3\nM\nMon, Apr 13\n📚 R4DS 3.1-3.4 \nVerbs\nslides07  07-verbs\n\n\n\n\n3\nW\nWed, Apr 15\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \nGroups and summarizing Tidy data\ntbd\nHW 3\n\n\n3\nF\nFri, Apr 17\n📚 R4DS 4 \nCode style\ntbd\n\n\n\n\n4\nM\nMon, Apr 20\n📚 R4DS 19.1-19.3\nCombining datasets\ntbd\n\n\n\n\n4\nW\nWed, Apr 22\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \nImport data and dates/times\ntbd\nHW 4\n\n\n4\nF\nFri, Apr 24\nNO CLASS - FEEL FREE TO TAKE A BREAK, CATCH UP, OR LEARN TO BUILD A WEBSITE\nOPTIONAL: building a website using GitHub Pages\ntbd\n\n\n\n\n5\nM\nMon, Apr 27\n📚 R4DS 16 \nWorking with factors\ntbd\nPortfolio 1\n\n\n5\nW\nWed, Apr 29\n📚 R4DS 14  📚 R4DS 15.1-15.5\nWorking with strings and Regex\ntbd\n\n\n\n\n5\nF\nFri, May 1\n📚 MDSR 19.2  🌎 Google ngram viewer\nIntro to Text Analysis\ntbd\nHW 5\n\n\n6\nM\nMon, May 4\n\n\n🏝️ Midterm Break; no class\ntbd\n\n\n\n\n6\nW\nWed, May 6\n📚 The Trouble with Sentiment Analysis\nText Analysis\ntbd\n\n\n\n\n6\nF\nFri, May 8\n📚 R4DS 25\nFunctions\ntbd\nPortfolio 2\n\n\n7\nM\nMon, May 11\n📚 MDSR 7.1-7.3\nIteration\ntbd\nHW6\n\n\n7\nW\nWed, May 13\n\n\nIteration II\ntbd\n\n\n\n\n7\nF\nFri, May 15\n\n\nAPIs\ntbd\nHW7\n\n\n8\nM\nMon, May 18\n\n\nScraping I\ntbd\nFinal Project Idea Form\n\n\n8\nW\nWed, May 20\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nF\nFri, May 22\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\nIntro to Interactivity\ntbd\nHW8  Portfolio 3\n\n\n9\nM\nMon, May 25\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\nShiny 1\ntbd\n\n\n\n\n9\nW\nWed, May 27\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\nShiny 2\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, May 29\n\n\nShiny 3\ntbd\n\n\n\n\n10\nM\nMon, Jun 1\n\n\nProject Demos\ntbd\nPortfolio 4\n\n\n10\nW\nWed, Jun 3\n\n\nProject Demos\ntbd\nHW9\n\n\n\n\nNA\nMon, Jun 8\n\n\nFinal Project Due @ noon\ntbd\nFinal Project",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -2559,5 +2559,243 @@
     "title": "Accessible Data Viz",
     "section": "Add whitespace",
     "text": "Add whitespace\nSet the color aesthetic to white\n\n\nnurses_subset |&gt;\n  filter(year %in% c(2000, 2010, 2020)) |&gt;\n  ggplot(aes(x = factor(year), y = total_employed_rn, fill = state)) +\n  geom_col(position = \"fill\", color = \"white\", linewidth = 1) +\n  labs(\n    x = \"Year\", y = \"Proportion of Registered Nurses\", fill = \"State\",\n    title = \"Total employed Registered Nurses\"\n  )"
+  },
+  {
+    "objectID": "slides/07/slides07.html#dplyr",
+    "href": "slides/07/slides07.html#dplyr",
+    "title": "Data Wrangling  with dplyr",
+    "section": "{dplyr}",
+    "text": "{dplyr}\n\n\n\nA package that transforms data\nImplements a grammar of transforming tabular data\nPart of the tidyverse"
+  },
+  {
+    "objectID": "slides/07/slides07.html#warm-up",
+    "href": "slides/07/slides07.html#warm-up",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Warm up",
+    "text": "Warm up\n\nWith your neighbors, identify the data verb (function) that does the following:\n\nPicks rows by their values\nReorders the rows\nPicks variables by their names\nCreates new variables with functions of existing variables"
+  },
+  {
+    "objectID": "slides/07/slides07.html#logical-tests",
+    "href": "slides/07/slides07.html#logical-tests",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Logical tests",
+    "text": "Logical tests\n\n\nFor help:\n?Comparison\n\n\n\n\nSyntax\nDescription\n\n\n\n\nx &lt; y\nless than\n\n\nx &gt; y\ngreater than\n\n\nx &lt;= y\nless than or equal to\n\n\nx &gt;= y\ngreater than or equal to\n\n\nx == y\nequal to\n\n\nx != y\nnot equal to\n\n\nx %in% y\ngroup membership\n\n\nis.na(x)\nis NA (missing)\n\n\n!is.na(x)\nis not NA"
+  },
+  {
+    "objectID": "slides/07/slides07.html#your-turn",
+    "href": "slides/07/slides07.html#your-turn",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Your turn:",
+    "text": "Your turn:\n\nWith your neighbors, use filter() to wrangle the nycflights23::flights data frame.\n\nFind all flights that had an arrival delay of two or more hours.\nFind all flights to MSP\nFind all flights that arrived more than two hours late, but left less than one hour late\nBonus: Find all flights that were delayed by at least an hour, but made up over 30 minutes in flight."
+  },
+  {
+    "objectID": "slides/07/slides07.html#slice.data-...",
+    "href": "slides/07/slides07.html#slice.data-...",
+    "title": "Data Wrangling  with dplyr",
+    "section": "slice(.data, ...)",
+    "text": "slice(.data, ...)\nExtract (omit) rows by row number"
+  },
+  {
+    "objectID": "slides/07/slides07.html#slicing-flights-data",
+    "href": "slides/07/slides07.html#slicing-flights-data",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Slicing flights data",
+    "text": "Slicing flights data\nExtracting rows 10 to 20\n\nslice(flights, 10:20)\n\n# A tibble: 11 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2023     1     1      547            545         2      845            852\n 2  2023     1     1      549            559       -10      905            901\n 3  2023     1     1      551            600        -9      846            859\n 4  2023     1     1      552            559        -7      857            911\n 5  2023     1     1      554            600        -6      914            920\n 6  2023     1     1      554            600        -6      725            735\n 7  2023     1     1      558            605        -7      719            750\n 8  2023     1     1      600            600         0      729            752\n 9  2023     1     1      600            600         0      745            755\n10  2023     1     1      600            600         0      810            840\n11  2023     1     1      603            605        -2      800            818\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "slides/07/slides07.html#slicing-flights-data-1",
+    "href": "slides/07/slides07.html#slicing-flights-data-1",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Slicing flights data",
+    "text": "Slicing flights data\nOmitting rows 100 to 1000\n\nslice(flights, -c(100:1000))\n\n# A tibble: 434,451 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2023     1     1        1           2038       203      328              3\n 2  2023     1     1       18           2300        78      228            135\n 3  2023     1     1       31           2344        47      500            426\n 4  2023     1     1       33           2140       173      238           2352\n 5  2023     1     1       36           2048       228      223           2252\n 6  2023     1     1      503            500         3      808            815\n 7  2023     1     1      520            510        10      948            949\n 8  2023     1     1      524            530        -6      645            710\n 9  2023     1     1      537            520        17      926            818\n10  2023     1     1      547            545         2      845            852\n# ℹ 434,441 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "slides/07/slides07.html#select",
+    "href": "slides/07/slides07.html#select",
+    "title": "Data Wrangling  with dplyr",
+    "section": "select()",
+    "text": "select()\nExtract columns by name or number\n\nselect(.data, ...)\n\n\n\n\nSource: software carpentry"
+  },
+  {
+    "objectID": "slides/07/slides07.html#storms-data",
+    "href": "slides/07/slides07.html#storms-data",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Storms data",
+    "text": "Storms data\n\nglimpse(storms)\n\nRows: 20,778\nColumns: 13\n$ name                         &lt;chr&gt; \"Amy\", \"Amy\", \"Amy\", \"Amy\", \"Amy\", \"Amy\",…\n$ year                         &lt;dbl&gt; 1975, 1975, 1975, 1975, 1975, 1975, 1975,…\n$ month                        &lt;dbl&gt; 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,…\n$ day                          &lt;int&gt; 27, 27, 27, 27, 28, 28, 28, 28, 29, 29, 2…\n$ hour                         &lt;dbl&gt; 0, 6, 12, 18, 0, 6, 12, 18, 0, 6, 12, 18,…\n$ lat                          &lt;dbl&gt; 27.5, 28.5, 29.5, 30.5, 31.5, 32.4, 33.3,…\n$ long                         &lt;dbl&gt; -79.0, -79.0, -79.0, -79.0, -78.8, -78.7,…\n$ status                       &lt;fct&gt; tropical depression, tropical depression,…\n$ category                     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ wind                         &lt;int&gt; 25, 25, 25, 25, 25, 25, 25, 30, 35, 40, 4…\n$ pressure                     &lt;int&gt; 1013, 1013, 1013, 1013, 1012, 1012, 1011,…\n$ tropicalstorm_force_diameter &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ hurricane_force_diameter     &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n\n\n\n\nSubset of the NOAA Atlantic hurricane database best track data, https://www.nhc.noaa.gov/data/#hurda"
+  },
+  {
+    "objectID": "slides/07/slides07.html#select-helpers",
+    "href": "slides/07/slides07.html#select-helpers",
+    "title": "Data Wrangling  with dplyr",
+    "section": "select() helpers",
+    "text": "select() helpers\n\n:-starts_with()ends_with()contains()\n\n\nselect range of columns\n\nselect(storms, status:pressure)\n\n# A tibble: 20,778 × 4\n   status              category  wind pressure\n   &lt;fct&gt;                  &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;\n 1 tropical depression       NA    25     1013\n 2 tropical depression       NA    25     1013\n 3 tropical depression       NA    25     1013\n 4 tropical depression       NA    25     1013\n 5 tropical depression       NA    25     1012\n 6 tropical depression       NA    25     1012\n 7 tropical depression       NA    25     1011\n 8 tropical depression       NA    30     1006\n 9 tropical storm            NA    35     1004\n10 tropical storm            NA    40     1002\n# ℹ 20,768 more rows\n\n\n\n\nselect every column but\n\nselect(storms, -c(status, pressure))\n\n# A tibble: 20,778 × 11\n   name   year month   day  hour   lat  long category  wind\n   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;\n 1 Amy    1975     6    27     0  27.5 -79         NA    25\n 2 Amy    1975     6    27     6  28.5 -79         NA    25\n 3 Amy    1975     6    27    12  29.5 -79         NA    25\n 4 Amy    1975     6    27    18  30.5 -79         NA    25\n 5 Amy    1975     6    28     0  31.5 -78.8       NA    25\n 6 Amy    1975     6    28     6  32.4 -78.7       NA    25\n 7 Amy    1975     6    28    12  33.3 -78         NA    25\n 8 Amy    1975     6    28    18  34   -77         NA    30\n 9 Amy    1975     6    29     0  34.4 -75.8       NA    35\n10 Amy    1975     6    29     6  34   -74.8       NA    40\n# ℹ 20,768 more rows\n# ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,\n#   hurricane_force_diameter &lt;int&gt;\n\n\n\n\nselect columns that start with…\n\nselect(storms, starts_with(\"w\"))\n\n# A tibble: 20,778 × 1\n    wind\n   &lt;int&gt;\n 1    25\n 2    25\n 3    25\n 4    25\n 5    25\n 6    25\n 7    25\n 8    30\n 9    35\n10    40\n# ℹ 20,768 more rows\n\n\n\n\nselect columns that end with…\n\nselect(storms, ends_with(\"e\"))\n\n# A tibble: 20,778 × 2\n   name  pressure\n   &lt;chr&gt;    &lt;int&gt;\n 1 Amy       1013\n 2 Amy       1013\n 3 Amy       1013\n 4 Amy       1013\n 5 Amy       1012\n 6 Amy       1012\n 7 Amy       1011\n 8 Amy       1006\n 9 Amy       1004\n10 Amy       1002\n# ℹ 20,768 more rows\n\n\n\n\nselect columns whose names contain…\n\nselect(storms, contains(\"d\"))\n\n# A tibble: 20,778 × 4\n     day  wind tropicalstorm_force_diameter hurricane_force_diameter\n   &lt;int&gt; &lt;int&gt;                        &lt;int&gt;                    &lt;int&gt;\n 1    27    25                           NA                       NA\n 2    27    25                           NA                       NA\n 3    27    25                           NA                       NA\n 4    27    25                           NA                       NA\n 5    28    25                           NA                       NA\n 6    28    25                           NA                       NA\n 7    28    25                           NA                       NA\n 8    28    30                           NA                       NA\n 9    29    35                           NA                       NA\n10    29    40                           NA                       NA\n# ℹ 20,768 more rows"
+  },
+  {
+    "objectID": "slides/07/slides07.html#try-it",
+    "href": "slides/07/slides07.html#try-it",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Try it:",
+    "text": "Try it:\n\nUse arrange to answer the following questions:\n\nWhich flights traveled the farthest?\nWhich traveled the shortest?\nWhich flights lasted the longest?\nWhich lasted the shortest?"
+  },
+  {
+    "objectID": "slides/07/slides07.html#arrange",
+    "href": "slides/07/slides07.html#arrange",
+    "title": "Data Wrangling  with dplyr",
+    "section": "arrange()",
+    "text": "arrange()\nOrder rows from smallest to largest"
+  },
+  {
+    "objectID": "slides/07/slides07.html#arranging-by-wind-speed",
+    "href": "slides/07/slides07.html#arranging-by-wind-speed",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Arranging by wind speed",
+    "text": "Arranging by wind speed\nBy default, arrange orders in ascending order\n\nOriginal DataAscendingDescending\n\n\n\nstorms\n\n# A tibble: 20,778 × 13\n   name   year month   day  hour   lat  long status      category  wind pressure\n   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;          &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;\n 1 Amy    1975     6    27     0  27.5 -79   tropical d…       NA    25     1013\n 2 Amy    1975     6    27     6  28.5 -79   tropical d…       NA    25     1013\n 3 Amy    1975     6    27    12  29.5 -79   tropical d…       NA    25     1013\n 4 Amy    1975     6    27    18  30.5 -79   tropical d…       NA    25     1013\n 5 Amy    1975     6    28     0  31.5 -78.8 tropical d…       NA    25     1012\n 6 Amy    1975     6    28     6  32.4 -78.7 tropical d…       NA    25     1012\n 7 Amy    1975     6    28    12  33.3 -78   tropical d…       NA    25     1011\n 8 Amy    1975     6    28    18  34   -77   tropical d…       NA    30     1006\n 9 Amy    1975     6    29     0  34.4 -75.8 tropical s…       NA    35     1004\n10 Amy    1975     6    29     6  34   -74.8 tropical s…       NA    40     1002\n# ℹ 20,768 more rows\n# ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,\n#   hurricane_force_diameter &lt;int&gt;\n\n\n\n\n\narrange(storms, wind)\n\n# A tibble: 20,778 × 13\n   name      year month   day  hour   lat  long status   category  wind pressure\n   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;\n 1 Bonnie    1986     6    28     6  36.5 -91.3 tropica…       NA    10     1013\n 2 Bonnie    1986     6    28    12  37.2 -90   tropica…       NA    10     1012\n 3 Charley   1986     8    13    12  30.1 -84   subtrop…       NA    10     1009\n 4 Charley   1986     8    13    18  30.8 -84   subtrop…       NA    10     1012\n 5 Charley   1986     8    14     0  31.4 -83.6 subtrop…       NA    10     1013\n 6 Charley   1986     8    14     6  32   -83.1 subtrop…       NA    10     1014\n 7 Charley   1986     8    14    12  32.5 -82.5 subtrop…       NA    10     1015\n 8 Charley   1986     8    14    18  32.4 -82   subtrop…       NA    10     1015\n 9 AL031987  1987     8    16    18  30.9 -83.2 tropica…       NA    10     1014\n10 AL031987  1987     8    17     0  31.4 -82.9 tropica…       NA    10     1015\n# ℹ 20,768 more rows\n# ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,\n#   hurricane_force_diameter &lt;int&gt;\n\n\n\n\n\narrange(storms, desc(wind))\n\n# A tibble: 20,778 × 13\n   name     year month   day  hour   lat  long status    category  wind pressure\n   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;        &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;\n 1 Allen    1980     8     7    18  21.8 -86.4 hurricane        5   165      899\n 2 Gilbert  1988     9    14     0  19.7 -83.8 hurricane        5   160      888\n 3 Wilma    2005    10    19    12  17.3 -82.8 hurricane        5   160      882\n 4 Dorian   2019     9     1    16  26.5 -77   hurricane        5   160      910\n 5 Dorian   2019     9     1    18  26.5 -77.1 hurricane        5   160      910\n 6 Allen    1980     8     5    12  15.9 -70.5 hurricane        5   155      932\n 7 Allen    1980     8     7    12  21   -84.8 hurricane        5   155      910\n 8 Allen    1980     8     8     0  22.2 -87.9 hurricane        5   155      920\n 9 Allen    1980     8     9     6  25   -94.2 hurricane        5   155      909\n10 Gilbert  1988     9    14     6  19.9 -85.3 hurricane        5   155      889\n# ℹ 20,768 more rows\n# ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,\n#   hurricane_force_diameter &lt;int&gt;"
+  },
+  {
+    "objectID": "slides/07/slides07.html#try-it-1",
+    "href": "slides/07/slides07.html#try-it-1",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Try it",
+    "text": "Try it\n\nCreate a new column in flights giving the average speed of the flight while it was in the air. What are the units of this variable? Make the variable in terms of miles per hour."
+  },
+  {
+    "objectID": "slides/07/slides07.html#section-3",
+    "href": "slides/07/slides07.html#section-3",
+    "title": "Data Wrangling  with dplyr",
+    "section": "",
+    "text": "slice_min(.data, order_by, n)\nselect rows with n smallest values of a variable\nslice_max(.data, order_by, n)\nselect rows with n largest values of a variable"
+  },
+  {
+    "objectID": "slides/07/slides07.html#continuing-storms-example",
+    "href": "slides/07/slides07.html#continuing-storms-example",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Continuing storms example",
+    "text": "Continuing storms example\n\nslice_maxslice_min\n\n\nExtracting storms with 3 highest wind speeds\n\nslice_max(storms, wind, n = 3)\n\n# A tibble: 5 × 13\n  name     year month   day  hour   lat  long status    category  wind pressure\n  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;        &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;\n1 Allen    1980     8     7    18  21.8 -86.4 hurricane        5   165      899\n2 Gilbert  1988     9    14     0  19.7 -83.8 hurricane        5   160      888\n3 Wilma    2005    10    19    12  17.3 -82.8 hurricane        5   160      882\n4 Dorian   2019     9     1    16  26.5 -77   hurricane        5   160      910\n5 Dorian   2019     9     1    18  26.5 -77.1 hurricane        5   160      910\n# ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,\n#   hurricane_force_diameter &lt;int&gt;\n\n\n\n\nExtracting storms with the lowest wind speed\n\nslice_min(storms, wind, n = 1)\n\n# A tibble: 61 × 13\n   name      year month   day  hour   lat  long status   category  wind pressure\n   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;\n 1 Bonnie    1986     6    28     6  36.5 -91.3 tropica…       NA    10     1013\n 2 Bonnie    1986     6    28    12  37.2 -90   tropica…       NA    10     1012\n 3 Charley   1986     8    13    12  30.1 -84   subtrop…       NA    10     1009\n 4 Charley   1986     8    13    18  30.8 -84   subtrop…       NA    10     1012\n 5 Charley   1986     8    14     0  31.4 -83.6 subtrop…       NA    10     1013\n 6 Charley   1986     8    14     6  32   -83.1 subtrop…       NA    10     1014\n 7 Charley   1986     8    14    12  32.5 -82.5 subtrop…       NA    10     1015\n 8 Charley   1986     8    14    18  32.4 -82   subtrop…       NA    10     1015\n 9 AL031987  1987     8    16    18  30.9 -83.2 tropica…       NA    10     1014\n10 AL031987  1987     8    17     0  31.4 -82.9 tropica…       NA    10     1015\n# ℹ 51 more rows\n# ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,\n#   hurricane_force_diameter &lt;int&gt;"
+  },
+  {
+    "objectID": "slides/07/slides07.html#translating-wind-speed-to-kmhour",
+    "href": "slides/07/slides07.html#translating-wind-speed-to-kmhour",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Translating wind speed to km/hour",
+    "text": "Translating wind speed to km/hour\nWe can calculate km/hr by using:\n\\[\\text{kmh} = 1.60934 \\times \\text{mph}\\]\n\nstorms &lt;- mutate(storms, wind_kmh = 1.60934 * wind)\n\n\nselect(storms, wind, wind_kmh)\n\n# A tibble: 20,778 × 2\n    wind wind_kmh\n   &lt;int&gt;    &lt;dbl&gt;\n 1    25     40.2\n 2    25     40.2\n 3    25     40.2\n 4    25     40.2\n 5    25     40.2\n 6    25     40.2\n 7    25     40.2\n 8    30     48.3\n 9    35     56.3\n10    40     64.4\n# ℹ 20,768 more rows"
+  },
+  {
+    "objectID": "slides/07/slides07.html#try-it-2",
+    "href": "slides/07/slides07.html#try-it-2",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Try it",
+    "text": "Try it\n\nCreate a new column in flights giving the average speed of the flight while it was in the air. What are the units of this variable? Make the variable in terms of miles per hour."
+  },
+  {
+    "objectID": "slides/07/slides07.html#example",
+    "href": "slides/07/slides07.html#example",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Example",
+    "text": "Example\nThe Federal Aviation Administration (FAA) considers a flight to be delayed when it is 15 minutes later than its scheduled time.\n\nflights &lt;- mutate(\n  flights, \n  delayed = case_when(\n    dep_delay &gt;= 15 ~ \"Delayed\", \n    dep_delay &lt; 15 ~ \"On time\",\n    .default = \"other\")\n)"
+  },
+  {
+    "objectID": "slides/07/slides07.html#your-turn-1",
+    "href": "slides/07/slides07.html#your-turn-1",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Your turn",
+    "text": "Your turn\n\nSuppose that you don’t think the FAA gives enough information in their definition of a delayed flight, so you come up with the following delay categories:\n\ndep_delay &lt;= 0 -&gt; none\ndep_delay between 1 and 15 minutes -&gt; minimal\ndep_delay between 16 and 30 minutes -&gt; delayed\ndep_delay between 31 and 60 minutes -&gt; major\ndep_delay over 60 minutes -&gt; extreme\n\nUse mutate() and case_when() to create a delay_category variable in the flights data frame."
+  },
+  {
+    "objectID": "slides/07/slides07.html#section-6",
+    "href": "slides/07/slides07.html#section-6",
+    "title": "Data Wrangling  with dplyr",
+    "section": "",
+    "text": "“dataframe first, dataframe once”\nCombine multiple operations with the pipe\nThink “and then” when reading code"
+  },
+  {
+    "objectID": "slides/07/slides07.html#using-or",
+    "href": "slides/07/slides07.html#using-or",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Using %>% or |>",
+    "text": "Using %&gt;% or |&gt;\n\n%&gt;% or |&gt; passes result on left into first argument of function on right\nChaining functions together lets you read Left-to-right, top-to-bottom"
+  },
+  {
+    "objectID": "slides/07/slides07.html#using-or-1",
+    "href": "slides/07/slides07.html#using-or-1",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Using %>% or |>",
+    "text": "Using %&gt;% or |&gt;\nfilter():\n\nfilter(storms, status == \"hurricane\")\n\nbecomes\n\nstorms %&gt;%\n  filter(status == \"hurricane\")\n\n\narrange():\n\narrange(storms, wind)\n\nbecomes\n\nstorms |&gt;\n  arrange(wind)"
+  },
+  {
+    "objectID": "slides/07/slides07.html#using-or-2",
+    "href": "slides/07/slides07.html#using-or-2",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Using %>% or |>",
+    "text": "Using %&gt;% or |&gt;\nWe can also build up a series of pipes.\nWe’re interested in the storms with the lowest wind speed that were still classified as hurricanes.\n\nstorms %&gt;%\n  filter(status == \"hurricane\") %&gt;%\n  arrange(wind)\n\n\n\n# A tibble: 5,100 × 14\n   name      year month   day  hour   lat  long status   category  wind pressure\n   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;\n 1 Blanche   1975     7    27     6  35.9 -70   hurrica…        1    65      987\n 2 Caroline  1975     8    30     0  23.3 -94.2 hurrica…        1    65      990\n 3 Caroline  1975     8    30     6  23.5 -94.9 hurrica…        1    65      990\n 4 Caroline  1975     8    30    12  23.7 -95.6 hurrica…        1    65      989\n 5 Doris     1975     8    31     0  34.9 -46.3 hurrica…        1    65      990\n 6 Doris     1975     8    31     6  34.8 -45.7 hurrica…        1    65      990\n 7 Eloise    1975     9    16    18  19.5 -68.4 hurrica…        1    65     1002\n 8 Eloise    1975     9    17     0  19.6 -69.2 hurrica…        1    65      997\n 9 Eloise    1975     9    22     6  24.8 -89.4 hurrica…        1    65      993\n10 Faye      1975     9    26     0  26.5 -60   hurrica…        1    65      990\n# ℹ 5,090 more rows\n# ℹ 3 more variables: tropicalstorm_force_diameter &lt;int&gt;,\n#   hurricane_force_diameter &lt;int&gt;, wind_kmh &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/07/slides07.html#using-or-3",
+    "href": "slides/07/slides07.html#using-or-3",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Using %>% or |>",
+    "text": "Using %&gt;% or |&gt;\nWe’re interested in the storms with the lowest wind speed that were still classified as hurricanes, that reached category 2.\n\nstorms %&gt;%\n  filter(status == \"hurricane\") %&gt;%\n  filter(category &gt; 1) %&gt;%\n  arrange(wind)\n\n\n\n# A tibble: 2,393 × 14\n   name    year month   day  hour   lat  long status    category  wind pressure\n   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;        &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;\n 1 Eloise  1975     9    22    18  26.5 -89.4 hurricane        2    85      980\n 2 Faye    1975     9    26    18  31   -63.1 hurricane        2    85      985\n 3 Faye    1975     9    28     0  38.4 -63.7 hurricane        2    85      985\n 4 Gladys  1975    10     3     6  43.7 -57   hurricane        2    85      960\n 5 Gladys  1975    10     3    12  46.6 -50.6 hurricane        2    85      960\n 6 Emmy    1976     8    26    18  27.7 -54.8 hurricane        2    85      976\n 7 Emmy    1976     8    27    12  30.9 -53.7 hurricane        2    85      975\n 8 Emmy    1976     8    28    12  33.5 -56.6 hurricane        2    85      975\n 9 Emmy    1976     8    31    12  35.1 -44.9 hurricane        2    85      977\n10 Gloria  1976     9    30     6  32.2 -59.8 hurricane        2    85      971\n# ℹ 2,383 more rows\n# ℹ 3 more variables: tropicalstorm_force_diameter &lt;int&gt;,\n#   hurricane_force_diameter &lt;int&gt;, wind_kmh &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/07/slides07.html#combining-with-ggplot",
+    "href": "slides/07/slides07.html#combining-with-ggplot",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Combining with ggplot",
+    "text": "Combining with ggplot\nPipes become especially useful when we combine them with ggplot():\n\nstorms |&gt;\n  filter(status == \"hurricane\") |&gt;\n  filter(category &gt; 1) |&gt;\n  ggplot(aes(x = wind, y = hurricane_force_diameter)) + \n  geom_jitter() +\n  labs(\n    title = \"Force diameter vs wind speed\",\n    subtitle = \"Hurricanes only\"\n  )"
+  },
+  {
+    "objectID": "slides/07/slides07.html#your-turn-2",
+    "href": "slides/07/slides07.html#your-turn-2",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Your turn",
+    "text": "Your turn\n\nChain the last two parts together, so that the resulting dataset contains both avg_speed and delay_category. Pipe this new dataset into ggplot() to answer the question “is there a relationship between average speed and how late a flight is delayed?”\nIf you have time, create a new graph which only contains flights to MSP."
+  },
+  {
+    "objectID": "slides/07/slides07.html#today",
+    "href": "slides/07/slides07.html#today",
+    "title": "Data Wrangling  with dplyr",
+    "section": "Today",
+    "text": "Today\nLearning dplyr functions (verbs)\n\nfilter()\nslice(), slice_min(), and slice_max()\nselect()\narrange()\nmutate()\ncase_when()\nAlso, Pipes: %&gt;%, |&gt;"
+  },
+  {
+    "objectID": "activities/07-dplyr1.html",
+    "href": "activities/07-dplyr1.html",
+    "title": "dplyr 1: Verbs",
+    "section": "",
+    "text": "Click the “code” button above to copy the source code into your RStudio editor. Paste into a fresh .qmd file on your computer (make sure you are in your activities folder, or wherever you save your activities, and not one of your homework repos!)"
+  },
+  {
+    "objectID": "activities/07-dplyr1.html#practice-with-filter",
+    "href": "activities/07-dplyr1.html#practice-with-filter",
+    "title": "dplyr 1: Verbs",
+    "section": "Practice with filter",
+    "text": "Practice with filter\n\nFind all flights that had an arrival delay of two or more hours.\nFind all flights to MSP\nFind all flights that arrived more than two hours late, but left less than one hour late\nBonus: Find all flights that were delayed by at least an hour, but made up over 30 minutes in flight"
+  },
+  {
+    "objectID": "activities/07-dplyr1.html#practice-with-arrange",
+    "href": "activities/07-dplyr1.html#practice-with-arrange",
+    "title": "dplyr 1: Verbs",
+    "section": "Practice with arrange",
+    "text": "Practice with arrange\nUse arrange to answer the following questions:\n\nWhich flights traveled the farthest?\nWhich traveled the shortest?\nWhich flights lasted the longest?\nWhich lasted the shortest?"
+  },
+  {
+    "objectID": "activities/07-dplyr1.html#practice-with-mutate",
+    "href": "activities/07-dplyr1.html#practice-with-mutate",
+    "title": "dplyr 1: Verbs",
+    "section": "Practice with mutate",
+    "text": "Practice with mutate\nCreate a new column in flights giving the average speed of the flight while it was in the air. What are the units of this variable? Make the variable in terms of miles per hour."
+  },
+  {
+    "objectID": "activities/07-dplyr1.html#practice-with-case_when",
+    "href": "activities/07-dplyr1.html#practice-with-case_when",
+    "title": "dplyr 1: Verbs",
+    "section": "Practice with case_when",
+    "text": "Practice with case_when\nSuppose that you don’t think the FAA gives enough information in their definition of a delayed flight, so you come up with the following delay categories:\n\ndep_delay &lt;= 0 -&gt; none\ndep_delay between 1 and 15 minutes -&gt; minimal\ndep_delay between 16 and 30 minutes -&gt; delayed\ndep_delay between 31 and 60 minutes -&gt; major\ndep_delay over 60 minutes -&gt; extreme\n\nUse mutate() and case_when() to create a delay_category variable in the flights data frame."
+  },
+  {
+    "objectID": "activities/07-dplyr1.html#practice-with-pipes",
+    "href": "activities/07-dplyr1.html#practice-with-pipes",
+    "title": "dplyr 1: Verbs",
+    "section": "Practice with pipes",
+    "text": "Practice with pipes\nChain the last two parts together, so that the resulting dataset contains both avg_speed and delay_category. Pipe this new dataset into ggplot() to answer the question “is there a relationship between average speed and how late a flight is delayed?” You should use the delay_category variable you created to answer this question.\nIf you have time, create a new graph which only contains flights to MSP. Does your conclusion change?\n\n\n\n\n\n\nAdapted from Adam Loy and Amanda Luby’s materials"
   }
 ]

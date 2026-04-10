@@ -9,16 +9,7 @@ library(ggthemes)
 library(nycflights23)
 ```
 
-Click the "code" button above to copy and paste the source code into your RStudio editor.
-
-# Warm up
-
-Identify the verb (function) that does the following:
-
--   Picks rows by their values
--   Reorders the rows
--   Picks variables by their names
--   Creates new variables with functions of existing variables
+Click the "code" button above to copy the source code into your RStudio editor. Paste into a fresh .qmd file on your computer (make sure you are in your activities folder, or wherever you save your activities, and *not* one of your homework repos!)
 
 # Wrangling the `nycflights23` data
 
@@ -27,7 +18,7 @@ Identify the verb (function) that does the following:
 -   Find all flights that had an arrival delay of two or more hours.
 -   Find all flights to MSP
 -   Find all flights that arrived more than two hours late, but left less than one hour late
--   (if time) Find all flights that were delayed by at least an hour, but made up over 30 minutes in flight
+-   Bonus: Find all flights that were delayed by at least an hour, but made up over 30 minutes in flight
 
 ## Practice with `arrange`
 
@@ -54,8 +45,6 @@ Suppose that you don't think the FAA gives enough information in their definitio
 
 Use `mutate()` and `case_when()` to create a `delay_category` variable in the `flights` data frame.
 
-and we can check with `select()`:
-
 ## Practice with pipes
 
 *Chain* the last two parts together, so that the resulting dataset contains both `avg_speed` and `delay_category`. Pipe this new dataset into `ggplot()` to answer the question "is there a relationship between average speed and how late a flight is delayed?" You should use the `delay_category` variable you created to answer this question.
@@ -63,5 +52,5 @@ and we can check with `select()`:
 If you have time, create a new graph which only contains *flights to MSP*. Does your conclusion change?
 
 ::: aside
-Adapted from Adam Loy's materials
+Adapted from Adam Loy and Amanda Luby's materials
 :::
