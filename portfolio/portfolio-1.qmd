@@ -27,7 +27,7 @@ Your final report should include
 (4) A section describing your design choices
     - This should be about a paragraph telling me why you chose the geometries, aesthetics, scales, themes, etc. that you did
     
-Each of the two questions you come up with should involve more than two variables to answer. You should phrase them in a way that the is within the scope of inference of your data. For example, if you have an observational dataset, you shouldn’t phrase your question in a causal way. Your questions shouldn't be identical to the example questions in the TidyTuesday repo pages.
+Each of the two questions you come up with should involve at least two variables to answer. You should phrase them in a way that the is within the scope of inference of your data. For example, if you have an observational dataset, you shouldn’t phrase your question in a causal way. Your questions shouldn't be identical to the example questions in the TidyTuesday repo pages.
 
 Your rendered file should *not* `echo` the code used to create the graphs, but the code in your `.qmd` should be clean and readable. Your report should not be long! If rendering to a PDF, I expect the entire report to be about 3 pages. 
 

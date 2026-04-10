@@ -1,5 +1,5 @@
 ---
-title: (Closer to) <br>Accessible <br>Data <br>Viz
+title: Accessible Data Viz
 subtitle: Day 06
 title-slide-attributes:
   data-background-image: ../img/viridis-palette.png
@@ -447,6 +447,8 @@ cowplot::plot_grid(colorblindr::edit_colors(last_plot(), colorspace::deutan))
 :::
 :::::
 
+Use `geom_text()` - will need to play with placement of the text
+
 ::: aside
 Source: Mine Çetinkaya-Rundel, [Sta313](https://vizdata.org/). Generated with [{colorblindr}](https://github.com/clauswilke/colorblindr/tree/master).
 :::
@@ -520,6 +522,8 @@ cowplot::plot_grid(colorblindr::edit_colors(last_plot(), colorspace::tritan))
 :::
 :::::
 
+Add `color` = "white" to the geom_col (or other `geom`etry) function
+
 ::: aside
 Source: Mine Çetinkaya-Rundel, [Sta313](https://vizdata.org/). Generated with [{colorblindr}](https://github.com/clauswilke/colorblindr/tree/master).
 :::
@@ -588,18 +592,6 @@ nurses_subset |>
 countdown::countdown(1,30)
 ```
 
-##  {.smaller}
-
-[Accessible Visualization via Natural Language Descriptions: A Four-Level Model of Semantic Content](http://vis.csail.mit.edu/pubs/vis-text-model/)
-
-Alan Lundgard, MIT CSAIL\
-Arvind Satyanarayan, MIT CSAIL
-
-IEEE Transactions on Visualization & Computer Graphics (Proceedings of IEEE VIS), 2021
-
-> To demonstrate how our model can be applied to evaluate the effectiveness of visualization descriptions, we conduct a mixed-methods evaluation with 30 blind and 90 sighted readers, and find that these reader groups differ significantly on which semantic content they rank as most useful. Together, our model and findings suggest that access to meaningful information is strongly reader-specific, and that research in automatic visualization captioning should orient toward descriptions that more richly communicate overall trends and statistics, sensitive to reader preferences.
-
-
 
 ## Let's try it! {.smaller}
 
@@ -611,16 +603,12 @@ IEEE Transactions on Visualization & Computer Graphics (Proceedings of IEEE VIS)
 2. Write an alt text description of your graph on one of your blank cards. 
     - Please label with your plot number! 
   
-3. In two's or three's, trade **alt text descriptions only**
+3. In pairs, trade **alt text descriptions only**
 
 4. On your second blank card, try to draw the graph based on the alt text provided. 
 
 5. Now, look at the original graph. How'd you do?
 :::
-
-```{r}
-countdown::countdown(4)
-```
 
 ## Recap
 
