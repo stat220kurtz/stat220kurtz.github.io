@@ -2797,5 +2797,320 @@
     "title": "dplyr 1: Verbs",
     "section": "Practice with pipes",
     "text": "Practice with pipes\nChain the last two parts together, so that the resulting dataset contains both avg_speed and delay_category. Pipe this new dataset into ggplot() to answer the question “is there a relationship between average speed and how late a flight is delayed?” You should use the delay_category variable you created to answer this question.\nIf you have time, create a new graph which only contains flights to MSP. Does your conclusion change?\n\n\n\n\n\n\nAdapted from Adam Loy and Amanda Luby’s materials"
+  },
+  {
+    "objectID": "slides/08/slides08.html#the-college-scorecard",
+    "href": "slides/08/slides08.html#the-college-scorecard",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "The College Scorecard",
+    "text": "The College Scorecard\n\nThe College Scorecard is designed to increase transparency and to see how well schools are serving their students.\n\n\n\nRows: 187\nColumns: 13\n$ unitid         &lt;dbl&gt; 228343, 177719, 367884, 149781, 135364, 212601, 133979,…\n$ school         &lt;chr&gt; \"Southwestern University\", \"Barnes-Jewish College Goldf…\n$ type           &lt;chr&gt; \"private\", \"private\", \"private\", \"private\", \"private\", …\n$ city           &lt;chr&gt; \"Georgetown\", \"Saint Louis\", \"Fort Myers\", \"Wheaton\", \"…\n$ state          &lt;chr&gt; \"TX\", \"MO\", \"FL\", \"IL\", \"GA\", \"PA\", \"FL\", \"CA\", \"IN\", \"…\n$ region         &lt;chr&gt; \"Southwest\", \"Plains\", \"Southeast\", \"Great Lakes\", \"Sou…\n$ admission_rate &lt;dbl&gt; 0.4903, NA, 0.6121, 0.8481, 0.5000, 0.7552, 0.3999, 0.5…\n$ act            &lt;dbl&gt; 26, NA, NA, 29, NA, 23, NA, 22, 25, 31, NA, NA, 20, 20,…\n$ undergrads     &lt;dbl&gt; 1507, 569, 832, 2358, 235, 2866, 1049, 4516, 2120, 1545…\n$ cost           &lt;dbl&gt; 55886, NA, 27425, 49214, NA, 44896, 27460, 58014, 46440…\n$ grad_rate      &lt;dbl&gt; 0.6945, NA, 0.2621, 0.8878, 0.5000, 0.6770, 0.3644, 0.7…\n$ fy_retention   &lt;dbl&gt; 0.8571, NA, 0.4783, 0.9262, NA, 0.8217, 0.6355, 0.8179,…\n$ fedloan        &lt;dbl&gt; 0.5105, 0.8185, 0.6213, 0.4902, 0.5529, 0.5524, 0.6755,…"
+  },
+  {
+    "objectID": "slides/08/slides08.html#using-or",
+    "href": "slides/08/slides08.html#using-or",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Using %>% or |>",
+    "text": "Using %&gt;% or |&gt;\nWe begin by building up a series of pipes:\n\nmn_colleges &lt;- colleges |&gt;                     # dataframe first and then... \n  filter(state == \"MN\") |&gt;                     # filter out MN colleges and then...\n  select(school, city, admission_rate:fedloan) # select the columns of interest"
+  },
+  {
+    "objectID": "slides/08/slides08.html#the-base-pipe",
+    "href": "slides/08/slides08.html#the-base-pipe",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "The |> (base) pipe",
+    "text": "The |&gt; (base) pipe\n\n|&gt; pipe operator was introduced in R v4.1\nFor simple uses, acts the same as %&gt;% but is more rigid\nI’ll use both in class examples, but you can use |&gt; or %&gt;%"
+  },
+  {
+    "objectID": "slides/08/slides08.html#computing-statistics-summarize",
+    "href": "slides/08/slides08.html#computing-statistics-summarize",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Computing statistics: summarize",
+    "text": "Computing statistics: summarize\n\ncollapse many values down into a statistic\nsummarize(data, newstat = fun(var)) applies the fun function to var variable(s) and returns one value in newstat column"
+  },
+  {
+    "objectID": "slides/08/slides08.html#computing-statistics-summarize-1",
+    "href": "slides/08/slides08.html#computing-statistics-summarize-1",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Computing statistics: summarize",
+    "text": "Computing statistics: summarize\n\ndplyrbase R\n\n\nAverage and SD of cost in a data frame format:\n\ncolleges %&gt;%\n  summarize(\n    avg_cost = mean(cost, na.rm = TRUE), \n    sd_cost = sd(cost , na.rm = TRUE)\n  )\n\n# A tibble: 1 × 2\n  avg_cost sd_cost\n     &lt;dbl&gt;   &lt;dbl&gt;\n1   36620.  16244.\n\n\n\n\n\nmean(colleges$cost, na.rm = TRUE)\n\n[1] 36619.72\n\nsd(colleges$cost, na.rm = TRUE)\n\n[1] 16243.9"
+  },
+  {
+    "objectID": "slides/08/slides08.html#your-turn",
+    "href": "slides/08/slides08.html#your-turn",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Your turn",
+    "text": "Your turn\n\nUsing the flights data from the {nycflights23} package, use summarize() to compute statistics about the data:\n\nThe lowest and highest distance traveled\nThe lowest and highest air_time\nThe median dep_delay"
+  },
+  {
+    "objectID": "slides/08/slides08.html#your-turn-1",
+    "href": "slides/08/slides08.html#your-turn-1",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Your turn",
+    "text": "Your turn\n\nUsing the flights data from the {nycflights23} package, extract the rows for Delta flights. (Hint: the carrier shortcode code is “DL”)\nThen use summarize() and a summary function to find:\n\nThe number of flights in this subset\nThe median dep_delay. How does it compare to the overall median?\n\nYou should do both (1) and (2) in a single pipeline"
+  },
+  {
+    "objectID": "slides/08/slides08.html#group_by",
+    "href": "slides/08/slides08.html#group_by",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "group_by()",
+    "text": "group_by()\nGroups cases by common values of one or more columns\n\ncollegescolleges with group_by\n\n\n\ncolleges\n\n\n\n# A tibble: 187 × 13\n  unitid school   type  city  state region admission_rate   act undergrads  cost\n   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;\n1 228343 Southwe… priv… Geor… TX    South…          0.490    26       1507 55886\n2 177719 Barnes-… priv… Sain… MO    Plains         NA        NA        569    NA\n3 367884 Hodges … priv… Fort… FL    South…          0.612    NA        832 27425\n# ℹ 184 more rows\n# ℹ 3 more variables: grad_rate &lt;dbl&gt;, fy_retention &lt;dbl&gt;, fedloan &lt;dbl&gt;\n\n\n\n\n\ncolleges %&gt;% \n  group_by(state)\n\n\n\n# A tibble: 187 × 13\n# Groups:   state [44]\n  unitid school   type  city  state region admission_rate   act undergrads  cost\n   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;\n1 228343 Southwe… priv… Geor… TX    South…          0.490    26       1507 55886\n2 177719 Barnes-… priv… Sain… MO    Plains         NA        NA        569    NA\n3 367884 Hodges … priv… Fort… FL    South…          0.612    NA        832 27425\n# ℹ 184 more rows\n# ℹ 3 more variables: grad_rate &lt;dbl&gt;, fy_retention &lt;dbl&gt;, fedloan &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/08/slides08.html#spit-apply-combine",
+    "href": "slides/08/slides08.html#spit-apply-combine",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Spit-apply-combine",
+    "text": "Spit-apply-combine"
+  },
+  {
+    "objectID": "slides/08/slides08.html#statistics-by-group-group_by-summarize",
+    "href": "slides/08/slides08.html#statistics-by-group-group_by-summarize",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Statistics by group: group_by + summarize",
+    "text": "Statistics by group: group_by + summarize\nSummary statistics by state\n\n\ncolleges %&gt;%\n  group_by(state) %&gt;%\n  summarize(\n    n_schools = n(),\n    avg_cost = mean(cost, na.rm = TRUE),\n    min_size = min(undergrads, na.rm = TRUE),\n    max_size = max(undergrads, na.rm = TRUE)\n  )\n\n\n# A tibble: 44 × 5\n   state n_schools avg_cost min_size max_size\n   &lt;chr&gt;     &lt;int&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n 1 AL            4   22242.      245     7785\n 2 AR            3   43816.      512     1447\n 3 AZ            2   33388.      803    33715\n 4 CA            9   42807.       43    23337\n 5 CO            2   45574      5755     8448\n 6 CT            3   29895.      174     4425\n 7 FL            5   34747.       39     2401\n 8 GA            6   27961       235     9742\n 9 HI            1   36765      1558     1558\n10 IA            1     NaN       339      339\n# ℹ 34 more rows"
+  },
+  {
+    "objectID": "slides/08/slides08.html#your-turn-2",
+    "href": "slides/08/slides08.html#your-turn-2",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Your turn",
+    "text": "Your turn\n\nUse group_by(), summarize(), and slice_max() to display the five dest airports with the most flights from NYC airports in 2023. Your display should include the median flight delay for these airports along with the number of flights to each airport."
+  },
+  {
+    "objectID": "slides/08/slides08.html#calculating-counts",
+    "href": "slides/08/slides08.html#calculating-counts",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Calculating counts",
+    "text": "Calculating counts\ncount() can be used as a short cut to group_by() + summarize() if you are only calculating counts\n\ngroup_by()count()\n\n\n\n\ncolleges %&gt;% \n  group_by(state) %&gt;%\n  summarize(n = n())\n\n\n# A tibble: 44 × 2\n   state     n\n   &lt;chr&gt; &lt;int&gt;\n 1 AL        4\n 2 AR        3\n 3 AZ        2\n 4 CA        9\n 5 CO        2\n 6 CT        3\n 7 FL        5\n 8 GA        6\n 9 HI        1\n10 IA        1\n# ℹ 34 more rows\n\n\n\n\n\n\ncolleges %&gt;% count(state)\n\n\n# A tibble: 44 × 2\n   state     n\n   &lt;chr&gt; &lt;int&gt;\n 1 AL        4\n 2 AR        3\n 3 AZ        2\n 4 CA        9\n 5 CO        2\n 6 CT        3\n 7 FL        5\n 8 GA        6\n 9 HI        1\n10 IA        1\n# ℹ 34 more rows"
+  },
+  {
+    "objectID": "slides/08/slides08.html#calculations-by-group-group_by-mutate",
+    "href": "slides/08/slides08.html#calculations-by-group-group_by-mutate",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Calculations by group: group_by + mutate",
+    "text": "Calculations by group: group_by + mutate\nCalculate z-scores within regions\n\ncolleges %&gt;%\n  group_by(region) %&gt;%\n  mutate(z_cost = (cost - mean(cost, na.rm = TRUE)) / sd(cost, na.rm = TRUE)) %&gt;%\n  relocate(unitid:region, z_cost, everything())\n\n\n\n# A tibble: 187 × 14\n# Groups:   region [10]\n   unitid school type  city  state region z_cost admission_rate   act undergrads\n    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;          &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;\n 1 228343 South… priv… Geor… TX    South…  1.51           0.490    26       1507\n 2 177719 Barne… priv… Sain… MO    Plains NA             NA        NA        569\n 3 367884 Hodge… priv… Fort… FL    South… -0.467          0.612    NA        832\n 4 149781 Wheat… priv… Whea… IL    Great…  1.06           0.848    29       2358\n 5 135364 Luthe… priv… Lith… GA    South… NA              0.5      NA        235\n 6 212601 Ganno… priv… Erie  PA    Mid E…  0.261          0.755    23       2866\n 7 133979 Flori… priv… Miam… FL    South… -0.465          0.400    NA       1049\n 8 117140 Unive… priv… La V… CA    Far W…  1.14           0.548    22       4516\n 9 152567 Trine… priv… Ango… IN    Great…  0.849          0.816    25       2120\n10 237057 Whitm… priv… Wall… WA    Far W…  1.79           0.559    31       1545\n# ℹ 177 more rows\n# ℹ 4 more variables: cost &lt;dbl&gt;, grad_rate &lt;dbl&gt;, fy_retention &lt;dbl&gt;,\n#   fedloan &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/08/slides08.html#ungroup",
+    "href": "slides/08/slides08.html#ungroup",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "ungroup()",
+    "text": "ungroup()\n\nOnce data are grouped, they remain grouped until you manually ungroup them\nSome summary functions ungroup them for you, e.g., count() and summarize()\n\n\n\nWith ungroup()Without ungroup()\n\n\n\ncolleges %&gt;%\n  group_by(region) %&gt;%\n  mutate(z_cost = (cost - mean(cost, na.rm = TRUE)) / sd(cost, na.rm = TRUE)) %&gt;%\n  ungroup() %&gt;%\n  summarize(mean_z = mean(z_cost, na.rm = TRUE))\n\n# A tibble: 1 × 1\n    mean_z\n     &lt;dbl&gt;\n1 1.49e-17\n\n\n\n\n\ncolleges %&gt;%\n  group_by(region) %&gt;%\n  mutate(z_cost = (cost - mean(cost, na.rm = TRUE)) / sd(cost, na.rm = TRUE)) %&gt;%\n  summarize(mean_z = mean(z_cost, na.rm = TRUE))\n\n# A tibble: 10 × 2\n   region                 mean_z\n   &lt;chr&gt;                   &lt;dbl&gt;\n 1 Far West            -9.08e-17\n 2 Great Lakes          1.40e-16\n 3 Mid East             1.10e-16\n 4 New England         -1.56e-16\n 5 Outlying Areas      -2.22e-16\n 6 Plains              -2.62e-17\n 7 Rocky Mountains      0       \n 8 Southeast            1.23e-18\n 9 Southwest            6.94e-18\n10 US Service Schools NaN"
+  },
+  {
+    "objectID": "slides/08/slides08.html#aside-code-commenting",
+    "href": "slides/08/slides08.html#aside-code-commenting",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Aside: code commenting",
+    "text": "Aside: code commenting\nIn R, you can use # for adding comments to your code. Any text that follows the # will be printed as-is and won’t be run as code. This is useful for leaving comments in your code and for temporarily disabling certain lines of code for debugging.\n\ncolleges %&gt;%\n  group_by(state) %&gt;%\n  summarize(\n    n_schools = n(),                               # This is a reminder to me\n    # avg_cost = mean(cost, na.rm = TRUE),         # This line isn't run\n    min_size = min(undergrads, na.rm = TRUE),\n    max_size = max(undergrads, na.rm = TRUE)\n  )\n\n# A tibble: 44 × 4\n   state n_schools min_size max_size\n   &lt;chr&gt;     &lt;int&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n 1 AL            4      245     7785\n 2 AR            3      512     1447\n 3 AZ            2      803    33715\n 4 CA            9       43    23337\n 5 CO            2     5755     8448\n 6 CT            3      174     4425\n 7 FL            5       39     2401\n 8 GA            6      235     9742\n 9 HI            1     1558     1558\n10 IA            1      339      339\n# ℹ 34 more rows"
+  },
+  {
+    "objectID": "slides/08/slides08.html#aside-code-commenting-1",
+    "href": "slides/08/slides08.html#aside-code-commenting-1",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Aside: code commenting",
+    "text": "Aside: code commenting\nAnd it works especially well when you’ve used chaining in your code\n\ncolleges %&gt;%\n  #group_by(state) %&gt;%\n  summarize(\n    n_schools = n(),                               \n    avg_cost = mean(cost, na.rm = TRUE),         \n    min_size = min(undergrads, na.rm = TRUE),\n    max_size = max(undergrads, na.rm = TRUE)\n  )\n\n# A tibble: 1 × 4\n  n_schools avg_cost min_size max_size\n      &lt;int&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n1       187   36620.        0    33715"
+  },
+  {
+    "objectID": "slides/08/slides08.html#bakeoff-ratings",
+    "href": "slides/08/slides08.html#bakeoff-ratings",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Bakeoff ratings",
+    "text": "Bakeoff ratings\n\nRatings data for each episode in series 1-8 (in millions of viewers)\n\n\n\n\n# A tibble: 8 × 11\n  series    e1    e2    e3    e4    e5    e6    e7    e8    e9   e10\n   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1      1  2.24  3     3     2.6   3.03  2.75 NA    NA    NA    NA   \n2      2  3.1   3.53  3.82  3.6   3.83  4.25  4.42  5.06 NA    NA   \n3      3  3.85  4.6   4.53  4.71  4.61  4.82  5.1   5.35  5.7   6.74\n4      4  6.6   6.65  7.17  6.82  6.95  7.32  7.76  7.41  7.41  9.45\n5      5  8.51  8.79  9.28 10.2   9.95 10.1  10.3   9.02 10.7  13.5 \n6      6 11.6  11.6  12.0  12.4  12.4  12    12.4  11.1  12.6  15.0 \n7      7 13.6  13.4  13.0  13.3  13.1  13.1  13.4  13.3  13.4  15.9 \n8      8  9.46  9.23  8.68  8.55  8.61  8.61  9.01  8.95  9.03 10.0 \n\n\n\n\n\nSource: bakeoff R package"
+  },
+  {
+    "objectID": "slides/08/slides08.html#discuss",
+    "href": "slides/08/slides08.html#discuss",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Discuss",
+    "text": "Discuss\n\nIs this dataset in tidy format? Why or why not?\nIf not, what would a tidy data set look like? Sketch out the first few rows of this data set in tidy format"
+  },
+  {
+    "objectID": "slides/08/slides08.html#tidyr",
+    "href": "slides/08/slides08.html#tidyr",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "{tidyr}",
+    "text": "{tidyr}\n\n\n\nReshape the layout of tabular data\nPart of the tidyverse"
+  },
+  {
+    "objectID": "slides/08/slides08.html#what-variables-are-needed-to-make-this-graph",
+    "href": "slides/08/slides08.html#what-variables-are-needed-to-make-this-graph",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "What variables are needed to make this graph?",
+    "text": "What variables are needed to make this graph?"
+  },
+  {
+    "objectID": "slides/08/slides08.html#goal",
+    "href": "slides/08/slides08.html#goal",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Goal",
+    "text": "Goal\nWant to reshape the data to be in tidy format:\n\nCurrentTarget\n\n\n\n\n# A tibble: 8 × 11\n  series    e1    e2    e3    e4    e5    e6    e7    e8    e9   e10\n   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1      1  2.24  3     3     2.6   3.03  2.75 NA    NA    NA    NA   \n2      2  3.1   3.53  3.82  3.6   3.83  4.25  4.42  5.06 NA    NA   \n3      3  3.85  4.6   4.53  4.71  4.61  4.82  5.1   5.35  5.7   6.74\n4      4  6.6   6.65  7.17  6.82  6.95  7.32  7.76  7.41  7.41  9.45\n5      5  8.51  8.79  9.28 10.2   9.95 10.1  10.3   9.02 10.7  13.5 \n6      6 11.6  11.6  12.0  12.4  12.4  12    12.4  11.1  12.6  15.0 \n7      7 13.6  13.4  13.0  13.3  13.1  13.1  13.4  13.3  13.4  15.9 \n8      8  9.46  9.23  8.68  8.55  8.61  8.61  9.01  8.95  9.03 10.0 \n\n\n\n\n\n\n# A tibble: 80 × 3\n   series epsiode rating\n    &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;\n 1      1 e1        2.24\n 2      1 e2        3   \n 3      1 e3        3   \n 4      1 e4        2.6 \n 5      1 e5        3.03\n 6      1 e6        2.75\n 7      1 e7       NA   \n 8      1 e8       NA   \n 9      1 e9       NA   \n10      1 e10      NA   \n# ℹ 70 more rows"
+  },
+  {
+    "objectID": "slides/08/slides08.html#pivot_longer",
+    "href": "slides/08/slides08.html#pivot_longer",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\n\n\n\ndata (as usual)\n\n\n\npivot_longer(\n  data, \n  cols, \n  names_to = \"name\", \n  values_to = \"value\"\n  )"
+  },
+  {
+    "objectID": "slides/08/slides08.html#pivot_longer-1",
+    "href": "slides/08/slides08.html#pivot_longer-1",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\n\n\n\ndata (as usual)\ncols: columns to pivot into longer format\n\n\n\npivot_longer(\n  data, \n  cols, \n  names_to = \"name\", \n  values_to = \"value\"\n  )"
+  },
+  {
+    "objectID": "slides/08/slides08.html#pivot_longer-2",
+    "href": "slides/08/slides08.html#pivot_longer-2",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\n\n\n\ndata (as usual)\ncols: columns to pivot into longer format\nnames_to: name of the column where column names of pivoted variables go (character string)\n\n\n\npivot_longer(\n  data, \n  cols, \n  names_to = \"name\", \n  values_to = \"value\"\n  )"
+  },
+  {
+    "objectID": "slides/08/slides08.html#pivot_longer-3",
+    "href": "slides/08/slides08.html#pivot_longer-3",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\n\n\n\ndata (as usual)\ncols: columns to pivot into longer format\nnames_to: name of the column where column names of pivoted variables go (character string)\nvalues_to: name of the column where data in pivoted variables go (character string)\n\n\n\npivot_longer(\n  data, \n  cols, \n  names_to = \"name\", \n  values_to = \"value\"\n  )"
+  },
+  {
+    "objectID": "slides/08/slides08.html#wider-rightarrow-longer-ratings",
+    "href": "slides/08/slides08.html#wider-rightarrow-longer-ratings",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "wider \\(\\rightarrow\\) longer ratings",
+    "text": "wider \\(\\rightarrow\\) longer ratings\n\n\nlonger_ratings &lt;- bakeoff_ratings %&gt;%\n  pivot_longer( \n    cols = e1:e10, \n    names_to = \"episode\", \n    values_to = \"rating\" \n  )\nlonger_ratings\n\n\n# A tibble: 80 × 3\n   series episode rating\n    &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;\n 1      1 e1        2.24\n 2      1 e2        3   \n 3      1 e3        3   \n 4      1 e4        2.6 \n 5      1 e5        3.03\n 6      1 e6        2.75\n 7      1 e7       NA   \n 8      1 e8       NA   \n 9      1 e9       NA   \n10      1 e10      NA   \n# ℹ 70 more rows"
+  },
+  {
+    "objectID": "slides/08/slides08.html#parse_number",
+    "href": "slides/08/slides08.html#parse_number",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "parse_number()",
+    "text": "parse_number()\n\nratings &lt;- longer_ratings %&gt;%\n  mutate(\n    episode = parse_number(episode) \n  )\nratings\n\n# A tibble: 80 × 3\n   series episode rating\n    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;\n 1      1       1   2.24\n 2      1       2   3   \n 3      1       3   3   \n 4      1       4   2.6 \n 5      1       5   3.03\n 6      1       6   2.75\n 7      1       7  NA   \n 8      1       8  NA   \n 9      1       9  NA   \n10      1      10  NA   \n# ℹ 70 more rows"
+  },
+  {
+    "objectID": "slides/08/slides08.html#other-parsing-functions",
+    "href": "slides/08/slides08.html#other-parsing-functions",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Other parsing functions",
+    "text": "Other parsing functions\n\n\nparse_character\nparse_date\nparse_double\nparse_double\nparse_factor\n\nparse_integer\nparse_logical\nparse_number\nparse_time\n\n\n\nThe parse_* functions are from readr"
+  },
+  {
+    "objectID": "slides/08/slides08.html#try-it-messy_ratings",
+    "href": "slides/08/slides08.html#try-it-messy_ratings",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Try it: messy_ratings",
+    "text": "Try it: messy_ratings\n\nTidy this data set by\n\nSelecting the series and e*_7day columns\nPivoting the data to add a column for episode and a column for rating (we’ll clean up the episode column later)\n\n\n\nmessy_ratings2 &lt;- read_csv(\"https://stat220kurtz.github.io/data/messy_ratings2.csv\")\nmessy_ratings2\n\n# A tibble: 8 × 21\n  series e1_7day e1_28day e2_7day e2_28day e3_7day e3_28day e4_7day e4_28day\n   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;\n1      1    2.24    NA       3       NA       3       NA       2.6     NA   \n2      2    3.1     NA       3.53    NA       3.82    NA       3.6     NA   \n3      3    3.85    NA       4.6     NA       4.53    NA       4.71    NA   \n4      4    6.6     NA       6.65    NA       7.17    NA       6.82    NA   \n5      5    8.51    NA       8.79    NA       9.28    NA      10.2     NA   \n6      6   11.6     11.7    11.6     11.8    12.0     NA      12.4     12.7 \n7      7   13.6     13.9    13.4     13.7    13.0     13.4    13.3     13.9 \n8      8    9.46     9.72    9.23     9.53    8.68     9.06    8.55     8.87\n# ℹ 12 more variables: e5_7day &lt;dbl&gt;, e5_28day &lt;dbl&gt;, e6_7day &lt;dbl&gt;,\n#   e6_28day &lt;dbl&gt;, e7_7day &lt;dbl&gt;, e7_28day &lt;dbl&gt;, e8_7day &lt;dbl&gt;,\n#   e8_28day &lt;dbl&gt;, e9_7day &lt;dbl&gt;, e9_28day &lt;dbl&gt;, e10_7day &lt;dbl&gt;,\n#   e10_28day &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/08/slides08.html#cleaning-episode",
+    "href": "slides/08/slides08.html#cleaning-episode",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Cleaning episode",
+    "text": "Cleaning episode\n\nratings2 &lt;- messy_ratings2 %&gt;%\n  select(series, contains(\"7day\")) %&gt;%\n  pivot_longer(contains(\"7day\"), \n               names_to = \"episode\", \n               values_to = \"rating\")\nratings2\n\n# A tibble: 80 × 3\n   series episode  rating\n    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;\n 1      1 e1_7day    2.24\n 2      1 e2_7day    3   \n 3      1 e3_7day    3   \n 4      1 e4_7day    2.6 \n 5      1 e5_7day    3.03\n 6      1 e6_7day    2.75\n 7      1 e7_7day   NA   \n 8      1 e8_7day   NA   \n 9      1 e9_7day   NA   \n10      1 e10_7day  NA   \n# ℹ 70 more rows"
+  },
+  {
+    "objectID": "slides/08/slides08.html#separate",
+    "href": "slides/08/slides08.html#separate",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "separate()",
+    "text": "separate()\n\n\n\ndata (as usual)\n\n\n\nseparate(\n  data, \n  col, \n  into = c(\"col1\", \"col2\"),\n  sep \n  )"
+  },
+  {
+    "objectID": "slides/08/slides08.html#separate-1",
+    "href": "slides/08/slides08.html#separate-1",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "separate()",
+    "text": "separate()\n\n\n\ndata (as usual)\ncol: column to separate\n\n\n\nseparate(\n  data, \n  col, \n  into = c(\"col1\", \"col2\"),\n  sep \n  )"
+  },
+  {
+    "objectID": "slides/08/slides08.html#separate-2",
+    "href": "slides/08/slides08.html#separate-2",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "separate()",
+    "text": "separate()\n\n\n\ndata (as usual)\ncol: column to separate\ninto: names of new columns to create\n\n\n\nseparate(\n  data, \n  col, \n  into = c(\"col1\", \"col2\"),\n  sep \n  )"
+  },
+  {
+    "objectID": "slides/08/slides08.html#separate-3",
+    "href": "slides/08/slides08.html#separate-3",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "separate()",
+    "text": "separate()\n\n\n\ndata (as usual)\ncol: column to separate\ninto: names of new columns to create\nsep: separator between columns\n\n\n\nseparate(\n  data, \n  col, \n  into = c(\"col1\", \"col2\"),\n  sep \n  )"
+  },
+  {
+    "objectID": "slides/08/slides08.html#cleaning-episode-1",
+    "href": "slides/08/slides08.html#cleaning-episode-1",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Cleaning episode",
+    "text": "Cleaning episode\n\nratings2 %&gt;%\n  separate( \n    col = episode, \n    into = c(\"episode\", \"period\") \n  )\n\n# A tibble: 80 × 4\n   series episode period rating\n    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;\n 1      1 e1      7day     2.24\n 2      1 e2      7day     3   \n 3      1 e3      7day     3   \n 4      1 e4      7day     2.6 \n 5      1 e5      7day     3.03\n 6      1 e6      7day     2.75\n 7      1 e7      7day    NA   \n 8      1 e8      7day    NA   \n 9      1 e9      7day    NA   \n10      1 e10     7day    NA   \n# ℹ 70 more rows"
+  },
+  {
+    "objectID": "slides/08/slides08.html#wrap-it-up",
+    "href": "slides/08/slides08.html#wrap-it-up",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Wrap it up",
+    "text": "Wrap it up\n\n\nClean the episode and period column\nMake a line plot with episode on the x-axis, rating on the y-axis, colored by series. (You will also need to map the group aesthetic to series)"
+  },
+  {
+    "objectID": "slides/08/slides08.html#split-apply-combine",
+    "href": "slides/08/slides08.html#split-apply-combine",
+    "title": "Data Wrangling: Groups & Tidy Data",
+    "section": "Split-apply-combine",
+    "text": "Split-apply-combine"
+  },
+  {
+    "objectID": "activities/08-dplyr2.html",
+    "href": "activities/08-dplyr2.html",
+    "title": "dplyr 2: Pipes and Groups",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(ggthemes)\nlibrary(nycflights23)"
+  },
+  {
+    "objectID": "activities/08-dplyr2.html#summarize",
+    "href": "activities/08-dplyr2.html#summarize",
+    "title": "dplyr 2: Pipes and Groups",
+    "section": "summarize()",
+    "text": "summarize()\nUsing the flights data from the {nycflights23} package, use summarize() to compute statistics about the data:\n\nThe lowest and highest distance traveled\nThe lowest and highest air_time\nThe median dep_delay\n\n\nflights\n\n# A tibble: 435,352 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2023     1     1        1           2038       203      328              3\n 2  2023     1     1       18           2300        78      228            135\n 3  2023     1     1       31           2344        47      500            426\n 4  2023     1     1       33           2140       173      238           2352\n 5  2023     1     1       36           2048       228      223           2252\n 6  2023     1     1      503            500         3      808            815\n 7  2023     1     1      520            510        10      948            949\n 8  2023     1     1      524            530        -6      645            710\n 9  2023     1     1      537            520        17      926            818\n10  2023     1     1      547            545         2      845            852\n# ℹ 435,342 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "activities/08-dplyr2.html#summarize-ii",
+    "href": "activities/08-dplyr2.html#summarize-ii",
+    "title": "dplyr 2: Pipes and Groups",
+    "section": "summarize() II",
+    "text": "summarize() II\nUsing the flights data from the {nycflights23} package, extract the rows for Delta flights. (Hint: the carrier code is “DL”)\nThen use summarize() and a summary function to find:\n\nThe number of flights in this subset\nThe median dep_delay. How does it compare to the overall median?\n\n\nflights\n\n# A tibble: 435,352 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2023     1     1        1           2038       203      328              3\n 2  2023     1     1       18           2300        78      228            135\n 3  2023     1     1       31           2344        47      500            426\n 4  2023     1     1       33           2140       173      238           2352\n 5  2023     1     1       36           2048       228      223           2252\n 6  2023     1     1      503            500         3      808            815\n 7  2023     1     1      520            510        10      948            949\n 8  2023     1     1      524            530        -6      645            710\n 9  2023     1     1      537            520        17      926            818\n10  2023     1     1      547            545         2      845            852\n# ℹ 435,342 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "activities/08-dplyr2.html#group_by",
+    "href": "activities/08-dplyr2.html#group_by",
+    "title": "dplyr 2: Pipes and Groups",
+    "section": "group_by()",
+    "text": "group_by()\nUse group_by(), summarize(), and slice_max() to display the five dest airports with the most flights from NYC airports in 2023. Your display should include the median flight delay for these airports.\n\nflights\n\n# A tibble: 435,352 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2023     1     1        1           2038       203      328              3\n 2  2023     1     1       18           2300        78      228            135\n 3  2023     1     1       31           2344        47      500            426\n 4  2023     1     1       33           2140       173      238           2352\n 5  2023     1     1       36           2048       228      223           2252\n 6  2023     1     1      503            500         3      808            815\n 7  2023     1     1      520            510        10      948            949\n 8  2023     1     1      524            530        -6      645            710\n 9  2023     1     1      537            520        17      926            818\n10  2023     1     1      547            545         2      845            852\n# ℹ 435,342 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "activities/08-dplyr2.html#discuss",
+    "href": "activities/08-dplyr2.html#discuss",
+    "title": "dplyr 2: Pipes and Groups",
+    "section": "Discuss",
+    "text": "Discuss\nIs this dataset in tidy format? Why or why not?\nIf not, what would a tidy data set look like? Sketch out the first few rows of this data set in tidy format"
+  },
+  {
+    "objectID": "activities/08-dplyr2.html#tidying-bakeoff-ratings",
+    "href": "activities/08-dplyr2.html#tidying-bakeoff-ratings",
+    "title": "dplyr 2: Pipes and Groups",
+    "section": "tidying bakeoff ratings",
+    "text": "tidying bakeoff ratings\nFollow along with the slides to tidy the bakeoff_ratings dataset"
+  },
+  {
+    "objectID": "activities/08-dplyr2.html#task-1",
+    "href": "activities/08-dplyr2.html#task-1",
+    "title": "dplyr 2: Pipes and Groups",
+    "section": "Task 1",
+    "text": "Task 1\nTidy this data set by\n\nSelecting the series and e*_7day columns\nPivoting the data to add a column for episode and a column for rating (we’ll clean up the episode column later)\n\n\n# include your code here"
+  },
+  {
+    "objectID": "activities/08-dplyr2.html#task-2",
+    "href": "activities/08-dplyr2.html#task-2",
+    "title": "dplyr 2: Pipes and Groups",
+    "section": "Task 2",
+    "text": "Task 2\n\nClean the episode and period column\nMake a line plot with episode on the x-axis, rating on the y-axis, colored by series. (You will also need to map the group aesthetic to series)"
   }
 ]

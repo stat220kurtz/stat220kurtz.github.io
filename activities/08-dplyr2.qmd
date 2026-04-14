@@ -50,7 +50,7 @@ flights
 # Intro to Tidy Data
 
 ```{r}
-bakeoff_ratings <- read_csv("https://stat220-w26.github.io/data/bakeoff_messy_ratings.csv")
+bakeoff_ratings <- read_csv("https://stat220kurtz.github.io/data/bakeoff_messy_ratings.csv")
 bakeoff_ratings
 ```
 
@@ -67,7 +67,7 @@ Follow along with the slides to tidy the `bakeoff_ratings` dataset
 # `messyratings2`
 
 ```{r}
-messy_ratings2 <- read_csv("https://stat220-w26.github.io/data/messy_ratings2.csv")
+messy_ratings2 <- read_csv("https://stat220kurtz.github.io/data/messy_ratings2.csv")
 messy_ratings2
 ```
 

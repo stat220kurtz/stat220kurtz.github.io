@@ -49,42 +49,19 @@ slides_theme = theme_minimal(
 theme_set(slides_theme)
 ```
 
+# Calculating Summaries {.maize}
+
 ## The College Scorecard
 
 ```{r include=FALSE}
 colleges <- read_csv("https://aloy.rbind.io/data/scorecard_sample2019.csv")
 ```
 
-> The College Scorecard is designed to increase transparency, putting the power in the hands of the public — from those choosing colleges to those improving college quality — to see how well different schools are serving their students.
+> The College Scorecard is designed to increase transparency and to see how well schools are serving their students.
 
 ```{r}
 glimpse(colleges)
 ```
-
-
-## Using `%>%` or `|>`
-
-We begin by building up a series of pipes:
-
-```{r}
-#| echo: true
-#| code-line-numbers: "1|2|3"
-
-mn_colleges <- colleges |>                     # dataframe first and then... 
-  filter(state == "MN") |>                     # filter out MN colleges and then...
-  select(school, city, admission_rate:fedloan) # select the columns of interest  
-```
-
-
-## The `|>` (base) pipe
-
--   `|>` pipe operator was introduced in R v4.1
-
--   For simple uses, acts the same as `%>%` but is more rigid
-
--   I'll use both in class examples, but you can use `|>` or `%>%`
-
-# Calculating Summaries {.maize}
 
 ## Computing statistics: `summarize`
 
@@ -101,7 +78,7 @@ Average and SD of cost in a data frame format:
 
 ```{r}
 #| echo: true
-#| output-location: column
+#| output-location: default
 
 
 colleges %>%
@@ -160,6 +137,24 @@ countdown(3)
 
 Groups cases by common values of one or more columns
 
+::: panel-tabset
+### colleges
+
+```{r}
+#| echo: true
+#| eval: false
+colleges
+```
+
+```{r echo=FALSE}
+#| output-location: default
+colleges %>% print(n = 3)
+```
+
+
+### colleges with group_by
+
+
 ```{r}
 #| echo: true
 #| eval: false
@@ -168,12 +163,13 @@ colleges %>%
 ```
 
 ```{r echo=FALSE}
+#| output-location: default
 colleges %>% group_by(state) %>% print(n = 3)
 ```
 
-How does this help us?
+:::
 
-## Spit-apply-combine
+## Split-apply-combine
 
 ```{r echo=FALSE}
 knitr::include_graphics("../img/08-split-apply-combine.png")
@@ -199,6 +195,40 @@ colleges %>%
   summarize(
     n_schools = n(),
     avg_cost = mean(cost, na.rm = TRUE),
+    min_size = min(undergrads, na.rm = TRUE),
+    max_size = max(undergrads, na.rm = TRUE)
+  )
+```
+
+## Aside: code commenting {.smaller}
+
+In R, you can use `#` for adding comments to your code. Any text that follows the `#` will be printed as-is and won't be run as code. This is useful for leaving comments in your code and for temporarily disabling certain lines of code for debugging.
+
+```{r}
+#| echo: true
+
+colleges %>%
+  group_by(state) %>%
+  summarize(
+    n_schools = n(),                               # This is a reminder to me
+    # avg_cost = mean(cost, na.rm = TRUE),         # This line isn't run
+    min_size = min(undergrads, na.rm = TRUE),
+    max_size = max(undergrads, na.rm = TRUE)
+  )
+```
+
+## Aside: code commenting
+
+And it works especially well when you've used *chaining* in your code
+
+```{r}
+#| echo: true
+
+colleges %>%
+  #group_by(state) %>%
+  summarize(
+    n_schools = n(),                               
+    avg_cost = mean(cost, na.rm = TRUE),         
     min_size = min(undergrads, na.rm = TRUE),
     max_size = max(undergrads, na.rm = TRUE)
   )
@@ -257,6 +287,8 @@ colleges %>%
   relocate(unitid:region, z_cost, everything())
 ```
 
+
+<!-- 
 ## `ungroup()` {.smaller}
 
 -   Once data are grouped, they remain grouped until you manually ungroup them
@@ -265,21 +297,15 @@ colleges %>%
 
 . . .
 
-```{r}
-#| echo: true
-#| eval: false
 
-colleges %>%
-  group_by(region) %>%
-  mutate(z_cost = (cost - mean(cost, na.rm = TRUE)) / sd(cost, na.rm = TRUE)) %>%
-  ungroup() %>%
-  summarize(mean_z = mean(z_cost, na.rm = TRUE))
-```
 
 ::: panel-tabset
 ### With `ungroup()`
 
 ```{r}
+#| echo: true
+#| output-location: default
+
 colleges %>%
   group_by(region) %>%
   mutate(z_cost = (cost - mean(cost, na.rm = TRUE)) / sd(cost, na.rm = TRUE)) %>%
@@ -290,46 +316,19 @@ colleges %>%
 ### Without `ungroup()`
 
 ```{r}
+#| echo: true
+#| output-location: default
+
 colleges %>%
   group_by(region) %>%
   mutate(z_cost = (cost - mean(cost, na.rm = TRUE)) / sd(cost, na.rm = TRUE)) %>%
   summarize(mean_z = mean(z_cost, na.rm = TRUE))
+
 ```
 :::
+-->
 
-## Aside: code commenting
 
-In R, you can use `#` for adding comments to your code. Any text that follows the `#` will be printed as-is and won't be run as code. This is useful for leaving comments in your code and for temporarily disabling certain lines of code for debugging.
-
-```{r}
-#| echo: true
-
-colleges %>%
-  group_by(state) %>%
-  summarize(
-    n_schools = n(),                               # This is a reminder to me
-    # avg_cost = mean(cost, na.rm = TRUE),         # This line isn't run
-    min_size = min(undergrads, na.rm = TRUE),
-    max_size = max(undergrads, na.rm = TRUE)
-  )
-```
-
-## Aside: code commenting
-
-And it works especially well when you've used *chaining* in your code
-
-```{r}
-#| echo: true
-
-colleges %>%
-  #group_by(state) %>%
-  summarize(
-    n_schools = n(),                               
-    avg_cost = mean(cost, na.rm = TRUE),         
-    min_size = min(undergrads, na.rm = TRUE),
-    max_size = max(undergrads, na.rm = TRUE)
-  )
-```
 
 # Intro to tidy data {.maize}
 
@@ -352,7 +351,7 @@ colleges %>%
 . . .
 
 ```{r}
-bakeoff_ratings <- read_csv("https://stat220-w26.github.io/data/bakeoff_messy_ratings.csv")
+bakeoff_ratings <- read_csv("https://stat220kurtz.github.io/data/bakeoff_messy_ratings.csv")
 bakeoff_ratings
 ```
 
@@ -554,12 +553,13 @@ longer_ratings <- bakeoff_ratings %>%
 longer_ratings
 ```
 
+## {background-image="../img/horst-parse-number.png" background-size="50%"}
+
 ## `parse_number()`
 
 ```{r}
 #| echo: true
 #| code-line-numbers: "3"
-#| output-location: column-fragment
 ratings <- longer_ratings %>%
   mutate(
     episode = parse_number(episode) 
@@ -567,9 +567,6 @@ ratings <- longer_ratings %>%
 ratings
 ```
 
-##
-
-![](../img/horst-parse-number.png)
 
 ## Other parsing functions
 
@@ -611,7 +608,7 @@ Tidy this data set by
 :::
 
 ```{r echo=TRUE}
-messy_ratings2 <- read_csv("https://stat220-w26.github.io/data/messy_ratings2.csv")
+messy_ratings2 <- read_csv("https://stat220kurtz.github.io/data/messy_ratings2.csv")
 messy_ratings2
 ```
 
@@ -625,7 +622,6 @@ countdown(4)
 ```{r}
 #| echo: true
 #| code-line-numbers: "2|3-5"
-#| output-location: column-fragment
 ratings2 <- messy_ratings2 %>%
   select(series, contains("7day")) %>%
   pivot_longer(contains("7day"), 
@@ -741,7 +737,6 @@ separate(
 ```{r}
 #| echo: true
 #| code-line-numbers: "2|3|4"
-#| output-location: column-fragment
 ratings2 %>%
   separate( 
     col = episode, 
