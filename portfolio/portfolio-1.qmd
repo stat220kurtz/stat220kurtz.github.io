@@ -5,11 +5,12 @@ subtitle: "Posing and answering research questions"
 
 ```{r}
 library(tidyverse)
+library(tidytuesdayR)
 ```
 
 # Overview
 
-In your first portfolio project, you'll explore a dataset and pose your own research questions.  You'll then apply what you've learned about `ggplot2` and design principles to answer the questions.
+In your first portfolio project, you'll explore a dataset and pose your own research question.  You'll then apply what you've learned about `ggplot2` and design principles to answer the question.
 
 Your final report should include
 
@@ -19,38 +20,69 @@ Your final report should include
     - Why that question is interesting/important
     - What you expect your answer to be to this question and why (this should be argued BEFORE digging deeply into the data; it's okay if you find out you were wrong!)
     - A graph that answers the question (or multiple, if more than one best answers the question)
-    - A written answer to the question based on the graph, including whether your expectation was proven right or wrong
-(3) A section describing your design choices
-    - This should be about a paragraph telling me why you chose the geometries, aesthetics, scales, themes, etc. that you did
-    - You should also reflect on whether it is possible other choices may have been valid as well, and whether changes there may have impacted your conclusions. You do NOT need to create other visuals to answer this part, but instead merely reflect in words.
+    - A written answer to the question based on the graph(s), including whether your expectation was proven right or wrong
+(3) A section describing your design choices, including
+    - A paragraph telling me why you chose the geometries, aesthetics, scales, themes, etc. that you did
+    - A brief reflection on whether it is possible other choices may have been valid as well, and whether changes there may have impacted your conclusions. You do NOT need to create other visuals to answer this part, but instead merely reflect in words.
     
-Your question should involve at least two variables to answer. You should phrase the question in a way that the is within the scope of inference of your data. For example, if you have an observational dataset, you shouldn’t phrase your question in a causal way. **Your questions shouldn't be identical to the example questions in the TidyTuesday repo pages.**
+Your question should involve at least two variables to answer. You should phrase the question in a way that is within the scope of inference of your data. For example, if you have an observational dataset, you shouldn’t phrase your question in a causal way. **Your questions shouldn't be identical to the example questions in the TidyTuesday repo pages.**
 
 Your rendered file should *not* `echo` the code used to create the graphs, but the code in your `.qmd` should be clean and readable. Your report should not be long! If rendering to a PDF, I expect the entire report to be maybe 2-3 pages. 
 
-# Options 
+# Options
 
-Choosing a dataset is something you should do carefully but also relatively quickly. The dataset you choose should allow for two distinct questions to be asked and answered using a not-completely-overlapping set of variables, i.e., Question 1 and Question 2 can have a variable in common, but both (or all three) should not be the same variables.
-
-## 1. Income Inequality before and after taxes
+## 1. World Languages
 
 ```{r}
-income_inequality_raw <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-08-05/income_inequality_raw.csv') |>
-  filter(Year > 1963)
+endangered_status <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-12-23/endangered_status.csv")
+families <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-12-23/families.csv")
+languages <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-12-23/languages.csv")
+# Download raw data and filter to endangered status
+endangered_status <- 
+  readr::read_csv("https://raw.githubusercontent.com/glottolog/glottolog-cldf/refs/heads/master/cldf/values.csv") |> 
+  dplyr::filter(Parameter_ID == "aes") |> 
+  dplyr::select(Language_ID, Value, Code_ID) |> 
+  dplyr::rename(id = Language_ID,
+                status_code = Value,
+                status_label = Code_ID) |> 
+  dplyr::mutate(status_label = stringr::str_replace(stringr::str_remove(status_label, "^aes-"), "_", " "))
 
-income_inequality_raw
+# Download language and family data
+fam_lgs <- 
+  readr::read_csv("https://raw.githubusercontent.com/glottolog/glottolog-cldf/refs/heads/master/cldf/languages.csv")
+
+# Filter and clean language family data
+families <- 
+  fam_lgs |> 
+  dplyr::filter(Level == "family") |> 
+  dplyr::select(ID, Name) |> 
+  dplyr::rename(Family = Name) |> 
+  dplyr::rename_with(stringr::str_to_lower, dplyr::everything())
+
+# Filter and clean language data
+languages <- 
+  fam_lgs |> 
+  dplyr::filter(Level == "language") |> 
+  dplyr::select(ID, Name, Macroarea, Latitude, Longitude, ISO639P3code, Countries, Is_Isolate, Family_ID) |> 
+  dplyr::rename_with(stringr::str_to_lower, dplyr::everything())
+
+# Merge datasets together
+languages <- merge(languages, endangered_status, by="id")
+languages <- merge(languages, families, by.x="family_id", by.y="id")
+
+glimpse(languages)
 ```
 
-For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-08-05/readme.md). For more information about the data itself, read the original [Our World In Data](https://ourworldindata.org/income-inequality-before-and-after-taxes) article. 
+For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-12-23/readme.md).
 
-## 2. Billboard Hot100 Number Ones
+## 2. Olympics
 
 ```{r}
-billboard <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-08-26/billboard.csv')
-billboard
+olympics <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2026/2026-02-10/schedule.csv')
+olympics
 ```
 
-For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-08-26/readme.md). For more information about the data itself and an example analysis, see the [*Can't get much higher](https://www.cantgetmuchhigher.com/p/the-greatest-two-hit-wonders) newsletter. 
+For more information about the variables in the dataset, see the [TidyTuesday repo page](https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2026/2026-02-10/schedule.csv).
 
 
 ## 3. NSF grant terminations
@@ -60,26 +92,29 @@ nsf_terminations <- readr::read_csv('https://raw.githubusercontent.com/rfordatas
 nsf_terminations
 ```
 
-For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-06/readme.md). For more information about the data itself, see [Grant Watch](https://grant-witness.us/). 
+For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-06/readme.md).
 
-## 4. Water Quality at Sydney Beaches
-
-```{r}
-water_quality <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-05-20/water_quality.csv')
-water_quality
-```
-
-For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-20/readme.md). For more information about the data itself, see [BeachWatch](https://www.beachwatch.nsw.gov.au/whatIsBeachwatch/aboutBeachwatch). 
-
-## 5. Pokemon
+## 4. US Judges
 
 ```{r}
-pokemon_df <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-04-01/pokemon_df.csv')
+judges_appointments <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-06-10/judges_appointments.csv')
+judges_people <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-06-10/judges_people.csv')
+judges <- merge(judges_appointments, judges_people, by="judge_id")
 
-pokemon_df
+glimpse(judges)
 ```
 
-For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-04-01/readme.md). For more information about the data itself, see [PokeAPI](https://pokeapi.co/about). 
+For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-06-10/readme.md).
+
+## 5. Dungeons and Dragons Monsters
+
+```{r}
+dnd <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2025/2025-05-27/monsters.csv')
+
+dnd
+```
+
+For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-05-27).
 
 ## 6. BYO 
 
@@ -87,7 +122,7 @@ If none of the options listed here speak to you, you can also choose your own da
 
 # Submission
 
-Your submission should include at least one visualization, a written overview of your work, and all associated code. You should work in a `quarto` file. Your rendered file can be either pdf or both a pdf and html. I will distribute GitHub skeleton repos that you should fill in as you work. You should commit and push your final code to GitHub. You'll need to submit a pdf to Gradescope as well.
+Your submission should include at least one visualization, a written overview of your work, and all associated code. You should work in a `quarto` file and render to pdf. I will distribute GitHub skeleton repos that you should work within. You should commit and push your final code to GitHub. You'll need to submit a pdf to Gradescope as well.
 
 # Rubric
 
@@ -109,6 +144,7 @@ A **successful** project will:
 An **excellent** project will meet all of the requirements for a successful project, plus
 
 - [ ] The question uses three variables from the data at once
+- [ ] The description of the dataset uses inline R code
 - [ ] The graph uses two or more geometry layers (this might be two layers of data, or a map + points, annotations, direct labeling with `geom_text`, etc.) OR includes a ggplot element that goes beyond what we discussed in class (eg., a new ggplot extension package or a geometry we didn't discuss or see in homework)
 - [ ] Graph(s) use consistent themes that have been customized beyond a full theme (eg `theme_minimal` or `theme_bw`) 
 - [ ] Graphs contain a custom `scale_` element (color, x/y axis, size, etc.)

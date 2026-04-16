@@ -401,16 +401,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#options" id="toc-options" class="nav-link" data-scroll-target="#options">Options</a>
   <ul class="collapse">
-  <li><a href="#income-inequality-before-and-after-taxes" id="toc-income-inequality-before-and-after-taxes" class="nav-link" data-scroll-target="#income-inequality-before-and-after-taxes">1. Income Inequality before and after taxes</a></li>
-  <li><a href="#billboard-hot100-number-ones" id="toc-billboard-hot100-number-ones" class="nav-link" data-scroll-target="#billboard-hot100-number-ones">2. Billboard Hot100 Number Ones</a></li>
+  <li><a href="#world-languages" id="toc-world-languages" class="nav-link" data-scroll-target="#world-languages">1. World Languages</a></li>
+  <li><a href="#olympics" id="toc-olympics" class="nav-link" data-scroll-target="#olympics">2. Olympics</a></li>
   <li><a href="#nsf-grant-terminations" id="toc-nsf-grant-terminations" class="nav-link" data-scroll-target="#nsf-grant-terminations">3. NSF grant terminations</a></li>
-  <li><a href="#water-quality-at-sydney-beaches" id="toc-water-quality-at-sydney-beaches" class="nav-link" data-scroll-target="#water-quality-at-sydney-beaches">4. Water Quality at Sydney Beaches</a></li>
-  <li><a href="#pokemon" id="toc-pokemon" class="nav-link" data-scroll-target="#pokemon">5. Pokemon</a></li>
+  <li><a href="#us-judges" id="toc-us-judges" class="nav-link" data-scroll-target="#us-judges">4. US Judges</a></li>
+  <li><a href="#dungeons-and-dragons-monsters" id="toc-dungeons-and-dragons-monsters" class="nav-link" data-scroll-target="#dungeons-and-dragons-monsters">5. Dungeons and Dragons Monsters</a></li>
   <li><a href="#byo" id="toc-byo" class="nav-link" data-scroll-target="#byo">6. BYO</a></li>
   </ul></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   <li><a href="#rubric" id="toc-rubric" class="nav-link" data-scroll-target="#rubric">Rubric</a></li>
-  <li><a href="#faq" id="toc-faq" class="nav-link" data-scroll-target="#faq">FAQ</a></li>
   </ul>
 </nav>
     </div>
@@ -439,95 +438,122 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytuesdayR)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="overview" class="level1">
 <h1>Overview</h1>
-<p>In your first portfolio project, you’ll explore a dataset and pose your own research questions. You’ll then apply what you’ve learned about <code>ggplot2</code> and design principles to answer the questions.</p>
+<p>In your first portfolio project, you’ll explore a dataset and pose your own research question. You’ll then apply what you’ve learned about <code>ggplot2</code> and design principles to answer the question.</p>
 <p>Your final report should include</p>
 <ol type="1">
 <li>A paragraph introduction to your data</li>
-<li>A section for Research Question 1 that includes:
+<li>A section discussing your research question that includes:
 <ul>
-<li>Your question</li>
+<li>An explicit statement of your question</li>
 <li>Why that question is interesting/important</li>
-<li>A graph that answers the question</li>
-<li>A written answer to the question based on the graph</li>
+<li>What you expect your answer to be to this question and why (this should be argued BEFORE digging deeply into the data; it’s okay if you find out you were wrong!)</li>
+<li>A graph that answers the question (or multiple, if more than one best answers the question)</li>
+<li>A written answer to the question based on the graph(s), including whether your expectation was proven right or wrong</li>
 </ul></li>
-<li>A section for Research Question 2 that includes:
+<li>A section describing your design choices, including
 <ul>
-<li>Your question. This should focus on a variable that was not included in Research Question 1.</li>
-<li>Why that question is interesting/important</li>
-<li>A graph that answers the question</li>
-<li>A written answer to the question based on the graph</li>
-</ul></li>
-<li>A section describing your design choices
-<ul>
-<li>This should be about a paragraph telling me why you chose the geometries, aesthetics, scales, themes, etc. that you did</li>
+<li>A paragraph telling me why you chose the geometries, aesthetics, scales, themes, etc. that you did</li>
+<li>A brief reflection on whether it is possible other choices may have been valid as well, and whether changes there may have impacted your conclusions. You do NOT need to create other visuals to answer this part, but instead merely reflect in words.</li>
 </ul></li>
 </ol>
-<p>Each of the two questions you come up with should involve at least two variables to answer. You should phrase them in a way that the is within the scope of inference of your data. For example, if you have an observational dataset, you shouldn’t phrase your question in a causal way. <strong>Your questions shouldn’t be identical to the example questions in the TidyTuesday repo pages.</strong></p>
-<p>Your rendered file should <em>not</em> <code>echo</code> the code used to create the graphs, but the code in your <code>.qmd</code> should be clean and readable. Your report should not be long! If rendering to a PDF, I expect the entire report to be about 3 pages.</p>
+<p>Your question should involve at least two variables to answer. You should phrase the question in a way that is within the scope of inference of your data. For example, if you have an observational dataset, you shouldn’t phrase your question in a causal way. <strong>Your questions shouldn’t be identical to the example questions in the TidyTuesday repo pages.</strong></p>
+<p>Your rendered file should <em>not</em> <code>echo</code> the code used to create the graphs, but the code in your <code>.qmd</code> should be clean and readable. Your report should not be long! If rendering to a PDF, I expect the entire report to be maybe 2-3 pages.</p>
 </section>
 <section id="options" class="level1">
 <h1>Options</h1>
-<p>Choosing a dataset is something you should do carefully but also relatively quickly. The dataset you choose should allow for two distinct questions to be asked and answered using a not-completely-overlapping set of variables, i.e., Question 1 and Question 2 can have a variable in common, but both (or all three) should not be the same variables.</p>
-<section id="income-inequality-before-and-after-taxes" class="level2">
-<h2 class="anchored" data-anchor-id="income-inequality-before-and-after-taxes">1. Income Inequality before and after taxes</h2>
+<section id="world-languages" class="level2">
+<h2 class="anchored" data-anchor-id="world-languages">1. World Languages</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>income_inequality_raw <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-08-05/income_inequality_raw.csv'</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;</span> <span class="dv">1963</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>income_inequality_raw</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>endangered_status <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-12-23/endangered_status.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>families <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-12-23/families.csv"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>languages <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-12-23/languages.csv"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Download raw data and filter to endangered status</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>endangered_status <span class="ot">&lt;-</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/glottolog/glottolog-cldf/refs/heads/master/cldf/values.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(Parameter_ID <span class="sc">==</span> <span class="st">"aes"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Language_ID, Value, Code_ID) <span class="sc">|&gt;</span> </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">id =</span> Language_ID,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">status_code =</span> Value,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">status_label =</span> Code_ID) <span class="sc">|&gt;</span> </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">status_label =</span> stringr<span class="sc">::</span><span class="fu">str_replace</span>(stringr<span class="sc">::</span><span class="fu">str_remove</span>(status_label, <span class="st">"^aes-"</span>), <span class="st">"_"</span>, <span class="st">" "</span>))</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Download language and family data</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>fam_lgs <span class="ot">&lt;-</span> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/glottolog/glottolog-cldf/refs/heads/master/cldf/languages.csv"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter and clean language family data</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>families <span class="ot">&lt;-</span> </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  fam_lgs <span class="sc">|&gt;</span> </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(Level <span class="sc">==</span> <span class="st">"family"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(ID, Name) <span class="sc">|&gt;</span> </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">Family =</span> Name) <span class="sc">|&gt;</span> </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename_with</span>(stringr<span class="sc">::</span>str_to_lower, dplyr<span class="sc">::</span><span class="fu">everything</span>())</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter and clean language data</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>languages <span class="ot">&lt;-</span> </span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  fam_lgs <span class="sc">|&gt;</span> </span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(Level <span class="sc">==</span> <span class="st">"language"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(ID, Name, Macroarea, Latitude, Longitude, ISO639P3code, Countries, Is_Isolate, Family_ID) <span class="sc">|&gt;</span> </span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename_with</span>(stringr<span class="sc">::</span>str_to_lower, dplyr<span class="sc">::</span><span class="fu">everything</span>())</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge datasets together</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>languages <span class="ot">&lt;-</span> <span class="fu">merge</span>(languages, endangered_status, <span class="at">by=</span><span class="st">"id"</span>)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>languages <span class="ot">&lt;-</span> <span class="fu">merge</span>(languages, families, <span class="at">by.x=</span><span class="st">"family_id"</span>, <span class="at">by.y=</span><span class="st">"id"</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(languages)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 15,710 × 7
-   Entity      Code   Year gini_disposable__age_total gini_market__age_total
-   &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt;                      &lt;dbl&gt;                  &lt;dbl&gt;
- 1 Afghanistan AFG    1964                         NA                     NA
- 2 Afghanistan AFG    1965                         NA                     NA
- 3 Afghanistan AFG    1966                         NA                     NA
- 4 Afghanistan AFG    1967                         NA                     NA
- 5 Afghanistan AFG    1968                         NA                     NA
- 6 Afghanistan AFG    1969                         NA                     NA
- 7 Afghanistan AFG    1970                         NA                     NA
- 8 Afghanistan AFG    1971                         NA                     NA
- 9 Afghanistan AFG    1972                         NA                     NA
-10 Afghanistan AFG    1973                         NA                     NA
-# ℹ 15,700 more rows
-# ℹ 2 more variables: population_historical &lt;dbl&gt;, owid_region &lt;chr&gt;</code></pre>
+<pre><code>Rows: 8,059
+Columns: 12
+$ family_id    &lt;chr&gt; "abkh1242", "abkh1242", "abkh1242", "abkh1242", "abkh1242…
+$ id           &lt;chr&gt; "ubyk1235", "adyg1241", "kaba1278", "abkh1244", "abaz1241…
+$ name         &lt;chr&gt; "Ubykh", "West Circassian", "Kabardian", "Abkhaz", "Abaza…
+$ macroarea    &lt;chr&gt; "Eurasia", "Eurasia", "Eurasia", "Eurasia", "Eurasia", "A…
+$ latitude     &lt;dbl&gt; 43.670000, 44.000000, 43.508200, 43.056218, 44.250000, 13…
+$ longitude    &lt;dbl&gt; 39.67000, 39.33000, 43.39180, 41.15911, 42.00000, 4.47692…
+$ iso639p3code &lt;chr&gt; "uby", "ady", "kbd", "abk", "abq", "ttq", "kwl", "tzm", "…
+$ countries    &lt;chr&gt; "TR", "IL;JO;RU;SY;TR", "RU;TR", "GE;RU;TR", "RU;TR", "BF…
+$ is_isolate   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, F…
+$ status_code  &lt;chr&gt; "6", "2", "2", "2", "2", "1", "1", "2", "2", "2", "3", "5…
+$ status_label &lt;chr&gt; "extinct", "threatened", "threatened", "threatened", "thr…
+$ family       &lt;chr&gt; "Abkhaz-Adyge", "Abkhaz-Adyge", "Abkhaz-Adyge", "Abkhaz-A…</code></pre>
 </div>
 </div>
-<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-08-05/readme.md">TidyTuesday repo page</a>. For more information about the data itself, read the original <a href="https://ourworldindata.org/income-inequality-before-and-after-taxes">Our World In Data</a> article.</p>
+<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-12-23/readme.md">TidyTuesday repo page</a>.</p>
 </section>
-<section id="billboard-hot100-number-ones" class="level2">
-<h2 class="anchored" data-anchor-id="billboard-hot100-number-ones">2. Billboard Hot100 Number Ones</h2>
+<section id="olympics" class="level2">
+<h2 class="anchored" data-anchor-id="olympics">2. Olympics</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>billboard <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-08-26/billboard.csv'</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>billboard</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>olympics <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2026/2026-02-10/schedule.csv'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>olympics</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1,177 × 105
-   song  artist date                weeks_at_number_one non_consecutive rating_1
-   &lt;chr&gt; &lt;chr&gt;  &lt;dttm&gt;                            &lt;dbl&gt;           &lt;dbl&gt;    &lt;dbl&gt;
- 1 Poor… Ricky… 1958-08-04 00:00:00                   2               0        4
- 2 Nel … Domen… 1958-08-18 00:00:00                   5               1        7
- 3 Litt… The E… 1958-08-25 00:00:00                   1               0        5
- 4 It's… Tommy… 1958-09-29 00:00:00                   6               0        3
- 5 It's… Conwa… 1958-11-10 00:00:00                   2               1        7
- 6 Tom … The K… 1958-11-17 00:00:00                   1               0        5
- 7 To K… The T… 1958-12-01 00:00:00                   3               0        8
- 8 The … The C… 1958-12-22 00:00:00                   4               0        1
- 9 Smok… The P… 1959-01-19 00:00:00                   3               0        9
-10 Stag… Lloyd… 1959-02-02 00:00:00                   4               0        6
-# ℹ 1,167 more rows
-# ℹ 99 more variables: rating_2 &lt;dbl&gt;, rating_3 &lt;dbl&gt;, overall_rating &lt;dbl&gt;,
-#   divisiveness &lt;dbl&gt;, label &lt;chr&gt;, parent_label &lt;chr&gt;, cdr_genre &lt;chr&gt;,
-#   cdr_style &lt;chr&gt;, discogs_genre &lt;chr&gt;, discogs_style &lt;chr&gt;,
-#   artist_structure &lt;dbl&gt;, featured_artists &lt;chr&gt;,
-#   multiple_lead_vocalists &lt;dbl&gt;, group_named_after_non_lead_singer &lt;dbl&gt;,
-#   talent_contestant &lt;chr&gt;, posthumous &lt;dbl&gt;, artist_place_of_origin &lt;chr&gt;, …</code></pre>
+<pre><code># A tibble: 1,866 × 21
+   date       discipline_code discipline_name event_code       event_description
+   &lt;date&gt;     &lt;chr&gt;           &lt;chr&gt;           &lt;chr&gt;            &lt;chr&gt;            
+ 1 2026-02-04 ALP             Alpine Skiing   ALPMDH---------… Men's Downhill 1…
+ 2 2026-02-04 ALP             Alpine Skiing   ALPMDH---------… Men's Downhill 2…
+ 3 2026-02-04 ALP             Alpine Skiing   ALPWDH---------… Women's Downhill…
+ 4 2026-02-04 CUR             Curling         CURXTEAM2------… Mixed Doubles Ro…
+ 5 2026-02-04 CUR             Curling         CURXTEAM2------… Mixed Doubles Ro…
+ 6 2026-02-04 CUR             Curling         CURXTEAM2------… Mixed Doubles Ro…
+ 7 2026-02-04 CUR             Curling         CURXTEAM2------… Mixed Doubles Ro…
+ 8 2026-02-04 CUR             Curling         CURXTEAM2------… Mixed Doubles Ro…
+ 9 2026-02-04 CUR             Curling         CURXTEAM2------… Mixed Doubles Ro…
+10 2026-02-04 CUR             Curling         CURXTEAM2------… Mixed Doubles Ro…
+# ℹ 1,856 more rows
+# ℹ 16 more variables: start_datetime_local &lt;dttm&gt;, end_datetime_local &lt;dttm&gt;,
+#   start_datetime_utc &lt;dttm&gt;, end_datetime_utc &lt;dttm&gt;, is_medal_event &lt;lgl&gt;,
+#   is_training &lt;lgl&gt;, venue_code &lt;chr&gt;, venue_name &lt;chr&gt;, venue_slug &lt;chr&gt;,
+#   location_name &lt;chr&gt;, location_code &lt;chr&gt;, session_code &lt;chr&gt;,
+#   estimated_start &lt;lgl&gt;, day_of_week &lt;chr&gt;, start_time &lt;time&gt;,
+#   end_time &lt;time&gt;</code></pre>
 </div>
 </div>
-<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-08-26/readme.md">TidyTuesday repo page</a>. For more information about the data itself and an example analysis, see the <a href="https://www.cantgetmuchhigher.com/p/the-greatest-two-hit-wonders">*Can’t get much higher</a> newsletter.</p>
+<p>For more information about the variables in the dataset, see the <a href="https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2026/2026-02-10/schedule.csv">TidyTuesday repo page</a>.</p>
 </section>
 <section id="nsf-grant-terminations" class="level2">
 <h2 class="anchored" data-anchor-id="nsf-grant-terminations">3. NSF grant terminations</h2>
@@ -557,62 +583,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #   org_zip &lt;chr&gt;, org_uei &lt;chr&gt;, abstract &lt;chr&gt;, in_cruz_list &lt;lgl&gt;</code></pre>
 </div>
 </div>
-<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-06/readme.md">TidyTuesday repo page</a>. For more information about the data itself, see <a href="https://grant-witness.us/">Grant Watch</a>.</p>
+<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-06/readme.md">TidyTuesday repo page</a>.</p>
 </section>
-<section id="water-quality-at-sydney-beaches" class="level2">
-<h2 class="anchored" data-anchor-id="water-quality-at-sydney-beaches">4. Water Quality at Sydney Beaches</h2>
+<section id="us-judges" class="level2">
+<h2 class="anchored" data-anchor-id="us-judges">4. US Judges</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>water_quality <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-05-20/water_quality.csv'</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>water_quality</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>judges_appointments <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-06-10/judges_appointments.csv'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>judges_people <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-06-10/judges_people.csv'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>judges <span class="ot">&lt;-</span> <span class="fu">merge</span>(judges_appointments, judges_people, <span class="at">by=</span><span class="st">"judge_id"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(judges)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 123,530 × 10
-   region         council       swim_site date       time  enterococci_cfu_100ml
-   &lt;chr&gt;          &lt;chr&gt;         &lt;chr&gt;     &lt;date&gt;     &lt;tim&gt;                 &lt;dbl&gt;
- 1 Western Sydney Hawkesbury C… Windsor … 2025-04-28 11:00                   620
- 2 Sydney Harbour North Sydney… Hayes St… 2025-04-28 11:40                    64
- 3 Sydney Harbour Willoughby C… Northbri… 2025-04-28 10:54                   160
- 4 Sydney Harbour Northern Bea… Fairligh… 2025-04-28 09:28                    54
- 5 Western Sydney Hawkesbury C… Yarramun… 2025-04-28 10:35                   720
- 6 Sydney Harbour Northern Bea… Little M… 2025-04-28 09:19                   230
- 7 Sydney Harbour City of Cana… Chiswick… 2025-04-28 13:06                   120
- 8 Sydney Harbour Inner West C… Dawn Fra… 2025-04-28 08:04                   280
- 9 Sydney Harbour Woollahra Mu… Rose Bay… 2025-04-28 08:50                    60
-10 Sydney Harbour Woollahra Mu… Camp Cove 2025-04-28 09:09                   100
-# ℹ 123,520 more rows
-# ℹ 4 more variables: water_temperature_c &lt;dbl&gt;, conductivity_ms_cm &lt;dbl&gt;,
-#   latitude &lt;dbl&gt;, longitude &lt;dbl&gt;</code></pre>
+<pre><code>Rows: 4,202
+Columns: 27
+$ judge_id                       &lt;dbl&gt; 1, 2, 2, 2, 3, 4, 5, 5, 6, 7, 8, 9, 9, …
+$ court_name                     &lt;chr&gt; "U. S. District Court, Eastern District…
+$ court_type                     &lt;chr&gt; "USDC", "USDC", "USCC (1869)", "USCA", …
+$ president_name                 &lt;chr&gt; "Franklin D. Roosevelt", "Rutherford B.…
+$ president_party                &lt;chr&gt; "Democratic", "Republican", "Republican…
+$ nomination_date                &lt;chr&gt; "02/03/1936", "01/06/1880", "01/23/1891…
+$ predecessor_last_name          &lt;chr&gt; "new", "Ketcham", "McKennan", NA, "McFa…
+$ predecessor_first_name         &lt;chr&gt; NA, "Winthrop", "William", NA, "Frank H…
+$ senate_confirmation_date       &lt;chr&gt; "02/12/1936", "01/14/1880", "02/03/1891…
+$ commission_date                &lt;chr&gt; "02/15/1936", "01/14/1880", "02/03/1891…
+$ chief_judge_begin              &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ chief_judge_end                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ retirement_from_active_service &lt;chr&gt; "02/15/1966", NA, NA, NA, "05/31/1996",…
+$ termination_date               &lt;chr&gt; "05/28/1971", "02/09/1891", "06/21/1906…
+$ termination_reason             &lt;chr&gt; "Death", "Appointment to Another Judici…
+$ name_first                     &lt;chr&gt; "Matthew", "Marcus", "Marcus", "Marcus"…
+$ name_middle                    &lt;chr&gt; "T.", "Wilson", "Wilson", "Wilson", "Ma…
+$ name_last                      &lt;chr&gt; "Abruzzo", "Acheson", "Acheson", "Aches…
+$ name_suffix                    &lt;chr&gt; NA, NA, NA, NA, "Jr.", NA, NA, NA, NA, …
+$ birth_date                     &lt;dbl&gt; 1889, 1828, 1828, 1828, 1927, 1928, 192…
+$ birthplace_city                &lt;chr&gt; "Brooklyn", "Washington", "Washington",…
+$ birthplace_state               &lt;chr&gt; "NY", "PA", "PA", "PA", "AL", "NJ", "FL…
+$ death_date                     &lt;dbl&gt; 1971, 1906, 1906, 1906, NA, 2009, 1984,…
+$ death_city                     &lt;chr&gt; "Potomac", "Pittsburgh", "Pittsburgh", …
+$ death_state                    &lt;chr&gt; "MD", "PA", "PA", "PA", NA, "NJ", "IL",…
+$ gender                         &lt;chr&gt; "M", "M", "M", "M", "M", "M", "M", "M",…
+$ race                           &lt;chr&gt; "White", "White", "White", "White", "Wh…</code></pre>
 </div>
 </div>
-<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-20/readme.md">TidyTuesday repo page</a>. For more information about the data itself, see <a href="https://www.beachwatch.nsw.gov.au/whatIsBeachwatch/aboutBeachwatch">BeachWatch</a>.</p>
+<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-06-10/readme.md">TidyTuesday repo page</a>.</p>
 </section>
-<section id="pokemon" class="level2">
-<h2 class="anchored" data-anchor-id="pokemon">5. Pokemon</h2>
+<section id="dungeons-and-dragons-monsters" class="level2">
+<h2 class="anchored" data-anchor-id="dungeons-and-dragons-monsters">5. Dungeons and Dragons Monsters</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pokemon_df <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-04-01/pokemon_df.csv'</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dnd <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2025/2025-05-27/monsters.csv'</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>pokemon_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>dnd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 949 × 22
-      id pokemon    species_id height weight base_experience type_1 type_2    hp
-   &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt;
- 1     1 bulbasaur           1    0.7    6.9              64 grass  poison    45
- 2     2 ivysaur             2    1     13               142 grass  poison    60
- 3     3 venusaur            3    2    100               236 grass  poison    80
- 4     4 charmander          4    0.6    8.5              62 fire   &lt;NA&gt;      39
- 5     5 charmeleon          5    1.1   19               142 fire   &lt;NA&gt;      58
- 6     6 charizard           6    1.7   90.5             240 fire   flying    78
- 7     7 squirtle            7    0.5    9                63 water  &lt;NA&gt;      44
- 8     8 wartortle           8    1     22.5             142 water  &lt;NA&gt;      59
- 9     9 blastoise           9    1.6   85.5             239 water  &lt;NA&gt;      79
-10    10 caterpie           10    0.3    2.9              39 bug    &lt;NA&gt;      45
-# ℹ 939 more rows
-# ℹ 13 more variables: attack &lt;dbl&gt;, defense &lt;dbl&gt;, special_attack &lt;dbl&gt;,
-#   special_defense &lt;dbl&gt;, speed &lt;dbl&gt;, color_1 &lt;chr&gt;, color_2 &lt;chr&gt;,
-#   color_f &lt;chr&gt;, egg_group_1 &lt;chr&gt;, egg_group_2 &lt;chr&gt;, url_icon &lt;chr&gt;,
-#   generation_id &lt;dbl&gt;, url_image &lt;chr&gt;</code></pre>
+<pre><code># A tibble: 330 × 33
+   name   category    cr size  type  descriptive_tags alignment    ac initiative
+   &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+ 1 Abole… Aboleth  10    Large Aber… &lt;NA&gt;             Lawful E…    17          7
+ 2 Air E… Air Ele…  5    Large Elem… &lt;NA&gt;             Neutral      15          5
+ 3 Anima… Animate…  1    Medi… Cons… &lt;NA&gt;             Unaligned    18          2
+ 4 Anima… Animate…  0.25 Small Cons… &lt;NA&gt;             Unaligned    17          4
+ 5 Anima… Animate…  2    Large Cons… &lt;NA&gt;             Unaligned    12          4
+ 6 Ankheg Ankheg    2    Large Mons… &lt;NA&gt;             Unaligned    14          0
+ 7 Assas… Assassin  8    Medi… Huma… &lt;NA&gt;             Neutral      16         10
+ 8 Awake… Awakene…  0    Small Plant &lt;NA&gt;             Neutral       9         -1
+ 9 Awake… Awakene…  2    Huge  Plant &lt;NA&gt;             Neutral      13         -2
+10 Axe B… Axe Beak  0.25 Large Mons… &lt;NA&gt;             Unaligned    11          1
+# ℹ 320 more rows
+# ℹ 24 more variables: hp &lt;chr&gt;, hp_number &lt;dbl&gt;, speed &lt;chr&gt;,
+#   speed_base_number &lt;dbl&gt;, str &lt;dbl&gt;, dex &lt;dbl&gt;, con &lt;dbl&gt;, int &lt;dbl&gt;,
+#   wis &lt;dbl&gt;, cha &lt;dbl&gt;, str_save &lt;dbl&gt;, dex_save &lt;dbl&gt;, con_save &lt;dbl&gt;,
+#   int_save &lt;dbl&gt;, wis_save &lt;dbl&gt;, cha_save &lt;dbl&gt;, skills &lt;chr&gt;,
+#   resistances &lt;chr&gt;, vulnerabilities &lt;chr&gt;, immunities &lt;chr&gt;, gear &lt;chr&gt;,
+#   senses &lt;chr&gt;, languages &lt;chr&gt;, full_text &lt;chr&gt;</code></pre>
 </div>
 </div>
-<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-04-01/readme.md">TidyTuesday repo page</a>. For more information about the data itself, see <a href="https://pokeapi.co/about">PokeAPI</a>.</p>
+<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-05-27">TidyTuesday repo page</a>.</p>
 </section>
 <section id="byo" class="level2">
 <h2 class="anchored" data-anchor-id="byo">6. BYO</h2>
@@ -621,22 +665,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="submission" class="level1">
 <h1>Submission</h1>
-<p>Your submission should include two visualizations (replication and improvement), a written overview of your work, and all associated code. You should work in a <code>quarto</code> file. Your rendered file can be either pdf or html. I will distribute GitHub skeleton repos that you should fill in as you work. You should commit your final code and output file to your repo and link your repo to gradescope to submit.</p>
+<p>Your submission should include at least one visualization, a written overview of your work, and all associated code. You should work in a <code>quarto</code> file and render to pdf. I will distribute GitHub skeleton repos that you should work within. You should commit and push your final code to GitHub. You’ll need to submit a pdf to Gradescope as well.</p>
 </section>
 <section id="rubric" class="level1">
 <h1>Rubric</h1>
 <p>A <strong>successful</strong> project will:</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Include all necessary components pushed to GitHub and linked to gradescope</label>
+<li><label><input type="checkbox">Include all necessary components pushed to GitHub and uploaded to Gradescope</label>
 <ul>
 <li>There should be at least two commits with substantial changes between the two</li>
 </ul></li>
-<li><label><input type="checkbox">Contain code, plots, and written summary in a single .qmd document</label></li>
+<li><label><input type="checkbox">Contain code, plot(s), and written summary in a single .qmd document</label></li>
 <li><label><input type="checkbox">The .qmd file contains all necessary code for recreation</label></li>
 <li><label><input type="checkbox">The .qmd file does not include unnecessary code</label></li>
-<li><label><input type="checkbox">Both research questions posed are appropriate, thoughtful, and multivariate (involve at least two variables)</label></li>
-<li><label><input type="checkbox">The graphs are appropriate to answer the research questions</label></li>
-<li><label><input type="checkbox">The two graphs use different <code>geom</code>s and aesthetics</label></li>
+<li><label><input type="checkbox">The research question posed is appropriate, thoughtful, and multivariate (involve at least two variables)</label></li>
+<li><label><input type="checkbox">The graph(s) are appropriate to answer the research question</label></li>
 <li><label><input type="checkbox">Meet minimum submission quality standards</label>
 <ul>
 <li>Very few grammatical mistakes, spelling mistakes, or typos</li>
@@ -647,17 +690,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>An <strong>excellent</strong> project will meet all of the requirements for a successful project, plus</p>
 <ul class="task-list">
-<li><label><input type="checkbox">At least one question uses three variables from the data at once</label></li>
-<li><label><input type="checkbox">At least one graph uses two or more geometry layers (this might be two layers of data, or a map + points, annotations, direct labeling with <code>geom_text</code>, etc.) OR includes a ggplot element that goes beyond what we discussed in class (eg., a new ggplot extension package or a geometry we didn’t discuss or see in homework)</label></li>
-<li><label><input type="checkbox">Graphs use consistent themes that have been customized beyond a full theme (eg <code>theme_minimal</code> or <code>theme_bw</code>)</label></li>
-<li><label><input type="checkbox">Both graphs contain a custom <code>scale_</code> element (color, x/y axis, size, etc.)</label></li>
+<li><label><input type="checkbox">The question uses three variables from the data at once</label></li>
+<li><label><input type="checkbox">The description of the dataset uses inline R code</label></li>
+<li><label><input type="checkbox">The graph uses two or more geometry layers (this might be two layers of data, or a map + points, annotations, direct labeling with <code>geom_text</code>, etc.) OR includes a ggplot element that goes beyond what we discussed in class (eg., a new ggplot extension package or a geometry we didn’t discuss or see in homework)</label></li>
+<li><label><input type="checkbox">Graph(s) use consistent themes that have been customized beyond a full theme (eg <code>theme_minimal</code> or <code>theme_bw</code>)</label></li>
+<li><label><input type="checkbox">Graphs contain a custom <code>scale_</code> element (color, x/y axis, size, etc.)</label></li>
 <li><label><input type="checkbox">A clear history of commits that show your progress (e.g.&nbsp;commit 1: load data and make basic graph, commit 2: make graph #2, commit 3: change idea for graph #1, etc.)</label></li>
 </ul>
 <p>This is an <em>individual</em> portfolio project.</p>
-</section>
-<section id="faq" class="level1">
-<h1>FAQ</h1>
-<p>If you have any questions, please post them to Ed with the “portfolio projects” tag</p>
 
 
 </section>

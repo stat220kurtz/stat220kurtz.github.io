@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prof Emily Kurtz">
+
+<title>Data Wrangling:  Combining Data – Stat 220</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-969ddfa49e00a70eb3423444dbc81f6c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-4aafe95edbcaa3c5bd496e39c4419ff3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-9dabff63b357dc90acd56e0e5ce513aa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-4aafe95edbcaa3c5bd496e39c4419ff3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../../site_libs/countdown-0.6.0/countdown.css" rel="stylesheet">
+
+<script src="../../site_libs/countdown-0.6.0/countdown.js"></script>
+
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Data Wrangling: <br>Combining Data</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/stat220kurtz" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://moodle.carleton.edu/course/view.php?id=48307" title="Moodle" class="quarto-navigation-tool px-1" aria-label="Moodle"><i class="bi bi-person-fill"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Course information</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-links.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Useful links</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-faq.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Computing</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/computing-access.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Access</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/rstudio-stat220.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rstudio in Stat 220</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/git-stat220.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git/GitHub in Stat 220</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/commandline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Command Line Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/computing-cheatsheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cheatsheets</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#today" id="toc-today" class="nav-link active" data-scroll-target="#today">Today</a></li>
+  <li><a href="#peer-programming" id="toc-peer-programming" class="nav-link" data-scroll-target="#peer-programming">Peer programming</a></li>
+  <li><a href="#warm-up" id="toc-warm-up" class="nav-link" data-scroll-target="#warm-up">Warm up</a></li>
+  <li><a href="#example-1-star-wars-characters" id="toc-example-1-star-wars-characters" class="nav-link" data-scroll-target="#example-1-star-wars-characters">Example 1: Star Wars Characters</a></li>
+  <li><a href="#bind_rows" id="toc-bind_rows" class="nav-link" data-scroll-target="#bind_rows"><code>bind_rows()</code></a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#example-2-stats-sections" id="toc-example-2-stats-sections" class="nav-link" data-scroll-target="#example-2-stats-sections">Example 2: Stats Sections</a></li>
+  <li><a href="#bind_cols" id="toc-bind_cols" class="nav-link" data-scroll-target="#bind_cols"><code>bind_cols()</code></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#we-got-lucky" id="toc-we-got-lucky" class="nav-link" data-scroll-target="#we-got-lucky">We got lucky</a></li>
+  <li><a href="#example-3-survivor-castaways" id="toc-example-3-survivor-castaways" class="nav-link" data-scroll-target="#example-3-survivor-castaways">Example 3: Survivor castaways</a></li>
+  <li><a href="#desired-output" id="toc-desired-output" class="nav-link" data-scroll-target="#desired-output">Desired output</a></li>
+  <li><a href="#left_join" id="toc-left_join" class="nav-link" data-scroll-target="#left_join"><code>left_join()</code></a></li>
+  <li><a href="#left_join-keeps-duplicate-rows-in-x" id="toc-left_join-keeps-duplicate-rows-in-x" class="nav-link" data-scroll-target="#left_join-keeps-duplicate-rows-in-x"><code>left_join()</code> keeps duplicate rows in <code>x</code></a></li>
+  <li><a href="#other-types-of-_joins" id="toc-other-types-of-_joins" class="nav-link" data-scroll-target="#other-types-of-_joins">Other types of <code>_join</code>s</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#left_join-1" id="toc-left_join-1" class="nav-link" data-scroll-target="#left_join-1"><code>left_join()</code></a></li>
+  <li><a href="#full_join" id="toc-full_join" class="nav-link" data-scroll-target="#full_join"><code>full_join()</code></a></li>
+  <li><a href="#semi_join" id="toc-semi_join" class="nav-link" data-scroll-target="#semi_join"><code>semi_join()</code></a></li>
+  <li><a href="#anti_join" id="toc-anti_join" class="nav-link" data-scroll-target="#anti_join"><code>anti_join()</code></a></li>
+  <li><a href="#join-functions" id="toc-join-functions" class="nav-link" data-scroll-target="#join-functions"><code>*_join()</code> functions</a></li>
+  <li><a href="#keys" id="toc-keys" class="nav-link" data-scroll-target="#keys">keys</a></li>
+  <li><a href="#lets-try-it-bakeoff-data-again" id="toc-lets-try-it-bakeoff-data-again" class="nav-link" data-scroll-target="#lets-try-it-bakeoff-data-again">Let’s try it: Bakeoff data (again)</a></li>
+  <li><a href="#lets-try-it-bakeoff-data-again-1" id="toc-lets-try-it-bakeoff-data-again-1" class="nav-link" data-scroll-target="#lets-try-it-bakeoff-data-again-1">Let’s try it: Bakeoff data (again)</a></li>
+  <li><a href="#part-ii-the-episodes-data" id="toc-part-ii-the-episodes-data" class="nav-link" data-scroll-target="#part-ii-the-episodes-data">Part II: the <code>episodes</code> data</a></li>
+  <li><a href="#lets-try-it-bakeoff-data-episodes" id="toc-lets-try-it-bakeoff-data-episodes" class="nav-link" data-scroll-target="#lets-try-it-bakeoff-data-episodes">Let’s try it: Bakeoff data (episodes)</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides10.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Wrangling: <br>Combining Data</h1>
+<p class="subtitle lead">Day 10</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Prof Emily Kurtz </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Carleton College <br> Stat 220 - Spring 2026
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="today" class="level2">
+<h2 class="anchored" data-anchor-id="today">Today</h2>
+<p>More on wrangling:</p>
+<ul>
+<li>Combining datasets</li>
+<li>More practice with <code>pivot_</code></li>
+</ul>
+</section>
+<section id="peer-programming" class="level2">
+<h2 class="anchored" data-anchor-id="peer-programming">Peer programming</h2>
+<ul>
+<li>Work on code in a small group (2-3)</li>
+<li>One person does the typing, the others observe and support</li>
+<li>Rules of thumb:
+<ul>
+<li>no typing until your group has discussed a possible approach</li>
+<li>let the typer finish their command/line/pipeline before pointing out any typos</li>
+<li>everybody should contribute ideas and understand the code that is written</li>
+</ul></li>
+<li>Whoever does the typing will share the completed .Rmd so you all have it</li>
+</ul>
+</section>
+<section id="warm-up" class="level2">
+<h2 class="anchored" data-anchor-id="warm-up">Warm up</h2>
+<div class="task nonincremental">
+<ol type="1">
+<li>Open the <a href="https://stat220-w26.github.io/activities/10-combining.html"><code>10-combining.rmd</code></a> activity in RStudio</li>
+<li>Take a look at the first 3 pairs of data together and talk through (conceptually! in words! no R code!) how you think they should be combined</li>
+</ol>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<countdown-timer class="countdown" id="timer_441c010d" minutes="2" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+</div>
+</div>
+</section>
+<section id="example-1-star-wars-characters" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="example-1-star-wars-characters">Example 1: Star Wars Characters</h2>
+<p>Dataset 1:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>starwars_characters</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 87 × 6
+   name               height  mass homeworld species first_film
+   &lt;chr&gt;               &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;     
+ 1 Luke Skywalker        172    77 Tatooine  Human   A New Hope
+ 2 C-3PO                 167    75 Tatooine  Droid   A New Hope
+ 3 R2-D2                  96    32 Naboo     Droid   A New Hope
+ 4 Darth Vader           202   136 Tatooine  Human   A New Hope
+ 5 Leia Organa           150    49 Alderaan  Human   A New Hope
+ 6 Owen Lars             178   120 Tatooine  Human   A New Hope
+ 7 Beru Whitesun Lars    165    75 Tatooine  Human   A New Hope
+ 8 R5-D4                  97    32 Tatooine  Droid   A New Hope
+ 9 Biggs Darklighter     183    84 Tatooine  Human   A New Hope
+10 Obi-Wan Kenobi        182    77 Stewjon   Human   A New Hope
+# ℹ 77 more rows</code></pre>
+</div>
+</div>
+<p>Dataset 2:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>starwars_lastjedi</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 6
+  name         height mass  homeworld species first_film   
+  &lt;chr&gt;        &lt;lgl&gt;  &lt;lgl&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;        
+1 Rose Tico    NA     NA    Otomok    Human   The Last Jedi
+2 Amilyn Holdo NA     NA    &lt;NA&gt;      Human   The Last Jedi</code></pre>
+</div>
+</div>
+</section>
+<section id="bind_rows" class="level2">
+<h2 class="anchored" data-anchor-id="bind_rows"><code>bind_rows()</code></h2>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<ul>
+<li><code>data_1</code>: our “starting” data</li>
+<li><code>data_2</code> to <code>data_n</code>: additional rows of data that we want to add to <code>data_1</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  data_1, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  data_2, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  ..., </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  data_n</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="section" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="section"></h2>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>starwars_characters <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">bind_rows</span>(starwars_lastjedi) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">slice_tail</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 6
+   name            height  mass homeworld species first_film          
+   &lt;chr&gt;            &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;               
+ 1 Raymus Antilles    188    79 Alderaan  Human   A New Hope          
+ 2 Sly Moore          178    48 Umbara    &lt;NA&gt;    Attack of the Clones
+ 3 Tion Medon         206    80 Utapau    Pau'an  Revenge of the Sith 
+ 4 Finn                NA    NA &lt;NA&gt;      Human   The Force Awakens   
+ 5 Rey                 NA    NA &lt;NA&gt;      Human   The Force Awakens   
+ 6 Poe Dameron         NA    NA &lt;NA&gt;      Human   The Force Awakens   
+ 7 BB8                 NA    NA &lt;NA&gt;      Droid   The Force Awakens   
+ 8 Captain Phasma      NA    NA &lt;NA&gt;      Human   The Force Awakens   
+ 9 Rose Tico           NA    NA Otomok    Human   The Last Jedi       
+10 Amilyn Holdo        NA    NA &lt;NA&gt;      Human   The Last Jedi       </code></pre>
+</div>
+</div>
+</section>
+<section id="example-2-stats-sections" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="example-2-stats-sections">Example 2: Stats Sections</h2>
+<p>Dataset 1:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>stats_sections_fw</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 3
+  class    fall winter
+  &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+1 stat120     3      3
+2 stat220     1      1
+3 stat230     1      1
+4 stat250     0      1
+5 stat270     1      0
+6 stat285     1      1
+7 stat320     0      0
+8 stat330     0      1</code></pre>
+</div>
+</div>
+<p>Dataset 2:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>stats_sections_s</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 1
+  spring
+   &lt;dbl&gt;
+1      4
+2      1
+3      1
+4      1
+5      0
+6      1
+7      1
+8      0</code></pre>
+</div>
+</div>
+</section>
+<section id="bind_cols" class="level2">
+<h2 class="anchored" data-anchor-id="bind_cols"><code>bind_cols()</code></h2>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<ul>
+<li><code>data_1</code>: our “starting” data</li>
+<li><code>data_2</code> to <code>data_n</code>: additional columns of data that we want to add to <code>data_1</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_cols</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  data_1, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  data_2, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  ..., </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  data_n</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-1" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="section-1"></h2>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>stats_sections_fw <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">bind_cols</span>(stats_sections_s)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 4
+  class    fall winter spring
+  &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 stat120     3      3      4
+2 stat220     1      1      1
+3 stat230     1      1      1
+4 stat250     0      1      1
+5 stat270     1      0      0
+6 stat285     1      1      1
+7 stat320     0      0      1
+8 stat330     0      1      0</code></pre>
+</div>
+</div>
+</section>
+<section id="section-2" class="level2 center" data-background-color="#f4e335">
+<h2 class="center anchored" data-background-color="#f4e335" data-anchor-id="section-2"></h2>
+<p><img src="../img/caution.jpeg" class="r-stretch img-fluid"></p>
+</section>
+<section id="we-got-lucky" class="level2">
+<h2 class="anchored" data-anchor-id="we-got-lucky">We got lucky</h2>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<p>Our second dataset followed this structure:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 2
+  class   spring
+  &lt;chr&gt;    &lt;dbl&gt;
+1 stat120      4
+2 stat220      1
+3 stat230      1
+4 stat250      1
+5 stat270      0
+6 stat285      1
+7 stat320      1
+8 stat330      0</code></pre>
+</div>
+</div>
+</div><div class="column fragment" style="width:50%;">
+<p>But it could have also had this structure:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 2
+  class   spring
+  &lt;chr&gt;    &lt;dbl&gt;
+1 stat270      0
+2 stat330      0
+3 stat220      1
+4 stat230      1
+5 stat250      1
+6 stat285      1
+7 stat320      1
+8 stat120      4</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-3-survivor-castaways" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="example-3-survivor-castaways">Example 3: Survivor castaways</h2>
+<p>Dataset 1:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>us_castaway_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 870 × 7
+   castaway_id castaway season_name      season place jury  finalist
+   &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;lgl&gt;   
+ 1 US0001      Sonja    Survivor: Borneo      1    16 FALSE FALSE   
+ 2 US0002      B.B.     Survivor: Borneo      1    15 FALSE FALSE   
+ 3 US0003      Stacey   Survivor: Borneo      1    14 FALSE FALSE   
+ 4 US0004      Ramona   Survivor: Borneo      1    13 FALSE FALSE   
+ 5 US0005      Dirk     Survivor: Borneo      1    12 FALSE FALSE   
+ 6 US0006      Joel     Survivor: Borneo      1    11 FALSE FALSE   
+ 7 US0007      Gretchen Survivor: Borneo      1    10 FALSE FALSE   
+ 8 US0008      Greg     Survivor: Borneo      1     9 TRUE  FALSE   
+ 9 US0009      Jenna    Survivor: Borneo      1     8 TRUE  FALSE   
+10 US0010      Gervase  Survivor: Borneo      1     7 TRUE  FALSE   
+# ℹ 860 more rows</code></pre>
+</div>
+</div>
+<p>Dataset 2:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>cast_details</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,118 × 6
+   castaway_id full_name        date_of_birth gender occupation personality_type
+   &lt;chr&gt;       &lt;chr&gt;            &lt;date&gt;        &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;           
+ 1 US0014      Rudy Boesch      1928-01-20    Male   Retired N… ISTJ            
+ 2 US0002      B.B. Andersen    1936-01-18    Male   Real Esta… ESTJ            
+ 3 US0001      Sonja Christoph… 1937-01-28    Female Musician   ENFP            
+ 4 US0075      Jake Billingsley 1941-08-21    Male   Land Brok… ISFJ            
+ 5 US0151      Jim Lynch        1942-01-07    Male   Retired F… ISTJ            
+ 6 US0474      Joseph Del Campo 1943-07-04    Male   Former FB… ISTJ            
+ 7 US0304      Jimmy Johnson    1943-07-16    Male   Former NF… ESFJ            
+ 8 US0047      Kim Johnson      1944-09-18    Female Retired T… ISFJ            
+ 9 US0128      Scout Cloud Lee  1944-11-08    Female Rancher    INFJ            
+10 US0061      Paschal English  1945-03-05    Male   Judge      ISFJ            
+# ℹ 1,108 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="desired-output" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="desired-output">Desired output</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 870 × 12
+   castaway_id castaway season_name      season place jury  finalist full_name  
+   &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;lgl&gt;    &lt;chr&gt;      
+ 1 US0001      Sonja    Survivor: Borneo      1    16 FALSE FALSE    Sonja Chri…
+ 2 US0002      B.B.     Survivor: Borneo      1    15 FALSE FALSE    B.B. Ander…
+ 3 US0003      Stacey   Survivor: Borneo      1    14 FALSE FALSE    Stacey Sti…
+ 4 US0004      Ramona   Survivor: Borneo      1    13 FALSE FALSE    Ramona Gray
+ 5 US0005      Dirk     Survivor: Borneo      1    12 FALSE FALSE    Dirk Been  
+ 6 US0006      Joel     Survivor: Borneo      1    11 FALSE FALSE    Joel Klug  
+ 7 US0007      Gretchen Survivor: Borneo      1    10 FALSE FALSE    Gretchen C…
+ 8 US0008      Greg     Survivor: Borneo      1     9 TRUE  FALSE    Greg Buis  
+ 9 US0009      Jenna    Survivor: Borneo      1     8 TRUE  FALSE    Jenna Lewis
+10 US0010      Gervase  Survivor: Borneo      1     7 TRUE  FALSE    Gervase Pe…
+# ℹ 860 more rows
+# ℹ 4 more variables: date_of_birth &lt;date&gt;, gender &lt;chr&gt;, occupation &lt;chr&gt;,
+#   personality_type &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="left_join" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="left_join"><code>left_join()</code></h2>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>us_castaway_results <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">left_join</span>(cast_details, <span class="at">by =</span> <span class="st">"castaway_id"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">select</span>(<span class="sc">-</span>season_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 870 × 11
+   castaway_id castaway season place jury  finalist full_name      date_of_birth
+   &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;lgl&gt;    &lt;chr&gt;          &lt;date&gt;       
+ 1 US0001      Sonja         1    16 FALSE FALSE    Sonja Christo… 1937-01-28   
+ 2 US0002      B.B.          1    15 FALSE FALSE    B.B. Andersen  1936-01-18   
+ 3 US0003      Stacey        1    14 FALSE FALSE    Stacey Stillm… 1972-08-11   
+ 4 US0004      Ramona        1    13 FALSE FALSE    Ramona Gray    1971-01-20   
+ 5 US0005      Dirk          1    12 FALSE FALSE    Dirk Been      1976-06-15   
+ 6 US0006      Joel          1    11 FALSE FALSE    Joel Klug      1972-04-13   
+ 7 US0007      Gretchen      1    10 FALSE FALSE    Gretchen Cordy 1962-02-07   
+ 8 US0008      Greg          1     9 TRUE  FALSE    Greg Buis      1975-12-31   
+ 9 US0009      Jenna         1     8 TRUE  FALSE    Jenna Lewis    1977-07-16   
+10 US0010      Gervase       1     7 TRUE  FALSE    Gervase Peter… 1969-11-02   
+# ℹ 860 more rows
+# ℹ 3 more variables: gender &lt;chr&gt;, occupation &lt;chr&gt;, personality_type &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="left_join-keeps-duplicate-rows-in-x" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="left_join-keeps-duplicate-rows-in-x"><code>left_join()</code> keeps duplicate rows in <code>x</code></h2>
+<div class="cell" data-output-location="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>us_castaway_results <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">left_join</span>(cast_details, <span class="at">by =</span> <span class="st">"castaway_id"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a>  <span class="fu">filter</span>(castaway <span class="sc">==</span> <span class="st">"Sandra"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a>  <span class="fu">select</span>(<span class="sc">-</span>season_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 11
+  castaway_id castaway season place jury  finalist full_name       date_of_birth
+  &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;lgl&gt;    &lt;chr&gt;           &lt;date&gt;       
+1 US0112      Sandra        7     1 FALSE TRUE     Sandra Diaz-Tw… 1974-07-30   
+2 US0112      Sandra       20     1 FALSE TRUE     Sandra Diaz-Tw… 1974-07-30   
+3 US0112      Sandra       34    15 FALSE FALSE    Sandra Diaz-Tw… 1974-07-30   
+4 US0112      Sandra       40    15 FALSE FALSE    Sandra Diaz-Tw… 1974-07-30   
+# ℹ 3 more variables: gender &lt;chr&gt;, occupation &lt;chr&gt;, personality_type &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="other-types-of-_joins" class="level2 nonincremental">
+<h2 class="nonincremental anchored" data-anchor-id="other-types-of-_joins">Other types of <code>_join</code>s</h2>
+<ul>
+<li><code>left_join()</code>: all rows from x</li>
+<li><code>right_join()</code>: all rows from y</li>
+<li><code>full_join()</code>: all rows from both x and y</li>
+<li><code>inner_join()</code>: all rows from x where there are matching values in y, return all combination of multiple matches in the case of multiple matches</li>
+<li><code>semi_join()</code>: all rows from x where there are matching values in y, keeping just columns from x</li>
+<li><code>anti_join()</code>: return all rows from x where there are not matching values in y, never duplicate rows of x</li>
+<li>…</li>
+</ul>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<p>For the next few slides…</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+     id value_x
+  &lt;dbl&gt; &lt;chr&gt;  
+1     1 x1     
+2     2 x2     
+3     3 x3     </code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+     id value_y
+  &lt;dbl&gt; &lt;chr&gt;  
+1     1 y1     
+2     2 y2     
+3     4 y4     </code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="left_join-1" class="level2">
+<h2 class="anchored" data-anchor-id="left_join-1"><code>left_join()</code></h2>
+<p>Keep all rows from <code>x</code></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="../img/left-join.gif" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(x, y, <span class="at">by =</span> <span class="st">"id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+     id value_x value_y
+  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  
+1     1 x1      y1     
+2     2 x2      y2     
+3     3 x3      &lt;NA&gt;   </code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="full_join" class="level2">
+<h2 class="anchored" data-anchor-id="full_join"><code>full_join()</code></h2>
+<p>Keep all rows from both <code>x</code> and <code>y</code></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="../img/full-join.gif" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(x, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+     id value_x value_y
+  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  
+1     1 x1      y1     
+2     2 x2      y2     
+3     3 x3      &lt;NA&gt;   
+4     4 &lt;NA&gt;    y4     </code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="semi_join" class="level2">
+<h2 class="anchored" data-anchor-id="semi_join"><code>semi_join()</code></h2>
+<p>Keep all rows from <code>x</code> where there are matching values in <code>y</code>, keeping just columns from <code>x</code></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="../img/semi-join.gif" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">semi_join</span>(x, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+     id value_x
+  &lt;dbl&gt; &lt;chr&gt;  
+1     1 x1     
+2     2 x2     </code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>Similar to <code>filter()</code></p>
+</section>
+<section id="anti_join" class="level2">
+<h2 class="anchored" data-anchor-id="anti_join"><code>anti_join()</code></h2>
+<p>Keep all rows from <code>x</code> where there are <em>not</em> matching values in <code>y</code>, never duplicate rows of <code>x</code></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="../img/anti-join.gif" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anti_join</span>(x, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+     id value_x
+  &lt;dbl&gt; &lt;chr&gt;  
+1     3 x3     </code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>Similar to <code>filter()</code> with <code>!</code></p>
+</section>
+<section id="join-functions" class="level2">
+<h2 class="anchored" data-anchor-id="join-functions"><code>*_join()</code> functions</h2>
+<ul>
+<li>From <strong>dplyr</strong></li>
+<li>Incredibly useful for bringing datasets with common information (e.g., unique identifier) together</li>
+<li>Use <code>by</code> argument</li>
+<li>Always check that the numbers of rows and columns of the result dataset makes sense</li>
+<li>Refer to <a href="https://dplyr.tidyverse.org/articles/two-table.html">two-table verbs vignette</a> when needed</li>
+</ul>
+</section>
+<section id="keys" class="level2">
+<h2 class="anchored" data-anchor-id="keys">keys</h2>
+<p>In these examples, the colored boxes represent <strong>keys</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="../img/left-join.gif" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><strong>keys</strong> uniquely identify the observation of interest</li>
+<li>Are present in both datasets and used to match the rows</li>
+<li>Depend on the context (e.g.&nbsp;could be castaway ID, could be season ID, could be epiosde number, etc.)</li>
+<li>Can be multiple columns</li>
+<li><code>dplyr</code> will try to find them automatically, but it’s better to be explicit using the <code>by</code> argument</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="lets-try-it-bakeoff-data-again" class="level2">
+<h2 class="anchored" data-anchor-id="lets-try-it-bakeoff-data-again">Let’s try it: Bakeoff data (again)</h2>
+<p>On Friday, we tidied data containing ratings from <em>The Great British Bakeoff</em>.</p>
+<p>. . .</p>
+<p><em>Before:</em></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 21
+  series e1_7day e1_28day e2_7day e2_28day e3_7day e3_28day e4_7day e4_28day
+   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+1      1    2.24       NA    3          NA    3          NA    2.6        NA
+2      2    3.1        NA    3.53       NA    3.82       NA    3.6        NA
+3      3    3.85       NA    4.6        NA    4.53       NA    4.71       NA
+# ℹ 12 more variables: e5_7day &lt;dbl&gt;, e5_28day &lt;dbl&gt;, e6_7day &lt;dbl&gt;,
+#   e6_28day &lt;dbl&gt;, e7_7day &lt;dbl&gt;, e7_28day &lt;dbl&gt;, e8_7day &lt;dbl&gt;,
+#   e8_28day &lt;dbl&gt;, e9_7day &lt;dbl&gt;, e9_28day &lt;dbl&gt;, e10_7day &lt;dbl&gt;,
+#   e10_28day &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>. . .</p>
+<p><em>After:</em></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  series episode period viewers
+   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+1      1       1      7    2.24
+2      1       2      7    3   
+3      1       3      7    3   
+4      1       4      7    2.6 
+5      1       5      7    3.03</code></pre>
+</div>
+</div>
+</section>
+<section id="lets-try-it-bakeoff-data-again-1" class="level2">
+<h2 class="anchored" data-anchor-id="lets-try-it-bakeoff-data-again-1">Let’s try it: Bakeoff data (again)</h2>
+<p>But that data only had through season 8. We now have a new dataset with seasons 9-14:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 21
+  series e1_7day e1_28day e2_7day e2_28day e3_7day e3_28day e4_7day e4_28day
+   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+1      9    9.55     9.92    9.31     9.76    8.91     9.35    8.88     9.41
+2     10    9.62    10.0     9.38     9.8     8.94     9.42    8.96     9.49
+3     11   11.2     11.8    10.8     11.4    10.7     11.2    10.6     11.2 
+4     12    9.57    10.2     8.98     9.64    8.69     9.39    8.75     9.13
+5     13    8.3      1       7.6      1       7.35     1       7.76     1   
+6     14    7.84     1       7.54     1       7.28     1       7.12     1   
+# ℹ 12 more variables: e5_7day &lt;dbl&gt;, e5_28day &lt;dbl&gt;, e6_7day &lt;dbl&gt;,
+#   e6_28day &lt;dbl&gt;, e7_7day &lt;dbl&gt;, e7_28day &lt;dbl&gt;, e8_7day &lt;dbl&gt;,
+#   e8_28day &lt;dbl&gt;, e9_7day &lt;dbl&gt;, e9_28day &lt;dbl&gt;, e10_7day &lt;dbl&gt;,
+#   e10_28day &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>. . .</p>
+<div class="task nonincremental">
+<p>Your task is to join these two datasets together using (1) <code>bind_rows()</code>, (2) <code>_join()</code> and (3) <code>bind_cols()</code> (you’ll also get some <code>pivot_</code> practice along the way)</p>
+</div>
+</section>
+<section id="part-ii-the-episodes-data" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="part-ii-the-episodes-data">Part II: the <code>episodes</code> data</h2>
+<p>The <code>episodes</code> data has information about each episode of GBBO.</p>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<p>In particular, it includes:</p>
+<ul>
+<li><code>baker</code>: each baker that competed on that episode</li>
+<li><code>signature</code>: the name of the dessert they made for the signature challenge</li>
+<li><code>technical</code>: the place the baker earned in the technical challenge</li>
+<li><code>showstopper</code>: the name of the dessert they made for the showstopper challenge</li>
+<li><code>result</code>: whether the baker was “Safe” or “Eliminated”</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>episodes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,007 × 7
+   series episode baker     signature               technical showstopper result
+    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;                       &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt; 
+ 1      1       1 Annetha   Light Jamaican Black C…         2 Red, White… Safe  
+ 2      1       1 David     Chocolate Orange Cake           3 Black Fore… Safe  
+ 3      1       1 Edd       Caramel Cinnamon and B…         1 &lt;NA&gt;        Safe  
+ 4      1       1 Jasminder Fresh Mango and Passio…        NA &lt;NA&gt;        Safe  
+ 5      1       1 Jonathan  Carrot Cake with Lime …         9 Three Tier… Safe  
+ 6      1       1 Lea       Cranberry and Pistachi…        10 Raspberrie… Elimi…
+ 7      1       1 Louise    Carrot and Orange Cake         NA Never Fail… Safe  
+ 8      1       1 Mark      Sticky Marmalade Tea L…        NA Heart-shap… Elimi…
+ 9      1       1 Miranda   Triple Layered Brownie…         8 Three Tier… Safe  
+10      1       1 Ruth      Lemon Drizzle Cakewith…        NA Classic Ch… Safe  
+# ℹ 997 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="lets-try-it-bakeoff-data-episodes" class="level2">
+<h2 class="anchored" data-anchor-id="lets-try-it-bakeoff-data-episodes">Let’s try it: Bakeoff data (episodes)</h2>
+<div class="task nonincremental">
+<p>Join the tidy dataset (all 14 seasons) with the <code>episodes</code> data.</p>
+<p>Your task is to print the “signature” desserts that were made on the 10 episodes that had the highest 7-day viewership.</p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Many thanks to Amanda Luby <br> Design by Mine Çetinkaya-Rundel</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This page is built with ☕️ and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

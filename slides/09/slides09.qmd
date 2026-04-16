@@ -242,8 +242,8 @@ iris |>
 In RStudio, 
 
 1. Highlight the code that you want to reformat
-2. Go to "code --> reformat code" 
-3. Marvel in wonder 
+2. Go to Code -> Reformat Selection (Ctrl+Shift+A)
+3. See results
 
 . . . 
 
