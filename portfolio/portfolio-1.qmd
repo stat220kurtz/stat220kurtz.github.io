@@ -82,7 +82,7 @@ olympics <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/t
 olympics
 ```
 
-For more information about the variables in the dataset, see the [TidyTuesday repo page](https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2026/2026-02-10/schedule.csv).
+For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/tree/main/data/2026/2026-02-10).
 
 
 ## 3. NSF grant terminations
