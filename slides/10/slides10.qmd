@@ -63,11 +63,11 @@ More on wrangling:
 
 ::: {.task .nonincremental}
 1.  Open the [`10-combining.rmd`](https://stat220-w26.github.io/activities/10-combining.html) activity in RStudio
-2.  Take a look at the first 3 pairs of data together and talk through (conceptually! in words! no R code!) how you think they should be combined
+2.  Take a look at the first 3 pairs of data (Example 1 through Example 3) together and talk through (conceptually! in words! no R code!) how you think they should be combined
 :::
 
 ```{r}
-countdown::countdown(2)
+countdown::countdown(3)
 ```
 
 ## Example 1: Star Wars Characters {.smaller}
@@ -194,7 +194,10 @@ tibble(class = stats_sections_fw$class, spring = stats_sections_s$spring) %>%
   arrange(spring)
 ```
 :::
+Why would that have posed a problem?
 :::::
+
+
 
 ## Example 3: Survivor castaways {.smaller}
 
@@ -202,14 +205,14 @@ Dataset 1:
 
 ```{r}
 #| echo: true
-us_castaway_results
+head(us_castaway_results,5)
 ```
 
 Dataset 2:
 
 ```{r}
 #| echo: true
-cast_details
+head(cast_details,5)
 ```
 
 ## Desired output {.scrollable}
@@ -231,30 +234,7 @@ us_castaway_results %>%
   select(-season_name)
 ```
 
-## `left_join()` keeps duplicate rows in `x` {.scrollable}
-
-```{r}
-#| echo: true
-#| output-location: fragment
-#| code-line-numbers: "1|2|3"
-
-us_castaway_results %>%
-  left_join(cast_details, by = "castaway_id") %>%
-  filter(castaway == "Sandra") %>%
-  select(-season_name)
-```
-
-## Other types of `_join`s {.nonincremental}
-
--   `left_join()`: all rows from x
--   `right_join()`: all rows from y
--   `full_join()`: all rows from both x and y
--   `inner_join()`: all rows from x where there are matching values in y, return all combination of multiple matches in the case of multiple matches
--   `semi_join()`: all rows from x where there are matching values in y, keeping just columns from x
--   `anti_join()`: return all rows from x where there are not matching values in y, never duplicate rows of x
--   ...
-
-## Setup
+## Other types of `_join`s
 
 For the next few slides...
 
@@ -288,19 +268,19 @@ y
 :::
 :::::
 
-## `left_join()`
+## `right_join()`
 
-Keep all rows from `x`
+Keep all rows from `y`
 
 ::::: columns
 ::: {.column width="50%"}
-![](../img/left-join.gif)
+![](../img/right-join.gif)
 :::
 
 ::: {.column width="50%"}
 ```{r}
 #| echo: true
-left_join(x, y, by = "id")
+right_join(x, y, by = "id")
 ```
 :::
 :::::
@@ -321,6 +301,25 @@ full_join(x, y)
 ```
 :::
 :::::
+
+
+## `inner_join()`
+
+Keep all rows from `x` where there are matching values in `y`, return all combinations of multiple matches if multiples exist
+
+::::: columns
+::: {.column width="50%"}
+![](../img/inner-join.gif)
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+inner_join(x, y, by = "id")
+```
+:::
+:::::
+
 
 ## `semi_join()`
 
@@ -360,6 +359,9 @@ anti_join(x, y)
 
 Similar to `filter()` with `!`
 
+## ## {background-image="../img/join_diagram.png" background-size="30%"}
+
+
 ## `*_join()` functions
 
 -   From **dplyr**
@@ -380,22 +382,21 @@ In these examples, the colored boxes represent **keys**
 ::: {.column width="50%"}
 -   **keys** uniquely identify the observation of interest
 -   Are present in both datasets and used to match the rows
--   Depend on the context (e.g. could be castaway ID, could be season ID, could be epiosde number, etc.)
--   Can be multiple columns
+-   Depend on the context
 -   `dplyr` will try to find them automatically, but it's better to be explicit using the `by` argument
 :::
 :::::
 
 ## Let's try it: Bakeoff data (again)
 
-On Friday, we tidied data containing ratings from *The Great British Bakeoff*.
+Last week, we tidied data containing ratings from *The Great British Bakeoff*.
 
 . . .
 
 *Before:*
 
 ```{r}
-messy_ratings2 <- read_csv("https://stat220-w26.github.io/data/messy_ratings2.csv")
+messy_ratings2 <- read_csv("https://stat220kurtz.github.io/data/messy_ratings2.csv")
 messy_ratings2 %>% slice(1:3)
 ```
 
@@ -421,8 +422,7 @@ But that data only had through season 8. We now have a new dataset with seasons 
 
 ```{r}
 messy_ratings2 <- read_csv(here(here(), "data/messy_ratings2_9_14.csv"))
-messy_ratings2 %>%
-  head()
+messy_ratings2
 ```
 
 . . .
@@ -468,3 +468,30 @@ Join the tidy dataset (all 14 seasons) with the `episodes` data.
 
 Your task is to print the "signature" desserts that were made on the 10 episodes that had the highest 7-day viewership.
 :::
+
+```{r, echo=FALSE}
+messy_ratings2 <- read_csv("https://stat220kurtz.github.io/data/messy_ratings2.csv")
+tidy_ratings2 <- messy_ratings2 %>%
+  select(series, contains("7day")) %>%
+  pivot_longer(-series, names_to = "episode", values_to = "viewers") %>%
+  separate(episode, into = c("episode", "period")) %>%
+  mutate(
+    episode = parse_number(episode),
+    period = parse_number(period)
+  )
+messy_ratings2b <- read_csv("https://stat220kurtz.github.io/data/messy_ratings2_9_14.csv")
+tidy_ratings2b <- messy_ratings2b %>%
+  select(series, contains("7day")) %>%
+  pivot_longer(-series, names_to = "episode", values_to = "viewers") %>%
+  separate(episode, into = c("episode", "period")) %>%
+  mutate(
+    episode = parse_number(episode),
+    period = parse_number(period)
+  )
+tidy_ratings <- tidy_ratings2 %>%
+  full_join(tidy_ratings2b)
+episodes = read_csv("https://stat220kurtz.github.io/data/bakeoff-episodes.csv")
+tidy_ratings %>%
+  full_join(episodes, by = c("series", "episode")) %>%
+  slice_max(viewers, n=10)
+```

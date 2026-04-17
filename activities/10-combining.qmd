@@ -7,12 +7,12 @@ library(tidyverse)
 library(ggthemes)
 ```
 
-Click the "code" button above to copy and paste the source code, or pull a fresh version of the ["activities" repo](https://github.com/stat220-w25/activities) from GitHub.
+Click the "code" button above to copy and paste the source code.
 
 # Warm Up
 
 ```{r}
-load(url("https://stat220-w26.github.io/data/combining-data-examples.Rda"))
+load(url("https://stat220kurtz.github.io/data/combining-data-examples.Rda"))
 ```
 
 ## Example 1: Star Wars Characters 
@@ -21,7 +21,7 @@ load(url("https://stat220-w26.github.io/data/combining-data-examples.Rda"))
 
 Dataset 1: 
 
-- Each row in the dataset corresponds to a star wars character
+- Each row in the dataset corresponds to a Star Wars character
 - The columns include their `name`, `height`, `mass`, `homeworld`, `species`, and the `first_film` they appeared in
 
 ```{r}
@@ -88,15 +88,13 @@ cast_details
 We are interested in exploring the relationship between overall place on a Survivor season and personality type. How should these datasets be combined?
 
 
-**Stop here**
-
 
 # Bakeoff Ratings (again)
 
 We'll start with our `messy_ratings2` dataset from last week:
 
 ```{r}
-messy_ratings2 <- read_csv("https://stat220-w26.github.io/data/messy_ratings2.csv")
+messy_ratings2 <- read_csv("https://stat220kurtz.github.io/data/messy_ratings2.csv")
 messy_ratings2
 ```
 
@@ -128,13 +126,13 @@ tidy_ratings2
 The code chunk below loads the new dataset
 
 ```{r}
-messy_ratings2b <- read_csv("https://stat220-w26.github.io/data/messy_ratings2_9_14.csv")
+messy_ratings2b <- read_csv("https://stat220kurtz.github.io/data/messy_ratings2_9_14.csv")
 messy_ratings2b
 ```
 
 ### Combine with `bind_rows()`
 
-Combine the two `messy` datasets by using `bind_rows()`. Be sure to look at your resulting dataset and make sure it has the right format
+Combine the two **messy** datasets by using `bind_rows()`. Be sure to look at your resulting dataset and make sure it has the right format
 
 ```{r}
 # your code here
@@ -142,13 +140,13 @@ Combine the two `messy` datasets by using `bind_rows()`. Be sure to look at your
 
 ### Combine with `join()`
 
-We'll practice `join`ing with the tidy versions of the data. First, create `tidy_ratings2b` using the new dataset. Follow the same steps as what was used to create `tidy_ratings2`
+We'll practice `join`ing with the **tidy** versions of the data. First, create `tidy_ratings2b` using the new dataset. Follow the same steps as what was used to create `tidy_ratings2`
 
 ```{r}
 # your code here
 ```
 
-Once you're satisfied, that the two tidy datasets look similar enough to combine, remove `#| eval: false` from the following code chunk and run it. Did it work? Why or why not?
+Once you're satisfied that the two tidy datasets look similar enough to combine, remove `#| eval: false` from the following code chunk and run it. Did it work? Why or why not?
 
 ```{r}
 #| eval: false
@@ -156,15 +154,15 @@ tidy_ratings = tidy_ratings2 %>%
   left_join(tidy_ratings2b)
 ```
 
-Use the correction `_join` function here. Save your dataset to the `tidy_ratings` object.
+Use the correct `_join` function here. Save your dataset to the `tidy_ratings` object.
 
 ```{r}
 # your code here
 ```
 
-### Combine with `bind_cols`
+### Combine with `bind_cols()`
 
-To join the two datasets using `bind_cols`, you'll first have to un-tidy your tidy datasets, so that each episode number is in a *row* and each series number is in a *column*. After using `bind_cols()` the first few rows of your final dataset should look like this:
+To join the two datasets using `bind_cols()`, you'll first have to un-tidy your tidy datasets, so that each episode number is in a *row* and each series number is in a *column*. Call the datasets you create by doing this `untidy_ratings2` and `untidy_ratings2b`. After using `bind_cols()` the first few rows of your final dataset should look like this:
 
 ```         
 # A tibble: 10 × 16
@@ -175,7 +173,11 @@ To join the two datasets using `bind_cols`, you'll first have to un-tidy your ti
  3       3      7  3     3.82  4.53  7.17  9.28  12.0  13.0  8.68  8.91  8.94  10.7  8.69  7.35  7.28
 ```
 
-**Stop here** and let Amanda know you've finished
+**Two hints:** 1) Use `pivot_wider()` to untidy the datasets - the names_from and values_from parameters will need to be specified. 2) After creating the untidy datasets but before merging them using `bind_cols()`, remove the `episode` and `period` columns from `untidy_ratings2b`. Why did I suggest you do this?
+
+```{r}
+# your code here
+```
 
 # `join` the episodes data
 
@@ -188,7 +190,7 @@ The `episodes` data has information about each episode of GBBO. In particular, i
 -   `result`: whether the baker was "Safe" or "Eliminated"
 
 ```{r}
-episodes = read_csv("https://stat220-w26.github.io/data/bakeoff-episodes.csv")
+episodes = read_csv("https://stat220kurtz.github.io/data/bakeoff-episodes.csv")
 episodes
 ```
 
@@ -196,4 +198,6 @@ Join the tidy dataset (all 14 seasons) with the `episodes` data.
 
 Your task is to print the "signature" desserts that were made on the 10 episodes that had the highest 7-day viewership.
 
-**Stop here** and let Amanda know you've finished
+```{r}
+# your code here
+```
