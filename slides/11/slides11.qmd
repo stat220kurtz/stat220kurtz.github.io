@@ -45,26 +45,7 @@ theme_set(slides_theme)
 2. Working with dates and times
 
 
-## `desserts` data
-
-::: {.nonincremental}
-
-- Contains results from series 1-8 of *The Great British Bake Off*
-
-- Case defined by series, episode and baker
-
-:::
-
-```{r}
-desserts <- read_csv("https://stat220-w26.github.io/data/desserts.csv")
-desserts
-```
-
-::: aside
-Source: Allison Hill and the [bakeoff](https://bakeoff.netlify.app) package; compiled by Adam Loy
-:::
-
-## Basic syntax
+## Basic syntax - Importing Data
 
 All `readr` functions share a common syntax
 
@@ -101,7 +82,8 @@ read_tsv()   | Tab delimited values
 :::
 
 ```{r}
-desserts <- read_csv("https://stat220-w26.github.io/data/desserts.csv")
+#| echo: false
+desserts <- read_csv("https://stat220kurtz.github.io/data/desserts.csv")
 desserts
 ```
 
@@ -109,12 +91,12 @@ desserts
 Source: Allison Hill and the [bakeoff](https://bakeoff.netlify.app) package; compiled by Adam Loy
 :::
 
-## Warm up {.smaller} {.scrollable}
+## Warm up {.scrollable}
 
 ::: {.task .nonincremental}
 
 1. Use `read_csv()` to import the `desserts` data set from <br>
- https://stat220-w26.github.io/data/desserts.csv
+ https://stat220kurtz.github.io/data/desserts.csv
  
 2. Store the data in the `desserts` object
 
@@ -124,7 +106,7 @@ Source: Allison Hill and the [bakeoff](https://bakeoff.netlify.app) package; com
 
 
 ```{r}
-countdown::countdown(6)
+countdown::countdown(4)
 ```
 
 ```{r}
@@ -163,13 +145,13 @@ desserts |>
   scale_color_viridis_d(option = "plasma", end = .6)
 ```
 
-## Did it work as expected? {.scrollable}
+## Could we make the plot? {.scrollable}
 
 ```{r}
 #| echo: true
 
 
-desserts <- read_csv("https://stat220-w26.github.io/data/desserts.csv")
+desserts <- read_csv("https://stat220kurtz.github.io/data/desserts.csv")
 glimpse(desserts)
 ```
 
@@ -190,9 +172,9 @@ By default, `read_csv` looks at first 1000 rows to guess variable data types (`g
 
 ```{r}
 #| echo: true
-#| code-line-numbers: "1|2-5"
+#| code-line-numbers: "1|2-5|8"
 #| output-location: fragment
-desserts <- read_csv( "https://stat220-w26.github.io/data/desserts.csv",
+desserts <- read_csv("https://stat220kurtz.github.io/data/desserts.csv",
   col_types = list( 
     technical = col_number(), 
     uk_airdate = col_date()   
@@ -227,21 +209,13 @@ ISO8601 format: `2010-08-17`
 
 What we have: `17 August 2010`
 
-## 
-
-![](../img/randy_au-dates.png)
-
-::: aside
-[Counting Stuff](https://www.counting-stuff.com/) blog by Randy Au
-:::
-
 ## Adding `format` instructions
 
 ```{r}
 #| echo: true
 #| code-line-numbers: "5"
 desserts <- read_csv(
-  "https://stat220-w26.github.io/data/desserts.csv",
+  "https://stat220kurtz.github.io/data/desserts.csv",
   col_types = list(
     technical = col_number(), 
     uk_airdate = col_date(format = "%d %B %Y")  
@@ -276,7 +250,7 @@ By default `na = c("", "NA")` are the recognized missing values
 #| echo: true
 #| code-line-numbers: "7"
 desserts <- read_csv(
-  "https://stat220-w26.github.io/data/desserts.csv",
+  "https://stat220kurtz.github.io/data/desserts.csv",
   col_types = list(
     technical = col_number(), 
     uk_airdate = col_date(format = "%d %B %Y")
@@ -340,14 +314,18 @@ Use the appropriate `read_<type>()` function to import the following data sets:
 
 - `tricky-1.csv`
 
-The full URLs are in the `11-import.Rmd` activity. (It might be helpful to look at the data file before trying to import it into R)
+The full URLs are in the `11-import.Rmd` activity. (It might be helpful to look at the data file before trying to import it into R - you can see it in "raw" form by visiting the site to download it and opening it with Notepad)
 
 If you hit any errors/problems, be sure to explore them and identify the issue, even if you can't "fix" it.
 :::
 
+```{r}
+countdown::countdown(5)
+```
+
 # read_sheet
 
-## {.center}
+## googlesheets4 {.center}
 ::::: columns
 ::: {.column .nonincremental width="55%"}
 - Get data out of google sheets and into R
@@ -397,7 +375,7 @@ What "data moves" do we need to go from the original, non-tidy data, to this tid
 ## Try it {.scrollable .smaller}
 
 ::: {.task .nonincremental}
-Read in the file at `https://docs.google.com/spreadsheets/d/1NN2S7bHSQbiHgd6gJnMUoJ6_eB-YgqLi_JXckFzTkbc/edit?usp=sharing`.
+Read in the file at `https://docs.google.com/spreadsheets/d/1HG49NrV9rdPPuAnra0nO1SjECisAMnnGcvBT7NZ_bNk/edit?usp=sharing`.
 :::
 
 ::::: columns
@@ -418,6 +396,8 @@ Step 1: read in the data so it looks like the following:
 8 3987    6    
 9 3216    5   
 ```
+
+Hint: revisit R4DS 7.2.2
 :::
 
 ::: {.column width="50%"}
@@ -444,7 +424,7 @@ Stretch goal: Fully tidy the data. This is tricky! See the hints in the activity
 countdown::countdown(5)
 ```
 
-# What if I already imported data and have dates/times as character strings or numeric vectors?
+## What if I already imported data and have dates/times as character strings or numeric vectors? {.smaller}
 
 ## Ultramarathon results
 
@@ -509,7 +489,7 @@ ymd_hm("2025-01-29 09:55")
 
 ## Ultramarathon example
 
-Dates are in the form `04/08/21`, so use `mdy()` to parse
+One date is `04/13/21`, so use `mdy()` to parse
 
 
 ```{r}
@@ -599,7 +579,7 @@ Math with date-times relies on the **timeline**, which behaves inconsistently:
 
 ![](../img/lubridate-time.png){height="500px"}
 
-## Measuring time: durations
+## Measuring time: `as.duration`
 
 Track the passage of physical time; always measured in seconds
 
@@ -637,7 +617,7 @@ ymd_hms("2025-01-29 09:55:00",
 
 ```{r }
 #| echo: true
-ymd_hms("2023-02-28 09:55:00", 
+ymd_hms("2024-02-28 09:55:00", 
         tz = "America/Chicago") + 
   days(1)
 ```
@@ -659,14 +639,10 @@ Then, create a new column called `how_long_ago` that measures the time between t
 *Hint:* see `time_length`
 :::
 
+If you finish this, go to the next slide and use what you've learned to start replicating the plot from the beginning of class!
 
-```{r}
-countdown::countdown(5)
-```
 
-## If time
-
-Get as far as you can in replicating this plot of series 8 data:
+## Replicate Series 8 Data Plot
 
 ```{r}
 desserts |>
