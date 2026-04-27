@@ -26,7 +26,7 @@
     "href": "index.html",
     "title": "Stat 220: Intro to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n\n1\nM\nMon, Mar 30\n📝complete welcome survey\nWelcome + data, R review\nslides01\n\n\n\n\n1\nW\nWed, Apr 1\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus\nGithub + reproducible reports\nslides02  02-example-unvotes  UN report to replicate\n\n\n\n\n1\nF\nFri, Apr 3\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\nggplot\nslides03  03-ggplot-intro  Survivor data\nHW 1\n\n\n2\nM\nMon, Apr 6\n📚 DataViz 17-21 \nTheming + Design\nslides04  TB Data\n\n\n\n\n2\nW\nWed, Apr 8\n📚 DataViz 15 \nMaps/spatial data\nslides05  05-maps  ACS Data\nHW 2\n\n\n2\nF\nFri, Apr 10\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\nAccesibility for data viz\nslides06\n\n\n\n\n3\nM\nMon, Apr 13\n📚 R4DS 3.1-3.4 \nVerbs\nslides07  07-verbs\n\n\n\n\n3\nW\nWed, Apr 15\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \nGroups and summarizing Tidy data\nslides08  08-dplyr2\nHW 3\n\n\n3\nF\nFri, Apr 17\n📚 R4DS 4 \nCode style\nslides09\n\n\n\n\n4\nM\nMon, Apr 20\n📚 R4DS 19.1-19.3\nCombining datasets\nslides10  10-combining\n\n\n\n\n4\nW\nWed, Apr 22\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \nImport data and dates/times\nslides11  11-import\nHW 4\n\n\n4\nF\nFri, Apr 24\nNO CLASS - FEEL FREE TO TAKE A BREAK, CATCH UP, OR LEARN TO BUILD A WEBSITE\nOPTIONAL: building a website using GitHub Pages  Note: in YouTube tutorial, she clones repo slightly differently than we do. You can use usual procedure.\nGetting started with GitHub Pages  YouTube Tutorial with Quarto and GitHub Pages\n\n\n\n\n5\nM\nMon, Apr 27\n📚 R4DS 16 \nWorking with factors\ntbd\nPortfolio 1\n\n\n5\nW\nWed, Apr 29\n📚 R4DS 14  📚 R4DS 15.1-15.5\nWorking with strings and Regex\ntbd\n\n\n\n\n5\nF\nFri, May 1\n📚 MDSR 19.2  🌎 Google ngram viewer\nIntro to Text Analysis\ntbd\nHW 5\n\n\n6\nM\nMon, May 4\n\n\n🏝️ Midterm Break; no class\ntbd\n\n\n\n\n6\nW\nWed, May 6\n📚 The Trouble with Sentiment Analysis\nText Analysis\ntbd\n\n\n\n\n6\nF\nFri, May 8\n📚 R4DS 25\nFunctions\ntbd\nPortfolio 2\n\n\n7\nM\nMon, May 11\n📚 MDSR 7.1-7.3\nIteration\ntbd\nHW6\n\n\n7\nW\nWed, May 13\n\n\nIteration II\ntbd\n\n\n\n\n7\nF\nFri, May 15\n\n\nAPIs\ntbd\nHW7\n\n\n8\nM\nMon, May 18\n\n\nScraping I\ntbd\nFinal Project Idea Form\n\n\n8\nW\nWed, May 20\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nF\nFri, May 22\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\nIntro to Interactivity\ntbd\nHW8  Portfolio 3\n\n\n9\nM\nMon, May 25\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\nShiny 1\ntbd\n\n\n\n\n9\nW\nWed, May 27\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\nShiny 2\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, May 29\n\n\nShiny 3\ntbd\n\n\n\n\n10\nM\nMon, Jun 1\n\n\nProject Demos\ntbd\nPortfolio 4\n\n\n10\nW\nWed, Jun 3\n\n\nProject Demos\ntbd\nHW9\n\n\n\n\nNA\nMon, Jun 8\n\n\nFinal Project Due @ noon\ntbd\nFinal Project",
+    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n\n1\nM\nMon, Mar 30\n📝complete welcome survey\nWelcome + data, R review\nslides01\n\n\n\n\n1\nW\nWed, Apr 1\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus\nGithub + reproducible reports\nslides02  02-example-unvotes  UN report to replicate\n\n\n\n\n1\nF\nFri, Apr 3\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\nggplot\nslides03  03-ggplot-intro  Survivor data\nHW 1\n\n\n2\nM\nMon, Apr 6\n📚 DataViz 17-21 \nTheming + Design\nslides04  TB Data\n\n\n\n\n2\nW\nWed, Apr 8\n📚 DataViz 15 \nMaps/spatial data\nslides05  05-maps  ACS Data\nHW 2\n\n\n2\nF\nFri, Apr 10\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\nAccesibility for data viz\nslides06\n\n\n\n\n3\nM\nMon, Apr 13\n📚 R4DS 3.1-3.4 \nVerbs\nslides07  07-verbs\n\n\n\n\n3\nW\nWed, Apr 15\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \nGroups and summarizing Tidy data\nslides08  08-dplyr2\nHW 3\n\n\n3\nF\nFri, Apr 17\n📚 R4DS 4 \nCode style\nslides09\n\n\n\n\n4\nM\nMon, Apr 20\n📚 R4DS 19.1-19.3\nCombining datasets\nslides10  10-combining\n\n\n\n\n4\nW\nWed, Apr 22\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \nImport data and dates/times\nslides11  11-import\nHW 4\n\n\n4\nF\nFri, Apr 24\nNO CLASS - FEEL FREE TO TAKE A BREAK, CATCH UP, OR LEARN TO BUILD A WEBSITE\nOPTIONAL: building a website using GitHub Pages  Note: in YouTube tutorial, she clones repo slightly differently than we do. You can use usual procedure.\nGetting started with GitHub Pages  YouTube Tutorial with Quarto and GitHub Pages\n\n\n\n\n5\nM\nMon, Apr 27\n📚 R4DS 16 \nWorking with factors\nslides12  12-factors\nPortfolio 1\n\n\n5\nW\nWed, Apr 29\n📚 R4DS 14  📚 R4DS 15.1-15.5\nWorking with strings and Regex\ntbd\n\n\n\n\n5\nF\nFri, May 1\n📚 MDSR 19.2  🌎 Google ngram viewer\nIntro to Text Analysis\ntbd\nHW 5\n\n\n6\nM\nMon, May 4\n\n\n🏝️ Midterm Break; no class\ntbd\n\n\n\n\n6\nW\nWed, May 6\n📚 The Trouble with Sentiment Analysis\nText Analysis\ntbd\n\n\n\n\n6\nF\nFri, May 8\n📚 R4DS 25\nFunctions\ntbd\nPortfolio 2\n\n\n7\nM\nMon, May 11\n📚 MDSR 7.1-7.3\nIteration\ntbd\nHW6\n\n\n7\nW\nWed, May 13\n\n\nIteration II\ntbd\n\n\n\n\n7\nF\nFri, May 15\n\n\nAPIs\ntbd\nHW7\n\n\n8\nM\nMon, May 18\n\n\nScraping I\ntbd\nFinal Project Idea Form\n\n\n8\nW\nWed, May 20\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nF\nFri, May 22\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\nIntro to Interactivity\ntbd\nHW8  Portfolio 3\n\n\n9\nM\nMon, May 25\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\nShiny 1\ntbd\n\n\n\n\n9\nW\nWed, May 27\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\nShiny 2\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, May 29\n\n\nShiny 3\ntbd\n\n\n\n\n10\nM\nMon, Jun 1\n\n\nProject Demos\ntbd\nPortfolio 4\n\n\n10\nW\nWed, Jun 3\n\n\nProject Demos\ntbd\nHW9\n\n\n\n\nNA\nMon, Jun 8\n\n\nFinal Project Due @ noon\ntbd\nFinal Project",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -3819,5 +3819,180 @@
     "title": "Data Import & Dates/Times",
     "section": "Replicate Series 8 Data Plot",
     "text": "Replicate Series 8 Data Plot"
+  },
+  {
+    "objectID": "slides/12/slides12.html#survivor-castaways-data",
+    "href": "slides/12/slides12.html#survivor-castaways-data",
+    "title": "Working with Factors",
+    "section": "Survivor castaways data",
+    "text": "Survivor castaways data\n\n\n# A tibble: 1,417 × 28\n   version version_season season full_name      castaway_id castaway   age city \n   &lt;fct&gt;   &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;\n 1 US      US50               50 Angelina Keel… US0554      Angelina    NA &lt;NA&gt; \n 2 US      US50               50 Aubry Bracco   US0477      Aubry       NA &lt;NA&gt; \n 3 US      US50               50 Charlie Davis  US0682      Charlie     NA &lt;NA&gt; \n 4 US      US50               50 Chrissy Hofbe… US0515      Chrissy     NA &lt;NA&gt; \n 5 US      US50               50 Christian Hub… US0550      Christi…    NA &lt;NA&gt; \n 6 US      US50               50 Cirie Fields   US0179      Cirie       NA &lt;NA&gt; \n 7 US      US50               50 Benjamin Wade  US0277      Coach       NA &lt;NA&gt; \n 8 US      US50               50 Colby Donalds… US0031      Colby       NA &lt;NA&gt; \n 9 US      US50               50 Dee Valladares US0666      Dee         NA &lt;NA&gt; \n10 US      US50               50 Emily Flippen  US0668      Emily       NA &lt;NA&gt; \n# ℹ 1,407 more rows\n# ℹ 20 more variables: state &lt;chr&gt;, episode &lt;dbl&gt;, day &lt;dbl&gt;, order &lt;dbl&gt;,\n#   result &lt;chr&gt;, jury_status &lt;chr&gt;, place &lt;int&gt;, original_tribe &lt;chr&gt;,\n#   jury &lt;lgl&gt;, finalist &lt;lgl&gt;, winner &lt;lgl&gt;, acknowledge &lt;lgl&gt;,\n#   ack_look &lt;lgl&gt;, ack_speak &lt;lgl&gt;, ack_gesture &lt;lgl&gt;, ack_smile &lt;lgl&gt;,\n#   ack_quote &lt;chr&gt;, ack_score &lt;int&gt;, jury1 &lt;dbl&gt;, jury2 &lt;fct&gt;"
+  },
+  {
+    "objectID": "slides/12/slides12.html#both-of-these-are-categorical-variables",
+    "href": "slides/12/slides12.html#both-of-these-are-categorical-variables",
+    "title": "Working with Factors",
+    "section": "Both of these are categorical variables",
+    "text": "Both of these are categorical variables\n\nunique(castaways$version)\n\n[1] US AU SA UK NZ\nLevels: AU NZ SA UK US\n\n\n\nunique(castaways$full_name) %&gt;% head()\n\n[1] \"Angelina Keeley\"   \"Aubry Bracco\"      \"Charlie Davis\"    \n[4] \"Chrissy Hofbeck\"   \"Christian Hubicki\" \"Cirie Fields\"     \n\n\n\nBut are stored as different types\n\nclass(castaways$version)\n\n[1] \"factor\"\n\n\n\nclass(castaways$full_name) \n\n[1] \"character\""
+  },
+  {
+    "objectID": "slides/12/slides12.html#same-graph-colored-by-the-same-categorical-variable",
+    "href": "slides/12/slides12.html#same-graph-colored-by-the-same-categorical-variable",
+    "title": "Working with Factors",
+    "section": "Same graph, colored by the same categorical variable",
+    "text": "Same graph, colored by the same categorical variable"
+  },
+  {
+    "objectID": "slides/12/slides12.html#factors",
+    "href": "slides/12/slides12.html#factors",
+    "title": "Working with Factors",
+    "section": "Factors",
+    "text": "Factors\nR’s representation of categorical data. Consists of:\n\nA set of values\nAn ordered set of valid levels\n\n\n\neyes &lt;- factor(x = c(\"blue\", \"green\", \"green\"), \n               levels = c(\"blue\", \"brown\", \"green\"))\neyes\n\n[1] blue  green green\nLevels: blue brown green"
+  },
+  {
+    "objectID": "slides/12/slides12.html#factors-1",
+    "href": "slides/12/slides12.html#factors-1",
+    "title": "Working with Factors",
+    "section": "Factors",
+    "text": "Factors\nStored as an integer vector with a levels attribute\n\nunclass(eyes)\n\n[1] 1 3 3\nattr(,\"levels\")\n[1] \"blue\"  \"brown\" \"green\""
+  },
+  {
+    "objectID": "slides/12/slides12.html#section",
+    "href": "slides/12/slides12.html#section",
+    "title": "Working with Factors",
+    "section": "",
+    "text": "Simple functions for working with factors.\nPart of the tidyverse\n\n\n# loaded with tidyverse\nlibrary(forcats)"
+  },
+  {
+    "objectID": "slides/12/slides12.html#gss_cat",
+    "href": "slides/12/slides12.html#gss_cat",
+    "title": "Working with Factors",
+    "section": "gss_cat",
+    "text": "gss_cat\nA sample of data from the General Social Survey, a long-running US survey conducted by NORC at the University of Chicago.\n\n\n# A tibble: 21,483 × 9\n    year marital         age race  rincome        partyid    relig denom tvhours\n   &lt;int&gt; &lt;fct&gt;         &lt;int&gt; &lt;fct&gt; &lt;fct&gt;          &lt;fct&gt;      &lt;fct&gt; &lt;fct&gt;   &lt;int&gt;\n 1  2000 Never married    26 White $8000 to 9999  Ind,near … Prot… Sout…      12\n 2  2000 Divorced         48 White $8000 to 9999  Not str r… Prot… Bapt…      NA\n 3  2000 Widowed          67 White Not applicable Independe… Prot… No d…       2\n 4  2000 Never married    39 White Not applicable Ind,near … Orth… Not …       4\n 5  2000 Divorced         25 White Not applicable Not str d… None  Not …       1\n 6  2000 Married          25 White $20000 - 24999 Strong de… Prot… Sout…      NA\n 7  2000 Never married    36 White $25000 or more Not str r… Chri… Not …       3\n 8  2000 Divorced         44 White $7000 to 7999  Ind,near … Prot… Luth…      NA\n 9  2000 Married          44 White $25000 or more Not str d… Prot… Other       0\n10  2000 Married          47 White $25000 or more Strong re… Prot… Sout…       3\n# ℹ 21,473 more rows"
+  },
+  {
+    "objectID": "slides/12/slides12.html#warm-up",
+    "href": "slides/12/slides12.html#warm-up",
+    "title": "Working with Factors",
+    "section": "Warm up",
+    "text": "Warm up\n\nUse gss_cat to answer the following questions.\n\nWhich religions watch the least TV?\nDo married people watch more or less TV than single people?"
+  },
+  {
+    "objectID": "slides/12/slides12.html#which-do-you-prefer",
+    "href": "slides/12/slides12.html#which-do-you-prefer",
+    "title": "Working with Factors",
+    "section": "Which do you prefer?",
+    "text": "Which do you prefer?"
+  },
+  {
+    "objectID": "slides/12/slides12.html#why-is-the-y-axis-in-this-order",
+    "href": "slides/12/slides12.html#why-is-the-y-axis-in-this-order",
+    "title": "Working with Factors",
+    "section": "Why is the y-axis in this order?",
+    "text": "Why is the y-axis in this order?"
+  },
+  {
+    "objectID": "slides/12/slides12.html#levels",
+    "href": "slides/12/slides12.html#levels",
+    "title": "Working with Factors",
+    "section": "levels()",
+    "text": "levels()\nUse levels() to access a factor’s levels\n\ngss_cat %&gt;% pull(relig) %&gt;% levels()\n\n [1] \"No answer\"               \"Don't know\"             \n [3] \"Inter-nondenominational\" \"Native american\"        \n [5] \"Christian\"               \"Orthodox-christian\"     \n [7] \"Moslem/islam\"            \"Other eastern\"          \n [9] \"Hinduism\"                \"Buddhism\"               \n[11] \"Other\"                   \"None\"                   \n[13] \"Jewish\"                  \"Catholic\"               \n[15] \"Protestant\"              \"Not applicable\""
+  },
+  {
+    "objectID": "slides/12/slides12.html#most-useful-factor-skills",
+    "href": "slides/12/slides12.html#most-useful-factor-skills",
+    "title": "Working with Factors",
+    "section": "Most useful factor skills:",
+    "text": "Most useful factor skills:\n1. Reorder the levels\n2. Recode the levels\n3. Collapse levels"
+  },
+  {
+    "objectID": "slides/12/slides12.html#fct_reorder",
+    "href": "slides/12/slides12.html#fct_reorder",
+    "title": "Working with Factors",
+    "section": "fct_reorder",
+    "text": "fct_reorder\n\n\n\n.f factor vector\n.x variable to reorder by (in conjunction with .fun)\n.fun function to reorder by\n.desc put levels in descending order?\n\n\n\nfct_reorder(\n  .f, \n  .x, \n  .fun = median, \n  ...,\n  .desc = FALSE \n  )"
+  },
+  {
+    "objectID": "slides/12/slides12.html#try-it",
+    "href": "slides/12/slides12.html#try-it",
+    "title": "Working with Factors",
+    "section": "Try it",
+    "text": "Try it\n\nUse rincome_summary to construct a dotplot of rincome against age.\nReorder rincome by age\n\n\nrincome_summary &lt;- gss_cat %&gt;%\n  group_by(rincome) %&gt;%\n  summarize(\n    age = mean(age, na.rm = TRUE),\n    tvhours = mean(tvhours, na.rm = TRUE),\n    n = n()\n  )"
+  },
+  {
+    "objectID": "slides/12/slides12.html#which-do-you-prefer-1",
+    "href": "slides/12/slides12.html#which-do-you-prefer-1",
+    "title": "Working with Factors",
+    "section": "Which do you prefer?",
+    "text": "Which do you prefer?"
+  },
+  {
+    "objectID": "slides/12/slides12.html#fct_reorder2",
+    "href": "slides/12/slides12.html#fct_reorder2",
+    "title": "Working with Factors",
+    "section": "fct_reorder2",
+    "text": "fct_reorder2\nReorders the levels of a factor by the Y values associated with the largest X values.\n\n\n\n.f factor vector\n.x X variable\n.y Y variable\n.fun function to reorder by\n.desc put levels in descending order?\n\n\n\nfct_reorder2(\n  .f, \n  .x, \n  .y, \n  .fun = median, \n  ...,\n  .desc = FALSE\n  )"
+  },
+  {
+    "objectID": "slides/12/slides12.html#which-political-leaning-watches-more-tv",
+    "href": "slides/12/slides12.html#which-political-leaning-watches-more-tv",
+    "title": "Working with Factors",
+    "section": "Which political leaning watches more TV?",
+    "text": "Which political leaning watches more TV?\n\n\n\n\n\n\n\n\n\nHow could we improve the partyid labels?"
+  },
+  {
+    "objectID": "slides/12/slides12.html#fct_recode",
+    "href": "slides/12/slides12.html#fct_recode",
+    "title": "Working with Factors",
+    "section": "fct_recode",
+    "text": "fct_recode\nChanges values of levels\n\n\n\n.f factor vector\n... new level = old level pairs (as a named character vector)\n\n\n\nfct_recode(.f, ...)"
+  },
+  {
+    "objectID": "slides/12/slides12.html#how-can-we-combine-these-factor-levels",
+    "href": "slides/12/slides12.html#how-can-we-combine-these-factor-levels",
+    "title": "Working with Factors",
+    "section": "How can we combine these factor levels?",
+    "text": "How can we combine these factor levels?"
+  },
+  {
+    "objectID": "slides/12/slides12.html#fct_collapse",
+    "href": "slides/12/slides12.html#fct_collapse",
+    "title": "Working with Factors",
+    "section": "fct_collapse()",
+    "text": "fct_collapse()\nChanges multiple levels into single levels\n\n\n\n.f factor vector\n... named arguments set to a character vector (levels in the vector will be collapsed to the name of the argument)\n\n\n\nfct_collapse(.f, ...)"
+  },
+  {
+    "objectID": "slides/12/slides12.html#your-turn",
+    "href": "slides/12/slides12.html#your-turn",
+    "title": "Working with Factors",
+    "section": "Your turn",
+    "text": "Your turn\n\nCollapse the marital variable to have levels Married, Not married, and No answer\nInclude \"Never married\", \"Divorced\", and “Widowed\" in Not married"
+  },
+  {
+    "objectID": "slides/12/slides12.html#there-are-relatively-few-points-in-each-of-these-groups",
+    "href": "slides/12/slides12.html#there-are-relatively-few-points-in-each-of-these-groups",
+    "title": "Working with Factors",
+    "section": "There are relatively few points in each of these groups",
+    "text": "There are relatively few points in each of these groups"
+  },
+  {
+    "objectID": "slides/12/slides12.html#there-are-relatively-few-points-in-each-of-these-groups-1",
+    "href": "slides/12/slides12.html#there-are-relatively-few-points-in-each-of-these-groups-1",
+    "title": "Working with Factors",
+    "section": "There are relatively few points in each of these groups",
+    "text": "There are relatively few points in each of these groups"
+  },
+  {
+    "objectID": "slides/12/slides12.html#fct_lump",
+    "href": "slides/12/slides12.html#fct_lump",
+    "title": "Working with Factors",
+    "section": "fct_lump()",
+    "text": "fct_lump()\nCollapses levels with fewest values into a single level.\nBy default collapses as many levels as possible such that the new level is still the smallest.\n\n\n\nf factor vector\nn preserve the most common n levels\nother_level = \"Other\"\n\n\n\nfct_lump(\n  f, \n  n, \n  other_level = \"Other\", \n  ...\n)"
+  },
+  {
+    "objectID": "slides/12/slides12.html#your-turn-hotel-bookings",
+    "href": "slides/12/slides12.html#your-turn-hotel-bookings",
+    "title": "Working with Factors",
+    "section": "Your turn: hotel bookings",
+    "text": "Your turn: hotel bookings\n\nThe remainder of the activity file has you fixing up some plots using hotel bookings data from Tidy Tuesday"
   }
 ]

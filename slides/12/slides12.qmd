@@ -22,6 +22,11 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 
 library(countdown)
+library(flipbookr)
+library(forcats)
+#library(ggplot2)
+#library(dplyr)
+library(survivoR)
 library(tidyverse)
 library(lubridate)
 library(palmerpenguins)
@@ -173,7 +178,7 @@ gss_cat %>%
     geom_point()
 ```
 
-`r flipbookr::chunq_reveal("gss-religion-tv", font_size_code="70%", title = "Which religions watch the least TV?")`
+`r flipbookr::chunk_reveal("gss-religion-tv", font_size_code="70%", title = "Which religions watch the least TV?")`
 
 
 ## Which do you prefer?
@@ -268,13 +273,13 @@ gss_cat %>%
   summarize(tvhours = mean(tvhours)) %>%
   ggplot(aes(
     x = tvhours, 
-    y = relig  #ROTATE
+    y = relig,  #ROTATE
     y = fct_reorder(relig, tvhours)                 #ROTATE
   )) +
     geom_point()
 ```
 
-`r flipbookr:::chunq_reveal("reorder-tv-relig", break_type = "rotate", widths = c(1.2,1), title = "Reorder relig by tvhours")`
+`r flipbookr:::chunk_reveal("reorder-tv-relig", break_type = "rotate", widths = c(1.2,1), title = "Reorder relig by tvhours")`
 
 ## Try it
 
@@ -376,7 +381,7 @@ gss_cat %>%
   scale_color_colorblind("")
 ```
 
-`r flipbookr:::chunq_reveal("reorder-marital-age", title = "Reorder marital",  break_type = "rotate", lcolw = "40", rcolw = "60")`
+`r flipbookr:::chunk_reveal("reorder-marital-age", title = "Reorder marital",  break_type = "rotate")`, lcolw = "40", rcolw = "60")`
 
 ```{r}
 #| label: other-reordering-functions
@@ -389,7 +394,7 @@ gss_cat %>%
   geom_bar(aes(x = fct_rev(fct_infreq(marital))))#ROTATE
 ```
 
-`r flipbookr:::chunq_reveal("other-reordering-functions", title = "Other reordering functions",  break_type = "rotate", lcolw = "40", rcolw = "60")`
+`r flipbookr:::chunk_reveal("other-reordering-functions", title = "Other reordering functions",  break_type = "rotate")`, lcolw = "40", rcolw = "60")`
 
 ## Which political leaning watches more TV?
 
@@ -449,7 +454,7 @@ gss_cat %>%
   labs(y = "partyid")
 ```
 
-`r flipbookr:::chunq_reveal("fct-recode-partyid", title = "Recoding partyid",  lcolw = "40", rcolw = "60")`
+`r flipbookr:::chunk_reveal("fct-recode-partyid", title = "Recoding partyid")`,  lcolw = "40", rcolw = "60")`
 
 ## How can we combine these factor levels?
 
@@ -515,7 +520,7 @@ gss_cat %>%
   labs(y = "partyid")
 ```
 
-`r flipbookr:::chunq_reveal("fct-collapse-partyid", title = "Collapsing partyid",  lcolw = "40", rcolw = "60")`
+`r flipbookr:::chunk_reveal("fct-collapse-partyid", title = "Collapsing partyid")`,  lcolw = "40", rcolw = "60")`
 
 ```{r include=FALSE}
 gss_cat <- gss_cat %>%
@@ -612,7 +617,7 @@ gss_cat %>%
   labs(x = "partyid")
 ```
 
-`r flipbookr:::chunq_reveal("fct-lump-partyid", title = "Lumping parytid",  break_type = "rotate", lcolw = "40", rcolw = "60")`
+`r flipbookr:::chunk_reveal("fct-lump-partyid", title = "Lumping parytid",  break_type = "rotate")`, lcolw = "40", rcolw = "60")`
 
 ## Your turn: hotel bookings
 
