@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-54c8f25464f32f8783bd446cee98020d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-70be5ccd51f03de5ce195d75fadf0882.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Prof Emily Kurtz">
   <title>Stat 220 – Working with  Factors</title>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -95,7 +98,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-28dc35fb3852068745e5a0bebc727e0f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-1209235e9cbb9ac0326c187afa2b1069.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -365,7 +368,22 @@ attr(,"levels")
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_a4cd50b3" minutes="4" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+<countdown-timer class="countdown" id="timer_e35d57f4" minutes="4" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>gss_cat <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a></a>  <span class="fu">drop_na</span>(tvhours) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a></a>  <span class="fu">group_by</span>(relig) <span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a></a>  <span class="fu">summarize</span>(<span class="at">tvhours =</span> <span class="fu">mean</span>(tvhours)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-5"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(tvhours, relig)) <span class="sc">+</span></span>
+<span id="cb16-6"><a></a>    <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides12_files/figure-revealjs/gss-religion-tv-1.png" style="width:100.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -397,7 +415,7 @@ attr(,"levels")
 <h2><code>levels()</code></h2>
 <p>Use <code>levels()</code> to access a factor’s levels</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>gss_cat <span class="sc">%&gt;%</span> <span class="fu">pull</span>(relig) <span class="sc">%&gt;%</span> <span class="fu">levels</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>gss_cat <span class="sc">%&gt;%</span> <span class="fu">pull</span>(relig) <span class="sc">%&gt;%</span> <span class="fu">levels</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "No answer"               "Don't know"             
  [3] "Inter-nondenominational" "Native american"        
@@ -428,15 +446,34 @@ attr(,"levels")
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">fct_reorder</span>(</span>
-<span id="cb18-2"><a></a>  .f, </span>
-<span id="cb18-3"><a></a>  .x, </span>
-<span id="cb18-4"><a></a>  <span class="at">.fun =</span> median, </span>
-<span id="cb18-5"><a></a>  ...,</span>
-<span id="cb18-6"><a></a>  <span class="at">.desc =</span> <span class="cn">FALSE</span> </span>
-<span id="cb18-7"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">fct_reorder</span>(</span>
+<span id="cb19-2"><a></a>  .f, </span>
+<span id="cb19-3"><a></a>  .x, </span>
+<span id="cb19-4"><a></a>  <span class="at">.fun =</span> median, </span>
+<span id="cb19-5"><a></a>  ...,</span>
+<span id="cb19-6"><a></a>  <span class="at">.desc =</span> <span class="cn">FALSE</span> </span>
+<span id="cb19-7"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>gss_cat <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a></a>  <span class="fu">drop_na</span>(tvhours) <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a></a>  <span class="fu">group_by</span>(relig) <span class="sc">%&gt;%</span></span>
+<span id="cb20-4"><a></a>  <span class="fu">summarize</span>(<span class="at">tvhours =</span> <span class="fu">mean</span>(tvhours)) <span class="sc">%&gt;%</span></span>
+<span id="cb20-5"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
+<span id="cb20-6"><a></a>    <span class="at">x =</span> tvhours, </span>
+<span id="cb20-7"><a></a>    <span class="co">#y = relig,  #ROTATE</span></span>
+<span id="cb20-8"><a></a>    <span class="at">y =</span> <span class="fu">fct_reorder</span>(relig, tvhours)                 <span class="co">#ROTATE</span></span>
+<span id="cb20-9"><a></a>  )) <span class="sc">+</span></span>
+<span id="cb20-10"><a></a>    <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides12_files/figure-revealjs/reorder-tv-relig-1.png" width="432"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="try-it" class="slide level2">
 <h2>Try it</h2>
@@ -445,17 +482,17 @@ attr(,"levels")
 <p>Reorder <code>rincome</code> by <code>age</code></p>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>rincome_summary <span class="ot">&lt;-</span> gss_cat <span class="sc">%&gt;%</span></span>
-<span id="cb19-2"><a></a>  <span class="fu">group_by</span>(rincome) <span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a></a>  <span class="fu">summarize</span>(</span>
-<span id="cb19-4"><a></a>    <span class="at">age =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb19-5"><a></a>    <span class="at">tvhours =</span> <span class="fu">mean</span>(tvhours, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb19-6"><a></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
-<span id="cb19-7"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>rincome_summary <span class="ot">&lt;-</span> gss_cat <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a></a>  <span class="fu">group_by</span>(rincome) <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb21-4"><a></a>    <span class="at">age =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb21-5"><a></a>    <span class="at">tvhours =</span> <span class="fu">mean</span>(tvhours, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb21-6"><a></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb21-7"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_8a418a4e" minutes="2" seconds="30" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+<countdown-timer class="countdown" id="timer_5a22d3c4" minutes="2" seconds="30" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
 </div>
 </div>
 </section>
@@ -485,16 +522,52 @@ attr(,"levels")
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">fct_reorder2</span>(</span>
-<span id="cb20-2"><a></a>  .f, </span>
-<span id="cb20-3"><a></a>  .x, </span>
-<span id="cb20-4"><a></a>  .y, </span>
-<span id="cb20-5"><a></a>  <span class="at">.fun =</span> median, </span>
-<span id="cb20-6"><a></a>  ...,</span>
-<span id="cb20-7"><a></a>  <span class="at">.desc =</span> <span class="cn">FALSE</span></span>
-<span id="cb20-8"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">fct_reorder2</span>(</span>
+<span id="cb22-2"><a></a>  .f, </span>
+<span id="cb22-3"><a></a>  .x, </span>
+<span id="cb22-4"><a></a>  .y, </span>
+<span id="cb22-5"><a></a>  <span class="at">.fun =</span> median, </span>
+<span id="cb22-6"><a></a>  ...,</span>
+<span id="cb22-7"><a></a>  <span class="at">.desc =</span> <span class="cn">FALSE</span></span>
+<span id="cb22-8"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>gss_cat <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a></a>  <span class="fu">drop_na</span>(age) <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a></a>  <span class="fu">count</span>(age, marital) <span class="sc">%&gt;%</span></span>
+<span id="cb23-4"><a></a>  <span class="fu">group_by</span>(age) <span class="sc">%&gt;%</span></span>
+<span id="cb23-5"><a></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb23-6"><a></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb23-7"><a></a>    <span class="fu">aes</span>(age, </span>
+<span id="cb23-8"><a></a>        prop, </span>
+<span id="cb23-9"><a></a>        <span class="co">#color = marital )) + #ROTATE</span></span>
+<span id="cb23-10"><a></a>        <span class="at">color =</span> <span class="fu">fct_reorder2</span>(marital, <span class="at">.x =</span> age, <span class="at">.y =</span> prop))) <span class="sc">+</span> <span class="co">#ROTATE</span></span>
+<span id="cb23-11"><a></a>  </span>
+<span id="cb23-12"><a></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb23-13"><a></a>  <span class="fu">scale_color_colorblind</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides12_files/figure-revealjs/reorder-marital-age-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>gss_cat <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb24-3"><a></a>  <span class="co">#geom_bar(aes(x = marital))#ROTATE</span></span>
+<span id="cb24-4"><a></a>  <span class="co">#geom_bar(aes(x = fct_infreq(marital)))#ROTATE</span></span>
+<span id="cb24-5"><a></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_rev</span>(<span class="fu">fct_infreq</span>(marital))))<span class="co">#ROTATE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides12_files/figure-revealjs/other-reordering-functions-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="which-political-leaning-watches-more-tv" class="slide level2">
 <h2>Which political leaning watches more TV?</h2>
@@ -520,9 +593,33 @@ attr(,"levels")
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">fct_recode</span>(.f, ...)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">fct_recode</span>(.f, ...)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>gss_cat <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a></a>  <span class="fu">drop_na</span>(tvhours) <span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a></a>  <span class="fu">select</span>(partyid, tvhours) <span class="sc">%&gt;%</span></span>
+<span id="cb26-4"><a></a>    <span class="fu">mutate</span>(<span class="at">partyid =</span> <span class="fu">fct_recode</span>(partyid,</span>
+<span id="cb26-5"><a></a>    <span class="st">"Republican, strong"</span>    <span class="ot">=</span> <span class="st">"Strong republican"</span>,</span>
+<span id="cb26-6"><a></a>    <span class="st">"Republican, weak"</span>      <span class="ot">=</span> <span class="st">"Not str republican"</span>,</span>
+<span id="cb26-7"><a></a>    <span class="st">"Independent, near rep"</span> <span class="ot">=</span> <span class="st">"Ind,near rep"</span>,</span>
+<span id="cb26-8"><a></a>    <span class="st">"Independent, near dem"</span> <span class="ot">=</span> <span class="st">"Ind,near dem"</span>,</span>
+<span id="cb26-9"><a></a>    <span class="st">"Democrat, weak"</span>        <span class="ot">=</span> <span class="st">"Not str democrat"</span>,</span>
+<span id="cb26-10"><a></a>    <span class="st">"Democrat, strong"</span>      <span class="ot">=</span> <span class="st">"Strong democrat"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-11"><a></a>  <span class="fu">group_by</span>(partyid) <span class="sc">%&gt;%</span></span>
+<span id="cb26-12"><a></a>  <span class="fu">summarize</span>(<span class="at">tvhours =</span> <span class="fu">mean</span>(tvhours)) <span class="sc">%&gt;%</span></span>
+<span id="cb26-13"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(tvhours, <span class="fu">fct_reorder</span>(partyid, tvhours))) <span class="sc">+</span></span>
+<span id="cb26-14"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb26-15"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"partyid"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides12_files/figure-revealjs/fct-recode-partyid-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="how-can-we-combine-these-factor-levels" class="slide level2">
 <h2>How can we combine these factor levels?</h2>
@@ -547,9 +644,37 @@ attr(,"levels")
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">fct_collapse</span>(.f, ...)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">fct_collapse</span>(.f, ...)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>gss_cat <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a></a>  <span class="fu">drop_na</span>(tvhours) <span class="sc">%&gt;%</span></span>
+<span id="cb28-3"><a></a>  <span class="fu">select</span>(partyid, tvhours) <span class="sc">%&gt;%</span></span>
+<span id="cb28-4"><a></a>  <span class="fu">mutate</span>(</span>
+<span id="cb28-5"><a></a>    <span class="at">partyid =</span> </span>
+<span id="cb28-6"><a></a>      <span class="fu">fct_collapse</span>(</span>
+<span id="cb28-7"><a></a>        partyid,</span>
+<span id="cb28-8"><a></a>        <span class="at">conservative =</span> <span class="fu">c</span>(<span class="st">"Strong republican"</span>, </span>
+<span id="cb28-9"><a></a>                         <span class="st">"Not str republican"</span>, </span>
+<span id="cb28-10"><a></a>                         <span class="st">"Ind,near rep"</span>),</span>
+<span id="cb28-11"><a></a>        <span class="at">liberal =</span> <span class="fu">c</span>(<span class="st">"Strong democrat"</span>, </span>
+<span id="cb28-12"><a></a>                    <span class="st">"Not str democrat"</span>, </span>
+<span id="cb28-13"><a></a>                    <span class="st">"Ind,near dem"</span>))</span>
+<span id="cb28-14"><a></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-15"><a></a>  <span class="fu">group_by</span>(partyid) <span class="sc">%&gt;%</span></span>
+<span id="cb28-16"><a></a>  <span class="fu">summarize</span>(<span class="at">tvhours =</span> <span class="fu">mean</span>(tvhours)) <span class="sc">%&gt;%</span></span>
+<span id="cb28-17"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(tvhours, <span class="fu">fct_reorder</span>(partyid, tvhours))) <span class="sc">+</span></span>
+<span id="cb28-18"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb28-19"><a></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"partyid"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides12_files/figure-revealjs/fct-collapse-partyid-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="your-turn" class="slide level2">
 <h2>Your turn</h2>
@@ -559,7 +684,7 @@ attr(,"levels")
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_ae9274cb" minutes="2" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+<countdown-timer class="countdown" id="timer_85c0120a" minutes="2" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
 </div>
 </div>
 </section>
@@ -600,14 +725,30 @@ attr(,"levels")
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">fct_lump</span>(</span>
-<span id="cb23-2"><a></a>  f, </span>
-<span id="cb23-3"><a></a>  n, </span>
-<span id="cb23-4"><a></a>  <span class="at">other_level =</span> <span class="st">"Other"</span>, </span>
-<span id="cb23-5"><a></a>  ...</span>
-<span id="cb23-6"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">fct_lump</span>(</span>
+<span id="cb29-2"><a></a>  f, </span>
+<span id="cb29-3"><a></a>  n, </span>
+<span id="cb29-4"><a></a>  <span class="at">other_level =</span> <span class="st">"Other"</span>, </span>
+<span id="cb29-5"><a></a>  ...</span>
+<span id="cb29-6"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>gss_cat <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a></a>  <span class="fu">mutate</span>(<span class="at">partyid =</span> partyid) <span class="sc">%&gt;%</span> <span class="co">#ROTATE</span></span>
+<span id="cb30-3"><a></a>  <span class="fu">mutate</span>(<span class="at">partyid =</span> <span class="fu">fct_lump</span>(partyid, <span class="at">n =</span> <span class="dv">2</span>)) <span class="sc">%&gt;%</span> <span class="co">#ROTATE</span></span>
+<span id="cb30-4"><a></a>  <span class="fu">mutate</span>(<span class="at">partyid =</span> <span class="fu">fct_lump</span>(partyid, <span class="at">n =</span> <span class="dv">3</span>)) <span class="sc">%&gt;%</span> <span class="co">#ROTATE</span></span>
+<span id="cb30-5"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(partyid)) <span class="sc">+</span> </span>
+<span id="cb30-6"><a></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb30-7"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"partyid"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides12_files/figure-revealjs/fct-lump-partyid-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="your-turn-hotel-bookings" class="slide level2">
 <h2>Your turn: hotel bookings</h2>

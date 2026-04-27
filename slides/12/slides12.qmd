@@ -260,7 +260,7 @@ gss_cat %>%
   summarize(tvhours = mean(tvhours)) %>%
   ggplot(aes(
     x = tvhours, 
-    y = relig,  #ROTATE
+    #y = relig,  #ROTATE
     y = fct_reorder(relig, tvhours)                 #ROTATE
   )) +
     geom_point()
@@ -358,7 +358,7 @@ gss_cat %>%
   ggplot(
     aes(age, 
         prop, 
-        color = marital )) + #ROTATE
+        #color = marital )) + #ROTATE
         color = fct_reorder2(marital, .x = age, .y = prop))) + #ROTATE
   
   geom_line() +
@@ -372,8 +372,8 @@ gss_cat %>%
 #| eval: true
 gss_cat %>%
   ggplot() + 
-  geom_bar(aes(x = marital))#ROTATE
-  geom_bar(aes(x = fct_infreq(marital)))#ROTATE
+  #geom_bar(aes(x = marital))#ROTATE
+  #geom_bar(aes(x = fct_infreq(marital)))#ROTATE
   geom_bar(aes(x = fct_rev(fct_infreq(marital))))#ROTATE
 ```
 

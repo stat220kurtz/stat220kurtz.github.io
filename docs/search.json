@@ -3874,7 +3874,7 @@
     "href": "slides/12/slides12.html#warm-up",
     "title": "Working with Factors",
     "section": "Warm up",
-    "text": "Warm up\n\nUse gss_cat to answer the following questions.\n\nWhich religions watch the least TV?\nDo married people watch more or less TV than single people?"
+    "text": "Warm up\n\nUse gss_cat to answer the following questions.\n\nWhich religions watch the least TV?\nDo married people watch more or less TV than single people?\n\n\n\n\n\n\n\n\ngss_cat %&gt;%\n  drop_na(tvhours) %&gt;%\n  group_by(relig) %&gt;%\n  summarize(tvhours = mean(tvhours)) %&gt;%\n  ggplot(aes(tvhours, relig)) +\n    geom_point()"
   },
   {
     "objectID": "slides/12/slides12.html#which-do-you-prefer",
@@ -3909,7 +3909,7 @@
     "href": "slides/12/slides12.html#fct_reorder",
     "title": "Working with Factors",
     "section": "fct_reorder",
-    "text": "fct_reorder\n\n\n\n.f factor vector\n.x variable to reorder by (in conjunction with .fun)\n.fun function to reorder by\n.desc put levels in descending order?\n\n\n\nfct_reorder(\n  .f, \n  .x, \n  .fun = median, \n  ...,\n  .desc = FALSE \n  )"
+    "text": "fct_reorder\n\n\n\n.f factor vector\n.x variable to reorder by (in conjunction with .fun)\n.fun function to reorder by\n.desc put levels in descending order?\n\n\n\nfct_reorder(\n  .f, \n  .x, \n  .fun = median, \n  ...,\n  .desc = FALSE \n  )\n\n\n\ngss_cat %&gt;%\n  drop_na(tvhours) %&gt;%\n  group_by(relig) %&gt;%\n  summarize(tvhours = mean(tvhours)) %&gt;%\n  ggplot(aes(\n    x = tvhours, \n    #y = relig,  #ROTATE\n    y = fct_reorder(relig, tvhours)                 #ROTATE\n  )) +\n    geom_point()"
   },
   {
     "objectID": "slides/12/slides12.html#try-it",
@@ -3930,7 +3930,7 @@
     "href": "slides/12/slides12.html#fct_reorder2",
     "title": "Working with Factors",
     "section": "fct_reorder2",
-    "text": "fct_reorder2\nReorders the levels of a factor by the Y values associated with the largest X values.\n\n\n\n.f factor vector\n.x X variable\n.y Y variable\n.fun function to reorder by\n.desc put levels in descending order?\n\n\n\nfct_reorder2(\n  .f, \n  .x, \n  .y, \n  .fun = median, \n  ...,\n  .desc = FALSE\n  )"
+    "text": "fct_reorder2\nReorders the levels of a factor by the Y values associated with the largest X values.\n\n\n\n.f factor vector\n.x X variable\n.y Y variable\n.fun function to reorder by\n.desc put levels in descending order?\n\n\n\nfct_reorder2(\n  .f, \n  .x, \n  .y, \n  .fun = median, \n  ...,\n  .desc = FALSE\n  )\n\n\n\ngss_cat %&gt;%\n  drop_na(age) %&gt;%\n  count(age, marital) %&gt;%\n  group_by(age) %&gt;%\n  mutate(prop = n / sum(n)) %&gt;%\n  ggplot(\n    aes(age, \n        prop, \n        #color = marital )) + #ROTATE\n        color = fct_reorder2(marital, .x = age, .y = prop))) + #ROTATE\n  \n  geom_line() +\n  scale_color_colorblind(\"\")\n\n\n\n\n\n\n\n\n\ngss_cat %&gt;%\n  ggplot() + \n  #geom_bar(aes(x = marital))#ROTATE\n  #geom_bar(aes(x = fct_infreq(marital)))#ROTATE\n  geom_bar(aes(x = fct_rev(fct_infreq(marital))))#ROTATE"
   },
   {
     "objectID": "slides/12/slides12.html#which-political-leaning-watches-more-tv",
@@ -3944,7 +3944,7 @@
     "href": "slides/12/slides12.html#fct_recode",
     "title": "Working with Factors",
     "section": "fct_recode",
-    "text": "fct_recode\nChanges values of levels\n\n\n\n.f factor vector\n... new level = old level pairs (as a named character vector)\n\n\n\nfct_recode(.f, ...)"
+    "text": "fct_recode\nChanges values of levels\n\n\n\n.f factor vector\n... new level = old level pairs (as a named character vector)\n\n\n\nfct_recode(.f, ...)\n\n\n\ngss_cat %&gt;%\n  drop_na(tvhours) %&gt;%\n  select(partyid, tvhours) %&gt;%\n    mutate(partyid = fct_recode(partyid,\n    \"Republican, strong\"    = \"Strong republican\",\n    \"Republican, weak\"      = \"Not str republican\",\n    \"Independent, near rep\" = \"Ind,near rep\",\n    \"Independent, near dem\" = \"Ind,near dem\",\n    \"Democrat, weak\"        = \"Not str democrat\",\n    \"Democrat, strong\"      = \"Strong democrat\")) %&gt;% \n  group_by(partyid) %&gt;%\n  summarize(tvhours = mean(tvhours)) %&gt;%\n  ggplot(aes(tvhours, fct_reorder(partyid, tvhours))) +\n  geom_point() + \n  labs(y = \"partyid\")"
   },
   {
     "objectID": "slides/12/slides12.html#how-can-we-combine-these-factor-levels",
@@ -3958,7 +3958,7 @@
     "href": "slides/12/slides12.html#fct_collapse",
     "title": "Working with Factors",
     "section": "fct_collapse()",
-    "text": "fct_collapse()\nChanges multiple levels into single levels\n\n\n\n.f factor vector\n... named arguments set to a character vector (levels in the vector will be collapsed to the name of the argument)\n\n\n\nfct_collapse(.f, ...)"
+    "text": "fct_collapse()\nChanges multiple levels into single levels\n\n\n\n.f factor vector\n... named arguments set to a character vector (levels in the vector will be collapsed to the name of the argument)\n\n\n\nfct_collapse(.f, ...)\n\n\n\ngss_cat %&gt;%\n  drop_na(tvhours) %&gt;%\n  select(partyid, tvhours) %&gt;%\n  mutate(\n    partyid = \n      fct_collapse(\n        partyid,\n        conservative = c(\"Strong republican\", \n                         \"Not str republican\", \n                         \"Ind,near rep\"),\n        liberal = c(\"Strong democrat\", \n                    \"Not str democrat\", \n                    \"Ind,near dem\"))\n  ) %&gt;% \n  group_by(partyid) %&gt;%\n  summarize(tvhours = mean(tvhours)) %&gt;%\n  ggplot(aes(tvhours, fct_reorder(partyid, tvhours))) +\n  geom_point() + \n  labs(y = \"partyid\")"
   },
   {
     "objectID": "slides/12/slides12.html#your-turn",
@@ -3986,7 +3986,7 @@
     "href": "slides/12/slides12.html#fct_lump",
     "title": "Working with Factors",
     "section": "fct_lump()",
-    "text": "fct_lump()\nCollapses levels with fewest values into a single level.\nBy default collapses as many levels as possible such that the new level is still the smallest.\n\n\n\nf factor vector\nn preserve the most common n levels\nother_level = \"Other\"\n\n\n\nfct_lump(\n  f, \n  n, \n  other_level = \"Other\", \n  ...\n)"
+    "text": "fct_lump()\nCollapses levels with fewest values into a single level.\nBy default collapses as many levels as possible such that the new level is still the smallest.\n\n\n\nf factor vector\nn preserve the most common n levels\nother_level = \"Other\"\n\n\n\nfct_lump(\n  f, \n  n, \n  other_level = \"Other\", \n  ...\n)\n\n\n\ngss_cat %&gt;%\n  mutate(partyid = partyid) %&gt;% #ROTATE\n  mutate(partyid = fct_lump(partyid, n = 2)) %&gt;% #ROTATE\n  mutate(partyid = fct_lump(partyid, n = 3)) %&gt;% #ROTATE\n  ggplot(aes(partyid)) + \n  geom_bar() +\n  labs(x = \"partyid\")"
   },
   {
     "objectID": "slides/12/slides12.html#your-turn-hotel-bookings",
