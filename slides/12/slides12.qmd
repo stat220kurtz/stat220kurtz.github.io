@@ -22,11 +22,6 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 
 library(countdown)
-library(flipbookr)
-library(forcats)
-#library(ggplot2)
-#library(dplyr)
-library(survivoR)
 library(tidyverse)
 library(lubridate)
 library(palmerpenguins)
@@ -35,12 +30,14 @@ library(ggthemes)
 library(nycflights23)
 library(here)
 library(flextable)
+library(flipbookr)
 slides_theme = theme_minimal(
   base_family = "Atkinson Hyperlegible",
   base_size = 16)
 
 theme_set(slides_theme)
 ```
+
 
 ## Survivor `castaways` data
 
@@ -57,6 +54,7 @@ castaways
 
 ## Both of these are categorical variables
 
+
 ```{r}
 unique(castaways$version)
 ```
@@ -64,10 +62,10 @@ unique(castaways$version)
 ```{r}
 unique(castaways$full_name) %>% head()
 ```
+ 
+. . . 
 
-. . .
-
-### But are stored as different types
+### But are stored as different types 
 
 ```{r}
 class(castaways$version)
@@ -90,21 +88,23 @@ p2 = ggplot(castaways %>% filter(version == "US"), aes(x = season, y = place, co
 p1 + p2
 ```
 
+
 ## Factors
 
 R’s representation of categorical data. Consists of:
 
-1.  A set of **values**
+1. A set of **values**
 
-2.  An ordered set of valid **levels**
+1. An ordered set of valid **levels**
 
-. . .
+. . . 
 
 ```{r}
 eyes <- factor(x = c("blue", "green", "green"), 
                levels = c("blue", "brown", "green"))
 eyes
 ```
+
 
 ## Factors
 
@@ -114,22 +114,24 @@ Stored as an integer vector with a levels attribute
 unclass(eyes)
 ```
 
-##  {.center}
+## {.center}
 
 ::::: columns
 ::: {.column .nonincremental .center width="40%"}
+
 ![](https://forcats.tidyverse.org/logo.png)
 :::
 
-::: {.column .nonincremental width="60%"}
--   Simple functions for working with factors.
+:::{.column .nonincremental width="60%"}
+- Simple functions for working with factors.
 
--   Part of the `tidyverse`
+- Part of the `tidyverse`
 
 ```{r}
 # loaded with tidyverse
 library(forcats)
 ```
+
 :::
 :::::
 
@@ -146,22 +148,24 @@ gss_cat
 ::: {.task .nonincremental}
 Use `gss_cat` to answer the following questions.
 
-1.  Which religions watch the least TV?
+1. Which religions watch the least TV?
 
-2.  Do married people watch more or less TV than single people?
-:::
+2. Do married people watch more or less TV than single people?
+
+::: 
 
 ```{r echo=FALSE}
 countdown(4)
 ```
+
 
 ```{r}
 #| label: gss-religion-tv
 #| fig-width: 3
 #| fig-height: 3.5
 #| out-width: 100%
-#| echo: true
-#| eval: true
+#| echo: false
+#| eval: false
 gss_cat %>%
   drop_na(tvhours) %>%
   group_by(relig) %>%
@@ -169,6 +173,9 @@ gss_cat %>%
   ggplot(aes(tvhours, relig)) +
     geom_point()
 ```
+
+`r flipbookr::chunk_reveal("gss-religion-tv", font_size_code="70%", title = "Which religions watch the least TV?")`
+
 
 ## Which do you prefer?
 
@@ -207,6 +214,7 @@ p1
 
 ```
 
+
 ## `levels()`
 
 Use `levels()` to access a factor’s levels
@@ -216,6 +224,7 @@ gss_cat %>% pull(relig) %>% levels()
 ```
 
 ## Most useful factor skills: {.center}
+
 
 ### 1. **Reorder** the levels
 
@@ -227,12 +236,12 @@ gss_cat %>% pull(relig) %>% levels()
 
 ::::: columns
 ::: {.column width="50%"}
--   `.f` factor vector
--   `.x` variable to reorder by (in conjunction with `.fun`)
--   `.fun` function to reorder by
--   `.desc` put levels in descending order?
+- `.f` factor vector
+- `.x` variable to reorder by 
+(in conjunction with `.fun`)
+- `.fun` function to reorder by
+- `.desc` put levels in descending order?
 :::
-
 ::: {.column .nonincremental width="50%"}
 ```{r}
 #| eval: false
@@ -250,21 +259,21 @@ fct_reorder(
 ```{r reorder-tv-relig}
 #| fig-width: 4.5
 #| fig-height: 3.5
-#| echo: true
-#| eval: true
+#| echo: false
+#| eval: false
 
 
 gss_cat %>%
   drop_na(tvhours) %>%
   group_by(relig) %>%
   summarize(tvhours = mean(tvhours)) %>%
-  ggplot(aes(
-    x = tvhours, 
-    #y = relig,  #ROTATE
-    y = fct_reorder(relig, tvhours)                 #ROTATE
-  )) +
-    geom_point()
+  ggplot(aes(x = tvhours)) +
+  aes(y = relig) +                      #ROTATE
+  aes(y = fct_reorder(relig, tvhours)) + #ROTATE
+  geom_point()
 ```
+
+`r flipbookr::chunk_reveal("reorder-tv-relig", break_type = "rotate", widths = c(1.2,1), title = "Reorder relig by tvhours")`
 
 ## Try it
 
@@ -272,7 +281,8 @@ gss_cat %>%
 Use `rincome_summary` to construct a dotplot of `rincome` against `age`.
 
 Reorder `rincome` by `age`
-:::
+
+::: 
 
 ```{r}
 rincome_summary <- gss_cat %>%
@@ -322,15 +332,15 @@ lp1 + lp2
 
 Reorders the levels of a factor by the Y values associated with the largest X values.
 
+
 ::::: columns
 ::: {.column width="50%"}
--   `.f` factor vector
--   `.x` X variable
--   `.y` Y variable
--   `.fun` function to reorder by
--   `.desc` put levels in descending order?
+- `.f` factor vector
+- `.x` X variable
+- `.y` Y variable
+- `.fun` function to reorder by
+- `.desc` put levels in descending order?
 :::
-
 ::: {.column .nonincremental width="50%"}
 ```{r}
 #| eval: false
@@ -348,34 +358,34 @@ fct_reorder2(
 
 ```{r}
 #| label: reorder-marital-age
-#| echo: true
-#| eval: true
+#| echo: false
+#| eval: false
 gss_cat %>%
   drop_na(age) %>%
   count(age, marital) %>%
   group_by(age) %>%
   mutate(prop = n / sum(n)) %>%
-  ggplot(
-    aes(age, 
-        prop, 
-        #color = marital )) + #ROTATE
-        color = fct_reorder2(marital, .x = age, .y = prop))) + #ROTATE
-  
+  ggplot(aes(x = age, y = prop)) +
+  aes(color = marital) +                                     #ROTATE
+  aes(color = fct_reorder2(marital, .x = age, .y = prop)) +  #ROTATE
   geom_line() +
   scale_color_colorblind("")
 ```
 
+`r flipbookr::chunk_reveal("reorder-marital-age", title = "Reorder marital",  break_type = "rotate", widths = c(40, 60))`
 
 ```{r}
 #| label: other-reordering-functions
-#| echo: true
-#| eval: true
+#| echo: false
+#| eval: false
 gss_cat %>%
   ggplot() + 
-  #geom_bar(aes(x = marital))#ROTATE
-  #geom_bar(aes(x = fct_infreq(marital)))#ROTATE
-  geom_bar(aes(x = fct_rev(fct_infreq(marital))))#ROTATE
+  geom_bar(aes(x = marital)) +                         #ROTATE
+  geom_bar(aes(x = fct_infreq(marital))) +              #ROTATE
+  geom_bar(aes(x = fct_rev(fct_infreq(marital))))      #ROTATE
 ```
+
+`r flipbookr::chunk_reveal("other-reordering-functions", title = "Other reordering functions",  break_type = "rotate", widths = c(40, 60))`
 
 ## Which political leaning watches more TV?
 
@@ -394,17 +404,18 @@ gss_cat %>%
 ```
 
 How could we improve the `partyid` labels?
-
+ 
 ## `fct_recode`
 
 Changes values of levels
 
+
+
 ::::: columns
 ::: {.column width="50%"}
--   `.f` factor vector
--   `...` new level = old level pairs (as a named character vector)
+- `.f` factor vector
+- `...` new level = old level pairs (as a named character vector)
 :::
-
 ::: {.column .nonincremental width="50%"}
 ```{r}
 #| eval: false
@@ -415,8 +426,8 @@ fct_recode(.f, ...)
 
 ```{r}
 #| label: fct-recode-partyid
-#| echo: true
-#| eval: true
+#| echo: false
+#| eval: false
 gss_cat %>%
   drop_na(tvhours) %>%
   select(partyid, tvhours) %>%
@@ -433,6 +444,8 @@ gss_cat %>%
   geom_point() + 
   labs(y = "partyid")
 ```
+
+`r flipbookr::chunk_reveal("fct-recode-partyid", title = "Recoding partyid",  widths = c(40, 60))`
 
 ## How can we combine these factor levels?
 
@@ -466,10 +479,9 @@ Changes multiple levels into single levels
 
 ::::: columns
 ::: {.column width="50%"}
--   `.f` factor vector
--   `...` named arguments set to a character vector (levels in the vector will be collapsed to the name of the argument)
+- `.f` factor vector
+- `...` named arguments set to a character vector (levels in the vector will be collapsed to the name of the argument)
 :::
-
 ::: {.column .nonincremental width="50%"}
 ```{r eval=FALSE}
 fct_collapse(.f, ...)
@@ -477,7 +489,7 @@ fct_collapse(.f, ...)
 :::
 :::::
 
-```{r fct-collapse-partyid, eval=TRUE, echo=TRUE}
+```{r fct-collapse-partyid, eval=FALSE, echo=FALSE}
 gss_cat %>%
   drop_na(tvhours) %>%
   select(partyid, tvhours) %>%
@@ -499,6 +511,8 @@ gss_cat %>%
   labs(y = "partyid")
 ```
 
+`r flipbookr::chunk_reveal("fct-collapse-partyid", title = "Collapsing partyid",  widths = c(40, 60))`
+
 ```{r include=FALSE}
 gss_cat <- gss_cat %>%
   drop_na(tvhours) %>%
@@ -516,6 +530,7 @@ gss_cat <- gss_cat %>%
 ```
 
 ## Your turn
+
 
 ::: {.task .nonincremental}
 Collapse the `marital` variable to have levels `Married`, `Not married`, and `No answer`
@@ -560,17 +575,16 @@ gss_cat %>%
 
 ## `fct_lump()`
 
-Collapses levels with fewest values into a single level.
+Collapses levels with fewest values into a single level. 
 
 By default collapses as many levels as possible such that the new level is still the smallest.
 
 ::::: columns
 ::: {.column width="50%"}
--   `f` factor vector
--   `n` preserve the most common n levels
--   `other_level = "Other"`
+- `f` factor vector
+- `n` preserve the most common n levels
+- `other_level = "Other"`
 :::
-
 ::: {.column .nonincremental width="50%"}
 ```{r eval=FALSE}
 fct_lump(
@@ -583,15 +597,18 @@ fct_lump(
 :::
 :::::
 
-```{r fct-lump-partyid, eval=TRUE, echo=TRUE}
+
+```{r fct-lump-partyid, eval=FALSE, echo=FALSE}
 gss_cat %>%
-  mutate(partyid = partyid) %>% #ROTATE
-  mutate(partyid = fct_lump(partyid, n = 2)) %>% #ROTATE
-  mutate(partyid = fct_lump(partyid, n = 3)) %>% #ROTATE
-  ggplot(aes(partyid)) + 
+  mutate(partyid = partyid) %>%                    #ROTATE
+  mutate(partyid = fct_lump(partyid, n = 2)) %>%   #ROTATE
+  mutate(partyid = fct_lump(partyid, n = 3)) %>%   #ROTATE
+  ggplot(aes(x = partyid)) + 
   geom_bar() +
   labs(x = "partyid")
 ```
+
+`r flipbookr::chunk_reveal("fct-lump-partyid", title = "Lumping parytid",  break_type = "rotate", widths = c(40, 60))`
 
 ## Your turn: hotel bookings
 
