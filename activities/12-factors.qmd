@@ -15,7 +15,7 @@ library(ggthemes)
 `gss_cat` gets loaded with the `forcats` package in the `tidyverse`. Use `gss_cat` to answer the following questions (I'd use a graph, but do whatever you'd like!) 
 
 ```{r}
-gss_cat
+gss_cat 
 ```
 
 1. Which religions watch the least TV?
