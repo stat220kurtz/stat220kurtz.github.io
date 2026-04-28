@@ -9,7 +9,7 @@ library(tidyverse)
 
 # `babynames` intro
 
-Replicate the "Amanda" plot with your own name using the starter code below. If your name doesn't have enough data, try a friend or professor's name
+Replicate the "Glenn" plot with your own name using the starter code below. If your name doesn't have enough data, try a friend or professor's name
 
 ```{r}
 #| eval: false 
@@ -21,12 +21,14 @@ babynames %>%
 
 # Practice with `stringr`
 
-## Your turn 
+## Your turn
+
+What will the following commands return?
 
 No code needed, just think about what it returns
 
 
-## Your turn 2
+## Your turn (again)
 
 Fill in the blanks of the .Rmd file to...
 
@@ -57,7 +59,7 @@ babynames %>%
 The below code chunk imports a data set of the 6-credit courses offered at Carleton in Winter 2023. All three columns are character vectors.
 
 ```{r}
-courses <- read_csv("https://stat220-w26.github.io/data/winter2023_course_tbl.csv", col_types = list(course = col_character()))
+courses <- read_csv("https://stat220kurtz.github.io/data/winter2023_course_tbl.csv", col_types = list(course = col_character()))
 ```
 
 ### (a)
@@ -67,21 +69,26 @@ How many of the course numbers end in `.00`? Use `str_detect()` or `str_count()`
 Note that `.` is a special character in strings, so use `\\.` to get the literal period.
 
 
-### (b)
+### (b) 
 
 The section number appears after the decimal point. Use `mutate()` and `str_sub()` to create a `section` column containing this number.
 
 
-### (c)
+### (c) 
 
 How many courses contain the word `Introduction`? Does case matter here?
 
 
-### (d)
+### (d) 
 
 What is the longest course name (in terms of characters)? What is the shortest course name? Use `str_length()` to help you answer this question.
 
-### (e)
+### (e) 
+
+Which course name is comprised of the most words? To do this, create a new column containing the words in each title using `mutate()` and `str_split()`. Then, create another column calculating the `lengths()` of the values in column you just created.
+
+
+###(f) 
 
 Use `str_subset()` to return the course names that contain exclamation points (`!`).
 
@@ -108,11 +115,14 @@ Fill in the code to determine how many baby names in 2015 ended with a vowel.
 #| eval: false # remember to remove this line
 
 
-babynames %>% 
+babynames2015 <- babynames %>% 
   ___(___ == ___) %>%                       # extract year 2015
   ___(ends_with_vowel = ___(___, ___)) %>%  # create logical column
   count(ends_with_vowel)                    # create a frequency table
+babynames2015
 ```
+
+Find out how many 2015 baby names contain the letter A three times. Use `str_count()`
 
 ## Additional practice (if time)
 

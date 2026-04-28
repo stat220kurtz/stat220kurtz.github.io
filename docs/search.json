@@ -26,7 +26,7 @@
     "href": "index.html",
     "title": "Stat 220: Intro to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n\n1\nM\nMon, Mar 30\n📝complete welcome survey\nWelcome + data, R review\nslides01\n\n\n\n\n1\nW\nWed, Apr 1\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus\nGithub + reproducible reports\nslides02  02-example-unvotes  UN report to replicate\n\n\n\n\n1\nF\nFri, Apr 3\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\nggplot\nslides03  03-ggplot-intro  Survivor data\nHW 1\n\n\n2\nM\nMon, Apr 6\n📚 DataViz 17-21 \nTheming + Design\nslides04  TB Data\n\n\n\n\n2\nW\nWed, Apr 8\n📚 DataViz 15 \nMaps/spatial data\nslides05  05-maps  ACS Data\nHW 2\n\n\n2\nF\nFri, Apr 10\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\nAccesibility for data viz\nslides06\n\n\n\n\n3\nM\nMon, Apr 13\n📚 R4DS 3.1-3.4 \nVerbs\nslides07  07-verbs\n\n\n\n\n3\nW\nWed, Apr 15\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \nGroups and summarizing Tidy data\nslides08  08-dplyr2\nHW 3\n\n\n3\nF\nFri, Apr 17\n📚 R4DS 4 \nCode style\nslides09\n\n\n\n\n4\nM\nMon, Apr 20\n📚 R4DS 19.1-19.3\nCombining datasets\nslides10  10-combining\n\n\n\n\n4\nW\nWed, Apr 22\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \nImport data and dates/times\nslides11  11-import\nHW 4\n\n\n4\nF\nFri, Apr 24\nNO CLASS - FEEL FREE TO TAKE A BREAK, CATCH UP, OR LEARN TO BUILD A WEBSITE\nOPTIONAL: building a website using GitHub Pages  Note: in YouTube tutorial, she clones repo slightly differently than we do. You can use usual procedure.\nGetting started with GitHub Pages  YouTube Tutorial with Quarto and GitHub Pages\n\n\n\n\n5\nM\nMon, Apr 27\n📚 R4DS 16 \nWorking with factors\nslides12  12-factors\nPortfolio 1\n\n\n5\nW\nWed, Apr 29\n📚 R4DS 14  📚 R4DS 15.1-15.5\nWorking with strings and Regex\ntbd\n\n\n\n\n5\nF\nFri, May 1\n📚 MDSR 19.2  🌎 Google ngram viewer\nIntro to Text Analysis\ntbd\nHW 5\n\n\n6\nM\nMon, May 4\n\n\n🏝️ Midterm Break; no class\ntbd\n\n\n\n\n6\nW\nWed, May 6\n📚 The Trouble with Sentiment Analysis\nText Analysis\ntbd\n\n\n\n\n6\nF\nFri, May 8\n📚 R4DS 25\nFunctions\ntbd\nPortfolio 2\n\n\n7\nM\nMon, May 11\n📚 MDSR 7.1-7.3\nIteration\ntbd\nHW6\n\n\n7\nW\nWed, May 13\n\n\nIteration II\ntbd\n\n\n\n\n7\nF\nFri, May 15\n\n\nAPIs\ntbd\nHW7\n\n\n8\nM\nMon, May 18\n\n\nScraping I\ntbd\nFinal Project Idea Form\n\n\n8\nW\nWed, May 20\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nF\nFri, May 22\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\nIntro to Interactivity\ntbd\nHW8  Portfolio 3\n\n\n9\nM\nMon, May 25\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\nShiny 1\ntbd\n\n\n\n\n9\nW\nWed, May 27\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\nShiny 2\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, May 29\n\n\nShiny 3\ntbd\n\n\n\n\n10\nM\nMon, Jun 1\n\n\nProject Demos\ntbd\nPortfolio 4\n\n\n10\nW\nWed, Jun 3\n\n\nProject Demos\ntbd\nHW9\n\n\n\n\nNA\nMon, Jun 8\n\n\nFinal Project Due @ noon\ntbd\nFinal Project",
+    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n\n1\nM\nMon, Mar 30\n📝complete welcome survey\nWelcome + data, R review\nslides01\n\n\n\n\n1\nW\nWed, Apr 1\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus\nGithub + reproducible reports\nslides02  02-example-unvotes  UN report to replicate\n\n\n\n\n1\nF\nFri, Apr 3\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\nggplot\nslides03  03-ggplot-intro  Survivor data\nHW 1\n\n\n2\nM\nMon, Apr 6\n📚 DataViz 17-21 \nTheming + Design\nslides04  TB Data\n\n\n\n\n2\nW\nWed, Apr 8\n📚 DataViz 15 \nMaps/spatial data\nslides05  05-maps  ACS Data\nHW 2\n\n\n2\nF\nFri, Apr 10\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\nAccesibility for data viz\nslides06\n\n\n\n\n3\nM\nMon, Apr 13\n📚 R4DS 3.1-3.4 \nVerbs\nslides07  07-verbs\n\n\n\n\n3\nW\nWed, Apr 15\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \nGroups and summarizing Tidy data\nslides08  08-dplyr2\nHW 3\n\n\n3\nF\nFri, Apr 17\n📚 R4DS 4 \nCode style\nslides09\n\n\n\n\n4\nM\nMon, Apr 20\n📚 R4DS 19.1-19.3\nCombining datasets\nslides10  10-combining\n\n\n\n\n4\nW\nWed, Apr 22\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \nImport data and dates/times\nslides11  11-import\nHW 4\n\n\n4\nF\nFri, Apr 24\nNO CLASS - FEEL FREE TO TAKE A BREAK, CATCH UP, OR LEARN TO BUILD A WEBSITE\nOPTIONAL: building a website using GitHub Pages  Note: in YouTube tutorial, she clones repo slightly differently than we do. You can use usual procedure.\nGetting started with GitHub Pages  YouTube Tutorial with Quarto and GitHub Pages\n\n\n\n\n5\nM\nMon, Apr 27\n📚 R4DS 16 \nWorking with factors\nslides12  12-factors\nPortfolio 1\n\n\n5\nW\nWed, Apr 29\n📚 R4DS 14  📚 R4DS 15.1-15.5\nWorking with strings and Regex\nslides13  13-strings-regex\n\n\n\n\n5\nF\nFri, May 1\n📚 MDSR 19.2  🌎 Google ngram viewer\nIntro to Text Analysis\ntbd\nHW 5\n\n\n6\nM\nMon, May 4\n\n\n🏝️ Midterm Break; no class\ntbd\n\n\n\n\n6\nW\nWed, May 6\n📚 The Trouble with Sentiment Analysis\nText Analysis\ntbd\n\n\n\n\n6\nF\nFri, May 8\n📚 R4DS 25\nFunctions\ntbd\nPortfolio 2\n\n\n7\nM\nMon, May 11\n📚 MDSR 7.1-7.3\nIteration\ntbd\nHW6\n\n\n7\nW\nWed, May 13\n\n\nIteration II\ntbd\n\n\n\n\n7\nF\nFri, May 15\n\n\nAPIs\ntbd\nHW7\n\n\n8\nM\nMon, May 18\n\n\nScraping I\ntbd\nFinal Project Idea Form\n\n\n8\nW\nWed, May 20\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nF\nFri, May 22\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\nIntro to Interactivity\ntbd\nHW8  Portfolio 3\n\n\n9\nM\nMon, May 25\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\nShiny 1\ntbd\n\n\n\n\n9\nW\nWed, May 27\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\nShiny 2\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, May 29\n\n\nShiny 3\ntbd\n\n\n\n\n10\nM\nMon, Jun 1\n\n\nProject Demos\ntbd\nPortfolio 4\n\n\n10\nW\nWed, Jun 3\n\n\nProject Demos\ntbd\nHW9\n\n\n\n\nNA\nMon, Jun 8\n\n\nFinal Project Due @ noon\ntbd\nFinal Project",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -3994,5 +3994,250 @@
     "title": "Working with Factors",
     "section": "Your turn: hotel bookings",
     "text": "Your turn: hotel bookings\n\nThe remainder of the activity file has you fixing up some plots using hotel bookings data from Tidy Tuesday"
+  },
+  {
+    "objectID": "slides/13/slides13.html#today",
+    "href": "slides/13/slides13.html#today",
+    "title": "Working with Strings",
+    "section": "Today",
+    "text": "Today\nIntro to strings"
+  },
+  {
+    "objectID": "slides/13/slides13.html#strings-in-r",
+    "href": "slides/13/slides13.html#strings-in-r",
+    "title": "Working with Strings",
+    "section": "Strings in R",
+    "text": "Strings in R\nAnything surrounded by quotes(\") or single quotes(').\n\n\"Carleton College\"\n\"2025\"\n'\"Hello World\"'"
+  },
+  {
+    "objectID": "slides/13/slides13.html#str_view",
+    "href": "slides/13/slides13.html#str_view",
+    "title": "Working with Strings",
+    "section": "str_view",
+    "text": "str_view\nstr_view is a handy function that prints the underlying representation of a string and can also be used to check pattern matching (which we’ll see in a bit!)\n\nstr_view(\"Carleton College\")\n\n[1] │ Carleton College\n\nstr_view(\"2025\")\n\n[1] │ 2025\n\nstr_view('\"Hello World\"')\n\n[1] │ \"Hello World\""
+  },
+  {
+    "objectID": "slides/13/slides13.html#section",
+    "href": "slides/13/slides13.html#section",
+    "title": "Working with Strings",
+    "section": "",
+    "text": "The “escape” backslash  is used to escape the special use of certain characters\n\nstr_view(\"Math\\Stats\")\n\nError: '\\S' is an unrecognized escape in character string (&lt;input&gt;:1:16)\n\n\nstr_view(\"\\\"\")\n\n[1] │ \"\n\nstr_view(\"\\\\\")\n\n[1] │ \\\n\nstr_view(\"Math\\\\Stats\")\n\n[1] │ Math\\Stats"
+  },
+  {
+    "objectID": "slides/13/slides13.html#section-1",
+    "href": "slides/13/slides13.html#section-1",
+    "title": "Working with Strings",
+    "section": "",
+    "text": "Simple, consistent functions for working with strings.\nPart of the tidyverse\n\n\n# loaded with tidyverse\nlibrary(stringr)"
+  },
+  {
+    "objectID": "slides/13/slides13.html#string-length",
+    "href": "slides/13/slides13.html#string-length",
+    "title": "Working with Strings",
+    "section": "String length",
+    "text": "String length\nstr_length() determines the length of a string.\n\ncc &lt;- \"Carleton College\"\nstr_length(cc)\n\n[1] 16"
+  },
+  {
+    "objectID": "slides/13/slides13.html#combine-strings",
+    "href": "slides/13/slides13.html#combine-strings",
+    "title": "Working with Strings",
+    "section": "Combine strings",
+    "text": "Combine strings\nstr_c() allows us to easily create strings from variables/vectors.\n\nbuilding &lt;- \"CMC\"\nroom &lt;- \"102\"\nbegin_time &lt;- \"12:30 p.m.\"\nend_time &lt;- \"1:40 p.m.\"\ndays &lt;- \"MW\"\nclass &lt;- \"STAT 220\"\nstr_c(class, \"meets from\", begin_time, \"to\", end_time, \n      days, \"in\", building, room, sep=\" \")\n\n\n\n[1] \"STAT 220 meets from 12:30 p.m. to 1:40 p.m. MW in CMC 102\""
+  },
+  {
+    "objectID": "slides/13/slides13.html#concatenate-strings",
+    "href": "slides/13/slides13.html#concatenate-strings",
+    "title": "Working with Strings",
+    "section": "Concatenate Strings",
+    "text": "Concatenate Strings\nstr_c() works with vectors\n\nletters\n\n [1] \"a\" \"b\" \"c\" \"d\" \"e\" \"f\" \"g\" \"h\" \"i\" \"j\" \"k\" \"l\" \"m\" \"n\" \"o\" \"p\" \"q\" \"r\" \"s\"\n[20] \"t\" \"u\" \"v\" \"w\" \"x\" \"y\" \"z\"\n\n\n\n\nstr_c(letters, 1:26)\n\n [1] \"a1\"  \"b2\"  \"c3\"  \"d4\"  \"e5\"  \"f6\"  \"g7\"  \"h8\"  \"i9\"  \"j10\" \"k11\" \"l12\"\n[13] \"m13\" \"n14\" \"o15\" \"p16\" \"q17\" \"r18\" \"s19\" \"t20\" \"u21\" \"v22\" \"w23\" \"x24\"\n[25] \"y25\" \"z26\"\n\n\n\n\n\nstr_c(letters, 1:26, sep = \"-\")\n\n [1] \"a-1\"  \"b-2\"  \"c-3\"  \"d-4\"  \"e-5\"  \"f-6\"  \"g-7\"  \"h-8\"  \"i-9\"  \"j-10\"\n[11] \"k-11\" \"l-12\" \"m-13\" \"n-14\" \"o-15\" \"p-16\" \"q-17\" \"r-18\" \"s-19\" \"t-20\"\n[21] \"u-21\" \"v-22\" \"w-23\" \"x-24\" \"y-25\" \"z-26\""
+  },
+  {
+    "objectID": "slides/13/slides13.html#case-conversion",
+    "href": "slides/13/slides13.html#case-conversion",
+    "title": "Working with Strings",
+    "section": "Case conversion",
+    "text": "Case conversion\nstr_to_lower() and str_to_upper() can help “fix” the case\n\ntext &lt;- \"NoRthFieLd, mN\"\nstr_to_lower(text)\n\n[1] \"northfield, mn\"\n\n\n\n\nstr_to_upper(text)\n\n[1] \"NORTHFIELD, MN\""
+  },
+  {
+    "objectID": "slides/13/slides13.html#babynames",
+    "href": "slides/13/slides13.html#babynames",
+    "title": "Working with Strings",
+    "section": "Babynames",
+    "text": "Babynames\n\nlibrary(babynames)\nbabynames\n\n# A tibble: 1,924,665 × 5\n    year sex   name          n   prop\n   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt;\n 1  1880 F     Mary       7065 0.0724\n 2  1880 F     Anna       2604 0.0267\n 3  1880 F     Emma       2003 0.0205\n 4  1880 F     Elizabeth  1939 0.0199\n 5  1880 F     Minnie     1746 0.0179\n 6  1880 F     Margaret   1578 0.0162\n 7  1880 F     Ida        1472 0.0151\n 8  1880 F     Alice      1414 0.0145\n 9  1880 F     Bertha     1320 0.0135\n10  1880 F     Sarah      1288 0.0132\n# ℹ 1,924,655 more rows"
+  },
+  {
+    "objectID": "slides/13/slides13.html#popularity-of-amanda-over-time",
+    "href": "slides/13/slides13.html#popularity-of-amanda-over-time",
+    "title": "Working with Strings",
+    "section": "Popularity of “Amanda” over time",
+    "text": "Popularity of “Amanda” over time\n\n\n\n\n\n\n\n\n\n\nReplicate this plot with your own name. If your name doesn’t have enough data, try a friend or professor’s name"
+  },
+  {
+    "objectID": "slides/13/slides13.html#babynames-1",
+    "href": "slides/13/slides13.html#babynames-1",
+    "title": "Working with Strings",
+    "section": "Babynames",
+    "text": "Babynames\n\n\n\nbabynames\n\n# A tibble: 1,924,665 × 5\n    year sex   name          n   prop\n   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt;\n 1  1880 F     Mary       7065 0.0724\n 2  1880 F     Anna       2604 0.0267\n 3  1880 F     Emma       2003 0.0205\n 4  1880 F     Elizabeth  1939 0.0199\n 5  1880 F     Minnie     1746 0.0179\n 6  1880 F     Margaret   1578 0.0162\n 7  1880 F     Ida        1472 0.0151\n 8  1880 F     Alice      1414 0.0145\n 9  1880 F     Bertha     1320 0.0135\n10  1880 F     Sarah      1288 0.0132\n# ℹ 1,924,655 more rows\n\n\n\nExample questions:\n\nHow many names end in a vowel?\nHow many names contain the pattern “stat”\nHow many names contain 3 A’s?"
+  },
+  {
+    "objectID": "slides/13/slides13.html#extract-substrings",
+    "href": "slides/13/slides13.html#extract-substrings",
+    "title": "Working with Strings",
+    "section": "Extract substrings",
+    "text": "Extract substrings\n\nstr_sub(string, start = 1, end = -1)\n\n\nstring = character vector\nstart / end = position of the first and last characters\n\nNote: positive numbers start from the left and negative numbers start from the right"
+  },
+  {
+    "objectID": "slides/13/slides13.html#extract-substrings-1",
+    "href": "slides/13/slides13.html#extract-substrings-1",
+    "title": "Working with Strings",
+    "section": "Extract substrings",
+    "text": "Extract substrings\nWe can pull apart strings from the start…\n\ncc &lt;- \"Carleton College\"\nstr_sub(cc, 10)  # end defaults to last character\n\n[1] \"College\"\n\n\n\n\nstr_sub(cc, 1, 8)\n\n[1] \"Carleton\"\n\n\n\n\n\n# extract more than one string by setting start and end as vectors\n# match the elements of each vector to each string desired\nstr_sub(cc, c(1, 10), c(8, 16))\n\n[1] \"Carleton\" \"College\""
+  },
+  {
+    "objectID": "slides/13/slides13.html#extract-substrings-2",
+    "href": "slides/13/slides13.html#extract-substrings-2",
+    "title": "Working with Strings",
+    "section": "Extract substrings",
+    "text": "Extract substrings\n… or the end\n\ncc &lt;- \"Carleton College\"\nstr_sub(cc, -3)\n\n[1] \"ege\"\n\n\n\n\nstr_sub(cc, -8, -3)\n\n[1] \" Colle\""
+  },
+  {
+    "objectID": "slides/13/slides13.html#your-turn",
+    "href": "slides/13/slides13.html#your-turn",
+    "title": "Working with Strings",
+    "section": "Your turn:",
+    "text": "Your turn:\n\nWhat will the following commands return?\n\n\nstring &lt;- \"Blue and Maize\"\nstr_sub(string, 1, 4)\nstr_sub(string, 4)\nstr_sub(string, -5)"
+  },
+  {
+    "objectID": "slides/13/slides13.html#your-turn-again",
+    "href": "slides/13/slides13.html#your-turn-again",
+    "title": "Working with Strings",
+    "section": "Your turn (again):",
+    "text": "Your turn (again):\nHow does the proportion of newborns with names that end with a vowel change over time?\n\nConfer with folks around you. Fill in the blanks of the .Rmd file to…\n\nIsolate the last letter of every name\nCreate a logical variable that displays whether the last letter is one of “a”, “e”, “i”, “o”, “u”, or “y”.\nUse a weighted mean to calculate the proportion of children whose name ends in a vowel by year (see ?weighted.mean)\nand then display the results as a line plot."
+  },
+  {
+    "objectID": "slides/13/slides13.html#extract-substrings-3",
+    "href": "slides/13/slides13.html#extract-substrings-3",
+    "title": "Working with Strings",
+    "section": "Extract substrings",
+    "text": "Extract substrings\nWhat about a vector of strings?\n\nfruits &lt;- c(\"apple\", \"pineapple\", \"Pear\", \"orange\", \"peach\", \"banana\")\nstr_sub(fruits, 2, 4)\n\n[1] \"ppl\" \"ine\" \"ear\" \"ran\" \"eac\" \"ana\"\n\n\n\n\nstr_sub(fruits, 2, 2)\n\n[1] \"p\" \"i\" \"e\" \"r\" \"e\" \"a\"\n\n\n\n\n\nstr_sub(fruits, 4, 4)\n\n[1] \"l\" \"e\" \"r\" \"n\" \"c\" \"a\"\n\n\n\n\n\nstr_sub(fruits, c(2, 4, 2, 4, 2, 4), c(2, 4, 2, 4, 2, 4))\n\n[1] \"p\" \"e\" \"e\" \"n\" \"e\" \"a\""
+  },
+  {
+    "objectID": "slides/13/slides13.html#pad-strings",
+    "href": "slides/13/slides13.html#pad-strings",
+    "title": "Working with Strings",
+    "section": "Pad strings",
+    "text": "Pad strings\nWe can add character(s) to the beginning or end of a string\n\nnums &lt;- 1:10\nas.character(nums)\n\n [1] \"1\"  \"2\"  \"3\"  \"4\"  \"5\"  \"6\"  \"7\"  \"8\"  \"9\"  \"10\"\n\n\n\n\nstr_pad(nums, 2, pad =\"0\")\n\n [1] \"01\" \"02\" \"03\" \"04\" \"05\" \"06\" \"07\" \"08\" \"09\" \"10\"\n\n\n\n\n\nstr_pad(nums, 3, pad =\"0\")\n\n [1] \"001\" \"002\" \"003\" \"004\" \"005\" \"006\" \"007\" \"008\" \"009\" \"010\"\n\n\n\n\n\nstr_pad(nums, 3, pad =\"0\", side = \"right\")\n\n [1] \"100\" \"200\" \"300\" \"400\" \"500\" \"600\" \"700\" \"800\" \"900\" \"100\"\n\n\n\n\n\nstr_pad(nums, 3, pad =\"0\", side = \"both\")\n\n [1] \"010\" \"020\" \"030\" \"040\" \"050\" \"060\" \"070\" \"080\" \"090\" \"100\""
+  },
+  {
+    "objectID": "slides/13/slides13.html#section-2",
+    "href": "slides/13/slides13.html#section-2",
+    "title": "Working with Strings",
+    "section": "",
+    "text": "Use the courses dataset in the .rmd file to answer the following:\n\nHow many of the course numbers end in .00? Use str_detect() or str_count() to help you answer this question.\nThe section number appears after the decimal point. Use mutate() and str_sub() to create a section column containing this number.\nHow many courses contain the word Introduction? Does case matter here?\nWhat is the longest course name (in terms of characters)? What is the shortest course name? Use str_length() to help you answer this question.\nWhich course name is comprised of the most words? To do this, create a new column containing the words in each title using mutate() and str_split(). Then, create another column calculating the length() of the values in column you just created.\nUse str_subset() to return the course names that contain exclamation points (!).\n\n\n\ncountdown::countdown(10)"
+  },
+  {
+    "objectID": "slides/13/slides13.html#regular-expressions-1",
+    "href": "slides/13/slides13.html#regular-expressions-1",
+    "title": "Working with Strings",
+    "section": "Regular expressions",
+    "text": "Regular expressions\n\nSometimes the patterns we wish to detect, extract, etc. too complex for exact matching\n\nExtract all time stamps of the form HH:MM:SS\nExtract the string that comes after the dash (e.g. hw01-emilylkurtz)\n\nRegular expressions (regexps) are a very terse language that allow you to describe patterns in strings\nConfusing at first, but extremely useful"
+  },
+  {
+    "objectID": "slides/13/slides13.html#example",
+    "href": "slides/13/slides13.html#example",
+    "title": "Working with Strings",
+    "section": "Example",
+    "text": "Example\nSuppose we wish to anonymize phone numbers in survey results\n\na1 &lt;- \"Home: 507-645-5489\"\na2 &lt;- \"Cell: 219.917.9871\"\na3 &lt;- \"My work phone is 507-202-2332\"\na4 &lt;- \"I don't have a phone\"\ninfo &lt;- c(a1, a2, a3, a4)\n\n\n\n[1] \"Home: 507-645-5489\"            \"Cell: 219.917.9871\"           \n[3] \"My work phone is 507-202-2332\" \"I don't have a phone\""
+  },
+  {
+    "objectID": "slides/13/slides13.html#visualizing-matches",
+    "href": "slides/13/slides13.html#visualizing-matches",
+    "title": "Working with Strings",
+    "section": "Visualizing matches",
+    "text": "Visualizing matches\nThe helper function str_view() finds regex matches\n\nstr_view(a1, \"5\")\n\n[1] │ Home: &lt;5&gt;07-64&lt;5&gt;-&lt;5&gt;489"
+  },
+  {
+    "objectID": "slides/13/slides13.html#match-any-character",
+    "href": "slides/13/slides13.html#match-any-character",
+    "title": "Working with Strings",
+    "section": ". match any character",
+    "text": ". match any character\nFind a “-” and any (.) character that follows\n\nstr_view(a1, \"-.\")\n\n[1] │ Home: 507&lt;-6&gt;45&lt;-5&gt;489"
+  },
+  {
+    "objectID": "slides/13/slides13.html#match-any-occurence",
+    "href": "slides/13/slides13.html#match-any-occurence",
+    "title": "Working with Strings",
+    "section": "[] match any occurence",
+    "text": "[] match any occurence\nFind any numbers between 0 and 9\n\nstr_view(a1, \"[0123456789]\")\n\n[1] │ Home: &lt;5&gt;&lt;0&gt;&lt;7&gt;-&lt;6&gt;&lt;4&gt;&lt;5&gt;-&lt;5&gt;&lt;4&gt;&lt;8&gt;&lt;9&gt;"
+  },
+  {
+    "objectID": "slides/13/slides13.html#match-any-occurence-1",
+    "href": "slides/13/slides13.html#match-any-occurence-1",
+    "title": "Working with Strings",
+    "section": "[] match any occurence",
+    "text": "[] match any occurence\nFind any numbers between 2 and 7\n\nstr_view(a1, \"[2-7]\")\n\n[1] │ Home: &lt;5&gt;0&lt;7&gt;-&lt;6&gt;&lt;4&gt;&lt;5&gt;-&lt;5&gt;&lt;4&gt;89"
+  },
+  {
+    "objectID": "slides/13/slides13.html#your-turn-1",
+    "href": "slides/13/slides13.html#your-turn-1",
+    "title": "Working with Strings",
+    "section": "Your turn:",
+    "text": "Your turn:\n\nDetect either “.” or “-” in the info vector.\n\n\na1 &lt;- \"Home: 507-645-5489\"\na2 &lt;- \"Cell: 219.917.9871\"\na3 &lt;- \"My work phone is 507-202-2332\"\na4 &lt;- \"I don't have a phone\"\ninfo &lt;- c(a1, a2, a3, a4)\n\n\n\n[1] │ Home: 507&lt;-&gt;645&lt;-&gt;5489\n[2] │ Cell: 219&lt;.&gt;917&lt;.&gt;9871\n[3] │ My work phone is 507&lt;-&gt;202&lt;-&gt;2332"
+  },
+  {
+    "objectID": "slides/13/slides13.html#special-patterns",
+    "href": "slides/13/slides13.html#special-patterns",
+    "title": "Working with Strings",
+    "section": "Special patterns",
+    "text": "Special patterns\nThere are a number of special patterns that match more than one character\n\n\\\\d - digit\n\\\\s - white space\n\\\\w - word\n\\\\t - tab\n\\\\n - newline\n\n\n\nstr_view(a1, \"\\\\d\")\n\n[1] │ Home: &lt;5&gt;&lt;0&gt;&lt;7&gt;-&lt;6&gt;&lt;4&gt;&lt;5&gt;-&lt;5&gt;&lt;4&gt;&lt;8&gt;&lt;9&gt;\n\n\n\n\n\nOutside of R, these would be single back slashes."
+  },
+  {
+    "objectID": "slides/13/slides13.html#caution",
+    "href": "slides/13/slides13.html#caution",
+    "title": "Working with Strings",
+    "section": "Caution!",
+    "text": "Caution!\n\nstr_view(a1, \"\\\\w\")\n\n[1] │ &lt;H&gt;&lt;o&gt;&lt;m&gt;&lt;e&gt;: &lt;5&gt;&lt;0&gt;&lt;7&gt;-&lt;6&gt;&lt;4&gt;&lt;5&gt;-&lt;5&gt;&lt;4&gt;&lt;8&gt;&lt;9&gt;"
+  },
+  {
+    "objectID": "slides/13/slides13.html#match-any-occurence-except",
+    "href": "slides/13/slides13.html#match-any-occurence-except",
+    "title": "Working with Strings",
+    "section": "[^] match any occurence except",
+    "text": "[^] match any occurence except\nANYTHING BUT numbers between 2 and 7\n\nstr_view(a1, \"[^2-7]\")\n\n[1] │ &lt;H&gt;&lt;o&gt;&lt;m&gt;&lt;e&gt;&lt;:&gt;&lt; &gt;5&lt;0&gt;7&lt;-&gt;645&lt;-&gt;54&lt;8&gt;&lt;9&gt;\n\n\n\n\nCommon pitfall: forgetting the brackets"
+  },
+  {
+    "objectID": "slides/13/slides13.html#anchors",
+    "href": "slides/13/slides13.html#anchors",
+    "title": "Working with Strings",
+    "section": "Anchors",
+    "text": "Anchors\nAnchors look for matches at the start ^ or end $\n\n\n[1] │ Home: 507-645-5489\n[2] │ Cell: 219.917.9871\n[3] │ My work phone is 507-202-2332\n[4] │ I don't have a phone\n\n\n\nEntries that start with a digitEntries that end with a digit\n\n\n\nstr_view(info, \"^\\\\d\")\n\n\n\n\nstr_view(info, \"\\\\d$\")\n\n[1] │ Home: 507-645-548&lt;9&gt;\n[2] │ Cell: 219.917.987&lt;1&gt;\n[3] │ My work phone is 507-202-233&lt;2&gt;"
+  },
+  {
+    "objectID": "slides/13/slides13.html#use-regex-in-str_detect-str_sub-etc",
+    "href": "slides/13/slides13.html#use-regex-in-str_detect-str_sub-etc",
+    "title": "Working with Strings",
+    "section": "Use regex in str_detect, str_sub, etc:",
+    "text": "Use regex in str_detect, str_sub, etc:\n\nstr_view(info)\n\n[1] │ Home: 507-645-5489\n[2] │ Cell: 219.917.9871\n[3] │ My work phone is 507-202-2332\n[4] │ I don't have a phone\n\n\n\nstr_detect(info, \"\\\\d\")\n\n[1]  TRUE  TRUE  TRUE FALSE\n\n\n\nstr_replace_all(info, \"\\\\d\", \"X\")\n\n[1] \"Home: XXX-XXX-XXXX\"            \"Cell: XXX.XXX.XXXX\"           \n[3] \"My work phone is XXX-XXX-XXXX\" \"I don't have a phone\""
+  },
+  {
+    "objectID": "slides/13/slides13.html#your-turn-2",
+    "href": "slides/13/slides13.html#your-turn-2",
+    "title": "Working with Strings",
+    "section": "Your turn",
+    "text": "Your turn\n\nFill in the code to determine how many baby names in 2015 ended with a vowel.\nUse a regular expression to specify the pattern.\n\n\nbabynames2015 &lt;- babynames %&gt;% \n  ___(___ == ___) %&gt;%                       # extract year 2015\n  ___(ends_with_vowel = ___(___, ___)) %&gt;%  # create logical column\n  count(ends_with_vowel)                    # create a frequency table\nbabynames2015\n\n\nFind out how many 2015 baby names contain the letter A three times. Use str_count()"
+  },
+  {
+    "objectID": "slides/13/slides13.html#popularity-of-glenn-over-time",
+    "href": "slides/13/slides13.html#popularity-of-glenn-over-time",
+    "title": "Working with Strings",
+    "section": "Popularity of “Glenn” over time",
+    "text": "Popularity of “Glenn” over time\n\n\n\n\n\n\n\n\n\n\nReplicate this plot with your own name. If your name doesn’t have enough data, try a friend or professor’s name"
+  },
+  {
+    "objectID": "slides/13/slides13.html#section-3",
+    "href": "slides/13/slides13.html#section-3",
+    "title": "Working with Strings",
+    "section": "",
+    "text": "Use the courses dataset in the activities file to answer the following:\n\nHow many of the course numbers end in .00? Use str_detect() or str_count() to help you answer this question.\n\n\nThe section number appears after the decimal point. Use mutate() and str_sub() to create a section column containing this number.\nHow many courses contain the word Introduction? Does case matter here?\nWhat is the longest course name (in terms of characters)? What is the shortest course name? Use str_length() to help you answer this question.\nWhich course name is comprised of the most words? To do this, create a new column containing the words in each title using mutate() and str_split(). Then, create another column calculating the lengths() of the values in column you just created.\nUse str_subset() to return the course names that contain exclamation points (!).\n\n\nNote: Some of these might be tricky. That’s okay! Try them and move on if you’re stuck. We will learn more tools after this activity and you can revisit."
   }
 ]

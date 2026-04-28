@@ -1,6 +1,6 @@
 ---
 title: "Working with <br>Strings"
-subtitle: Day 12
+subtitle: Day 13
 title-slide-attributes:
   data-background-image: ../img/horst_stringr.jpeg
   data-background-size: 70%
@@ -35,11 +35,6 @@ slides_theme = theme_minimal(
 theme_set(slides_theme)
 ```
 
-## Today
-
-1. Lab Quiz 2 Info
-2. Local versions of R/RStudio/GitHub
-3. Intro to strings
 
 # string {.maize}
 
@@ -127,9 +122,9 @@ str_length(cc)
 
 
 building <- "CMC"
-room <- "306"
-begin_time <- "11:10 a.m."
-end_time <- "12:20 p.m."
+room <- "102"
+begin_time <- "12:30 p.m."
+end_time <- "1:40 p.m."
 days <- "MW"
 class <- "STAT 220"
 str_c(class, "meets from", begin_time, "to", end_time, 
@@ -148,12 +143,6 @@ letters
 
 ```{r}
 str_c(letters, 1:26)
-```
-
-. . . 
-
-```{r}
-str_c(letters, 1:26, sep = "")
 ```
 
 . . . 
@@ -185,12 +174,12 @@ library(babynames)
 babynames
 ```
 
-## Popularity of "Amanda" over time
+## Popularity of "Glenn" over time
 
 ```{r}
 #| echo: false
 babynames %>%
-  filter(name == "Amanda") %>%
+  filter(name == "Glenn") %>%
   ggplot(aes(x = year, y = prop, col = sex)) +
   geom_line(size = 1.5) + 
   scale_color_colorblind() 
@@ -202,13 +191,13 @@ Replicate this plot with your own name. If your name doesn't have enough data, t
 
 ## Babynames
 ::::: columns
-::: {.column .nonincremental width="50%"}
+::: {.column .nonincremental width="55%"}
 ```{r}
 babynames
 ```
 :::
 
-:::{.column .nonincremental .fragment width="35%" style="text-align: right;"}
+:::{.column .nonincremental .fragment width="35%"}
 Example questions: 
 
 - How many names end in a vowel? 
@@ -228,6 +217,7 @@ str_sub(string, start = 1, end = -1)
 
 - `string` = character vector
 - `start` / `end` = position of the first and last characters
+  - Note: positive numbers start from the left and negative numbers start from the right
 
 ## Extract substrings
 
@@ -248,7 +238,8 @@ str_sub(cc, 1, 8)
 . . . 
 
 ```{r}
-# match the elements of each vector for positions
+# extract more than one string by setting start and end as vectors
+# match the elements of each vector to each string desired
 str_sub(cc, c(1, 10), c(8, 16))
 ```
 
@@ -276,9 +267,10 @@ What will the following commands return?
 :::
 
 ```{r eval=FALSE}
-str_sub("Amanda Luby", 1, 4)
-str_sub("Amanda Luby", 4)
-str_sub("Amanda Luby", -5)
+string <- "Blue and Maize"
+str_sub(string, 1, 4)
+str_sub(string, 4)
+str_sub(string, -5)
 ```
 
 
@@ -287,6 +279,8 @@ countdown(2)
 ```
 
 ## Your turn (again):
+
+How does the proportion of newborns with names that end with a vowel change over time?
 
 ::: {.task .nonincremental}
 Confer with folks around you. Fill in the blanks of the .Rmd file to...
@@ -302,6 +296,18 @@ Confer with folks around you. Fill in the blanks of the .Rmd file to...
 
 ```{r echo=FALSE}
 countdown(6)
+```
+
+##
+
+```{r echo=FALSE}
+babynames %>%
+   mutate(last = str_sub(name, -1), 
+          vowel = last %in% c("a", "e", "i", "o", "u", "y")) %>%
+   group_by(year) %>%
+   summarize(p_vowel = weighted.mean(vowel, n)) %>%
+   ggplot(aes(year, p_vowel))+
+   geom_line()
 ```
 
 ## Extract substrings
@@ -373,9 +379,30 @@ str_pad(nums, 3, pad ="0", side = "both")
 
 ::: {.task .nonincremental}
 
-Use the `courses` dataset in the .rmd file to answer the following:
+Use the `courses` dataset in the activities file to answer the following:
 
 (a) How many of the course numbers end in `.00`? Use `str_detect()` or `str_count()` to help you answer this question.
+
+```{r, eval=FALSE, echo=FALSE}
+courses <- read_csv("https://stat220kurtz.github.io/data/winter2023_course_tbl.csv", col_types = list(course = col_character()))
+
+sum(str_detect(courses$course, pattern="\\.00"))
+sum(str_detect(courses$course, "\\.00$"))
+
+courses <- courses %>%
+  mutate(section = str_sub(course, -2, -1))
+
+sum(str_detect(courses$title, pattern="Introduction"))
+
+courses[which(str_length(courses$title)==102),]
+courses[which(str_length(courses$title)==6),]
+
+courses <- courses %>%
+  mutate(words = str_split(title, " ")) %>%
+  mutate(num_words = lengths(words))
+
+str_subset(courses$title, "!")
+```
 
 
 (b) The section number appears after the decimal point. Use `mutate()` and `str_sub()` to create a `section` column containing this number.
@@ -386,13 +413,15 @@ Use the `courses` dataset in the .rmd file to answer the following:
 
 (d) What is the longest course name (in terms of characters)? What is the shortest course name? Use `str_length()` to help you answer this question.
 
-(e) Which course name is comprised of the most words? To do this, create a new column containing the words in each title using `mutate()` and `str_split()`. Then, create another column calculating the `length()` of the values in column you just created.
+(e) Which course name is comprised of the most words? To do this, create a new column containing the words in each title using `mutate()` and `str_split()`. Then, create another column calculating the `lengths()` of the values in column you just created.
 
 
 (f) Use `str_subset()` to return the course names that contain exclamation points (`!`).
 :::
 
-```{r}
+Note: Some of these might be tricky. That's okay! Try them and move on if you're stuck. We will learn more tools after this activity and you can revisit.
+
+```{r, echo=FALSE}
 countdown::countdown(10)
 ```
 
@@ -403,7 +432,7 @@ countdown::countdown(10)
 - Sometimes the patterns we wish to detect, extract, etc. too complex for exact matching 
 
     + Extract all time stamps of the form `HH:MM:SS`
-    + Extract the string that comes after the dash (e.g. `hw01-aluby`)
+    + Extract the string that comes after the dash (e.g. `hw01-emilylkurtz`)
 
 - **Regular expressions** (regexps) are a very terse language that allow you to describe patterns in strings
 
@@ -469,6 +498,10 @@ a2 <- "Cell: 219.917.9871"
 a3 <- "My work phone is 507-202-2332"
 a4 <- "I don't have a phone"
 info <- c(a1, a2, a3, a4)
+```
+
+```{r echo=FALSE}
+str_view(info, "[.-]")
 ```
 
 
@@ -566,14 +599,26 @@ Use a regular expression to specify the pattern.
 :::
 
 ```{r eval=FALSE}
-babynames %>% 
+babynames2015 <- babynames %>% 
   ___(___ == ___) %>%                       # extract year 2015
   ___(ends_with_vowel = ___(___, ___)) %>%  # create logical column
   count(ends_with_vowel)                    # create a frequency table
+babynames2015
 ```
 
+::: task
 
+Find out how many 2015 baby names contain the letter A three times. Use `str_count()`
+:::
 
-```{r echo=FALSE}
-countdown(3)
+```{r, echo=FALSE, eval=FALSE}
+babynames2015 <- babynames %>% 
+  filter(year == 2015) %>%                       # extract year 2015
+  mutate(ends_with_vowel = str_extract(name, "[aeiouy]$")) %>%  # create logical column
+  count(ends_with_vowel)
+
+babynames2015 <- babynames %>% 
+  filter(year == 2015)
+matches <- str_count(babynames2015$name, "a") == 3
+babynames2015$name[matches]
 ```
