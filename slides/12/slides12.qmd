@@ -158,14 +158,17 @@ Use `gss_cat` to answer the following questions.
 countdown(4)
 ```
 
+## TV Viewership by Religion
+
+::: {.columns}
+::: {.column width="50%"}
 
 ```{r}
 #| label: gss-religion-tv
+#| eval: false
 #| fig-width: 3
 #| fig-height: 3.5
 #| out-width: 100%
-#| echo: false
-#| eval: false
 gss_cat %>%
   drop_na(tvhours) %>%
   group_by(relig) %>%
@@ -174,8 +177,25 @@ gss_cat %>%
     geom_point()
 ```
 
-`r flipbookr::chunk_reveal("gss-religion-tv", font_size_code="70%", title = "Which religions watch the least TV?")`
+:::
+::: {.column width="50%"}
 
+```{r}
+#| label: gss-religion-tv-plot
+#| echo: false
+#| fig-width: 7
+#| fig-height: 7.5
+#| out-width: 100%
+gss_cat %>%
+  drop_na(tvhours) %>%
+  group_by(relig) %>%
+  summarize(tvhours = mean(tvhours)) %>%
+  ggplot(aes(tvhours, relig)) +
+    geom_point()
+```
+
+:::
+:::
 
 ## Which do you prefer?
 
@@ -256,11 +276,11 @@ fct_reorder(
 :::
 :::::
 
-```{r reorder-tv-relig}
+## Reorder relig by tvhours
+
+```{r reorder-tv-relig1}
 #| fig-width: 4.5
 #| fig-height: 3.5
-#| echo: false
-#| eval: false
 
 
 gss_cat %>%
@@ -268,12 +288,26 @@ gss_cat %>%
   group_by(relig) %>%
   summarize(tvhours = mean(tvhours)) %>%
   ggplot(aes(x = tvhours)) +
-  aes(y = relig) +                      #ROTATE
-  aes(y = fct_reorder(relig, tvhours)) + #ROTATE
+  aes(y = relig) +                      
   geom_point()
 ```
 
-`r flipbookr::chunk_reveal("reorder-tv-relig", break_type = "rotate", widths = c(1.2,1), title = "Reorder relig by tvhours")`
+## Reorder relig by tvhours
+
+```{r reorder-tv-relig2}
+#| fig-width: 4.5
+#| fig-height: 3.5
+
+
+gss_cat %>%
+  drop_na(tvhours) %>%
+  group_by(relig) %>%
+  summarize(tvhours = mean(tvhours)) %>%
+  ggplot(aes(x = tvhours)) +
+  aes(y = fct_reorder(relig, tvhours)) +
+  geom_point()
+```
+
 
 ## Try it
 
@@ -356,36 +390,74 @@ fct_reorder2(
 :::
 :::::
 
+## Reorder marital
+
 ```{r}
-#| label: reorder-marital-age
-#| echo: false
-#| eval: false
+#| label: reorder-marital-age1
+#| echo: true
+#| eval: true
 gss_cat %>%
   drop_na(age) %>%
   count(age, marital) %>%
   group_by(age) %>%
   mutate(prop = n / sum(n)) %>%
   ggplot(aes(x = age, y = prop)) +
-  aes(color = marital) +                                     #ROTATE
-  aes(color = fct_reorder2(marital, .x = age, .y = prop)) +  #ROTATE
+  aes(color = marital) +                                     
   geom_line() +
   scale_color_colorblind("")
 ```
 
-`r flipbookr::chunk_reveal("reorder-marital-age", title = "Reorder marital",  break_type = "rotate", widths = c(40, 60))`
+## Reorder marital
 
 ```{r}
-#| label: other-reordering-functions
-#| echo: false
-#| eval: false
+#| label: reorder-marital-age2
+#| echo: true
+#| eval: true
 gss_cat %>%
-  ggplot() + 
-  geom_bar(aes(x = marital)) +                         #ROTATE
-  geom_bar(aes(x = fct_infreq(marital))) +              #ROTATE
-  geom_bar(aes(x = fct_rev(fct_infreq(marital))))      #ROTATE
+  drop_na(age) %>%
+  count(age, marital) %>%
+  group_by(age) %>%
+  mutate(prop = n / sum(n)) %>%
+  ggplot(aes(x = age, y = prop)) +
+  aes(color = fct_reorder2(marital, .x = age, .y = prop)) +
+  geom_line() +
+  scale_color_colorblind("")
 ```
 
-`r flipbookr::chunk_reveal("other-reordering-functions", title = "Other reordering functions",  break_type = "rotate", widths = c(40, 60))`
+## Other reordering functions
+
+```{r}
+#| label: other-reordering-functions1
+#| echo: true
+#| eval: true
+gss_cat %>%
+  ggplot() + 
+  geom_bar(aes(x = marital))
+```
+
+## Other reordering functions
+
+```{r}
+#| label: other-reordering-functions2
+#| echo: true
+#| eval: true
+gss_cat %>%
+  ggplot() + 
+  geom_bar(aes(x = fct_infreq(marital)))
+```
+
+## Other reordering functions
+
+```{r}
+#| label: other-reordering-functions3
+#| echo: true
+#| eval: true
+gss_cat %>%
+  ggplot() + 
+  geom_bar(aes(x = fct_rev(fct_infreq(marital))))
+```
+
+
 
 ## Which political leaning watches more TV?
 
@@ -424,10 +496,12 @@ fct_recode(.f, ...)
 :::
 :::::
 
+## Recoding partyid
+
 ```{r}
 #| label: fct-recode-partyid
-#| echo: false
-#| eval: false
+#| echo: true
+#| eval: true
 gss_cat %>%
   drop_na(tvhours) %>%
   select(partyid, tvhours) %>%
@@ -444,8 +518,6 @@ gss_cat %>%
   geom_point() + 
   labs(y = "partyid")
 ```
-
-`r flipbookr::chunk_reveal("fct-recode-partyid", title = "Recoding partyid",  widths = c(40, 60))`
 
 ## How can we combine these factor levels?
 
@@ -489,7 +561,9 @@ fct_collapse(.f, ...)
 :::
 :::::
 
-```{r fct-collapse-partyid, eval=FALSE, echo=FALSE}
+## Collapsing partyid
+
+```{r fct-collapse-partyid}
 gss_cat %>%
   drop_na(tvhours) %>%
   select(partyid, tvhours) %>%
@@ -511,7 +585,6 @@ gss_cat %>%
   labs(y = "partyid")
 ```
 
-`r flipbookr::chunk_reveal("fct-collapse-partyid", title = "Collapsing partyid",  widths = c(40, 60))`
 
 ```{r include=FALSE}
 gss_cat <- gss_cat %>%
@@ -582,7 +655,7 @@ By default collapses as many levels as possible such that the new level is still
 ::::: columns
 ::: {.column width="50%"}
 - `f` factor vector
-- `n` preserve the most common n levels
+- `n` preserve the most common n levels, lump together the rest for n+1 total levels
 - `other_level = "Other"`
 :::
 ::: {.column .nonincremental width="50%"}
@@ -597,18 +670,36 @@ fct_lump(
 :::
 :::::
 
+## Lumping partyid
 
-```{r fct-lump-partyid, eval=FALSE, echo=FALSE}
+```{r fct-lump-partyid1}
 gss_cat %>%
-  mutate(partyid = partyid) %>%                    #ROTATE
-  mutate(partyid = fct_lump(partyid, n = 2)) %>%   #ROTATE
-  mutate(partyid = fct_lump(partyid, n = 3)) %>%   #ROTATE
+  mutate(partyid = partyid) %>%                    
   ggplot(aes(x = partyid)) + 
   geom_bar() +
   labs(x = "partyid")
 ```
 
-`r flipbookr::chunk_reveal("fct-lump-partyid", title = "Lumping parytid",  break_type = "rotate", widths = c(40, 60))`
+## Lumping partyid
+
+```{r fct-lump-partyid2}
+gss_cat %>%
+  mutate(partyid = fct_lump(partyid, n = 2)) %>% 
+  ggplot(aes(x = partyid)) + 
+  geom_bar() +
+  labs(x = "partyid")
+```
+
+## Lumping partyid
+
+```{r fct-lump-partyid3}
+gss_cat %>%
+  mutate(partyid = fct_lump(partyid, n = 3)) %>%
+  ggplot(aes(x = partyid)) + 
+  geom_bar() +
+  labs(x = "partyid")
+```
+
 
 ## Your turn: hotel bookings
 
