@@ -4330,5 +4330,33 @@
     "title": "Working with Factors",
     "section": "TV Viewership by Religion",
     "text": "TV Viewership by Religion\n\n\n\ngss_cat %&gt;%\n  drop_na(tvhours) %&gt;%\n  group_by(relig) %&gt;%\n  summarize(tvhours = mean(tvhours)) %&gt;%\n  ggplot(aes(tvhours, relig)) +\n    geom_point()"
+  },
+  {
+    "objectID": "portfolio/portfolio-2.html",
+    "href": "portfolio/portfolio-2.html",
+    "title": "Portfolio Project 2",
+    "section": "",
+    "text": "For your second portfolio project, you’ll apply what you’ve learned about wrangling data. Your goal is to identify cities in the U.S. that struggle with weather prediction and explore possible reasons/patterns to why. Speciﬁcally, you will focus on the error in high and low temperature forecasting, and you may wish to also consider precipitation and outlook.\nYou should be careful about summarizing and joining data, and be on the lookout for data quality issues!\nYou should write a short report in a “blog post” format describing your ﬁndings, including an introductory paragraph that provides some context to your data and a couple paragraphs outlining your ﬁndings. That’s it. I’m looking for something that is insightful and well-crafted, rather than long and exhaustive.\nYou should write your blog post in quarto, create any graphics using ggplot2, and use tools from this class for data wrangling. To submit your work, push both your quarto file and rendered output document to GitHub and submit your pdf to Gradescope. Do not forget to give your post an informative title!"
+  },
+  {
+    "objectID": "portfolio/portfolio-2.html#weather-forecasts.csv",
+    "href": "portfolio/portfolio-2.html#weather-forecasts.csv",
+    "title": "Portfolio Project 2",
+    "section": "weather-forecasts.csv",
+    "text": "weather-forecasts.csv\n\n\n\n\n\n\n\n\nvariable\nclass\ndescription\n\n\n\n\ndate\ndate\ndate described by the forecast\n\n\ncity\nfactor\nobservation city\n\n\nstate\nfactor\nstate or territory\n\n\nhigh_or_low\nfactor\nwhether the forecast is for the high temperature or the low temperature\n\n\nforecast_hours_before\ninteger\nthe number of hours before the observation (one of 12, 24, 36, or 48)\n\n\nobserved_temp\ninteger\nthe actual observed temperature on that date (high or low)\n\n\nforecast_temp\ninteger\nthe predicted temperature on that date (high or low)\n\n\nobserved_precip\ndouble\nthe observed precipitation on that date, in inches; note that some observations lack an indication of precipitation, while others explicitly report 0\n\n\nforecast_outlook\nfactor\nan abbreviation for the general outlook, such as precipitation type\n\n\npossible_error\nfactor\neither (1) “none” if the row contains no potential errors or (2) thename of the variable that is the cause of the potential error"
+  },
+  {
+    "objectID": "portfolio/portfolio-2.html#cities.csv",
+    "href": "portfolio/portfolio-2.html#cities.csv",
+    "title": "Portfolio Project 2",
+    "section": "cities.csv",
+    "text": "cities.csv\n\n\n\n\n\n\n\n\nvariable\nclass\ndescription\n\n\n\n\ncity\ncharacter\ncity\n\n\nstate\ncharacter\nstate or territory\n\n\nlon\ndouble\nlongitude\n\n\nlat\ndouble\nlatitude\n\n\nkoppen\ncharacter\nKöppen climate classiﬁcation\n\n\nelevation\ndouble\nelevation in meters\n\n\ndistance_to_coast\ndouble\ndistance_to_coast in miles\n\n\nwind\ndouble\nmean wind speed\n\n\nelevation_change_four\ndouble\ngreatest elevation change in meters out of the four closest points to this city in a collection of elevations used by the team at Saint Louis University\n\n\nelevation_change_eight\ndouble\ngreatest elevation change in meters out of the eight closest points to this city in a collection of elevations used by the team at Saint Louis University\n\n\navg_annual_precip\ndouble\naverage annual precipitation in inches"
+  },
+  {
+    "objectID": "portfolio/portfolio-2.html#outlook_meanings.csv",
+    "href": "portfolio/portfolio-2.html#outlook_meanings.csv",
+    "title": "Portfolio Project 2",
+    "section": "outlook_meanings.csv",
+    "text": "outlook_meanings.csv\n\n\n\nvariable\nclass\n\n\n\n\nforecast_outlook\ncharacter\n\n\nmeaning\ncharacter"
   }
 ]
