@@ -21,7 +21,7 @@ glimpse(en_coursera_reviews)
 library(tidytext)
 en_coursera_reviews |>
   unnest_tokens(output = word, input = Review) |>
-  select(CourseId, word)
+  select(CourseId, word) 
 ```
 
 # Count the tokens

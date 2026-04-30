@@ -619,6 +619,6 @@ babynames2015 <- babynames %>%
 
 babynames2015 <- babynames %>% 
   filter(year == 2015)
-matches <- str_count(babynames2015$name, "a") == 3
+matches <- str_count(babynames2015$name, "[Aa]") == 3
 babynames2015$name[matches]
 ```
