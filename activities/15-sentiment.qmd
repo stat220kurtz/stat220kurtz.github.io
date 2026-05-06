@@ -3,17 +3,20 @@ title: "15-sentiment"
 ---
 
 ```{r}
-#library(tidyverse)
-#library(tidytext) # functions for doing text analysis
+library(tidyverse)
+library(tidytext) # functions for doing text analysis
+library(wordcloud)
 ```
+
+This page contains code from lecture and, at the bottom, the end of class activity
 
 # Load the Data
 
 Random (?) sample of 26,882 reviews of coursera courses (Source: [Kaggle](https://www.kaggle.com/datasets/septa97/100k-courseras-course-reviews-dataset/data))
 
 ```{r}
-#en_coursera_reviews <- read_csv("https://stat220-w26.github.io/data/en_coursera_sample.csv")
-#en_coursera_reviews
+en_coursera_reviews <- read_csv("https://stat220kurtz.github.io/data/en_coursera_sample.csv")
+en_coursera_reviews
 ```
 
 # Load Sentiment data
@@ -21,28 +24,63 @@ Random (?) sample of 26,882 reviews of coursera courses (Source: [Kaggle](https:
 ## "bing"
 
 ```{r}
-#bing_sentiments = get_sentiments("bing") %>%
-#  slice_sample(n = 20)
+bing_sentiments = get_sentiments("bing") %>%
+  slice_sample(n = 20)
 ```
 
 ## "afinn"
 
 ```{r}
-#library(textdata)
-#get_sentiments("afinn") %>%
-#  slice_sample(n = 20)
+library(textdata)
+get_sentiments("afinn") %>%
+  slice_sample(n = 20)
 ```
 
 # Sentiment of each review
 
-```{r}
-#bing_review_scores <- en_coursera_reviews %>%
-#  unnest_tokens(word, Review) %>% 
-#  inner_join(bing_sentiments, by = "word") %>%
-#  group_by(review_id) %>%
-#  summarize(
-#    sum = (sum(sentiment == "positive") - sum(sentiment == "negative"))
-#  )
+```{r, eval=FALSE}
+bing_review_scores <- en_coursera_reviews %>%
+  unnest_tokens(word, Review) %>% 
+  inner_join(bing_sentiments, by = "word") %>%
+  group_by(review_id) %>%
+  summarize(
+    sum = (sum(sentiment == "positive") - sum(sentiment == "negative"))
+  )
 
-#bing_review_scores
+bing_review_scores
 ```
+
+# Sherlock Holmes Activity
+
+This activity was created based on an STM tutorial available at https://juliasilge.com/blog/sherlock-holmes-stm/
+
+The `gutenbergr` contains data on works collected as a part of Project Gutenberg, a library of over 75,000 free eBooks. You can use the `gutenberg_download()` function to download a work or works by their Gutenberg ID into a dataset where each row represents a line in the work. You can look up the Gutenberg ID using the `gutenberg_works()` function.
+
+The Sherlock Holmes short stories are a part of Project Gutenberg, and their ID is 1661. We can download the raw data with the following code.
+
+```{r}
+library(gutenbergr)
+sherlock_raw <- gutenberg_download(1661)
+```
+
+We can clean the dataset up a bit so that there is a `story` column that says which of the twelve short stories each line of text belongs to.
+
+```{r}
+sherlock <- sherlock_raw %>%
+    mutate(story = ifelse(str_detect(text, "ADVENTURE"),
+                          text,
+                          NA)) %>%
+    fill(story) %>%
+    filter(story != "THE ADVENTURES OF SHERLOCK HOLMES") %>%
+    mutate(story = factor(story, levels = unique(story)))
+
+sherlock
+```
+
+First, try to make a word cloud of the data overall. You'll want to use `unnest_tokens()` to get convert the dataset so that each row is a word instead of a line. Feel free to try it out on your own, using the sample code from lecture, or don't be afraid to follow the tutorial cited at the beginning of this exercise if you get stuck.
+
+Once you have created a word cloud for all short stories, feel free to make any aesthetic changes, or try out word clouds for individual short stories to see how words used change by story. Consider removing stop words.
+
+The tutorial walks us through the process of finding the words with the highest tf-idf scores in each short story. Follow that code. What sorts of "topics" seem to make up each of the short stories? Do some short stories seem to have common themes with others? Do any stick out?
+
+If you'd like, run some sentiment analysis on the short stories.

@@ -41,16 +41,14 @@ set.seed(0206)
 ## Today
 
 1. Sentiment analysis
-2. Lab Quiz 2! 
-
-## {background-image="../img/coursera-data-sci.png"}
+2. Text analysis loose ends
 
 ## Data for today
 
 Random (?) sample of 26,882 reviews of coursera courses
 
 ```{r}
-en_coursera_reviews <- read_csv("https://stat220-w26.github.io/data/en_coursera_sample.csv")
+en_coursera_reviews <- read_csv("https://stat220kurtz.github.io/data/en_coursera_sample.csv")
 en_coursera_reviews
 ```
 
@@ -94,7 +92,7 @@ get_sentiments("bing") %>%
 
 ```{r}
 #| output-location: column
-library(textdata)
+library(tidytext)
 get_sentiments("afinn") %>%
   slice_sample(n = 20)
 ```
@@ -165,4 +163,47 @@ en_coursera_reviews %>%
 
 What could we change?
 
-# Live coding time
+```{r, include = FALSE}
+bing_review_scores <- en_coursera_reviews %>%
+  unnest_tokens(word, Review) %>% 
+  inner_join(bing_sentiments, by = "word") %>%
+  group_by(review_id) %>%
+  summarize(
+    sum = (sum(sentiment == "positive") - sum(sentiment == "negative"))
+  ) %>%
+  left_join(en_coursera_reviews, by = "review_id") %>%
+  arrange(sum)
+
+bing_review_scores
+```
+
+## Loose Ends - Word Clouds
+
+Word Clouds
+
+- Basically, a sort of artistic histogram for words
+- Made using the `wordcloud` R package (not in `Tidyverse`)
+
+```{r}
+library(wordcloud)
+en_coursera_reviews %>%
+  unnest_tokens(word,Review) %>%
+  inner_join(bing_sentiments, by = "word") %>%
+  group_by(review_id) %>%
+  summarize(review_clean = paste(word, collapse = " ")) %>%
+  wordcloud(
+    max.words = 40,
+    scale = c(8,1),
+    colors = topo.colors(n=30),
+    random.color=TRUE
+  )
+```
+
+## With the rest of class time
+
+Text analysis activity with Sherlock Holmes data
+
+```{r}
+library(gutenbergr)
+sherlock_raw <- gutenberg_download(1661)
+```

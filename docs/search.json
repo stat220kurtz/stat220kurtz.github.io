@@ -26,7 +26,7 @@
     "href": "index.html",
     "title": "Stat 220: Intro to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n\n1\nM\nMon, Mar 30\n📝complete welcome survey\nWelcome + data, R review\nslides01\n\n\n\n\n1\nW\nWed, Apr 1\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus\nGithub + reproducible reports\nslides02  02-example-unvotes  UN report to replicate\n\n\n\n\n1\nF\nFri, Apr 3\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\nggplot\nslides03  03-ggplot-intro  Survivor data\nHW 1\n\n\n2\nM\nMon, Apr 6\n📚 DataViz 17-21 \nTheming + Design\nslides04  TB Data\n\n\n\n\n2\nW\nWed, Apr 8\n📚 DataViz 15 \nMaps/spatial data\nslides05  05-maps  ACS Data\nHW 2\n\n\n2\nF\nFri, Apr 10\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\nAccesibility for data viz\nslides06\n\n\n\n\n3\nM\nMon, Apr 13\n📚 R4DS 3.1-3.4 \nVerbs\nslides07  07-verbs\n\n\n\n\n3\nW\nWed, Apr 15\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \nGroups and summarizing Tidy data\nslides08  08-dplyr2\nHW 3\n\n\n3\nF\nFri, Apr 17\n📚 R4DS 4 \nCode style\nslides09\n\n\n\n\n4\nM\nMon, Apr 20\n📚 R4DS 19.1-19.3\nCombining datasets\nslides10  10-combining\n\n\n\n\n4\nW\nWed, Apr 22\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \nImport data and dates/times\nslides11  11-import\nHW 4\n\n\n4\nF\nFri, Apr 24\nNO CLASS - FEEL FREE TO TAKE A BREAK, CATCH UP, OR LEARN TO BUILD A WEBSITE\nOPTIONAL: building a website using GitHub Pages  Note: in YouTube tutorial, she clones repo slightly differently than we do. You can use usual procedure.\nGetting started with GitHub Pages  YouTube Tutorial with Quarto and GitHub Pages\n\n\n\n\n5\nM\nMon, Apr 27\n📚 R4DS 16 \nWorking with factors\nslides12  12-factors\nPortfolio 1\n\n\n5\nW\nWed, Apr 29\n📚 R4DS 14  📚 R4DS 15.1-15.5\nWorking with strings and Regex\nslides13  13-strings-regex\n\n\n\n\n5\nF\nFri, May 1\n📚 MDSR 19.2  🌎 Google ngram viewer\nIntro to Text Analysis\nslides14  14-text-case-study\nHW 5\n\n\n6\nM\nMon, May 4\n\n\n🏝️ Midterm Break; no class\ntbd\n\n\n\n\n6\nW\nWed, May 6\n📚 The Trouble with Sentiment Analysis\nText Analysis\ntbd\n\n\n\n\n6\nF\nFri, May 8\n📚 R4DS 25\nFunctions\ntbd\nPortfolio 2\n\n\n7\nM\nMon, May 11\n📚 MDSR 7.1-7.3\nIteration\ntbd\nHW6\n\n\n7\nW\nWed, May 13\n\n\nIteration II\ntbd\n\n\n\n\n7\nF\nFri, May 15\n\n\nAPIs\ntbd\nHW7\n\n\n8\nM\nMon, May 18\n\n\nScraping I\ntbd\nFinal Project Idea Form\n\n\n8\nW\nWed, May 20\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nF\nFri, May 22\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\nIntro to Interactivity\ntbd\nHW8  Portfolio 3\n\n\n9\nM\nMon, May 25\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\nShiny 1\ntbd\n\n\n\n\n9\nW\nWed, May 27\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\nShiny 2\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, May 29\n\n\nShiny 3\ntbd\n\n\n\n\n10\nM\nMon, Jun 1\n\n\nProject Demos\ntbd\nPortfolio 4\n\n\n10\nW\nWed, Jun 3\n\n\nProject Demos\ntbd\nHW9\n\n\n\n\nNA\nMon, Jun 8\n\n\nFinal Project Due @ noon\ntbd\nFinal Project",
+    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n\n1\nM\nMon, Mar 30\n📝complete welcome survey\nWelcome + data, R review\nslides01\n\n\n\n\n1\nW\nWed, Apr 1\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus\nGithub + reproducible reports\nslides02  02-example-unvotes  UN report to replicate\n\n\n\n\n1\nF\nFri, Apr 3\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\nggplot\nslides03  03-ggplot-intro  Survivor data\nHW 1\n\n\n2\nM\nMon, Apr 6\n📚 DataViz 17-21 \nTheming + Design\nslides04  TB Data\n\n\n\n\n2\nW\nWed, Apr 8\n📚 DataViz 15 \nMaps/spatial data\nslides05  05-maps  ACS Data\nHW 2\n\n\n2\nF\nFri, Apr 10\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\nAccesibility for data viz\nslides06\n\n\n\n\n3\nM\nMon, Apr 13\n📚 R4DS 3.1-3.4 \nVerbs\nslides07  07-verbs\n\n\n\n\n3\nW\nWed, Apr 15\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \nGroups and summarizing Tidy data\nslides08  08-dplyr2\nHW 3\n\n\n3\nF\nFri, Apr 17\n📚 R4DS 4 \nCode style\nslides09\n\n\n\n\n4\nM\nMon, Apr 20\n📚 R4DS 19.1-19.3\nCombining datasets\nslides10  10-combining\n\n\n\n\n4\nW\nWed, Apr 22\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \nImport data and dates/times\nslides11  11-import\nHW 4\n\n\n4\nF\nFri, Apr 24\nNO CLASS - FEEL FREE TO TAKE A BREAK, CATCH UP, OR LEARN TO BUILD A WEBSITE\nOPTIONAL: building a website using GitHub Pages  Note: in YouTube tutorial, she clones repo slightly differently than we do. You can use usual procedure.\nGetting started with GitHub Pages  YouTube Tutorial with Quarto and GitHub Pages\n\n\n\n\n5\nM\nMon, Apr 27\n📚 R4DS 16 \nWorking with factors\nslides12  12-factors\nPortfolio 1\n\n\n5\nW\nWed, Apr 29\n📚 R4DS 14  📚 R4DS 15.1-15.5\nWorking with strings and Regex\nslides13  13-strings-regex\n\n\n\n\n5\nF\nFri, May 1\n📚 MDSR 19.2  🌎 Google ngram viewer\nIntro to Text Analysis\nslides14  14-text-case-study\nHW 5\n\n\n6\nM\nMon, May 4\n\n\n🏝️ Midterm Break; no class\n\n\n\n\n\n\n6\nW\nWed, May 6\n📚 The Trouble with Sentiment Analysis\nText Analysis\nslides15  15-sentiment\n\n\n\n\n6\nF\nFri, May 8\n📚 R4DS 25\nFunctions\ntbd\nPortfolio 2\n\n\n7\nM\nMon, May 11\n📚 MDSR 7.1-7.3\nIteration\ntbd\nHW6\n\n\n7\nW\nWed, May 13\n\n\nIteration II\ntbd\n\n\n\n\n7\nF\nFri, May 15\n\n\nAPIs\ntbd\nHW7\n\n\n8\nM\nMon, May 18\n\n\nScraping I\ntbd\nFinal Project Idea Form\n\n\n8\nW\nWed, May 20\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nF\nFri, May 22\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\nIntro to Interactivity\ntbd\nHW8  Portfolio 3\n\n\n9\nM\nMon, May 25\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\nShiny 1\ntbd\n\n\n\n\n9\nW\nWed, May 27\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\nShiny 2\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, May 29\n\n\nShiny 3\ntbd\n\n\n\n\n10\nM\nMon, Jun 1\n\n\nProject Demos\ntbd\nPortfolio 4\n\n\n10\nW\nWed, Jun 3\n\n\nProject Demos\ntbd\nHW9\n\n\n\n\nNA\nMon, Jun 8\n\n\nFinal Project Due @ noon\ntbd\nFinal Project",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -4680,5 +4680,110 @@
     "title": "Text Analysis",
     "section": "Takeaways",
     "text": "Takeaways\nRegex plays well with our stringr functions\nregex101.com can help you troubleshoot your regex patterns if you’re getting something unexpected in R"
+  },
+  {
+    "objectID": "slides/15/slides15.html#today",
+    "href": "slides/15/slides15.html#today",
+    "title": "Sentiment Analysis",
+    "section": "Today",
+    "text": "Today\n\nSentiment analysis\nText analysis loose ends"
+  },
+  {
+    "objectID": "slides/15/slides15.html#data-for-today",
+    "href": "slides/15/slides15.html#data-for-today",
+    "title": "Sentiment Analysis",
+    "section": "Data for today",
+    "text": "Data for today\nRandom (?) sample of 26,882 reviews of coursera courses\n\nen_coursera_reviews &lt;- read_csv(\"https://stat220kurtz.github.io/data/en_coursera_sample.csv\")\nen_coursera_reviews\n\n# A tibble: 26,882 × 5\n   CourseId                    Review                      Label cld2  review_id\n   &lt;chr&gt;                       &lt;chr&gt;                       &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;\n 1 nurture-market-strategies   It would be better if the …     1 en            1\n 2 nand2tetris2                Superb course. Great prese…     5 en            2\n 3 schedule-projects           Excellent course!               5 en            3\n 4 teaching-english-capstone-2 I'd recommend this course …     5 en            4\n 5 machine-learning            This course was so effecti…     5 en            5\n 6 python-network-data         Words cannot describe how …     5 en            6\n 7 clinical-trials             Great course!                   5 en            7\n 8 python-genomics             I didn't know anything abo…     3 en            8\n 9 strategic-management        Loved everything about thi…     5 en            9\n10 script-writing              No significant instruction…     1 en           10\n# ℹ 26,872 more rows\n\n\n\n\nSource: Kaggle"
+  },
+  {
+    "objectID": "slides/15/slides15.html#are-these-positive-or-negative-reviews",
+    "href": "slides/15/slides15.html#are-these-positive-or-negative-reviews",
+    "title": "Sentiment Analysis",
+    "section": "Are these positive or negative reviews?",
+    "text": "Are these positive or negative reviews?\n“thank you so much it was great course”\n“Too reliant on materials directly collected by professor, too little context of larger artistic community.”\n“Excellent! easy to follow and engaging!”\n“Slow and redundant. Would have preferred a faster-paced and more substantive course.”\n“Way too shallow and way too english :(”"
+  },
+  {
+    "objectID": "slides/15/slides15.html#sentiment-analysis",
+    "href": "slides/15/slides15.html#sentiment-analysis",
+    "title": "Sentiment Analysis",
+    "section": "Sentiment analysis",
+    "text": "Sentiment analysis\nOne way to analyze the sentiment is to consider the text as a combination of the individual words. It’s computationally convenient because we’re able to use the tidy tools that we’ve been building up:\n\ntokenize the text\njoin the sentiment values to each token\ngroup the words in the document to summarize the overall sentiment"
+  },
+  {
+    "objectID": "slides/15/slides15.html#sentiment-datasets-bing",
+    "href": "slides/15/slides15.html#sentiment-datasets-bing",
+    "title": "Sentiment Analysis",
+    "section": "Sentiment datasets: bing",
+    "text": "Sentiment datasets: bing\n\n\nlibrary(tidytext)\nget_sentiments(\"bing\") %&gt;%\n  slice_sample(n = 20)\n\n\n# A tibble: 20 × 2\n   word          sentiment\n   &lt;chr&gt;         &lt;chr&gt;    \n 1 undercutting  negative \n 2 unexpectedly  negative \n 3 slack         negative \n 4 fabrication   negative \n 5 majesty       positive \n 6 perilously    negative \n 7 cave          negative \n 8 partisan      negative \n 9 prik          negative \n10 miserableness negative \n11 flourish      positive \n12 acridness     negative \n13 darling       positive \n14 undisputed    positive \n15 crabby        negative \n16 inexperience  negative \n17 boastful      negative \n18 unequivocally positive \n19 greatness     positive \n20 gratify       positive"
+  },
+  {
+    "objectID": "slides/15/slides15.html#section",
+    "href": "slides/15/slides15.html#section",
+    "title": "Sentiment Analysis",
+    "section": "",
+    "text": "en_coursera_reviews \n\n# A tibble: 26,882 × 5\n   CourseId                    Review                      Label cld2  review_id\n   &lt;chr&gt;                       &lt;chr&gt;                       &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;\n 1 nurture-market-strategies   It would be better if the …     1 en            1\n 2 nand2tetris2                Superb course. Great prese…     5 en            2\n 3 schedule-projects           Excellent course!               5 en            3\n 4 teaching-english-capstone-2 I'd recommend this course …     5 en            4\n 5 machine-learning            This course was so effecti…     5 en            5\n 6 python-network-data         Words cannot describe how …     5 en            6\n 7 clinical-trials             Great course!                   5 en            7\n 8 python-genomics             I didn't know anything abo…     3 en            8\n 9 strategic-management        Loved everything about thi…     5 en            9\n10 script-writing              No significant instruction…     1 en           10\n# ℹ 26,872 more rows"
+  },
+  {
+    "objectID": "slides/15/slides15.html#inner_join",
+    "href": "slides/15/slides15.html#inner_join",
+    "title": "Sentiment Analysis",
+    "section": "inner_join",
+    "text": "inner_join"
+  },
+  {
+    "objectID": "slides/15/slides15.html#joining-the-sentiment-data",
+    "href": "slides/15/slides15.html#joining-the-sentiment-data",
+    "title": "Sentiment Analysis",
+    "section": "joining the sentiment data",
+    "text": "joining the sentiment data\n\n\nbing_sentiments = get_sentiments(\"bing\")\nen_coursera_reviews %&gt;%\n  unnest_tokens(word, Review) %&gt;% \n  inner_join(bing_sentiments, by = \"word\") %&gt;%\n  select(-c(CourseId, cld2))\n\n\n# A tibble: 69,063 × 4\n   Label review_id word        sentiment\n   &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;    \n 1     1         1 better      positive \n 2     5         2 superb      positive \n 3     5         2 great       positive \n 4     5         2 challenging negative \n 5     5         2 fun         positive \n 6     5         2 recommend   positive \n 7     5         3 excellent   positive \n 8     5         4 recommend   positive \n 9     5         4 enjoyed     positive \n10     5         4 great       positive \n# ℹ 69,053 more rows"
+  },
+  {
+    "objectID": "slides/15/slides15.html#group_by-review-id-summarize-overall-sentiment",
+    "href": "slides/15/slides15.html#group_by-review-id-summarize-overall-sentiment",
+    "title": "Sentiment Analysis",
+    "section": "group_by review ID, summarize overall sentiment",
+    "text": "group_by review ID, summarize overall sentiment\n\n\nbing_review_scores &lt;- en_coursera_reviews %&gt;%\n  unnest_tokens(word, Review) %&gt;% \n  inner_join(bing_sentiments, by = \"word\") %&gt;%\n  group_by(review_id) %&gt;%\n  summarize(\n    sum = (sum(sentiment == \"positive\") - sum(sentiment == \"negative\"))\n  )\n\nbing_review_scores\n\n\n# A tibble: 25,384 × 2\n   review_id   sum\n       &lt;dbl&gt; &lt;int&gt;\n 1         1     1\n 2         2     3\n 3         3     1\n 4         4     3\n 5         5     5\n 6         6     1\n 7         7     1\n 8         8     2\n 9         9     5\n10        10     0\n# ℹ 25,374 more rows"
+  },
+  {
+    "objectID": "slides/15/slides15.html#most-positive-review-by-sum",
+    "href": "slides/15/slides15.html#most-positive-review-by-sum",
+    "title": "Sentiment Analysis",
+    "section": "Most positive review (by sum):",
+    "text": "Most positive review (by sum):\n\n\nen_coursera_reviews %&gt;%\n  left_join(bing_review_scores, by = \"review_id\") %&gt;%\n  slice_max(sum) %&gt;%\n  pull(Review)\n\n\n[1] \"This course is awesome on so many levels. This is the best inferential statistics course I've come across. Here's why:*** The slides are beautiful and visually appealing, making following the rigorous content easier to digest.*** Instructors are captivating and articulate, the explanations are clear and concise.*** The assignments are very very tough, making the course incredibly challenging, but worth it. Honestly, I don't get why people give 1 star because the course is tough. This should be a huge plus.It was a real challenge getting 100% for everything. For every quiz, I attempted 2 - 3 times to get 100%. The challenge is worth it. I couldn't thank you enough for this course. You explain tough statistical concepts like the difference between prediction intervals and confidence intervals really well. Also, I think this course has the best teaching for Analysis of Variance (I have taken a few other statistics moocs). Also, your course helped me appreciate the meaning of R-squared, standard errors, confidence intervals in a very intuitive fashion. There are many other new things I've learnt from your course, some of them I thought I knew, but you helped me to either \\\"Aha\\\" or understand them more deeply.Before this course, most of the time statistics to me is like plug-and-play using procedures and and softwares. But now, I can understand the concepts and what the calculations really mean.Thank you for creating quizzes that make us really do step-by-step calculations and not just plug data into equations to get results like so many other statistics moocs do.The pedagogy is really great. Sometimes quizzes can be frustrating because I need to read very carefully into the meaning of the questions and all the options. However, the learning experience is really worth it.Again, thank you for an amazing course! This is rare stuff!It is without a doubt, a lot of passion and effort has been put into this course and this series.\""
+  },
+  {
+    "objectID": "slides/15/slides15.html#most-negative-reviews-by-sum",
+    "href": "slides/15/slides15.html#most-negative-reviews-by-sum",
+    "title": "Sentiment Analysis",
+    "section": "Most negative reviews (by sum):",
+    "text": "Most negative reviews (by sum):\n\n\nen_coursera_reviews %&gt;%\n  left_join(bing_review_scores, by = \"review_id\") %&gt;%\n  slice_min(sum) %&gt;%\n  pull(Review) %&gt;%\n  pluck(1)\n\n\n[1] \"Complex concepts (e.g., regression), which cannot be taught in such a short course format (I know from extensive prior training), are taught here in an arcane way. I don't know how students without prior knowledge on these topics (e.g., regression, ROC curve analysis) could possibly understand this when taught this way.Course is also in an 'early draft' mode, with plenty of mistakes in the videos/slides. The course (and specialization) really tarnishes - instead of enhancing - this institution's outside image and reputation.Really a deception; sorry I took this class and specialization, a complete waste of my time and money. The initial presentation was misleading (and I have found online many people sharing the same feeling).\""
+  },
+  {
+    "objectID": "slides/15/slides15.html#sentiment-datasets-afinn",
+    "href": "slides/15/slides15.html#sentiment-datasets-afinn",
+    "title": "Sentiment Analysis",
+    "section": "Sentiment datasets: afinn",
+    "text": "Sentiment datasets: afinn\n\n\nlibrary(tidytext)\nget_sentiments(\"afinn\") %&gt;%\n  slice_sample(n = 20)\n\n\n# A tibble: 20 × 2\n   word           value\n   &lt;chr&gt;          &lt;dbl&gt;\n 1 postponed         -1\n 2 beautifully        3\n 3 chagrin           -2\n 4 appreciation       2\n 5 spark              1\n 6 mope              -1\n 7 empathetic         2\n 8 oversimplified    -2\n 9 stimulating        2\n10 exaggerates       -2\n11 disconsolation    -2\n12 sophisticated      2\n13 fearing           -2\n14 bereaving         -2\n15 dejected          -2\n16 stopped           -1\n17 strikers          -2\n18 scary             -2\n19 worse             -3\n20 protesters        -2"
+  },
+  {
+    "objectID": "slides/15/slides15.html#activity",
+    "href": "slides/15/slides15.html#activity",
+    "title": "Sentiment Analysis",
+    "section": "ACTIVITY",
+    "text": "ACTIVITY"
+  },
+  {
+    "objectID": "slides/15/slides15.html#loose-ends---word-clouds",
+    "href": "slides/15/slides15.html#loose-ends---word-clouds",
+    "title": "Sentiment Analysis",
+    "section": "Loose Ends - Word Clouds",
+    "text": "Loose Ends - Word Clouds\nWord Clouds\n\nBasically, a sort of artistic histogram for words\nMade using the wordcloud R package (not in Tidyverse)\n\n\nlibrary(wordcloud)\nen_coursera_reviews %&gt;%\n  unnest_tokens(word,Review) %&gt;%\n  inner_join(bing_sentiments, by = \"word\") %&gt;%\n  group_by(review_id) %&gt;%\n  summarize(review_clean = paste(word, collapse = \" \")) %&gt;%\n  wordcloud(\n    max.words = 40,\n    scale = c(8,1),\n    colors = topo.colors(n=30),\n    random.color=TRUE\n  )"
+  },
+  {
+    "objectID": "slides/15/slides15.html#with-the-rest-of-class-time",
+    "href": "slides/15/slides15.html#with-the-rest-of-class-time",
+    "title": "Sentiment Analysis",
+    "section": "With the rest of class time",
+    "text": "With the rest of class time\nText analysis activity with Sherlock Holmes data\n\nlibrary(gutenbergr)\nsherlock_raw &lt;- gutenberg_download(1661)"
   }
 ]
