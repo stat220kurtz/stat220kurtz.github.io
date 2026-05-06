@@ -15,15 +15,13 @@ unscaled_cancer <- read_csv("https://raw.githubusercontent.com/UBC-DSCI/introduc
 unscaled_cancer
 ```
 
-## Your turn: 3 functions
+## Your turn: 2 functions
 
 Turn the following code snippets into functions. Think about what each function does before you begin, and be sure to give each function an informative name.
 
-1. `mean(is.na(x))`
+1. `x * 0.0022`
 
 1. `x / sum(x, na.rm = TRUE)`
-
-1. `sd(x, na.rm = TRUE) / mean(x, na.rm = TRUE)`
 
 
 ## Your turn: `column_mean`

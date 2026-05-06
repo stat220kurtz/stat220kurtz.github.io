@@ -62,7 +62,7 @@ df <- tibble(
 ```
 
 ```{r}
-df %>% slice_head(n = 3)
+df
 ```
 
 ```{r}
@@ -313,15 +313,6 @@ standardize <- function(x) {
 
 ## Does it work?
 
-Standardized `Compactness`
-
-```{r}
-std_compact <- standardize(unscaled_cancer$Compactness)
-head(std_compact)
-```
-
-. . . 
-
 Unstandardized `Compactness`
 
 
@@ -329,20 +320,41 @@ Unstandardized `Compactness`
 head(unscaled_cancer$Compactness)
 ```
 
+. . . 
+
+Standardized `Compactness` from copy and paste `mutate()` code
+
+```{r}
+head(scaled_cancer$Compactness)
+```
+
+. . . 
+
+Standardized `Compactness` from created `standardize()` function
+
+```{r}
+std_compact <- standardize(unscaled_cancer$Compactness)
+head(std_compact)
+```
+
+
+
+
+
+
+
 ## Your turn
 
 ::: {.task .nonincremental}
-Turn the following code snippets into functions. Think about what each function does before you begin, and be sure to give each function an informative name.
+Turn the following code snippets into functions. Think about what each function does before you begin (think SI vs. imperial units), and be sure to give each function an informative name.
 
-1. `mean(is.na(x))`
+1. `x * 0.0022`
 
 1. `x / sum(x, na.rm = TRUE)`
 
-1. `sd(x, na.rm = TRUE) / mean(x, na.rm = TRUE)`
-
 :::
 
-You can test your functions on variables from the `palmerpenguins::penguins` dataset (e.g.  `my_func(penguins$flipper_length_mm)`).
+You can test your functions on variables from the `palmerpenguins::penguins` dataset (e.g.  `my_func(penguins$body_mass_g)`).
 
 ```{r echo=FALSE}
 countdown(6)
@@ -385,8 +397,15 @@ standardize <- function(x, na.rm) {
 . . . 
 
 ```{r}
-std_compact <- standardize(unscaled_cancer$Compactness, na.rm = TRUE)
-head(std_compact)
+std_mass <- standardize(penguins$body_mass_g, na.rm = TRUE)
+head(std_mass)
+```
+
+. . . 
+
+```{r}
+std_mass <- standardize(penguins$body_mass_g, na.rm = FALSE)
+head(std_mass)
 ```
 
 ## Setting defaults
@@ -394,7 +413,7 @@ head(std_compact)
 Unless a default value is set for an argument, R will require a value to be specified in the function call
 
 ```{r eval=FALSE}
-std_compact <- standardize(unscaled_cancer$Compactness)
+std_compact <- standardize(penguins$body_mass_g)
 ```
 
 ```
@@ -414,7 +433,8 @@ standardize <- function(x, na.rm = TRUE) {
 ```
 
 ```{r}
-std_compact <- standardize(unscaled_cancer$Compactness)
+std_mass <- standardize(penguins$body_mass_g)
+std_mass
 ```
 
 ## Your turn
@@ -503,7 +523,7 @@ Caused by error:
 
 ## 🤗 **embracing** 🤗
 
-This issue arises in {dplyr} and {ggplot} functions because they use a special kind of evaluation, which allows us to refer to our variable names directly. 
+This issue arises in {dplyr} and {ggplot} functions because they use a special kind of evaluation, which allows us to refer to our variable names directly when writing code with their functions. 
 
 . . . 
 
@@ -511,7 +531,12 @@ To write our own functions that use these packages, we use 🤗 **embracing** �
 
 . . . 
 
-One way to remember what’s happening is to think of { } as looking down a tunnel — { var } will make a dplyr function look inside of var rather than looking for a variable called var.
+Ex:
+
+count(my_variable) looks for a column literally named my_variable
+
+count({{my_variable}}) looks for the column name stored inside my_variable
+
 
 ## `histogram()` function 
 
@@ -533,7 +558,7 @@ histogram(unscaled_cancer, Radius)
 ## Your turn
 
 ::: task
-Write a plotting function that makes a scatterplot of any two quantitative variables, coloring the points by a 3rd categorical variable. 
+Write a plotting function  called `scatterplot()` that makes a scatterplot of any two quantitative variables, coloring the points by a 3rd categorical variable. 
 
 Test your function with the following examples:
 :::
@@ -735,6 +760,8 @@ histobar <- function(df, var){
 
 ## `histobar`
 
+`pull()` works like a `$`
+
 ```{r}
 #| echo: true
 #| code-line-numbers: "2"
@@ -827,30 +854,5 @@ scatterplot(palmerpenguins::penguins,
 :::
 :::::
 
-```{r}
-#| echo: false
-
-countdown(2)
-```
-
-## Coding style
-
-It's ok to drop the curly braces if you have a **very short** `if` statement that can fit on **one line** (no more than 80 characters!)
-
-```{r eval=FALSE}
-if (y < 20) "Too low" 
-```
-
-```{r eval=FALSE}
-if (y < 20) "Too low" else "Too high"
-```
-
-## Coding style
-
-- Part of writing reproducible and shareable code is - following good style guidelines. 
-
-- Mostly, this means choosing good object names and using white space in a consistent and clear way.
-
-- [Tidyverse style guide](https://style.tidyverse.org/syntax.html) has guidelines for writing funtions and if statements
 
 

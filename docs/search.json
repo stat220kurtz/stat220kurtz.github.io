@@ -26,7 +26,7 @@
     "href": "index.html",
     "title": "Stat 220: Intro to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n\n1\nM\nMon, Mar 30\n📝complete welcome survey\nWelcome + data, R review\nslides01\n\n\n\n\n1\nW\nWed, Apr 1\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus\nGithub + reproducible reports\nslides02  02-example-unvotes  UN report to replicate\n\n\n\n\n1\nF\nFri, Apr 3\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\nggplot\nslides03  03-ggplot-intro  Survivor data\nHW 1\n\n\n2\nM\nMon, Apr 6\n📚 DataViz 17-21 \nTheming + Design\nslides04  TB Data\n\n\n\n\n2\nW\nWed, Apr 8\n📚 DataViz 15 \nMaps/spatial data\nslides05  05-maps  ACS Data\nHW 2\n\n\n2\nF\nFri, Apr 10\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\nAccesibility for data viz\nslides06\n\n\n\n\n3\nM\nMon, Apr 13\n📚 R4DS 3.1-3.4 \nVerbs\nslides07  07-verbs\n\n\n\n\n3\nW\nWed, Apr 15\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \nGroups and summarizing Tidy data\nslides08  08-dplyr2\nHW 3\n\n\n3\nF\nFri, Apr 17\n📚 R4DS 4 \nCode style\nslides09\n\n\n\n\n4\nM\nMon, Apr 20\n📚 R4DS 19.1-19.3\nCombining datasets\nslides10  10-combining\n\n\n\n\n4\nW\nWed, Apr 22\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \nImport data and dates/times\nslides11  11-import\nHW 4\n\n\n4\nF\nFri, Apr 24\nNO CLASS - FEEL FREE TO TAKE A BREAK, CATCH UP, OR LEARN TO BUILD A WEBSITE\nOPTIONAL: building a website using GitHub Pages  Note: in YouTube tutorial, she clones repo slightly differently than we do. You can use usual procedure.\nGetting started with GitHub Pages  YouTube Tutorial with Quarto and GitHub Pages\n\n\n\n\n5\nM\nMon, Apr 27\n📚 R4DS 16 \nWorking with factors\nslides12  12-factors\nPortfolio 1\n\n\n5\nW\nWed, Apr 29\n📚 R4DS 14  📚 R4DS 15.1-15.5\nWorking with strings and Regex\nslides13  13-strings-regex\n\n\n\n\n5\nF\nFri, May 1\n📚 MDSR 19.2  🌎 Google ngram viewer\nIntro to Text Analysis\nslides14  14-text-case-study\nHW 5\n\n\n6\nM\nMon, May 4\n\n\n🏝️ Midterm Break; no class\n\n\n\n\n\n\n6\nW\nWed, May 6\n📚 The Trouble with Sentiment Analysis\nText Analysis\nslides15  15-sentiment\n\n\n\n\n6\nF\nFri, May 8\n📚 R4DS 25\nFunctions\ntbd\nPortfolio 2\n\n\n7\nM\nMon, May 11\n📚 MDSR 7.1-7.3\nIteration\ntbd\nHW6\n\n\n7\nW\nWed, May 13\n\n\nIteration II\ntbd\n\n\n\n\n7\nF\nFri, May 15\n\n\nAPIs\ntbd\nHW7\n\n\n8\nM\nMon, May 18\n\n\nScraping I\ntbd\nFinal Project Idea Form\n\n\n8\nW\nWed, May 20\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nF\nFri, May 22\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\nIntro to Interactivity\ntbd\nHW8  Portfolio 3\n\n\n9\nM\nMon, May 25\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\nShiny 1\ntbd\n\n\n\n\n9\nW\nWed, May 27\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\nShiny 2\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, May 29\n\n\nShiny 3\ntbd\n\n\n\n\n10\nM\nMon, Jun 1\n\n\nProject Demos\ntbd\nPortfolio 4\n\n\n10\nW\nWed, Jun 3\n\n\nProject Demos\ntbd\nHW9\n\n\n\n\nNA\nMon, Jun 8\n\n\nFinal Project Due @ noon\ntbd\nFinal Project",
+    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n\n1\nM\nMon, Mar 30\n📝complete welcome survey\nWelcome + data, R review\nslides01\n\n\n\n\n1\nW\nWed, Apr 1\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus\nGithub + reproducible reports\nslides02  02-example-unvotes  UN report to replicate\n\n\n\n\n1\nF\nFri, Apr 3\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\nggplot\nslides03  03-ggplot-intro  Survivor data\nHW 1\n\n\n2\nM\nMon, Apr 6\n📚 DataViz 17-21 \nTheming + Design\nslides04  TB Data\n\n\n\n\n2\nW\nWed, Apr 8\n📚 DataViz 15 \nMaps/spatial data\nslides05  05-maps  ACS Data\nHW 2\n\n\n2\nF\nFri, Apr 10\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\nAccesibility for data viz\nslides06\n\n\n\n\n3\nM\nMon, Apr 13\n📚 R4DS 3.1-3.4 \nVerbs\nslides07  07-verbs\n\n\n\n\n3\nW\nWed, Apr 15\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \nGroups and summarizing Tidy data\nslides08  08-dplyr2\nHW 3\n\n\n3\nF\nFri, Apr 17\n📚 R4DS 4 \nCode style\nslides09\n\n\n\n\n4\nM\nMon, Apr 20\n📚 R4DS 19.1-19.3\nCombining datasets\nslides10  10-combining\n\n\n\n\n4\nW\nWed, Apr 22\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \nImport data and dates/times\nslides11  11-import\nHW 4\n\n\n4\nF\nFri, Apr 24\nNO CLASS - FEEL FREE TO TAKE A BREAK, CATCH UP, OR LEARN TO BUILD A WEBSITE\nOPTIONAL: building a website using GitHub Pages  Note: in YouTube tutorial, she clones repo slightly differently than we do. You can use usual procedure.\nGetting started with GitHub Pages  YouTube Tutorial with Quarto and GitHub Pages\n\n\n\n\n5\nM\nMon, Apr 27\n📚 R4DS 16 \nWorking with factors\nslides12  12-factors\nPortfolio 1\n\n\n5\nW\nWed, Apr 29\n📚 R4DS 14  📚 R4DS 15.1-15.5\nWorking with strings and Regex\nslides13  13-strings-regex\n\n\n\n\n5\nF\nFri, May 1\n📚 MDSR 19.2  🌎 Google ngram viewer\nIntro to Text Analysis\nslides14  14-text-case-study\nHW 5\n\n\n6\nM\nMon, May 4\n\n\n🏝️ Midterm Break; no class\n\n\n\n\n\n\n6\nW\nWed, May 6\n📚 The Trouble with Sentiment Analysis\nText Analysis\nslides15  15-sentiment\n\n\n\n\n6\nF\nFri, May 8\n📚 R4DS 25\nFunctions\nslides16  16-functions\nPortfolio 2\n\n\n7\nM\nMon, May 11\n📚 MDSR 7.1-7.3\nIteration\ntbd\nHW6\n\n\n7\nW\nWed, May 13\n\n\nIteration II\ntbd\n\n\n\n\n7\nF\nFri, May 15\n\n\nAPIs\ntbd\nHW7\n\n\n8\nM\nMon, May 18\n\n\nScraping I\ntbd\nFinal Project Idea Form\n\n\n8\nW\nWed, May 20\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nF\nFri, May 22\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\nIntro to Interactivity\ntbd\nHW8  Portfolio 3\n\n\n9\nM\nMon, May 25\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\nShiny 1\ntbd\n\n\n\n\n9\nW\nWed, May 27\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\nShiny 2\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, May 29\n\n\nShiny 3\ntbd\n\n\n\n\n10\nM\nMon, Jun 1\n\n\nProject Demos\ntbd\nPortfolio 4\n\n\n10\nW\nWed, Jun 3\n\n\nProject Demos\ntbd\nHW9\n\n\n\n\nNA\nMon, Jun 8\n\n\nFinal Project Due @ noon\ntbd\nFinal Project",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -469,7 +469,7 @@
     "href": "slides/16/slides16.html#warm-up",
     "title": "Functions",
     "section": "Warm up",
-    "text": "Warm up\n\nWhat does the mutate code below do?\n\n\ndf %&gt;% slice_head(n = 3)\n\n# A tibble: 3 × 4\n      a       b     c       d\n  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n1  1.08 -1.46   0.243  0.239 \n2  1.02  0.0941 0.431 -0.0970\n3 -1.83  0.310  1.38  -0.841 \n\n\n\ndf |&gt; mutate(\n  a = (a - mean(a, na.rm = TRUE)) / \n    sd(a, na.rm = TRUE),\n  b = (b - mean(b, na.rm = TRUE)) / \n    sd(b, na.rm = TRUE),\n  c = (c - mean(a, na.rm = TRUE)) / \n    sd(c, na.rm = TRUE),\n  d = (d - mean(d, na.rm = TRUE)) / \n    sd(d, na.rm = TRUE)\n)"
+    "text": "Warm up\n\nWhat does the mutate code below do?\n\n\ndf\n\n# A tibble: 5 × 4\n       a       b     c       d\n   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n1  1.08  -1.46   0.243  0.239 \n2  1.02   0.0941 0.431 -0.0970\n3 -1.83   0.310  1.38  -0.841 \n4 -0.164 -0.769  0.276 -1.01  \n5 -0.287  0.129  0.908  0.121 \n\n\n\ndf |&gt; mutate(\n  a = (a - mean(a, na.rm = TRUE)) / \n    sd(a, na.rm = TRUE),\n  b = (b - mean(b, na.rm = TRUE)) / \n    sd(b, na.rm = TRUE),\n  c = (c - mean(a, na.rm = TRUE)) / \n    sd(c, na.rm = TRUE),\n  d = (d - mean(d, na.rm = TRUE)) / \n    sd(d, na.rm = TRUE)\n)"
   },
   {
     "objectID": "slides/16/slides16.html#rescaling-variables",
@@ -504,7 +504,7 @@
     "href": "slides/16/slides16.html#section-1",
     "title": "Functions",
     "section": "",
-    "text": "You should consider writing a function whenever you’ve copied and pasted a  block of code more than twice  —Hadley Wickham"
+    "text": "You should consider writing a function whenever you’ve copied and pasted a  block of code more than twice   —Hadley Wickham"
   },
   {
     "objectID": "slides/16/slides16.html#why-functions",
@@ -525,49 +525,49 @@
     "href": "slides/16/slides16.html#anatomy-of-a-function-1",
     "title": "Functions",
     "section": "Anatomy of a function",
-    "text": "Anatomy of a function\n\n\n\nA short but informative name, preferably a verb\n\nArguments of the function inside function()\n\n\n\n\ncalc_this &lt;- function(..arguments..) { \n\n}"
+    "text": "Anatomy of a function\n\n\n\nA short but informative name, preferably a verb\nArguments of the function inside function()\n\n\n\ncalc_this &lt;- function(..arguments..) { \n\n}"
   },
   {
     "objectID": "slides/16/slides16.html#anatomy-of-a-function-2",
     "href": "slides/16/slides16.html#anatomy-of-a-function-2",
     "title": "Functions",
     "section": "Anatomy of a function",
-    "text": "Anatomy of a function\n\n\n\nA short but informative name, preferably a verb\n\nArguments of the function inside function()\n\nPlace the code you have developed in body of the function, a { block that immediately follows function(...).\n\n\n\ncalc_this &lt;- function(..arguments..) { \n  # do stuff with arguments \n  # last result will be returned \n}"
+    "text": "Anatomy of a function\n\n\n\nA short but informative name, preferably a verb\nArguments of the function inside function()\nPlace the code you have developed in body of the function, a { block that immediately follows function(...).\n\n\n\ncalc_this &lt;- function(..arguments..) { \n  # do stuff with arguments \n  # last result will be returned \n}"
   },
   {
     "objectID": "slides/16/slides16.html#building-standardize",
     "href": "slides/16/slides16.html#building-standardize",
     "title": "Functions",
-    "section": "Building standardize\n",
-    "text": "Building standardize\n\n\n\n\nA short but informative name, preferably a verb\n\n\n\nstandardize &lt;- function() { \n\n}"
+    "section": "Building standardize",
+    "text": "Building standardize\n\n\n\nA short but informative name, preferably a verb\n\n\n\nstandardize &lt;- function() { \n\n}"
   },
   {
     "objectID": "slides/16/slides16.html#building-standardize-1",
     "href": "slides/16/slides16.html#building-standardize-1",
     "title": "Functions",
-    "section": "Building standardize\n",
-    "text": "Building standardize\n\n\n\n\nA short but informative name, preferably a verb\n\nArguments of the function inside function()\n\n\n\n\nstandardize &lt;- function(x) { \n\n}"
+    "section": "Building standardize",
+    "text": "Building standardize\n\n\n\nA short but informative name, preferably a verb\nArguments of the function inside function()\n\n\n\nstandardize &lt;- function(x) { \n\n}"
   },
   {
     "objectID": "slides/16/slides16.html#building-standardize-2",
     "href": "slides/16/slides16.html#building-standardize-2",
     "title": "Functions",
-    "section": "Building standardize\n",
-    "text": "Building standardize\n\n\n\n\nA short but informative name, preferably a verb\n\nArguments of the function inside function()\n\nPlace the code you have developed in body of the function, a { block that immediately follows function(...).\n\n\n\nstandardize &lt;- function(x) { \n  (x - mean(x, na.rm = TRUE)) / sd(x, na.rm = TRUE)\n}"
+    "section": "Building standardize",
+    "text": "Building standardize\n\n\n\nA short but informative name, preferably a verb\nArguments of the function inside function()\nPlace the code you have developed in body of the function, a { block that immediately follows function(...).\n\n\n\nstandardize &lt;- function(x) { \n  (x - mean(x, na.rm = TRUE)) / sd(x, na.rm = TRUE)\n}"
   },
   {
     "objectID": "slides/16/slides16.html#does-it-work",
     "href": "slides/16/slides16.html#does-it-work",
     "title": "Functions",
     "section": "Does it work?",
-    "text": "Does it work?\nStandardized Compactness\n\nstd_compact &lt;- standardize(unscaled_cancer$Compactness)\nhead(std_compact)\n\n[1]  3.2806281 -0.4866435  1.0519999  3.3999174  0.5388663  1.2432416\n\n\n\nUnstandardized Compactness\n\nhead(unscaled_cancer$Compactness)\n\n[1] 0.27760 0.07864 0.15990 0.28390 0.13280 0.17000"
+    "text": "Does it work?\nUnstandardized Compactness\n\nhead(unscaled_cancer$Compactness)\n\n[1] 0.27760 0.07864 0.15990 0.28390 0.13280 0.17000\n\n\n\nStandardized Compactness from copy and paste mutate() code\n\nhead(scaled_cancer$Compactness)\n\n[1]  3.2806281 -0.4866435  1.0519999  3.3999174  0.5388663  1.2432416\n\n\n\n\nStandardized Compactness from created standardize() function\n\nstd_compact &lt;- standardize(unscaled_cancer$Compactness)\nhead(std_compact)\n\n[1]  3.2806281 -0.4866435  1.0519999  3.3999174  0.5388663  1.2432416"
   },
   {
     "objectID": "slides/16/slides16.html#your-turn",
     "href": "slides/16/slides16.html#your-turn",
     "title": "Functions",
     "section": "Your turn",
-    "text": "Your turn\n\nTurn the following code snippets into functions. Think about what each function does before you begin, and be sure to give each function an informative name.\n\nmean(is.na(x))\nx / sum(x, na.rm = TRUE)\nsd(x, na.rm = TRUE) / mean(x, na.rm = TRUE)\n\n\nYou can test your functions on variables from the palmerpenguins::penguins dataset (e.g. my_func(penguins$flipper_length_mm))."
+    "text": "Your turn\n\nTurn the following code snippets into functions. Think about what each function does before you begin (think SI vs. imperial units), and be sure to give each function an informative name.\n\nx * 0.0022\nx / sum(x, na.rm = TRUE)\n\n\nYou can test your functions on variables from the palmerpenguins::penguins dataset (e.g. my_func(penguins$body_mass_g))."
   },
   {
     "objectID": "slides/16/slides16.html#return-values",
@@ -581,21 +581,21 @@
     "href": "slides/16/slides16.html#adding-arguments",
     "title": "Functions",
     "section": "Adding arguments",
-    "text": "Adding arguments\nWe can include na.rm as an argument to give the user control over it\n\nstandardize &lt;- function(x, na.rm) {\n  (x - mean(x, na.rm = na.rm)) / sd(x, na.rm = na.rm)\n}\n\n\n\nstd_compact &lt;- standardize(unscaled_cancer$Compactness, na.rm = TRUE)\nhead(std_compact)\n\n[1]  3.2806281 -0.4866435  1.0519999  3.3999174  0.5388663  1.2432416"
+    "text": "Adding arguments\nWe can include na.rm as an argument to give the user control over it\n\nstandardize &lt;- function(x, na.rm) {\n  (x - mean(x, na.rm = na.rm)) / sd(x, na.rm = na.rm)\n}\n\n\n\nstd_mass &lt;- standardize(penguins$body_mass_g, na.rm = TRUE)\nhead(std_mass)\n\n[1] -0.5633167 -0.5009690 -1.1867934         NA -0.9374027 -0.6880121\n\n\n\n\n\nstd_mass &lt;- standardize(penguins$body_mass_g, na.rm = FALSE)\nhead(std_mass)\n\n[1] NA NA NA NA NA NA"
   },
   {
     "objectID": "slides/16/slides16.html#setting-defaults",
     "href": "slides/16/slides16.html#setting-defaults",
     "title": "Functions",
     "section": "Setting defaults",
-    "text": "Setting defaults\nUnless a default value is set for an argument, R will require a value to be specified in the function call\n\nstd_compact &lt;- standardize(unscaled_cancer$Compactness)\n\n Error in mean(x, na.rm = na.rm) : \n  argument \"na.rm\" is missing, with no default"
+    "text": "Setting defaults\nUnless a default value is set for an argument, R will require a value to be specified in the function call\n\nstd_compact &lt;- standardize(penguins$body_mass_g)\n\n Error in mean(x, na.rm = na.rm) : \n  argument \"na.rm\" is missing, with no default"
   },
   {
     "objectID": "slides/16/slides16.html#setting-defaults-1",
     "href": "slides/16/slides16.html#setting-defaults-1",
     "title": "Functions",
     "section": "Setting defaults",
-    "text": "Setting defaults\nTo set a default, set the value in the function definition\n\nstandardize &lt;- function(x, na.rm = TRUE) { \n  (x - mean(x, na.rm = na.rm)) / sd(x, na.rm = na.rm)\n}\n\n\nstd_compact &lt;- standardize(unscaled_cancer$Compactness)"
+    "text": "Setting defaults\nTo set a default, set the value in the function definition\n\nstandardize &lt;- function(x, na.rm = TRUE) { \n  (x - mean(x, na.rm = na.rm)) / sd(x, na.rm = na.rm)\n}\n\n\nstd_mass &lt;- standardize(penguins$body_mass_g)\nstd_mass\n\n  [1] -0.563316704 -0.500969030 -1.186793445           NA -0.937402749\n  [6] -0.688012052 -0.719185889  0.590115266 -0.906228912  0.060160036\n [11] -1.124445771 -0.625664378 -1.249141119 -0.500969030  0.247203059\n [16] -0.625664378 -0.937402749  0.371898407 -1.093271934 -0.002187638\n [21] -0.999750423 -0.750359726 -0.500969030 -0.313926008 -0.500969030\n [26] -0.500969030 -0.812707400 -1.249141119 -1.311488793 -0.313926008\n [31] -1.186793445 -0.376273682 -1.124445771 -0.376273682 -1.093271934\n [36] -0.064535312 -0.313926008 -0.812707400 -1.124445771  0.558941429\n [41] -1.311488793 -0.376273682 -1.373836467  0.247203059 -1.498531815\n [46]  0.496593755 -0.968576586 -1.529705652 -0.937402749 -0.064535312\n [51] -0.875055074  0.122507710 -0.937402749 -0.189230660 -1.623227163\n [56] -0.625664378 -0.812707400 -0.500969030 -1.685574837 -0.563316704\n [61] -1.311488793  0.247203059 -0.750359726 -0.189230660 -1.685574837\n [66] -0.313926008 -1.062098097 -0.126882986 -1.436184141  0.309550733\n [71] -0.750359726 -0.376273682 -0.812707400 -0.064535312 -0.625664378\n [76]  0.060160036 -0.625664378 -0.376273682 -0.812707400 -0.251578334\n [81] -1.249141119  0.621289103 -0.500969030 -0.002187638 -1.062098097\n [86] -0.812707400 -0.500969030 -0.875055074 -0.313926008 -0.750359726\n [91] -0.812707400  0.122507710 -0.999750423  0.309550733 -1.124445771\n [96]  0.122507710 -0.625664378  0.184855384 -1.623227163 -0.126882986\n[101] -0.594490541  0.652462940 -1.405010304  0.060160036 -1.592053326\n[106] -0.812707400 -0.563316704 -0.376273682 -1.280314956  0.714810614\n[111] -0.469795193  0.496593755 -1.249141119  0.091333873 -0.376273682\n[116] -0.158056823 -1.623227163 -0.532142867 -1.062098097 -1.093271934\n[121] -1.311488793 -0.875055074 -0.937402749 -0.407447519 -1.436184141\n[126] -0.251578334 -1.155619608  0.122507710 -1.436184141 -0.251578334\n[131] -1.093271934 -0.875055074 -0.875055074  0.340724570 -0.968576586\n[136] -0.376273682 -1.280314956 -0.282752171 -0.999750423  0.060160036\n[141] -0.999750423 -0.906228912 -1.436184141 -0.594490541 -1.498531815\n[146] -0.688012052  0.060160036 -0.906228912 -0.937402749 -0.563316704\n[151] -0.625664378 -0.251578334  0.371898407  1.868242584  0.309550733\n[156]  1.868242584  1.494156540  0.434246081  0.745984451  1.244765843\n[161]  0.247203059  1.182418169  0.558941429  1.681199562  0.558941429\n[166]  2.055285606 -0.002187638  2.055285606 -0.064535312  2.616414673\n[171]  0.745984451  1.431808866  1.868242584  0.995375147  0.247203059\n[176]  1.057722821  0.995375147  1.120070495 -0.126882986  1.805894910\n[181]  0.496593755  1.681199562  1.307113518  0.621289103  1.057722821\n[186]  2.304676302  1.182418169  1.494156540  0.933027473  1.307113518\n[191]  0.184855384  1.431808866 -0.313926008  1.868242584  0.122507710\n[196]  0.683636777  1.681199562  0.870679799 -0.002187638  1.494156540\n[201]  1.120070495  1.369461192  0.808332125  1.369461192  0.247203059\n[206]  0.995375147  0.870679799  1.057722821  0.122507710  0.995375147\n[211]  0.309550733  1.681199562 -0.002187638  1.369461192  0.247203059\n[216]  1.805894910  0.621289103  1.868242584  0.558941429  1.992937932\n[221]  0.621289103  1.681199562  0.683636777  0.995375147  1.120070495\n[226]  1.244765843  0.621289103  1.992937932  0.496593755  2.242328628\n[231]  0.683636777  2.179980954  0.527767592  1.556504214  0.652462940\n[236]  1.431808866  0.683636777  1.743547236  0.496593755  1.369461192\n[241]  0.839505962  1.681199562  0.933027473  1.494156540  0.683636777\n[246]  1.805894910  0.808332125  1.244765843  0.901853636  0.839505962\n[251]  0.527767592  1.307113518  0.808332125  1.743547236  0.964201310\n[256]  1.618851888  0.652462940  1.618851888  0.621289103  1.618851888\n[261]  0.465419918  1.618851888  0.995375147  2.179980954  0.558941429\n[266]  1.618851888  0.216029222  2.055285606  0.839505962  2.242328628\n[271]  0.901853636           NA  0.808332125  1.930590258  1.244765843\n[276]  1.494156540 -0.875055074 -0.376273682 -0.688012052 -0.843881237\n[281] -0.594490541 -0.313926008 -1.186793445 -0.563316704 -0.064535312\n[286] -0.625664378 -0.500969030 -0.532142867 -0.625664378 -0.189230660\n[291] -0.781533563 -0.189230660 -1.124445771 -0.625664378 -0.937402749\n[296]  0.247203059 -0.750359726 -0.999750423 -1.623227163 -0.500969030\n[301] -1.124445771 -0.064535312 -0.999750423 -0.500969030 -0.625664378\n[306]  0.434246081 -1.249141119  0.122507710 -1.062098097 -0.126882986\n[311] -0.750359726 -0.376273682 -0.438621356  0.745984451 -1.872617859\n[316]  0.371898407 -0.313926008 -0.688012052 -0.812707400 -0.875055074\n[321] -0.656838215  0.309550733 -0.999750423  0.122507710 -1.186793445\n[326] -0.656838215 -1.093271934 -0.313926008 -0.750359726 -0.189230660\n[331] -1.062098097 -0.937402749 -1.186793445 -0.189230660 -0.500969030\n[336] -0.843881237 -0.313926008 -0.688012052 -0.688012052 -0.251578334\n[341] -0.999750423 -0.532142867 -0.126882986 -0.532142867"
   },
   {
     "objectID": "slides/16/slides16.html#your-turn-1",
@@ -623,13 +623,13 @@
     "href": "slides/16/slides16.html#embracing",
     "title": "Functions",
     "section": "🤗 embracing 🤗",
-    "text": "🤗 embracing 🤗\nThis issue arises in {dplyr} and {ggplot} functions because they use a special kind of evaluation, which allows us to refer to our variable names directly.\n\nTo write our own functions that use these packages, we use 🤗 embracing 🤗 (wrap the variable in braces). This tells R to use the value stored inside the argument, not the argument as the literal variable name.\n\n\nOne way to remember what’s happening is to think of { } as looking down a tunnel — { var } will make a dplyr function look inside of var rather than looking for a variable called var."
+    "text": "🤗 embracing 🤗\nThis issue arises in {dplyr} and {ggplot} functions because they use a special kind of evaluation, which allows us to refer to our variable names directly when writing code with their functions.\n\nTo write our own functions that use these packages, we use 🤗 embracing 🤗 (wrap the variable in braces). This tells R to use the value stored inside the argument, not the argument as the literal variable name.\n\n\nEx:\ncount(my_variable) looks for a column literally named my_variable\ncount({{my_variable}}) looks for the column name stored inside my_variable"
   },
   {
     "objectID": "slides/16/slides16.html#histogram-function",
     "href": "slides/16/slides16.html#histogram-function",
     "title": "Functions",
-    "section": "\nhistogram() function",
+    "section": "histogram() function",
     "text": "histogram() function\n\n\nhistogram &lt;- function(df, var, bins = 20) {\n  df %&gt;%\n    ggplot(aes(x = {{var}}, fill = Class)) + \n    geom_histogram(col = \"white\", bins = 20, alpha = .7) \n}\n\nhistogram(unscaled_cancer, Radius)"
   },
   {
@@ -637,14 +637,14 @@
     "href": "slides/16/slides16.html#your-turn-2",
     "title": "Functions",
     "section": "Your turn",
-    "text": "Your turn\n\nWrite a plotting function that makes a scatterplot of any two quantitative variables, coloring the points by a 3rd categorical variable.\nTest your function with the following examples:\n\n\n\n\nscatterplot(unscaled_cancer, \n            Radius, \n            Texture, \n            Class)\n\n\n\n\n\n\n\n\n\nscatterplot(penguins, \n            bill_length_mm, \n            bill_depth_mm, \n            species)"
+    "text": "Your turn\n\nWrite a plotting function called scatterplot() that makes a scatterplot of any two quantitative variables, coloring the points by a 3rd categorical variable.\nTest your function with the following examples:\n\n\n\n\nscatterplot(unscaled_cancer, \n            Radius, \n            Texture, \n            Class)\n\n\n\n\n\n\n\n\n\n\nscatterplot(penguins, \n            bill_length_mm, \n            bill_depth_mm, \n            species)"
   },
   {
     "objectID": "slides/16/slides16.html#functions-with-conditional-execution",
     "href": "slides/16/slides16.html#functions-with-conditional-execution",
     "title": "Functions",
     "section": "Functions with conditional execution",
-    "text": "Functions with conditional execution\n\nSometimes, we want our function to do different things depending on the arguments we feed it.\nExample: a histobar function that makes a histogram if the variable is quantitative and a barchart if the variable is categorical.\n\n\n\n\n\nhistobar(unscaled_cancer, Radius)\n\n\n\n\n\n\n\n\n\n\n\nhistobar(unscaled_cancer, Class)"
+    "text": "Functions with conditional execution\n\nSometimes, we want our function to do different things depending on the arguments we feed it.\nExample: a histobar function that makes a histogram if the variable is quantitative and a barchart if the variable is categorical.\n\n\n\n\n\nhistobar(unscaled_cancer, Radius)\n\n\n\n\n\n\n\n\n\n\n\n\nhistobar(unscaled_cancer, Class)"
   },
   {
     "objectID": "slides/16/slides16.html#conditional-execution",
@@ -686,42 +686,42 @@
     "href": "slides/16/slides16.html#histobar-2",
     "title": "Functions",
     "section": "histobar",
-    "text": "histobar\n\nhistobar &lt;- function(df, var){\n  if(is.numeric(df %&gt;% pull({{var}}))){\n    ggplot(df, aes(x = {{var}})) + \n      geom_histogram(col = \"white\")\n  }\n  else {\n    ggplot(df, aes(y = {{var}})) + \n      geom_bar()\n  }\n}"
+    "text": "histobar\npull() works like a $\n\nhistobar &lt;- function(df, var){\n  if(is.numeric(df %&gt;% pull({{var}}))){\n    ggplot(df, aes(x = {{var}})) + \n      geom_histogram(col = \"white\")\n  }\n  else {\n    ggplot(df, aes(y = {{var}})) + \n      geom_bar()\n  }\n}"
   },
   {
     "objectID": "slides/16/slides16.html#testing-histobar",
     "href": "slides/16/slides16.html#testing-histobar",
     "title": "Functions",
-    "section": "Testing histobar\n",
-    "text": "Testing histobar\n\n\nhistobar(unscaled_cancer, Radius)"
+    "section": "Testing histobar",
+    "text": "Testing histobar\n\nhistobar(unscaled_cancer, Radius)"
   },
   {
     "objectID": "slides/16/slides16.html#testing-histobar-1",
     "href": "slides/16/slides16.html#testing-histobar-1",
     "title": "Functions",
-    "section": "Testing histobar\n",
-    "text": "Testing histobar\n\n\nhistobar(unscaled_cancer, Class)"
+    "section": "Testing histobar",
+    "text": "Testing histobar\n\nhistobar(unscaled_cancer, Class)"
   },
   {
     "objectID": "slides/16/slides16.html#testing-histobar-2",
     "href": "slides/16/slides16.html#testing-histobar-2",
     "title": "Functions",
-    "section": "Testing histobar\n",
-    "text": "Testing histobar\n\n\nhistobar(palmerpenguins::penguins, species)"
+    "section": "Testing histobar",
+    "text": "Testing histobar\n\nhistobar(palmerpenguins::penguins, species)"
   },
   {
     "objectID": "slides/16/slides16.html#testing-histobar-3",
     "href": "slides/16/slides16.html#testing-histobar-3",
     "title": "Functions",
-    "section": "Testing histobar\n",
-    "text": "Testing histobar\n\n\nhistobar(palmerpenguins::penguins, flipper_length_mm)"
+    "section": "Testing histobar",
+    "text": "Testing histobar\n\nhistobar(palmerpenguins::penguins, flipper_length_mm)"
   },
   {
     "objectID": "slides/16/slides16.html#your-turn-3",
     "href": "slides/16/slides16.html#your-turn-3",
     "title": "Functions",
     "section": "Your turn",
-    "text": "Your turn\n\nEdit your scatterplot function to include an argument called draw_line. If draw_line is TRUE, your function should add a line of best fit to your scatterplot. Test your function with the following examples\n\n\n\n\nscatterplot(unscaled_cancer, \n            Radius, \n            Texture, \n            Class, \n            draw_line = FALSE)\n\n\n\n\n\n\n\n\n\nscatterplot(palmerpenguins::penguins, \n            bill_length_mm, \n            bill_depth_mm, \n            species, \n            draw_line = TRUE)"
+    "text": "Your turn\n\nEdit your scatterplot function to include an argument called draw_line. If draw_line is TRUE, your function should add a line of best fit to your scatterplot. Test your function with the following examples\n\n\n\n\nscatterplot(unscaled_cancer, \n            Radius, \n            Texture, \n            Class, \n            draw_line = FALSE)\n\n\n\n\n\n\n\n\n\n\nscatterplot(palmerpenguins::penguins, \n            bill_length_mm, \n            bill_depth_mm, \n            species, \n            draw_line = TRUE)"
   },
   {
     "objectID": "slides/16/slides16.html#coding-style",
@@ -4785,5 +4785,12 @@
     "title": "Sentiment Analysis",
     "section": "With the rest of class time",
     "text": "With the rest of class time\nText analysis activity with Sherlock Holmes data\n\nlibrary(gutenbergr)\nsherlock_raw &lt;- gutenberg_download(1661)"
+  },
+  {
+    "objectID": "slides/16/slides16.html#section-2",
+    "href": "slides/16/slides16.html#section-2",
+    "title": "Functions",
+    "section": "",
+    "text": "You should consider writing a function whenever you’ve copied and pasted a  block of code more than twice   —Hadley Wickham"
   }
 ]
