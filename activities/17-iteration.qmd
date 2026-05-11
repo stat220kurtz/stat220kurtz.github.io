@@ -18,7 +18,7 @@ unscaled_cancer
 
 Load the `palmerpenguins` package.
 
-Write a `for` loop that calculates the mean of the numeric variables in the `penguins` data set and stores the means in a named vector.
+Write a `for` loop that calculates the mean of the numeric variables in the `penguins` data set and stores the means in a named vector. Don't forget to create an object to store your results!
 
 ## Your turn: summary/table for loop
 

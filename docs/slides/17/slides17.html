@@ -6,17 +6,20 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8e00f2f28a1266a720913de837032221.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
-<meta name="author" content="Prof Amanda Luby">
-<title>Stat 220 – Iteration</title>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-<link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
-<link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
-<style>
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-70be5ccd51f03de5ce195d75fadf0882.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
+
+  <meta name="author" content="Prof Emily Kurtz">
+  <title>Stat 220 – Iteration</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,8 +32,9 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -41,7 +45,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -81,7 +85,7 @@
     code span.ex { color: #ffd700; } /* Extension */
     code span.fl { color: #f5ab35; } /* Float */
     code span.fu { color: #ffd700; } /* Function */
-    code span.im { color: #f8f8f2; } /* Import */
+    code span.im { } /* Import */
     code span.in { color: #d4d0ab; } /* Information */
     code span.kw { color: #ffa07a; } /* Keyword */
     code span.op { color: #00e0e0; } /* Operator */
@@ -94,14 +98,14 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
-<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-c2fc26709bb5d7bb21b7d4253b78c15f.css">
-<link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-<link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-<link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-<link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-<link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-<link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-<style type="text/css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-1209235e9cbb9ac0326c187afa2b1069.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -189,43 +193,48 @@
       margin-right: 0; 
     }
   </style>
-<link href="../../site_libs/countdown-0.6.0/countdown.css" rel="stylesheet">
-<script src="../../site_libs/countdown-0.6.0/countdown.js"></script>
+  <link href="../../site_libs/countdown-0.6.0/countdown.css" rel="stylesheet">
+
+  <script src="../../site_libs/countdown-0.6.0/countdown.js"></script>
+
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="../img/horst_bakers_4.png" data-background-opacity="0.8" data-background-position="bottom right" data-background-size="70%" data-slide-number="none" class="quarto-title-block center"><h1 class="title">Iteration</h1>
+<section id="title-slide" data-background-image="../img/horst_bakers_4.png" data-background-opacity="0.8" data-background-position="bottom right" data-background-size="70%" data-slide-number="none" class="quarto-title-block center">
+  <h1 class="title">Iteration</h1>
   <p class="subtitle">Day 17</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Prof Amanda Luby 
+Prof Emily Kurtz 
 </div>
         <p class="quarto-title-affiliation">
-            Carleton College <br> Stat 220 - Winter 2026
+            Carleton College <br> Stat 220 - Spring 2026
           </p>
     </div>
 </div>
 
-</section><section id="recap-from-last-class-standardizing-a-vector" class="slide level2"><h2>Recap from last class: Standardizing a vector</h2>
+</section>
+<section id="recap-from-last-class-standardizing-a-vector" class="slide level2">
+<h2>Recap from last class: Standardizing a vector</h2>
 <p>Here’s a short function that standardizes an input vector</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>standardize <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>standardize <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) {</span>
 <span id="cb1-2"><a></a>  (x <span class="sc">-</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> na.rm)) <span class="sc">/</span> <span class="fu">sd</span>(x, <span class="at">na.rm =</span> na.rm)</span>
-<span id="cb1-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now we can easily standardize all of our variables, right?</p>
-</section><section id="cancer-data" class="slide level2"><h2>Cancer data</h2>
-<div>
+</section>
+<section id="cancer-data" class="slide level2">
+<h2>Cancer data</h2>
 <ul>
 <li>Set of digitized breast cancer image features</li>
 <li>Row = an image of a tumor sample</li>
 <li>Variables include the diagnosis (benign or malignant) and measurements</li>
 </ul>
-</div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 569
@@ -244,9 +253,11 @@ $ Symmetry          &lt;dbl&gt; 0.2419, 0.1812, 0.2069, 0.2597, 0.1809, 0.2087, 
 $ Fractal_Dimension &lt;dbl&gt; 0.07871, 0.05667, 0.05999, 0.09744, 0.05883, 0.07613…</code></pre>
 </div>
 </div>
-</section><section id="standardizing-cancer-data" class="slide level2"><h2>Standardizing cancer data</h2>
+</section>
+<section id="standardizing-cancer-data" class="slide level2">
+<h2>Standardizing cancer data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>scaled_cancer <span class="ot">&lt;-</span> unscaled_cancer <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>scaled_cancer <span class="ot">&lt;-</span> unscaled_cancer <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a></a>  <span class="fu">mutate</span>(</span>
 <span id="cb3-3"><a></a>    <span class="at">Radius =</span> <span class="fu">standardize</span>(Radius),</span>
 <span id="cb3-4"><a></a>    <span class="at">Texture =</span> <span class="fu">standardize</span>(Texture),</span>
@@ -258,26 +269,23 @@ $ Fractal_Dimension &lt;dbl&gt; 0.07871, 0.05667, 0.05999, 0.09744, 0.05883, 0.0
 <span id="cb3-10"><a></a>    <span class="at">Concave_points =</span> <span class="fu">standardize</span>(Concave_Points),</span>
 <span id="cb3-11"><a></a>    <span class="at">Symmetry =</span> <span class="fu">standardize</span>(Symmetry),</span>
 <span id="cb3-12"><a></a>    <span class="at">Fractal_dimension =</span> <span class="fu">standardize</span>(Fractal_Dimension)</span>
-<span id="cb3-13"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-13"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section><section id="section" class="slide level2"><h2></h2>
-<blockquote>
-<p>You should consider <del>writing a function</del> iterating<br> whenever you’ve copied and pasted a <br> block of code more than twice</p>
-</blockquote>
-<blockquote>
-<p>—<del>Hadley Wickham</del> <br> -Amanda Luby</p>
-</blockquote>
-</section><section id="iteration" class="slide level2"><h2>Iteration</h2>
+<p>Sure, we have replaced the calculations with a function that will behave identically for all columns, but we are still repeating ourselves 10 times</p>
+</section>
+<section id="iteration" class="slide level2">
+<h2>Iteration</h2>
 <ul>
 <li class="fragment"><p>Programmatically repeat the code</p></li>
-<li class="fragment">
-<p>We have two options for doing this:</p>
+<li class="fragment"><p>We have two options for doing this:</p>
 <ul>
 <li class="fragment"><p>using a <code>for</code> loop, or similar (imperative programming)</p></li>
 <li class="fragment"><p><code>map</code>ping with functional programming</p></li>
+</ul></li>
 </ul>
-</li>
-</ul></section><section id="for-loops" class="slide level2"><h2>for loops</h2>
+</section>
+<section id="for-loops" class="slide level2">
+<h2>for loops</h2>
 <ul>
 <li class="fragment"><p><code>for</code> loops are the simplest and most common type of loop in R</p></li>
 <li class="fragment"><p>Given a vector iterate through the elements and evaluate the code block for each</p></li>
@@ -285,10 +293,12 @@ $ Fractal_Dimension &lt;dbl&gt; 0.07871, 0.05667, 0.05999, 0.09744, 0.05883, 0.0
 <div class="fragment">
 <p><strong>Goal:</strong> Standardize all of the numeric columns via for loops.</p>
 </div>
-</section><section id="for-loops-1" class="slide level2"><h2>for loops</h2>
+</section>
+<section id="for-loops-1" class="slide level2">
+<h2>for loops</h2>
 <h4 id="set-up-a-object-to-store-results">(1) Set up a object to store results</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>scaled_cancer <span class="ot">&lt;-</span> unscaled_cancer <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>scaled_cancer <span class="ot">&lt;-</span> unscaled_cancer <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a></a>  <span class="fu">mutate</span>(</span>
 <span id="cb4-3"><a></a>    <span class="at">Radius =</span> <span class="cn">NA</span>,</span>
 <span id="cb4-4"><a></a>    <span class="at">Texture =</span> <span class="cn">NA</span>,</span>
@@ -302,7 +312,7 @@ $ Fractal_Dimension &lt;dbl&gt; 0.07871, 0.05667, 0.05999, 0.09744, 0.05883, 0.0
 <span id="cb4-12"><a></a>    <span class="at">Fractal_dimension =</span> <span class="cn">NA</span></span>
 <span id="cb4-13"><a></a>  )</span>
 <span id="cb4-14"><a></a></span>
-<span id="cb4-15"><a></a>scaled_cancer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-15"><a></a>scaled_cancer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 569 × 13
         ID Class Radius Texture Perimeter Area  Smoothness Compactness Concavity
@@ -322,7 +332,9 @@ $ Fractal_Dimension &lt;dbl&gt; 0.07871, 0.05667, 0.05999, 0.09744, 0.05883, 0.0
 #   Fractal_Dimension &lt;dbl&gt;, Fractal_dimension &lt;lgl&gt;</code></pre>
 </div>
 </div>
-</section><section id="for-loops-2" class="slide level2"><h2>for loops</h2>
+</section>
+<section id="for-loops-2" class="slide level2">
+<h2>for loops</h2>
 <h4 id="determine-an-index-over-which-to-iterate">(2) Determine an index over which to iterate</h4>
 <p>Columns 3 to 12 are numeric, our index is <code>3:12</code></p>
 <div class="cell">
@@ -345,13 +357,14 @@ $ Fractal_Dimension &lt;dbl&gt; 0.07871, 0.05667, 0.05999, 0.09744, 0.05883, 0.0
 #   Fractal_Dimension &lt;dbl&gt;, Fractal_dimension &lt;lgl&gt;</code></pre>
 </div>
 </div>
-</section><section id="for-loops-3" class="slide level2"><h2>for loops</h2>
-<h4 id="iterate-through-the-index-standardize-and-save-results-i---3">(3) Iterate through the index, standardize and save results <br><code>i &lt;- 3</code>
-</h4>
+</section>
+<section id="for-loops-3" class="slide level2">
+<h2>for loops</h2>
+<h4 id="iterate-through-the-index-standardize-and-save-results-i---3">(3) Iterate through the index, standardize and save results <br> <code>i &lt;- 3</code></h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>){</span>
 <span id="cb7-2"><a></a>  scaled_cancer[, i] <span class="ot">&lt;-</span> <span class="fu">standardize</span>(unscaled_cancer[[i]])</span>
-<span id="cb7-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -368,13 +381,14 @@ $ Fractal_Dimension &lt;dbl&gt; 0.07871, 0.05667, 0.05999, 0.09744, 0.05883, 0.0
 #   Fractal_Dimension &lt;dbl&gt;, Fractal_dimension &lt;lgl&gt;</code></pre>
 </div>
 </div>
-</section><section id="for-loops-4" class="slide level2"><h2>for loops</h2>
-<h4 id="iterate-through-the-index-standardize-and-save-results-i---4">(3) Iterate through the index, standardize and save results <br><code>i &lt;- 4</code>
-</h4>
+</section>
+<section id="for-loops-4" class="slide level2">
+<h2>for loops</h2>
+<h4 id="iterate-through-the-index-standardize-and-save-results-i---4">(3) Iterate through the index, standardize and save results <br> <code>i &lt;- 4</code></h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>){</span>
 <span id="cb9-2"><a></a>  scaled_cancer[, i] <span class="ot">&lt;-</span> <span class="fu">standardize</span>(unscaled_cancer[[i]])</span>
-<span id="cb9-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-3"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -391,13 +405,14 @@ $ Fractal_Dimension &lt;dbl&gt; 0.07871, 0.05667, 0.05999, 0.09744, 0.05883, 0.0
 #   Fractal_Dimension &lt;dbl&gt;, Fractal_dimension &lt;lgl&gt;</code></pre>
 </div>
 </div>
-</section><section id="for-loops-5" class="slide level2"><h2>for loops</h2>
-<h4 id="iterate-through-the-index-standardize-and-save-results-i---5">(3) Iterate through the index, standardize and save results <br><code>i &lt;- 5</code>
-</h4>
+</section>
+<section id="for-loops-5" class="slide level2">
+<h2>for loops</h2>
+<h4 id="iterate-through-the-index-standardize-and-save-results-i---5">(3) Iterate through the index, standardize and save results <br> <code>i &lt;- 5</code></h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>){</span>
 <span id="cb11-2"><a></a>  scaled_cancer[, i] <span class="ot">&lt;-</span> <span class="fu">standardize</span>(unscaled_cancer[[i]])</span>
-<span id="cb11-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -414,13 +429,14 @@ $ Fractal_Dimension &lt;dbl&gt; 0.07871, 0.05667, 0.05999, 0.09744, 0.05883, 0.0
 #   Fractal_Dimension &lt;dbl&gt;, Fractal_dimension &lt;lgl&gt;</code></pre>
 </div>
 </div>
-</section><section id="for-loops-6" class="slide level2"><h2>for loops</h2>
-<h4 id="iterate-through-the-index-standardize-and-save-results-i---6">(3) Iterate through the index, standardize and save results <br><code>i &lt;- 6</code>
-</h4>
+</section>
+<section id="for-loops-6" class="slide level2">
+<h2>for loops</h2>
+<h4 id="iterate-through-the-index-standardize-and-save-results-i---6">(3) Iterate through the index, standardize and save results <br> <code>i &lt;- 6</code></h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>){</span>
 <span id="cb13-2"><a></a>  scaled_cancer[, i] <span class="ot">&lt;-</span> <span class="fu">standardize</span>(unscaled_cancer[[i]])</span>
-<span id="cb13-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-3"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -437,9 +453,11 @@ $ Fractal_Dimension &lt;dbl&gt; 0.07871, 0.05667, 0.05999, 0.09744, 0.05883, 0.0
 #   Fractal_Dimension &lt;dbl&gt;, Fractal_dimension &lt;lgl&gt;</code></pre>
 </div>
 </div>
-</section><section id="putting-it-all-together" class="slide level2"><h2>Putting it all together:</h2>
+</section>
+<section id="putting-it-all-together" class="slide level2">
+<h2>Putting it all together:</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Preallocate storage</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Preallocate storage</span></span>
 <span id="cb15-2"><a></a>scaled_cancer <span class="ot">&lt;-</span> unscaled_cancer <span class="sc">%&gt;%</span></span>
 <span id="cb15-3"><a></a>  <span class="fu">mutate</span>(</span>
 <span id="cb15-4"><a></a>    <span class="at">Radius =</span> <span class="cn">NA</span>,</span>
@@ -459,7 +477,7 @@ $ Fractal_Dimension &lt;dbl&gt; 0.07871, 0.05667, 0.05999, 0.09744, 0.05883, 0.0
 <span id="cb15-18"><a></a>  scaled_cancer[, i] <span class="ot">&lt;-</span> <span class="fu">standardize</span>(unscaled_cancer[[i]])</span>
 <span id="cb15-19"><a></a>}</span>
 <span id="cb15-20"><a></a></span>
-<span id="cb15-21"><a></a>scaled_cancer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-21"><a></a>scaled_cancer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 569 × 13
        ID Class Radius Texture Perimeter   Area Smoothness Compactness Concavity
@@ -479,10 +497,12 @@ $ Fractal_Dimension &lt;dbl&gt; 0.07871, 0.05667, 0.05999, 0.09744, 0.05883, 0.0
 #   Fractal_Dimension &lt;dbl&gt;, Fractal_dimension &lt;lgl&gt;</code></pre>
 </div>
 </div>
-</section><section id="your-turn" class="slide level2"><h2>Your turn</h2>
+</section>
+<section id="your-turn" class="slide level2">
+<h2>Your turn</h2>
 <div class="task">
 <p>Load the <code>palmerpenguins</code> package.</p>
-<p>Write a <code>for</code> loop that calculates the mean of the numeric variables in the <code>penguins</code> data set and stores the means in a named vector.</p>
+<p>Write a <code>for</code> loop that calculates the mean of the numeric variables in the <code>penguins</code> data set and stores the means in a named vector. Don’t forget to create an object to store your results before you run the loop!</p>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -500,14 +520,16 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_4fe9bbd2" minutes="3" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+<countdown-timer class="countdown" id="timer_37db73ed" minutes="3" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
 </div>
 </div>
-</section><section id="preallocate-storage-to-increase-speed" class="slide level2"><h2>Preallocate storage to increase speed</h2>
+</section>
+<section id="preallocate-storage-to-increase-speed" class="slide level2">
+<h2>Preallocate storage to increase speed</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>add_to_vector <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>add_to_vector <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
 <span id="cb18-2"><a></a>  output <span class="ot">&lt;-</span> <span class="cn">NULL</span> </span>
 <span id="cb18-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
 <span id="cb18-4"><a></a>    output <span class="ot">&lt;-</span> <span class="fu">c</span>(output, i)</span>
@@ -515,16 +537,16 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb18-6"><a></a>  output</span>
 <span id="cb18-7"><a></a>}</span>
 <span id="cb18-8"><a></a></span>
-<span id="cb18-9"><a></a><span class="fu">add_to_vector</span>(<span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-9"><a></a><span class="fu">add_to_vector</span>(<span class="dv">10000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>0.17 sec elapsed</code></pre>
+<pre><code>0.15 sec elapsed</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>add_to_vector2 <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>add_to_vector2 <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
 <span id="cb20-2"><a></a>  output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"integer"</span>, n)  </span>
 <span id="cb20-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
 <span id="cb20-4"><a></a>   output[i] <span class="ot">&lt;-</span> i</span>
@@ -532,19 +554,21 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb20-6"><a></a>  output</span>
 <span id="cb20-7"><a></a>}</span>
 <span id="cb20-8"><a></a></span>
-<span id="cb20-9"><a></a><span class="fu">add_to_vector2</span>(<span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-9"><a></a><span class="fu">add_to_vector2</span>(<span class="dv">10000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>0.06 sec elapsed</code></pre>
+<pre><code>0.07 sec elapsed</code></pre>
 </div>
 </div>
 </div></div>
-</section><section id="the-difference-is-noticable-for-larger-n" class="slide level2"><h2>The difference is noticable for larger n</h2>
+</section>
+<section id="the-difference-is-noticable-for-larger-n" class="slide level2">
+<h2>The difference is noticable for larger n</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="2,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>add_to_vector <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" data-code-line-numbers="2,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>add_to_vector <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
 <span id="cb22-2"><a></a>  output <span class="ot">&lt;-</span> <span class="cn">NULL</span> </span>
 <span id="cb22-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
 <span id="cb22-4"><a></a>    output <span class="ot">&lt;-</span> <span class="fu">c</span>(output, i)</span>
@@ -552,12 +576,12 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb22-6"><a></a>  output</span>
 <span id="cb22-7"><a></a>}</span>
 <span id="cb22-8"><a></a></span>
-<span id="cb22-9"><a></a><span class="fu">add_to_vector</span>(<span class="dv">100000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-9"><a></a><span class="fu">add_to_vector</span>(<span class="dv">100000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <pre><code>6.38 sec elapsed</code></pre>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="2,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>add_to_vector2 <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24" data-code-line-numbers="2,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>add_to_vector2 <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
 <span id="cb24-2"><a></a>  output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"integer"</span>, n)  </span>
 <span id="cb24-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
 <span id="cb24-4"><a></a>   output[i] <span class="ot">&lt;-</span> i</span>
@@ -565,88 +589,94 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb24-6"><a></a>  output</span>
 <span id="cb24-7"><a></a>}</span>
 <span id="cb24-8"><a></a></span>
-<span id="cb24-9"><a></a><span class="fu">add_to_vector2</span>(<span class="dv">100000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-9"><a></a><span class="fu">add_to_vector2</span>(<span class="dv">100000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <pre><code>0.438 sec elapsed</code></pre>
 </div></div>
-</section><section id="preallocating-output" class="slide level2"><h2>Preallocating output</h2>
+</section>
+<section id="preallocating-output" class="slide level2">
+<h2>Preallocating output</h2>
 <p>Here are a few useful ways to preallocate storage for a vector of length <code>n</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>output <span class="ot">&lt;-</span> <span class="fu">double</span>(n)    <span class="co"># numeric vector</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>output <span class="ot">&lt;-</span> <span class="fu">double</span>(n)    <span class="co"># numeric vector</span></span>
 <span id="cb26-2"><a></a>output <span class="ot">&lt;-</span> <span class="fu">integer</span>(n)   <span class="co"># integer vector</span></span>
 <span id="cb26-3"><a></a>output <span class="ot">&lt;-</span> <span class="fu">character</span>(n) <span class="co"># character vector</span></span>
-<span id="cb26-4"><a></a>output <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, n)   <span class="co"># vector of NAs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-4"><a></a>output <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, n)   <span class="co"># vector of NAs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <p>You can make tibbles of NAs by combining vectors via <code>tibble()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>output_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>output_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb27-2"><a></a>  <span class="at">a =</span> <span class="fu">double</span>(n),</span>
 <span id="cb27-3"><a></a>  <span class="at">b =</span> <span class="fu">integer</span>(n),</span>
 <span id="cb27-4"><a></a>  <span class="at">c =</span> <span class="fu">character</span>(n),</span>
 <span id="cb27-5"><a></a>  <span class="at">d =</span> <span class="fu">rep</span>(<span class="cn">NA</span>, n)</span>
-<span id="cb27-6"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-6"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-</section><section id="create-index-vector" class="slide level2"><h2>Create index vector</h2>
+</section>
+<section id="create-index-vector" class="slide level2">
+<h2>Create index vector</h2>
 <p>Useful ways to create index vector to iterate over:</p>
 <ul>
 <li class="fragment"><p><code>1:n</code> - manual creation if you already have <code>n</code> stored</p></li>
-<li class="fragment">
-<p><code>seq_along(df)</code> - construct an index “along” the columns of your data frame/tibble</p>
-<p>e.g.&nbsp;<code>seq_along(unscaled_cancer)</code> <br> ⚠️ Use this instead of <code>1:nrow(df)</code>or <code>1:length(x)</code></p>
-</li>
-<li class="fragment">
-<p><code>x</code> - pass in a vector, there’s no reason it needs to be an “index”</p>
-<p>e.g.&nbsp;<code>colnames(unscaled_cancer)</code></p>
-</li>
-</ul></section><section id="your-turn-1" class="slide level2"><h2>Your turn:</h2>
+<li class="fragment"><p><code>seq_along(df)</code> - construct an index “along” the columns of your data frame/tibble</p>
+<p>e.g.&nbsp;<code>seq_along(unscaled_cancer)</code> <br> ⚠️ Use this instead of <code>1:nrow(df)</code>or <code>1:length(x)</code></p></li>
+<li class="fragment"><p><code>x</code> - pass in a vector, there’s no reason it needs to be an “index”</p>
+<p>e.g.&nbsp;<code>colnames(unscaled_cancer)</code></p></li>
+</ul>
+</section>
+<section id="your-turn-1" class="slide level2">
+<h2>Your turn:</h2>
 <div class="task">
 <p>Revisit the {palmerpenguins} <code>penguins</code> data.</p>
-<p>Write a <code>for</code> loop that calculates the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> of a numeric variable and the <code><a href="https://rdrr.io/r/base/table.html">table()</a></code> of a factor variable.</p>
+<p>Write a <code>for</code> loop that calculates the <code>summary()</code> of a numeric variable and the <code>table()</code> of a factor variable.</p>
 <p>Store the results in a list (it will have length 8).</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_0db11aba" minutes="3" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+<countdown-timer class="countdown" id="timer_c8398198" minutes="3" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
 </div>
 </div>
-</section><section><section id="across" class="title-slide slide level1 maize center"><h1><code>across()</code></h1>
+</section>
+<section>
+<section id="across" class="title-slide slide level1 maize center">
+<h1><code>across()</code></h1>
 
-</section><section id="r-has-lots-of-alternatives-to-for-loops" class="slide level2"><h2>R has lots of alternatives to <code>for</code> loops</h2>
+</section>
+<section id="r-has-lots-of-alternatives-to-for-loops" class="slide level2">
+<h2>R has lots of alternatives to <code>for</code> loops</h2>
 <ul>
 <li class="fragment">The basic data type in R is a vector</li>
 <li class="fragment">In R, an “integer” is the same as a vector of integers of length 1</li>
 <li class="fragment">In more general-purpose programming languages, single items are stored differently than arrays of those items</li>
 <li class="fragment">This means that R is highly optimized for vectorized operations</li>
-</ul></section><section id="across-1" class="slide level2"><h2><code>across()</code></h2>
+</ul>
+</section>
+<section id="across-1" class="slide level2">
+<h2><code>across()</code></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li class="fragment">
-<code>.cols</code>: columns to apply function to</li>
-<li class="fragment">
-<code>.fns</code> function to apply</li>
+<li class="fragment"><code>.cols</code>: columns to apply function to</li>
+<li class="fragment"><code>.fns</code> function to apply</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">across</span>(.cols, </span>
-<span id="cb28-2"><a></a>       .fns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">across</span>(.cols, </span>
+<span id="cb28-2"><a></a>       .fns)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
-</section><section id="across-on-unscaled-cancer-data" class="slide level2"><h2>
-<code>across()</code> on unscaled cancer data</h2>
+</section>
+<section id="across-on-unscaled-cancer-data" class="slide level2">
+<h2><code>across()</code> on unscaled cancer data</h2>
 <div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby">
-<li><a data-tabby-default="" href="#tabset-1-1">One Function</a></li>
-<li><a href="#tabset-1-2">Multiple Functions</a></li>
-<li><a href="#tabset-1-3">Mutate</a></li>
-</ul>
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">One Function</a></li><li><a href="#tabset-1-2">Multiple Functions</a></li><li><a href="#tabset-1-3">Mutate</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>unscaled_cancer <span class="sc">|&gt;</span></span>
-<span id="cb29-2"><a></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(Radius<span class="sc">:</span>Fractal_Dimension, mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>unscaled_cancer <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(Radius<span class="sc">:</span>Fractal_Dimension, mean))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 10
   Radius Texture Perimeter  Area Smoothness Compactness Concavity Concave_Points
@@ -658,9 +688,9 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 <div id="tabset-1-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>unscaled_cancer <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>unscaled_cancer <span class="sc">|&gt;</span></span>
 <span id="cb31-2"><a></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(Radius<span class="sc">:</span>Fractal_Dimension, <span class="fu">list</span>(<span class="at">mean =</span> mean, </span>
-<span id="cb31-3"><a></a>                                                  <span class="at">sd =</span> sd)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-3"><a></a>                                                  <span class="at">sd =</span> sd)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 20
   Radius_mean Radius_sd Texture_mean Texture_sd Perimeter_mean Perimeter_sd
@@ -676,8 +706,8 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 <div id="tabset-1-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>unscaled_cancer <span class="sc">|&gt;</span></span>
-<span id="cb33-2"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(Radius<span class="sc">:</span>Fractal_Dimension, standardize))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>unscaled_cancer <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(Radius<span class="sc">:</span>Fractal_Dimension, standardize))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 569 × 12
        ID Class Radius Texture Perimeter   Area Smoothness Compactness Concavity
@@ -700,25 +730,21 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </div>
-</section><section id="helper-functions-for-across" class="slide level2"><h2>Helper functions for <code>across()</code>
-</h2>
-<div>
+</section>
+<section id="helper-functions-for-across" class="slide level2">
+<h2>Helper functions for <code>across()</code></h2>
 <ul>
-<li>
-<code>where(is.numeric)</code> selects all numeric columns.</li>
-<li>
-<code>where(is.character)</code> selects all string columns.</li>
-<li>
-<code>where(is.Date)</code> selects all date columns.</li>
-<li>
-<code>where(is.logical)</code> selects all logical columns.</li>
+<li><code>where(is.numeric)</code> selects all numeric columns.</li>
+<li><code>where(is.character)</code> selects all string columns.</li>
+<li><code>where(is.Date)</code> selects all date columns.</li>
+<li><code>where(is.logical)</code> selects all logical columns.</li>
 </ul>
-</div>
-</section><section id="across-on-unscaled-cancer-data-1" class="slide level2"><h2>
-<code>across()</code> on unscaled cancer data</h2>
+</section>
+<section id="across-on-unscaled-cancer-data-1" class="slide level2">
+<h2><code>across()</code> on unscaled cancer data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>unscaled_cancer <span class="sc">%&gt;%</span></span>
-<span id="cb35-2"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), standardize))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>unscaled_cancer <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), standardize))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 569 × 12
        ID Class Radius Texture Perimeter   Area Smoothness Compactness Concavity
@@ -738,13 +764,14 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 #   Fractal_Dimension &lt;dbl&gt;</code></pre>
 </div>
 </div>
-</section><section id="across-with-a-new-function" class="slide level2"><h2>
-<code>across()</code> with a new function</h2>
+</section>
+<section id="across-with-a-new-function" class="slide level2">
+<h2><code>across()</code> with a new function</h2>
 <p>Let’s say we want the range of each quantitative variable (<code>max(x) - min(x)</code>). We could name a new function, or we could do it directly in <code>across()</code></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>unscaled_cancer <span class="sc">%&gt;%</span></span>
-<span id="cb37-2"><a></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="cf">function</span>(x) <span class="fu">max</span>(x) <span class="sc">-</span> <span class="fu">min</span>(x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>unscaled_cancer <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="cf">function</span>(x) <span class="fu">max</span>(x) <span class="sc">-</span> <span class="fu">min</span>(x)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -758,10 +785,10 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 <div class="fragment">
-<p>Or we can use an <em>anonymous function</em></p>
+<p>Or we can use shorthand - <code>\(x)</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>unscaled_cancer <span class="sc">%&gt;%</span></span>
-<span id="cb39-2"><a></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), \(x) <span class="fu">max</span>(x) <span class="sc">-</span> <span class="fu">min</span>(x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>unscaled_cancer <span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), \(x) <span class="fu">max</span>(x) <span class="sc">-</span> <span class="fu">min</span>(x)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 11
          ID Radius Texture Perimeter  Area Smoothness Compactness Concavity
@@ -772,17 +799,21 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </div>
-</section><section id="your-turn-2" class="slide level2"><h2>Your turn</h2>
+</section>
+<section id="your-turn-2" class="slide level2">
+<h2>Your turn</h2>
 <div class="task">
 <p>Use <code>summarize</code> and <code>across</code> to find the <em>range</em> of any quantitative variables, and the <em>number of levels</em> of any factor variables in the <code>penguins</code> dataset.</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">countdown</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">countdown</span>(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_081387d2" minutes="4" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+<countdown-timer class="countdown" id="timer_731bcc27" minutes="4" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
 </div>
 </div>
-</section><section id="section-1" class="slide level2"><h2></h2>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
 <p>The good news: we can use <code>across</code> to do lots of for-loop-type tasks in our {dplyr} pipelines.</p>
 <div class="fragment">
 <p>The bad news: <code>across()</code> only works with {dplyr} functions like <code>mutate</code> or <code>summarize</code></p>
@@ -793,14 +824,31 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 
 </div>
 </section></section>
-</div>
+    </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p><a href="https://stat220-w26.github.io">🔗 stat220-w26.github.io</a></p>
+<p><a href="https://stat220kurtz.github.io/">🔗 stat220kurtz.github.io</a>, <a href="https://allisonhorst.com/other-r-fun">Illustrations</a></p>
 </div>
 </div></div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script><script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../../site_libs/revealjs/plugin/search/search.js"></script><script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -967,7 +1015,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -992,226 +1040,251 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
           RevealZoom
         ]
       });
-    </script><script>
+    </script>
+    
+
+    <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
     
+
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
+
     
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
             }
           }
+          return false;
         }
-    
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-    
-      })();
-    </script><script id="quarto-html-after-body" type="application/javascript">
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
-      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-      tabsets.forEach(function(tabset) {
-        const tabby = new Tabby('#' + tabset.id);
-      });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
         }
-        return false;
-      }
-      const onCopySuccess = function(e) {
-        // button target
-        const button = e.trigger;
-        // don't keep focus
-        button.blur();
-        // flash "checked"
-        button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
-        setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
-          }
-          button.setAttribute("title", currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        // clear code selection
-        e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
           for (const childEl of codeEl.children) {
             if (isCodeAnnotation(childEl)) {
               childEl.remove();
             }
           }
           return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
-      });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
             }
           }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-        const config = {
-          allowHTML: true,
-          maxWidth: 500,
-          delay: 100,
-          arrow: false,
-          appendTo: function(el) {
-              return el.closest('section.slide') || el.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'light-border',
-          placement: 'bottom-start',
-        };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
-          config['offset'] = [0,0];
-          config['maxWidth'] = 700;
-        window.tippy(el, config); 
-      }
-      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-      for (var i=0; i<noterefs.length; i++) {
-        const ref = noterefs[i];
-        tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-          try { href = new URL(href).hash; } catch {}
-          const id = href.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
           }
-        });
-      }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
           }
-        } else {
-          return undefined;
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-      };
-      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-      for (var i=0; i<bibliorefs.length; i++) {
-        const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
           });
         }
-      }
-    });
-    </script>
-
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
 
 </body></html>

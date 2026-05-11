@@ -86,14 +86,7 @@ scaled_cancer <- unscaled_cancer %>%
   )
 ```
 
-## 
-
-> You should consider ~~writing a function~~ iterating<br> 
-> whenever you’ve copied and pasted a  <br>
-> block of code more than twice 
-
->—~~Hadley Wickham~~ <br>
->-Amanda Luby
+Sure, we have replaced the calculations with a function that will behave identically for all columns, but we are still repeating ourselves 10 times
 
 ## Iteration
 
@@ -258,7 +251,7 @@ scaled_cancer
 ::: {.task .nonincremental}
 Load the `palmerpenguins` package.
 
-Write a `for` loop that calculates the mean of the numeric variables in the `penguins` data set and stores the means in a named vector.
+Write a `for` loop that calculates the mean of the numeric variables in the `penguins` data set and stores the means in a named vector. Don't forget to create an object to store your results before you run the loop!
 :::
 
 ```{r echo=FALSE}
@@ -558,7 +551,7 @@ unscaled_cancer %>%
 
 . . . 
 
-Or we can use an *anonymous function*
+Or we can use shorthand - `\(x)`
 
 ```{r}
 unscaled_cancer %>%
