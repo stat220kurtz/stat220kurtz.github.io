@@ -402,10 +402,10 @@ ul.task-list li input[type="checkbox"] {
 <h1>Overview</h1>
 <p>For your third portfolio project, you’ll apply what you’ve learned about dealing with text data, iteration, and writing functions. We’ll work with Jeopardy! data which can be found at <a href="https://data.world/dataquest/jeopardy">Data World</a>.</p>
 <p>Imagine you have been selected to compete on the game show Jeopardy! Your goal is to use your data science skills to come up with a data-driven strategy to maximize your chances of winning, and winning big money!</p>
-<p>At a minimum, you will analyze the <code>category</code> and <code>question</code> variables to get a sense of the categories that are often covered in Jeopardy! and terms that frequently appear in Jeopardy! answers (which appear in the <code>question</code> column - see the <strong>Note</strong> in the About the show Jeopardy! section of this portfolio). Each analysis (you’ll run one each on the <code>category</code> variable and the <code>question</code> variable) should contain an appropriate visualization and a brief written interpretation/analysis (no more than a paragraph for each).</p>
-<p>You will also be tasked with writing a function called <code>subject_category_count()</code>. This function will take in a user-specified character vector of subjects (e.g.&nbsp;c(“history”, “science”, “shakespeare”)) and count how many times each of those subjects appears in the <code>category</code> column. You can write the function to output the counts in whatever way you would like, be it a list of counts, a tibble, etc. as long as the counts are accurate.</p>
+<p>In this portfolio project, you will analyze the <code>category</code> and <code>question</code> variables to get a sense of the categories that are often covered in Jeopardy! and terms that frequently appear in Jeopardy! answers (which appear in the <code>question</code> column - see the <strong>Note</strong> in the About the show Jeopardy! section of this portfolio). Each analysis (you’ll run one each on the <code>category</code> variable and the <code>question</code> variable) should contain an appropriate visualization and a brief written interpretation/analysis (no more than a paragraph needed for each).</p>
+<p>You will also be tasked with writing a function called <code>subject_category_count()</code>. This function will take in a user-specified character vector of subjects (e.g.&nbsp;c(“history”, “science”, “shakespeare”)) and count how many times each of those subjects appears in the <code>category</code> column. You can write the function to output the counts in whatever way you would like, be it a list of counts, a tibble, etc. as long as the counts are accurate. You may (but do not have to) also use this function to serve as the baseline of your analysis for the <code>category</code> variable.</p>
 <p>Of course, portfolio projects are meant to be unabashedly open-ended, so you may choose to explore whatever seems interesting here beyond these baseline restrictions. Doing so will be required for an excellent score on this project.</p>
-<p>You should write your code in Quarto, create any graphics using <code>ggplot2</code>, and use tools from this class for text analysis (stringr, regex, world clouds, sentiment analysis, tf-idf, etc.), wrangling, function writing, and iteration. To submit your work, push your repo to GitHub and submit the rendered pdf of your qmd file to Gradescope.</p>
+<p>You should write your code in Quarto, create any graphics using <code>ggplot2</code>, and use tools from this class for any text analysis (stringr, regex, world clouds, sentiment analysis, tf-idf, etc.), wrangling, function writing, and iteration you need for your analyses. To submit your work, push your repo to GitHub and submit the rendered pdf of your qmd file to Gradescope.</p>
 </section>
 <section id="about-the-show-jeopardy" class="level1">
 <h1>About the show Jeopardy!</h1>
@@ -469,7 +469,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="submission" class="level1">
 <h1>Submission</h1>
-<p>Your submission will be a .qmd file (and clean, rendered pdf) that runs your two analyses, creates your two graphs, and runs your <code>subject_category_count()</code> function on the character vector containing two subjects: “history” and “science.” You should also summarize your findings from these results in a couple of paragraphs at most and provide a very brief (a sentence even is fine) data-driven strategy to maximize your winnings. The pdf submission will likely only be 2-3 pages.</p>
+<p>Your submission will be a .qmd file (and clean, rendered pdf) that runs your two analyses, creates your two graphs, and runs your <code>subject_category_count()</code> function on the character vector containing two subjects: “history” and “science.” You should also summarize your findings from these results in a couple of paragraphs at most and conclude with a very brief (a sentence even is fine) data-driven strategy to maximize your winnings. The pdf submission will likely only be 2, maybe 3, pages.</p>
 </section>
 <section id="rubric" class="level1">
 <h1>Rubric</h1>
@@ -478,13 +478,13 @@ ul.task-list li input[type="checkbox"] {
 <li><label><input type="checkbox">Include all necessary components pushed to GitHub and a pdf uploaded to Gradescope</label></li>
 <li><label><input type="checkbox"><strong>Demonstrate a history of work in progress and revision through your git commit history</strong></label></li>
 <li><label><input type="checkbox">Contain code, plots, and written summary in a single .qmd document</label></li>
-<li><label><input type="checkbox">The .qmd has all necessary and no unnecessary code</label></li>
+<li><label><input type="checkbox">Include a .qmd with all necessary and no unnecessary code</label></li>
 <li><label><input type="checkbox">Do text analysis on and create a visual for <strong>both</strong> the <code>category</code> and <code>question</code> variables (i.e.&nbsp;two separate analyses and visuals are required, but you are free to choose what type of analyses and visuals to run for each variable)</label></li>
 <li><label><input type="checkbox">Create a function called <code>subject_category_count()</code> that:</label>
 <ul class="task-list">
-<li><label><input type="checkbox">Takes in a user-specified character vector of subjects</label></li>
+<li><label><input type="checkbox">Takes in a user-specified character vector of subjects and the jeopardy dataset</label></li>
 <li><label><input type="checkbox">Accurately counts the number of times each of those subjects shows up in <code>category</code></label></li>
-<li><label><input type="checkbox">Correctly works - this should be directly demonstrated in the write up by running the line of code: subject_category_count(c(“history”, “science”)), which should return a count of 279 for history and 277 for science</label></li>
+<li><label><input type="checkbox">Correctly works - this should be directly demonstrated in the write up by running a line of code that executes the function with this vector - c(“history”, “science”) - which should return a count of 279 for history and 277 for science</label></li>
 </ul></li>
 <li><label><input type="checkbox">Remove stop words from analyses/visualizations</label></li>
 <li><label><input type="checkbox">Conclude with a very brief data-driven strategy to win Jeopardy!</label></li>
@@ -498,7 +498,6 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>An <strong>excellent</strong> project will meet all of the requirements for a successful project, and</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Improves upon your <code>subject_category_count()</code> function by taking into account the fact that a category in a round of Jeopardy! contains five questions and not double (or quintuple) counting the category. See Note at the end of this rubric for more information.</label></li>
 <li><label><input type="checkbox">Explores the relationship between either <code>category</code> or <code>question</code> and at least <strong>one other variable</strong> and provides a visual and a brief (no more than a paragraph) write up describing that relationship</label></li>
 <li><label><input type="checkbox">Concludes with a more nuanced data-driven strategy to win Jeopardy! based on all analyses run, including the analysis with the non-<code>category</code> and non-<code>question</code> variable (i.e.&nbsp;discusses most frequently occurring categories or topics/terms in questions <em>but also</em> adds a discussion of how accounting for the other variable(s) analyzed may change that strategy)</label></li>
 <li><label><input type="checkbox">Meets high submission quality standards</label>
@@ -507,7 +506,6 @@ ul.task-list li input[type="checkbox"] {
 <li><label><input type="checkbox">Graphs have been customized (theme, color palette, scales, etc.)</label></li>
 </ul></li>
 </ul>
-<p><strong>Note</strong>: Each observation in this dataset is technically a single question. A question belongs to a category. Within a round of Jeopardy!, a category contains five questions. Thus, a single category may show up in the dataset up to five times despite corresponding to the same exact category within the same round of the same episode of Jeopardy! The improved function should, in this case, only count the category in a situation like this once, not up to five times. To help here, you can and should assume that a unique category can only show up in a round of an episode of Jeopardy! at most once (i.e.&nbsp;you’ll never see “World History” in Double Jeopardy! twice in episode 400, but you may see “World History” in both Jeopardy! and Double Jeopardy! in episode 400).</p>
 </section>
 <section id="can-i-work-with-someone" class="level1">
 <h1>Can I work with someone?</h1>

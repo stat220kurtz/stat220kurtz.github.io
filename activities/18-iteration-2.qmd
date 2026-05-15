@@ -51,7 +51,28 @@ Your result should be a list (it will have length 8).
 # your code here
 ```
 
-## More practice: survivor data
+# Permutation test
+
+
+```{r}
+unscaled_cancer %>%
+  group_by(Class) %>%
+  summarize(
+    mean = mean(Radius)
+  )
+```
+
+1. Define a function to run the experiment
+    - Create a new column of `unscaled_cancer` called `class_shuffled`, which is a permutation of the original `Class` variable (*Hint:* see `sample` function)
+    - Group by `class_shuffled` and compute the group means
+    - Find the difference in the means
+2. Repeat the experiment 1000 times, making sure to save the difference in means
+3. Make a histogram of the simulated differences. How (un)likely is the difference we observed?
+
+
+# More practice - survivor data
+
+## Writing function that finds season survivor finalists
 
 ```{r}
 us_castaway_results 
@@ -61,7 +82,7 @@ us_castaway_results
 
 2. Use `map_chr` to return a character vector of finalists for seasons 31-40. 
 
-## Your turn: `sample_finalists`
+## Writing `sample_finalists`
 
 Some survivor seasons only had 16 players, while others had 22. This could result in some seasons being slightly under/overrepresented in our sample. Let's account for this.
 
@@ -83,23 +104,4 @@ sample_finalists = function(n){
 ```{r}
 # your iteration code here
 ```
-
-# Permutation test
-
-
-```{r}
-unscaled_cancer %>%
-  group_by(Class) %>%
-  summarize(
-    mean = mean(Radius)
-  )
-```
-
-1. Define a function to run the experiment
-    - Create a new column of `unscaled_cancer` called `class_shuffled`, which is a permutation of the original `Class` variable (*Hint:* see `sample` function)
-    - Group by `class_shuffled` and compute the group means
-    - Find the difference in the means
-2. Repeat the experiment 1000 times, making sure to save the difference in means
-3. Make a histogram of the simulated differences. How (un)likely is the difference we observed?
-
 

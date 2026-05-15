@@ -42,10 +42,53 @@ set.seed(0206)
 unscaled_cancer <- read_csv("https://raw.githubusercontent.com/UBC-DSCI/introduction-to-datascience/refs/heads/main/data/wdbc_unscaled.csv")
 ```
 
+## Recap from last class
+
+1. `for` loops for iteration
+    - Pre-allocating storage
+    - Creating an index vector
+
+2. Using `across()` to iterate over columns
+
+## Example from last class - with code answers
+
+We want to find the *range* of any quantitative variables, and the *number of levels* of any factor variables in the `penguins` dataset.
+
+. . . 
+
+::: panel-tabset
+
+### `for` loop
+
+```{r}
+output = numeric(8)
+
+for(k in seq_along(penguins)){
+  if(is.numeric(penguins[[k]])){
+    output[k] = max(penguins[[k]], na.rm = TRUE) - min(penguins[[k]], na.rm = TRUE)
+  }
+  if(is.factor(penguins[[k]])){
+    output[k] = length(levels(penguins[[k]]))
+  }
+}
+output
+```
+
+### `across`
+
+```{r}
+penguins |>
+  summarize(
+    across(where(is.numeric), \(x) max(x, na.rm = TRUE) - min(x, na.rm = TRUE)),
+    across(where(is.factor), \(x) length(levels(x)))
+  )
+```
+:::
+
 ## Bakeoff data (season 14 only)
 
 ```{r}
-bakeoff = read_csv("https://stat220-w26.github.io/data/bakeoff-episodes.csv") |>
+bakeoff = read_csv("https://stat220kurtz.github.io/data/bakeoff-episodes.csv") |>
   filter(series == 14)
 
 bakeoff
@@ -106,48 +149,7 @@ for(k in 1:10){
 }
 ```
 
-## Recap from last class
 
-1. `for` loops for iteration
-    - Pre-allocating storage
-    - Creating an index vector
-
-2. Using `across()` to iterate over columns
-
-## Example
-
-We want to find the *range* of any quantitative variables, and the *number of levels* of any factor variables in the `penguins` dataset.
-
-. . . 
-
-::: panel-tabset
-
-### `for` loop
-
-```{r}
-output = numeric(8)
-
-for(k in seq_along(penguins)){
-  if(is.numeric(penguins[[k]])){
-    output[k] = max(penguins[[k]], na.rm = TRUE) - min(penguins[[k]], na.rm = TRUE)
-  }
-  if(is.factor(penguins[[k]])){
-    output[k] = length(levels(penguins[[k]]))
-  }
-}
-output
-```
-
-### `across`
-
-```{r}
-penguins |>
-  summarize(
-    across(where(is.numeric), \(x) max(x, na.rm = TRUE) - min(x, na.rm = TRUE)),
-    across(where(is.factor), \(x) length(levels(x)))
-  )
-```
-:::
 
 ## 
 
@@ -556,42 +558,9 @@ Apply `sample_finalists` function and analyze results
 #| output-location: fragment
 rep(20, 1000) |>
   map_dbl(sample_finalists) |>
-  table()
-```
-
-
-## Your turn
-
-::: task
-Some survivor seasons only had 16 players, while others had 22. This could result in some seasons being slightly under/overrepresented in our sample. Let's account for this.
-
-Edit this experiment to instead randomly sample one player from each season (this results in 47 players) and then sample 20 players from the 47 random ones. 
-
-(*Hint:* look at the `by` argument in `slice_sample`)
-:::
-
-```{r}
-#| include: false
-
-sample_finalists_2 = function(n){
-    us_castaway_results %>%
-    slice_sample(n = 1, by = season) %>%
-    slice_sample(n=20) %>%
-    filter(finalist) %>%
-    count() %>%
-    pull(n)
-}
-
-
-rep(20, 1000) |>
-  map_dbl(sample_finalists_2) |>
   table()/1000
 ```
 
-```{r}
-#| echo: false
-countdown(4)
-```
 
 ## `unscaled_cancer`
 
