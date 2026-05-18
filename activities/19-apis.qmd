@@ -4,7 +4,7 @@ title: "19-apis"
 
 # TidyCensus
 
-Install `tidycensus` if not on maize:
+Install `tidycensus`
 
 ```{r}
 #| eval: false
@@ -49,38 +49,6 @@ census_api_key(my_key)
 ```
 
 *Do not commit and push `census_api_key.txt` to github*
-
-```{r}
-#| eval: false
-acs_mn_2020 |>
-  mutate(
-    name = str_remove(NAME, ", Minnesota"),
-    name = str_remove(name, " County")
-  ) |> 
-  ggplot(aes(x = B19013_001E, 
-                          xmin = B19013_001E - B19013_001M, 
-                          xmax = B19013_001E + B19013_001M, 
-                          y = fct_reorder(name, B19013_001E))) + 
-  geom_point() + 
-  geom_errorbarh() + 
-  labs(
-    x = "",
-    y = ""
-  )
-```
-
-
-
-## Links to more info about census
-
-<https://data.census.gov/>
-
-<https://www.census.gov/acs/www/data/data-tables-and-tools/subject-tables/>
-
-## Your turn
-
-- Search for two new variables using `load_variables` (Can you explain what they are?)
-- Run another call to `tidycensus::get_acs` using your two variables
 
 # httr2
 

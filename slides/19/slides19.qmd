@@ -29,6 +29,7 @@ library(patchwork)
 library(ggthemes)
 library(nycflights23)
 library(here)
+library(tidycensus)
 slides_theme = theme_minimal(
   base_family = "Atkinson Hyperlegible",
   base_size = 16)
@@ -58,101 +59,12 @@ In this class, we're going to cover two ways to access API's:
     - "R package reddit data"
     - "R package weather.com data" 
     
-## Example: nytimes data
-
-
-
-::::: columns
-::: {.column .nonincremental width="50%"}
-
-![](https://github.com/mkearney/nytimes/raw/master/man/figures/logo.png){width=70%}
-:::
-
-:::{.column .nonincremental width="50%"}
-- R functions for accessing New York Times’ APIs
-
-- Functionality for “article search”, “most popular”, and “Times newswire” APIs.
-```{r}
-#| eval: false
-
-remotes::install_github("mkearney/nytimes")
-library(nytimes)
-```
-
-:::
-:::::
-
-## `nyt_search`
-
-Allows R to interact with the NY Times
-
-::::: columns
-::: {.column .nonincremental width="50%"}
-
-```{r}
-#| eval: false
-mn_search <- nyt_search(q = "minnesota", 
-                        n = 50, 
-                        end_date = "20240101")
-```
-:::
-
-::: {.column .nonincremental width="50%"}
-- `q`: search term
-- `n`: number of articles to return
-- `end_date`: which date to start searching *backwards* from
-:::
-:::::
-
-## Output is designed for computers to read
-
-```{r}
-#| echo: false
-library(nytimes)
-mn_search <- readRDS("mn_search.rds")
-```
-
-```{r}
-str(mn_search)
-```
-
-## Convert response to tibble
-
-```{r}
-mn_tbl <- as_tibble(mn_search)
-mn_tbl
-```
-
-## Let's take a peek at a couple of columns:
-
-```{r}
-mn_tbl %>%
-  select(pub_date, headline, document_type, keywords)
-```
-
-## Pros of using an API: 
-
-- Provenance: we've accessed our data directly from the source and didn't have to save it in a file format or open it in a different program
-- Reproducibility: accessing data via code allows others to reproduce our work
-- Customizability: we can generate as specific (or broad) of a dataset as we would like
-
-## But, I've hidden some steps from you
-
-- Most APIs require you to sign up for an *API key*
-- This allows the website to track who is accessing their data, how many requests they are making, how often they are making them, etc. 
-- Most APIs (especially if they're free) are *rate limited*
-    - The NYTimes API limits you to 500 requests per day and 5 requests per minute
-    - This seems like a lot, but you can burn through them quickly when you're not sure what you're doing! 
-- In addition to signing up for a key, we need to make sure R knows how to find it
 
 ## Census data
 
 - Every ten years, the US Census Bureau runs a census of the US population. The goal is to survey *everybody* in the country. 
 - They also run the *American Community Survey*, which tracks demographic indicators among a random sample of people every 1, 3, or 5 years
-- They also collect a variety of other data: 
-    - PSEO
-    - Household pulse survey
-    - Health insurance, poverty statistics, business owners, etc. 
+- And collect a variety of other data
     
 . . . 
 
@@ -190,49 +102,11 @@ library(tidycensus)
 
 ## Example call
 
-```{r}
-#| eval: false
-acs_mn_2020 <- tidycensus::get_acs(
-    year = 2020,
-    state = "MN",
-    geography = "tract",
-    variables = c("B01003_001", "B19013_001"),
-    output = "wide",
-    geometry = TRUE
-)
-```
-
-## Storing your API key
-
-::: {.nonincremental}
-1. Create a new text file in the same folder as your .rmd
-2. Copy and paste your census key into the empty file
-3. Save the file as `census_api_key.txt`
-:::
-
-Read in the key with the following code: 
-
-```{r}
-#| eval: false
-my_key <- readLines("census_api_key.txt")
-```
-
-and tell `tidycensus` what your API key is with:
-
-```{r}
-#| eval: false
-census_api_key(my_key)
-```
-
-*Do not commit and push `census_api_key.txt` to github*
-
-## Example call
-
 ::::: columns
 ::: {.column .nonincremental width="50%"}
 
 ```{r}
-#| eval: false
+#| output: false
 acs_mn_2020 <- tidycensus::get_acs(
     year = 2020,
     state = "MN",
@@ -249,7 +123,7 @@ acs_mn_2020 <- tidycensus::get_acs(
 
 
 acs_mn_2020_2 <- tidycensus::get_acs(
-    year = 2020,
+    year = 2024,
     state = "MN",
     geography = "county",
     variables = c("B01003_001", "B19013_001"),
@@ -268,58 +142,75 @@ acs_mn_2020_2 <- tidycensus::get_acs(
 :::::
 ## Example
 
-```
-Simple feature collection with 87 features and 6 fields
-Geometry type: MULTIPOLYGON
-Dimension:     XY
-Bounding box:  xmin: -97.23921 ymin: 43.49937 xmax: -89.49398 ymax: 49.38436
-Geodetic CRS:  NAD83
-First 10 features:
-   GEOID                        NAME B01003_001E B01003_001M B19013_001E B19013_001M                       geometry
-1  27167    Wilkin County, Minnesota        6264          NA       56829        5145 MULTIPOLYGON (((-96.79109 4...
-2  27133      Rock County, Minnesota        9386          NA       65744        4462 MULTIPOLYGON (((-96.45341 4...
-3  27119      Polk County, Minnesota       31384          NA       58682        4958 MULTIPOLYGON (((-97.14638 4...
-4  27069   Kittson County, Minnesota        4272          NA       55410        2948 MULTIPOLYGON (((-97.23921 4...
-5  27125  Red Lake County, Minnesota        4005          NA       59698        9122 MULTIPOLYGON (((-96.48255 4...
-6  27023  Chippewa County, Minnesota       11876          NA       57301        4675 MULTIPOLYGON (((-96.0367 45...
-7  27075      Lake County, Minnesota       10571          NA       65201        3145 MULTIPOLYGON (((-91.55375 4...
-8  27137 St. Louis County, Minnesota      199499          NA       57480        1156 MULTIPOLYGON (((-93.09802 4...
-9  27061    Itasca County, Minnesota       45180          NA       55744        1908 MULTIPOLYGON (((-94.41896 4...
-10 27145   Stearns County, Minnesota      159788          NA       65244        1675 MULTIPOLYGON (((-95.13964 4...
+```{r}
+acs_mn_2020
 ```
 
-## Example
+
+## Chat with your neighbor
+
+::: {.task .nonincremental}
+- Visit <https://data.census.gov/table/> and search for the variables used in the previous example (remove everything including and after the _). What are these variables?
+- Look at the help text for `get_acs()`. Look at the output on the previous slide. Why does the table show four numeric columns when we only explicitly requested two?
+
+```{r, echo=FALSE}
+countdown(4, 0)
+```
+:::
+
+## Why the _001 in the variable name?
+
+- The numeric string before the _ refers to the table, while the numeric string after the _ refers to the row in the table
+- The population table only includes one row, but most tables include many
+- Note: there is a function in tidycensus that helps with this (`load_variables()`), but recent changes in data management policy at the Census broke this function (they are in the process of fixing it right now though!)
+
+## Pros of using an API: 
+
+- Provenance: we've accessed our data directly from the source and didn't have to save it in a file format or open it in a different program
+- Reproducibility: accessing data via code allows others to reproduce our work
+- Customizability: we can generate as specific (or broad) of a dataset as we would like
+
+## But, I've hidden some steps from you
+
+- Most APIs require you to sign up for an *API key*
+- This allows the website to track who is accessing their data, how many requests they are making, how often they are making them, etc. 
+- Most APIs (especially if they're free) are limited in some ways
+    - The Census limits the number of variables you can access in a given call to 50
+    - The NYTimes API limits you to 500 requests per day and 5 requests per minute
+- In addition to signing up for a key, we need to make sure R knows how to find it
+
+
+## Activity - Sign up for a Census API Key
+
+::: {.task .nonincremental}
+- Go to <https://api.census.gov/data/key_signup.html> and provide your organization (Carleton College) and college email address
+- Check your email. Your API key will be in the body of the email
+:::
+
+## Storing your API key
+
+::: {.nonincremental}
+1. Create a new text file in the same folder as your .qmd
+2. Copy and paste your census key into the empty file
+3. Save the file as `census_api_key.txt`
+:::
+
+Read in the key with the following code: 
 
 ```{r}
 #| eval: false
-
-acs_mn_2020 |>
-  mutate(
-    name = str_remove(NAME, ", Minnesota"),
-    name = str_remove(name, " County")
-  ) |> 
-  ggplot(aes(x = B19013_001E, 
-                          xmin = B19013_001E - B19013_001M, 
-                          xmax = B19013_001E + B19013_001M, 
-                          y = fct_reorder(name, B19013_001E))) + 
-  geom_point() + 
-  geom_errorbarh() + 
-  labs(
-    x = "",
-    y = ""
-  )
+my_key <- readLines("census_api_key.txt")
 ```
+
+and tell `tidycensus` what your API key is with:
 
 ```{r}
-#| echo: false
 #| eval: false
-
-ggsave("acs-mn-county.png", width = 4, height = 12)
+census_api_key(my_key)
 ```
 
-## 
+*Do not commit and push `census_api_key.txt` to GitHub*
 
-![](../img/acs-mn-county.png)
 
 ## More info about how census/ACS data is reported
 
@@ -327,45 +218,7 @@ ggsave("acs-mn-county.png", width = 4, height = 12)
 
 <https://www.census.gov/acs/www/data/data-tables-and-tools/subject-tables/>
 
-## Searching for variables
 
-Getting variables from the Census or ACS requires knowing the variable ID - and there are thousands of these IDs across the different Census files. 
-
-. . . 
-
-```{r}
-acs_vars <- load_variables(2020, "acs5", cache = TRUE) 
-acs_vars 
-```
-
-## The two we used were: 
-
-```{r}
-acs_vars %>%
-  filter(name %in% c("B01003_001", "B19013_001"))
-```
-
-## But we could search for other variables using `label`
-
-```{r}
-acs_vars %>%
-  filter(str_detect(label, "degree"))
-```
-
-## Your turn
-
-```{r}
-acs_vars <- load_variables(2020, "acs5", cache = TRUE) 
-```
-
-::: {.task .nonincremental}
-- Search for two new variables using `load_variables` (Can you explain what they are?)
-- Run another call to `tidycensus::get_acs` using your two variables
-:::
-
-```{r}
-countdown(5)
-```
 
 ## What is `get_acs` doing underneath the hood?
 
@@ -377,6 +230,19 @@ get_acs
 
 If we add `show_call = TRUE`, we obtain the following output: 
 
+```{r}
+#| output: false
+acs_mn_2020 <- tidycensus::get_acs(
+    year = 2020,
+    state = "MN",
+    geography = "county",
+    variables = c("B01003_001", "B19013_001"),
+    output = "wide",
+    geometry = TRUE,
+    show_call = TRUE
+)
+```
+
 ```
 Getting data from the 2016-2020 5-year ACS
 Downloading feature geometry from the Census website.  To cache shapefiles for use in future sessions, set `options(tigris_use_cache = TRUE)`.
@@ -384,14 +250,7 @@ Using FIPS code '27' for state 'MN'
 Census API call: https://api.census.gov/data/2020/acs/acs5?get=B01003_001E%2CB01003_001M%2CB19013_001E%2CB19013_001M%2CNAME&for=tract%3A%2A&in=state%3A27
 ```
 
-## What's going on behind the scenes with `get_acs`?
-
-Let's take a peek at the [census API user guide](https://www.census.gov/data/developers/guidance/api-user-guide.html). There's a menu option for "Example API Queries". We'll talk through the ACS Example. 
-
-- "E" means Estimate, "M" means "Margin of Error"
-- "PE" means Percentage Estimate, "PM" means "Percentage Margin of Error"
-
-## Example: the total number of Hmong people living in each U.S. state 
+## Another Example: the total number of Hmong people living in each U.S. state 
 
 API *Query*: <https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M‌&for=state:*>
 

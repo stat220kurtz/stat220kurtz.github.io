@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prof Emily Kurtz">
+
+<title>Intro to  Web Scraping – Stat 220</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-23bbe8b5e4efc1e257f6d59dce478b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-9cd689e633e6965a52e57b6909e4e71e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-86a060b711941e6ff3ea3fca3d83124b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-9cd689e633e6965a52e57b6909e4e71e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Intro to <br>Web Scraping</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/stat220kurtz" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://moodle.carleton.edu/course/view.php?id=48307" title="Moodle" class="quarto-navigation-tool px-1" aria-label="Moodle"><i class="bi bi-person-fill"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Course information</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-links.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Useful links</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../course-faq.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Computing</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/computing-access.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Access</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/rstudio-stat220.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rstudio in Stat 220</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/git-stat220.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git/GitHub in Stat 220</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/commandline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Command Line Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/computing-cheatsheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cheatsheets</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#ways-to-access-data-from-the-web" id="toc-ways-to-access-data-from-the-web" class="nav-link active" data-scroll-target="#ways-to-access-data-from-the-web">Ways to access data from the web:</a></li>
+  <li><a href="#api-httr-request-from-last-class" id="toc-api-httr-request-from-last-class" class="nav-link" data-scroll-target="#api-httr-request-from-last-class">API <code>httr</code> request from last class</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#api-vs-screen-scraping" id="toc-api-vs-screen-scraping" class="nav-link" data-scroll-target="#api-vs-screen-scraping">API vs Screen Scraping</a></li>
+  <li><a href="#check-the-terms-of-useservice-first" id="toc-check-the-terms-of-useservice-first" class="nav-link" data-scroll-target="#check-the-terms-of-useservice-first">Check the terms of use/service first!</a></li>
+  <li><a href="#checking-for-permission-to-scrape" id="toc-checking-for-permission-to-scrape" class="nav-link" data-scroll-target="#checking-for-permission-to-scrape">Checking for permission to scrape</a></li>
+  <li><a href="#hypertext-markup-language" id="toc-hypertext-markup-language" class="nav-link" data-scroll-target="#hypertext-markup-language">Hypertext Markup Language</a></li>
+  <li><a href="#html-tags" id="toc-html-tags" class="nav-link" data-scroll-target="#html-tags">HTML tags</a></li>
+  <li><a href="#rvest" id="toc-rvest" class="nav-link" data-scroll-target="#rvest">{rvest}</a></li>
+  <li><a href="#core-rvest-functions" id="toc-core-rvest-functions" class="nav-link" data-scroll-target="#core-rvest-functions">Core <code>rvest</code> functions</a></li>
+  <li><a href="#example-box-office-mojo" id="toc-example-box-office-mojo" class="nav-link" data-scroll-target="#example-box-office-mojo">Example: box office mojo</a></li>
+  <li><a href="#read-html-into-r" id="toc-read-html-into-r" class="nav-link" data-scroll-target="#read-html-into-r">Read HTML into R</a></li>
+  <li><a href="#html-elements" id="toc-html-elements" class="nav-link" data-scroll-target="#html-elements">HTML elements</a></li>
+  <li><a href="#extract-tables" id="toc-extract-tables" class="nav-link" data-scroll-target="#extract-tables">Extract tables</a></li>
+  <li><a href="#html_element-vs-html_elements" id="toc-html_element-vs-html_elements" class="nav-link" data-scroll-target="#html_element-vs-html_elements"><code>html_element()</code> vs <code>html_elements()</code></a></li>
+  <li><a href="#check-that-its-the-right-table" id="toc-check-that-its-the-right-table" class="nav-link" data-scroll-target="#check-that-its-the-right-table">Check that it’s the right table</a></li>
+  <li><a href="#parse-a-table-into-a-data-frame" id="toc-parse-a-table-into-a-data-frame" class="nav-link" data-scroll-target="#parse-a-table-into-a-data-frame">Parse a table into a data frame</a></li>
+  <li><a href="#parse-tables-into-data-frames" id="toc-parse-tables-into-data-frames" class="nav-link" data-scroll-target="#parse-tables-into-data-frames">Parse tables into data frames</a></li>
+  <li><a href="#scrape-then-wrangle" id="toc-scrape-then-wrangle" class="nav-link" data-scroll-target="#scrape-then-wrangle">Scrape then wrangle</a></li>
+  <li><a href="#scrape-then-wrangle-1" id="toc-scrape-then-wrangle-1" class="nav-link" data-scroll-target="#scrape-then-wrangle-1">Scrape then wrangle</a></li>
+  <li><a href="#scraped-data-will-almost-always-need-wranglingcleaning" id="toc-scraped-data-will-almost-always-need-wranglingcleaning" class="nav-link" data-scroll-target="#scraped-data-will-almost-always-need-wranglingcleaning">Scraped data will almost always need wrangling/cleaning</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#what-next" id="toc-what-next" class="nav-link" data-scroll-target="#what-next">What next?</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides20.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Intro to <br>Web Scraping</h1>
+<p class="subtitle lead">Day 20</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Prof Emily Kurtz </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Carleton College <br> Stat 220 - Spring 2026
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="ways-to-access-data-from-the-web" class="level2">
+<h2 class="anchored" data-anchor-id="ways-to-access-data-from-the-web">Ways to access data from the web:</h2>
+<ol type="1">
+<li><p>Web APIs (application programming interface): website offers a set of structured http requests that return JSON or XML files.</p></li>
+<li><p>Screen scraping:<br> extract data from source code of website, with html parser (easy) or regular expression matching (less easy).</p></li>
+</ol>
+</section>
+<section id="api-httr-request-from-last-class" class="level2">
+<h2 class="anchored" data-anchor-id="api-httr-request-from-last-class">API <code>httr</code> request from last class</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">request</span>(<span class="st">"https://api.census.gov/data"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_url_path_append</span>(<span class="st">"2019"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_url_path_append</span>(<span class="st">"acs"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_url_path_append</span>(<span class="st">"acs1"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_url_query</span>(<span class="at">get =</span> <span class="fu">c</span>(<span class="st">"NAME"</span>, <span class="st">"B02015_009E"</span>, <span class="st">"B02015_009M"</span>), </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                  <span class="st">`</span><span class="at">for</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">I</span>(<span class="st">"state:*"</span>), </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">key =</span> census_api_key, </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">.multi =</span> <span class="st">"comma"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>&lt;httr2_request&gt;
+GET
+https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&amp;for=state:*&amp;key=4a2344XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Body: empty</code></pre>
+<p>Can use your browser to go to the URL address and see what will be returned</p>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p>When debugging, you can also test a single URL and build up your pipeline from there</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">request</span>(<span class="st">"https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&amp;for=state:*"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>&lt;httr2_request&gt;
+GET
+https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&amp;for=state:*
+Body: empty</code></pre>
+</section>
+<section id="api-vs-screen-scraping" class="level2">
+<h2 class="anchored" data-anchor-id="api-vs-screen-scraping">API vs Screen Scraping</h2>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<p><strong>API</strong>:</p>
+<ul>
+<li>Designed to be accessed by computers</li>
+<li>Often need to sign up for a key</li>
+<li>Structured set of requests, need to dig in to documentation to figure out how to access the data you need</li>
+<li>Often more natural structure for tidying</li>
+</ul>
+</div><div class="column fragment nonincremental" style="width:50%;">
+<p><strong>Screen scraping:</strong></p>
+<ul>
+<li>Designed to be read by humans</li>
+<li>Can be restricted or rate-limited in terms of service</li>
+<li>Need to dig in to source code of the web page to figure out how to access the data that you need</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="check-the-terms-of-useservice-first" class="level2">
+<h2 class="anchored" data-anchor-id="check-the-terms-of-useservice-first">Check the terms of use/service first!</h2>
+<ul>
+<li><p>Can you query this webpage?</p></li>
+<li><p>Are there restrictions on the use of the data?</p></li>
+<li><p>How many requests can you make per minute?</p></li>
+<li><p>…and more…</p></li>
+</ul>
+</section>
+<section id="checking-for-permission-to-scrape" class="level2">
+<h2 class="anchored" data-anchor-id="checking-for-permission-to-scrape">Checking for permission to scrape</h2>
+<p>Use <code>robotstxt::paths_allowed()</code> to see if you can scrape the web page.</p>
+<p>. . .</p>
+<p>You can scrape Zillow</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(robotstxt)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paths_allowed</span>(<span class="st">"http://www.zillow.com"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>. . .</p>
+<p>But not Facebook</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paths_allowed</span>(<span class="st">"http://www.facebook.com"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>. . .</p>
+<div class="task">
+<p>What websites have data about <em>you</em>? Think of 1-2 and see if scraping is allowed on those sites.</p>
+</div>
+</section>
+<section id="hypertext-markup-language" class="level2">
+<h2 class="anchored" data-anchor-id="hypertext-markup-language">Hypertext Markup Language</h2>
+<div class="nonincremental">
+<ul>
+<li><p>Lots of data on the web is still available as HTML</p></li>
+<li><p>It is structured (hierarchical / tree based), but it’s often not available in a form useful for analysis (flat / tidy).</p></li>
+</ul>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>This is a title<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> align</span><span class="op">=</span><span class="st">"center"</span><span class="dt">&gt;</span>Hello world!<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="html-tags" class="level2">
+<h2 class="anchored" data-anchor-id="html-tags">HTML tags</h2>
+<p>HTML uses <strong>tags</strong> to describe different aspects of document content</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 84%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tag</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>heading</td>
+<td><code>&lt;h1&gt;My Title&lt;/h1&gt;</code></td>
+</tr>
+<tr class="even">
+<td>paragraph</td>
+<td><code>&lt;p&gt;A paragraph of content...&lt;/p&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>table</td>
+<td><code>&lt;table&gt; ... &lt;/table&gt;</code></td>
+</tr>
+<tr class="even">
+<td>anchor (with attribute)</td>
+<td><code>&lt;a href="http://www.mysite.net"&gt;click here for link&lt;/a&gt;</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rvest" class="level2">
+<h2 class="anchored" data-anchor-id="rvest">{rvest}</h2>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<p><img src="https://rvest.tidyverse.org/logo.png" class="img-fluid" style="width:70.0%"></p>
+</div><div class="column nonincremental" style="width:50%;">
+<ul>
+<li><p>Pronounced like “harvest”</p></li>
+<li><p>Processing and manipulation of HTML data</p></li>
+<li><p><em>Installed</em> with the {tidyverse} but not <em>loaded</em> automatically</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="core-rvest-functions" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="core-rvest-functions">Core <code>rvest</code> functions</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>read_html</code></td>
+<td>Read HTML data from a url or character string</td>
+</tr>
+<tr class="even">
+<td><code>html_element</code></td>
+<td>Select a specified element from HTML document</td>
+</tr>
+<tr class="odd">
+<td><code>html_elements</code></td>
+<td>Select specified elements from HTML document</td>
+</tr>
+<tr class="even">
+<td><code>html_table</code></td>
+<td>Parse an HTML table into a data frame</td>
+</tr>
+<tr class="odd">
+<td><code>html_text</code></td>
+<td>Extract tag pairs’ content</td>
+</tr>
+<tr class="even">
+<td><code>html_name</code></td>
+<td>Extract tags’ names</td>
+</tr>
+<tr class="odd">
+<td><code>html_attrs</code></td>
+<td>Extract all of each tag’s attributes</td>
+</tr>
+<tr class="even">
+<td><code>html_attr</code></td>
+<td>Extract tags’ attribute value by name</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-box-office-mojo" class="level2">
+<h2 class="anchored" data-anchor-id="example-box-office-mojo">Example: box office mojo</h2>
+<p><a href="https://www.boxofficemojo.com/year/2024/" class="uri">https://www.boxofficemojo.com/year/2024/</a></p>
+<div class="columns">
+<div class="column nonincremental" style="width:50%;">
+<ul>
+<li><p>Take a look at the web page <strong>and</strong> the html source code</p>
+<p>Chrome or Firefox: right click -&gt; View page source</p></li>
+<li><p>Look for the <code>"table"</code> div ID or tag</p></li>
+</ul>
+</div><div class="column nonincremental" style="width:50%;">
+<p><img src="../img/scrape_boxoffice_mojo2022.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="read-html-into-r" class="level2">
+<h2 class="anchored" data-anchor-id="read-html-into-r">Read HTML into R</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"https://www.boxofficemojo.com/year/2024/"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>page</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{html_document}
+&lt;html class="a-no-js" data-19ax5a9jf="dingo"&gt;
+[1] &lt;head&gt;\n&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8 ...
+[2] &lt;body id="body" class="mojo-page-id-yld a-m-us a-aui_72554-c a-aui_templa ...</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(page)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 2
+ $ node:&lt;externalptr&gt; 
+ $ doc :&lt;externalptr&gt; 
+ - attr(*, "class")= chr [1:2] "xml_document" "xml_node"</code></pre>
+</div>
+</div>
+</section>
+<section id="html-elements" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="html-elements">HTML elements</h2>
+<p>There are over 100 HTML elements:</p>
+<ul>
+<li>Every HTML page must be in an <code>&lt;html&gt;</code> element, and it must have two children: <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code></li>
+<li>Block tags like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;ol&gt;</code> form the structure of the page</li>
+<li>Inline tags like <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, and <code>&lt;a&gt;</code> format text inside block tags</li>
+</ul>
+<p>. . .</p>
+<p>We’ll often work with <code>tables</code>. HTML tables are composed of four main elements <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code> (table row), <code>&lt;th&gt;</code> (table heading), and <code>&lt;td&gt;</code> (table data).</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>If you run into one that you need to figure out, I recommend the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">MDN Web Docs</a> for explanations and examples</p>
+</div></div></section>
+<section id="extract-tables" class="level2">
+<h2 class="anchored" data-anchor-id="extract-tables">Extract tables</h2>
+<p>Use <code>html_element()</code> or <code>html_elements()</code> to extract pieces out of HTML documents</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tables <span class="ot">&lt;-</span> page <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">"table"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tables)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 1
+ $ :List of 2
+  ..$ node:&lt;externalptr&gt; 
+  ..$ doc :&lt;externalptr&gt; 
+  ..- attr(*, "class")= chr "xml_node"
+ - attr(*, "class")= chr "xml_nodeset"</code></pre>
+</div>
+</div>
+</section>
+<section id="html_element-vs-html_elements" class="level2">
+<h2 class="anchored" data-anchor-id="html_element-vs-html_elements"><code>html_element()</code> vs <code>html_elements()</code></h2>
+<ul>
+<li><p><code>html_elements()</code> <strong>returns all matching elements</strong> beneath any of the inputs, flattening results into a new node set</p></li>
+<li><p><code>html_element()</code> <strong>always returns a vector the same length as the input</strong>, using a “missing” element where needed.</p></li>
+</ul>
+<p>. . .</p>
+<p>Typically, we’ll use <code>html_elements</code> to get the overall structure for our data, followed by something else (sometimes <code>html_element</code>, sometimes <code>html_table</code>) to access what we need</p>
+</section>
+<section id="check-that-its-the-right-table" class="level2">
+<h2 class="anchored" data-anchor-id="check-that-its-the-right-table">Check that it’s the right table</h2>
+<p>It looks promising!</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>tables</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{xml_nodeset (1)}
+[1] &lt;table class="a-bordered a-horizontal-stripes a-size-base a-span12 mojo-b ...</code></pre>
+</div>
+</div>
+<p>. . .</p>
+<p>But we don’t have a data frame yet…</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tables[[<span class="dv">1</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{html_node}
+&lt;table class="a-bordered a-horizontal-stripes a-size-base a-span12 mojo-body-table mojo-table-annotated mojo-body-table-compact"&gt;
+ [1] &lt;tr&gt;\n&lt;th class="a-text-right mojo-field-type-rank mojo-sort-column mojo ...
+ [2] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+ [3] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+ [4] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+ [5] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+ [6] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+ [7] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+ [8] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+ [9] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+[10] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+[11] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+[12] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+[13] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+[14] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+[15] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+[16] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+[17] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+[18] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+[19] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+[20] &lt;tr&gt;\n&lt;td class="a-text-right mojo-header-column mojo-truncate mojo-fiel ...
+...</code></pre>
+</div>
+</div>
+</section>
+<section id="parse-a-table-into-a-data-frame" class="level2">
+<h2 class="anchored" data-anchor-id="parse-a-table-into-a-data-frame">Parse a table into a data frame</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>top2024 <span class="ot">&lt;-</span> <span class="fu">html_table</span>(tables[[<span class="dv">1</span>]])</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(top2024)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 200
+Columns: 11
+$ Rank           &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
+$ Release        &lt;chr&gt; "Inside Out 2", "Deadpool &amp; Wolverine", "Wicked", "Moan…
+$ Genre          &lt;chr&gt; "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", …
+$ Budget         &lt;chr&gt; "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", …
+$ `Running Time` &lt;chr&gt; "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", …
+$ Gross          &lt;chr&gt; "$652,980,194", "$636,745,858", "$432,943,285", "$404,0…
+$ Theaters       &lt;chr&gt; "4,440", "4,330", "3,888", "4,200", "4,449", "4,575", "…
+$ `Total Gross`  &lt;chr&gt; "$652,980,194", "$636,745,858", "$474,983,975", "$460,4…
+$ `Release Date` &lt;chr&gt; "Jun 14", "Jul 26", "Nov 22", "Nov 27", "Jul 3", "Sep 6…
+$ Distributor    &lt;chr&gt; "Walt Disney Studios Motion Pictures", "Walt Disney Stu…
+$ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false", "…</code></pre>
+</div>
+</div>
+</section>
+<section id="parse-tables-into-data-frames" class="level2">
+<h2 class="anchored" data-anchor-id="parse-tables-into-data-frames">Parse tables into data frames</h2>
+<p>If there had been multiple tables on the webpage, then we could parse them all at once using <code>html_table()</code></p>
+<p>It returns a list of data frames</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>table_list <span class="ot">&lt;-</span> <span class="fu">html_table</span>(tables)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(table_list)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 1
+ $ : tibble [200 × 11] (S3: tbl_df/tbl/data.frame)
+  ..$ Rank        : int [1:200] 1 2 3 4 5 6 7 8 9 10 ...
+  ..$ Release     : chr [1:200] "Inside Out 2" "Deadpool &amp; Wolverine" "Wicked" "Moana 2" ...
+  ..$ Genre       : chr [1:200] "-" "-" "-" "-" ...
+  ..$ Budget      : chr [1:200] "-" "-" "-" "-" ...
+  ..$ Running Time: chr [1:200] "-" "-" "-" "-" ...
+  ..$ Gross       : chr [1:200] "$652,980,194" "$636,745,858" "$432,943,285" "$404,017,489" ...
+  ..$ Theaters    : chr [1:200] "4,440" "4,330" "3,888" "4,200" ...
+  ..$ Total Gross : chr [1:200] "$652,980,194" "$636,745,858" "$474,983,975" "$460,405,297" ...
+  ..$ Release Date: chr [1:200] "Jun 14" "Jul 26" "Nov 22" "Nov 27" ...
+  ..$ Distributor : chr [1:200] "Walt Disney Studios Motion Pictures" "Walt Disney Studios Motion Pictures" "Universal Pictures" "Walt Disney Studios Motion Pictures" ...
+  ..$ Estimated   : chr [1:200] "false" "false" "false" "false" ...</code></pre>
+</div>
+</div>
+</section>
+<section id="scrape-then-wrangle" class="level2">
+<h2 class="anchored" data-anchor-id="scrape-then-wrangle">Scrape then wrangle</h2>
+<p>Data aren’t ready for analysis, too many character columns!</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 200
+Columns: 11
+$ Rank           &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
+$ Release        &lt;chr&gt; "Inside Out 2", "Deadpool &amp; Wolverine", "Wicked", "Moan…
+$ Genre          &lt;chr&gt; "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", …
+$ Budget         &lt;chr&gt; "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", …
+$ `Running Time` &lt;chr&gt; "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", …
+$ Gross          &lt;chr&gt; "$652,980,194", "$636,745,858", "$432,943,285", "$404,0…
+$ Theaters       &lt;chr&gt; "4,440", "4,330", "3,888", "4,200", "4,449", "4,575", "…
+$ `Total Gross`  &lt;chr&gt; "$652,980,194", "$636,745,858", "$474,983,975", "$460,4…
+$ `Release Date` &lt;chr&gt; "Jun 14", "Jul 26", "Nov 22", "Nov 27", "Jul 3", "Sep 6…
+$ Distributor    &lt;chr&gt; "Walt Disney Studios Motion Pictures", "Walt Disney Stu…
+$ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false", "…</code></pre>
+</div>
+</div>
+</section>
+<section id="scrape-then-wrangle-1" class="level2">
+<h2 class="anchored" data-anchor-id="scrape-then-wrangle-1">Scrape then wrangle</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>top2024 <span class="ot">&lt;-</span> top2024 <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Gross =</span> <span class="fu">parse_number</span>(Gross),</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Theaters =</span> <span class="fu">parse_number</span>(Theaters),</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Total Gross</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">parse_number</span>(<span class="st">`</span><span class="at">Total Gross</span><span class="st">`</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="st">`</span><span class="at">Release Date</span><span class="st">`</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"Month"</span>, <span class="st">"Day"</span>))</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(top2024)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 200
+Columns: 12
+$ Rank           &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
+$ Release        &lt;chr&gt; "Inside Out 2", "Deadpool &amp; Wolverine", "Wicked", "Moan…
+$ Genre          &lt;chr&gt; "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", …
+$ Budget         &lt;chr&gt; "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", …
+$ `Running Time` &lt;chr&gt; "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", …
+$ Gross          &lt;dbl&gt; 652980194, 636745858, 432943285, 404017489, 361004205, …
+$ Theaters       &lt;dbl&gt; 4440, 4330, 3888, 4200, 4449, 4575, 4074, 4170, 3948, 4…
+$ `Total Gross`  &lt;dbl&gt; 652980194, 636745858, 474983975, 460405297, 361004205, …
+$ Month          &lt;chr&gt; "Jun", "Jul", "Nov", "Nov", "Jul", "Sep", "Mar", "Jul",…
+$ Day            &lt;chr&gt; "14", "26", "22", "27", "3", "6", "1", "19", "29", "8",…
+$ Distributor    &lt;chr&gt; "Walt Disney Studios Motion Pictures", "Walt Disney Stu…
+$ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false", "…</code></pre>
+</div>
+</div>
+</section>
+<section id="scraped-data-will-almost-always-need-wranglingcleaning" class="level2">
+<h2 class="anchored" data-anchor-id="scraped-data-will-almost-always-need-wranglingcleaning">Scraped data will almost always need wrangling/cleaning</h2>
+<ul>
+<li>Are numeric columns numeric?</li>
+<li>Are date columns dates?</li>
+<li>Are factor and string columns treated correctly?</li>
+</ul>
+</section>
+<section id="section-1" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="section-1"></h2>
+<p><img src="../img/eighty-twenty-ruiz.png" class="img-fluid"></p>
+<p>. . .</p>
+<p><img src="../img/ninety-ten-drob.png" class="img-fluid"></p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Source: <a href="https://www.tandfonline.com/doi/full/10.1080/10691898.2020.1799728#abstract">Playing the Whole Game</a>, Kim &amp; Hardin</p>
+</div></div></section>
+<section id="what-next" class="level2">
+<h2 class="anchored" data-anchor-id="what-next">What next?</h2>
+<ul>
+<li><p>Data we want to access isn’t always stored in tables</p>
+<ul>
+<li>Example: <a href="https://www.carleton.edu/catalog/current/search/?term=25/WI&amp;subject=STAT&amp;number=220">Carleton course search</a></li>
+</ul></li>
+<li><p>More next class!</p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Many thanks to Amanda Luby <br> Design by Mine Çetinkaya-Rundel</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This page is built with ☕️ and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
